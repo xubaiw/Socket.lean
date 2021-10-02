@@ -10,6 +10,7 @@
 
 #include <lean/lean.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 #ifdef _WIN32
@@ -58,22 +59,63 @@
 
 #endif
 
+/**
+ * Group sockaddr and its length together as a external class.
+ */
+struct sockaddr_len
+{
+    socklen_t address_len;
+    struct sockaddr_storage address;
+};
+
 // ## Conversion
 
-static int domain_decode(uint8_t domain)
+static int address_family_box(int af)
 {
-    switch (domain)
+    switch (af)
     {
-    case 0:
-        return AF_INET;
-    case 1:
-        return AF_INET6;
+    case AF_UNSPEC:
+        return 0;
+    case AF_INET:
+        return 1;
+    case AF_INET6:
+        return 2;
     default:
-        return -1;
+        return 0;
     }
 }
 
-static int type_decode(uint8_t type)
+static int address_family_unbox(uint8_t af)
+{
+    switch (af)
+    {
+    case 0:
+        return AF_UNSPEC;
+    case 1:
+        return AF_INET;
+    case 2:
+        return AF_INET6;
+    default:
+        return AF_UNSPEC;
+    }
+}
+
+static uint8_t sock_type_box(int type)
+{
+    switch (type)
+    {
+    case 0:
+        return 0;
+    case SOCK_STREAM:
+        return 1;
+    case SOCK_DGRAM:
+        return 2;
+    default:
+        return 0;
+    }
+}
+
+static int sock_type_unbox(uint8_t type)
 {
     switch (type)
     {
@@ -86,154 +128,49 @@ static int type_decode(uint8_t type)
     }
 }
 
-/**
- * use macro instead of function to avoid foward declaration
- */
-#define SOCKET_BOX(s) lean_alloc_external(g_socket_external_class, s)
-
-/**
- * use macro instead of function to avoid foward declaration
- */
-#define SOCKET_UNBOX(s) (*(SOCKET *)(lean_get_external_data(s)))
-
-/**
- * use macro instead of function to avoid foward declaration
- */
-#define SOCKADDR_BOX(s) lean_alloc_external(g_sockaddr_external_class, s)
-
-/**
- * use macro instead of function to avoid foward declaration
- */
-#define SOCKADDR_UNBOX(s) ((struct sockaddrwithlen *)(lean_get_external_data(s)))
-
-/**
- * Group sockaddr and its length together as a external class.
- */
-static struct sockaddrwithlen
+static inline lean_obj_res lean_box_uint16(uint16_t v)
 {
-    socklen_t address_len;
-    struct sockaddr_storage address;
-};
+    if (sizeof(void *) == 4)
+    {
+        /* 32-bit implementation */
+        lean_obj_res r = lean_alloc_ctor(0, 0, sizeof(uint16_t));
+        lean_ctor_set_uint16(r, 0, v);
+        return r;
+    }
+    else
+    {
+        /* 64-bit implementation */
+        return lean_box(v);
+    }
+}
+
+/**
+ * `SOCKET *` -> `lean_object *`(`Socket`) conversion
+ * use macro instead of function to avoid foward declaration
+ */
+#define socket_box(s) lean_alloc_external(g_socket_external_class, s)
+
+/**
+ * `lean_object *`(`Socket`) -> `SOCKET *` conversion
+ * use macro instead of function to avoid foward declaration
+ */
+#define socket_unbox(s) (*(SOCKET *)(lean_get_external_data(s)))
+
+/**
+ * `sockaddr_len` -> `lean_object *`(`SockAddr`) conversion
+ * use macro instead of function to avoid foward declaration
+ */
+#define sockaddr_len_box(s) lean_alloc_external(g_sockaddr_external_class, s)
+
+/**
+ * `lean_object *`(`SockAddr`) -> `sockaddr_len *` conversion
+ * use macro instead of function to avoid foward declaration
+ */
+#define sockaddr_len_unbox(s) ((struct sockaddr_len *)(lean_get_external_data(s)))
 
 // ## Errors
 
 extern lean_obj_res lean_mk_io_user_error(lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_eof(lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_interrupted(lean_obj_arg, uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_unsupported_operation(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_resource_exhausted(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_already_exists(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_inappropriate_type(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_no_such_thing(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_resource_vanished(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_resource_busy(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_invalid_argument(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_other_error(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_permission_denied(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_hardware_fault(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_unsatisfied_constraints(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_illegal_operation(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_protocol_error(uint32_t, lean_obj_arg);
-extern lean_obj_res lean_mk_io_error_time_expired(uint32_t, lean_obj_arg);
-
-lean_obj_res mk_io_error(int errnum, lean_obj_arg details)
-{
-    switch (errnum)
-    {
-#ifdef _WIN32
-        // TODO(xubaiw): WSA Error handling, now all passed to default
-#else
-    case EINTR:
-        return lean_mk_io_error_interrupted(lean_mk_string(""), errnum, details);
-    case ELOOP:
-    case ENAMETOOLONG:
-    case EDESTADDRREQ:
-    case EBADF:
-    case EDOM:
-    case EINVAL:
-    case EILSEQ:
-    case ENOEXEC:
-    case ENOSTR:
-    case ENOTCONN:
-    case ENOTSOCK:
-        return lean_mk_io_error_invalid_argument(errnum, details);
-    case EACCES:
-    case EROFS:
-    case ECONNABORTED:
-    case EFBIG:
-    case EPERM:
-        return lean_mk_io_error_permission_denied(errnum, details);
-    case EMFILE:
-    case ENFILE:
-    case ENOSPC:
-    case E2BIG:
-    case EAGAIN:
-    case EMLINK:
-    case EMSGSIZE:
-    case ENOBUFS:
-    case ENOLCK:
-    case ENOMEM:
-    case ENOSR:
-        return lean_mk_io_error_resource_exhausted(errnum, details);
-    case EISDIR:
-    case EBADMSG:
-    case ENOTDIR:
-        return lean_mk_io_error_inappropriate_type(errnum, details);
-    case ENXIO:
-    case EHOSTUNREACH:
-    case ENETUNREACH:
-    case ECHILD:
-    case ECONNREFUSED:
-    case ENODATA:
-    case ENOMSG:
-    case ESRCH:
-        return lean_mk_io_error_no_such_thing(errnum, details);
-    case EEXIST:
-    case EINPROGRESS:
-    case EISCONN:
-        return lean_mk_io_error_already_exists(errnum, details);
-    case EIO:
-        return lean_mk_io_error_hardware_fault(errnum, details);
-    case ENOTEMPTY:
-        return lean_mk_io_error_unsatisfied_constraints(errnum, details);
-    case ENOTTY:
-        return lean_mk_io_error_illegal_operation(errnum, details);
-    case ECONNRESET:
-    case EIDRM:
-    case ENETDOWN:
-    case ENETRESET:
-    case ENOLINK:
-    case EPIPE:
-        return lean_mk_io_error_resource_vanished(errnum, details);
-    case EPROTO:
-    case EPROTONOSUPPORT:
-    case EPROTOTYPE:
-        return lean_mk_io_error_protocol_error(errnum, details);
-    case ETIME:
-    case ETIMEDOUT:
-        return lean_mk_io_error_time_expired(errnum, details);
-    case EADDRINUSE:
-    case EBUSY:
-    case EDEADLK:
-    case ETXTBSY:
-        return lean_mk_io_error_resource_busy(errnum, details);
-    case EADDRNOTAVAIL:
-    case EAFNOSUPPORT:
-    case ENODEV:
-    case ENOPROTOOPT:
-    case ENOSYS:
-    case EOPNOTSUPP:
-    case ERANGE:
-    case ESPIPE:
-    case EXDEV:
-        return lean_mk_io_error_unsupported_operation(errnum, details);
-    case EFAULT:
-        return lean_mk_io_error_other_error(errnum, details);
-#endif
-    default:
-        return lean_mk_io_error_other_error(errnum, details);
-    }
-}
 
 static lean_obj_res get_socket_error()
 {
@@ -250,7 +187,7 @@ static lean_obj_res get_socket_error()
     int errnum = errno;
     lean_object *details = lean_mk_string(strerror(errnum));
 #endif
-    return mk_io_error(errnum, details);
+    return lean_mk_io_user_error(details);
 }
 
 static lean_obj_res get_addrinfo_error(int errnum)
@@ -275,7 +212,7 @@ static lean_external_class *g_socket_external_class = NULL;
 /**
  * External class for SockAddr.
  * 
- * This class register `sockaddrwithlen *` as a lean external class.
+ * This class register `sockaddr_len *` as a lean external class.
  */
 static lean_external_class *g_sockaddr_external_class = NULL;
 
@@ -284,15 +221,20 @@ static lean_external_class *g_sockaddr_external_class = NULL;
 /**
  * `Socket` destructor, which ensures that the socket is closed when garbage collected.
  */
-inline static void socket_finalizer(void *s)
+inline static void socket_finalizer(void *socket_ptr)
 {
-    CLOSESOCKET(*(SOCKET *)(s));
+    SOCKET *converted = (SOCKET *)socket_ptr;
+    CLOSESOCKET(*converted);
+    free(converted);
 }
 
 /**
- * A do nothing destructor.
+ * `SockAddr` destructor, which ensures that the socket is closed when garbage collected.
  */
-inline static void noop_finalizer(void *s) {}
+inline static void sockaddr_finalizer(void *sal)
+{
+    free((struct sockaddr_len *)sal);
+}
 
 // ## Foreach iterators
 
@@ -316,7 +258,7 @@ inline static void noop_foreach(void *mod, b_lean_obj_arg fn) {}
 lean_obj_res lean_socket_initialize()
 {
     g_socket_external_class = lean_register_external_class(socket_finalizer, noop_foreach);
-    g_sockaddr_external_class = lean_register_external_class(noop_finalizer, noop_foreach);
+    g_sockaddr_external_class = lean_register_external_class(sockaddr_finalizer, noop_foreach);
 #ifdef _WIN32
     WSADATA d;
     if (WSAStartup(MAKEWORD(2, 2), &d))
@@ -340,16 +282,18 @@ lean_obj_res lean_socket_initialize()
 // ## Socket
 
 /**
- * constant Socket.mk (d : SockDomain) (t : SockType) : IO Socket
+ * constant Socket.mk (d : AddressFamily) (t : SockType) : IO Socket
  */
 lean_obj_res lean_socket_mk(uint8_t domain_obj, uint8_t type_obj, lean_obj_arg w)
 {
-    int domain = domain_decode(domain_obj);
-    int type = type_decode(type_obj);
-    SOCKET s = socket(domain, type, 0);
-    if (ISVALIDSOCKET(s))
+    int domain = address_family_unbox(domain_obj);
+    int type = sock_type_unbox(type_obj);
+    // heap allocation to make it available out of this function
+    SOCKET *socket_ptr = malloc(sizeof(SOCKET));
+    *socket_ptr = socket(domain, type, 0);
+    if (ISVALIDSOCKET(*socket_ptr))
     {
-        return lean_io_result_mk_ok(SOCKET_BOX(&s));
+        return lean_io_result_mk_ok(socket_box(socket_ptr));
     }
     else
     {
@@ -362,7 +306,7 @@ lean_obj_res lean_socket_mk(uint8_t domain_obj, uint8_t type_obj, lean_obj_arg w
  */
 lean_obj_res lean_socket_close(b_lean_obj_arg s, lean_obj_arg w)
 {
-    if (!CLOSESOCKET(SOCKET_UNBOX(s)))
+    if (!CLOSESOCKET(socket_unbox(s)))
     {
         return lean_io_result_mk_ok(lean_box(0));
     }
@@ -378,8 +322,8 @@ lean_obj_res lean_socket_close(b_lean_obj_arg s, lean_obj_arg w)
  */
 lean_obj_res lean_socket_connect(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_arg w)
 {
-    struct sockaddrwithlen *sa = SOCKADDR_UNBOX(a);
-    if (connect(SOCKET_UNBOX(s), (struct sockaddr *)&(sa->address), sa->address_len))
+    struct sockaddr_len *sa = sockaddr_len_unbox(a);
+    if (connect(socket_unbox(s), (struct sockaddr *)&(sa->address), sa->address_len))
     {
         return lean_io_result_mk_ok(lean_box(0));
     }
@@ -395,8 +339,8 @@ lean_obj_res lean_socket_connect(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_ar
  */
 lean_obj_res lean_socket_bind(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_arg w)
 {
-    struct sockaddrwithlen *sa = SOCKADDR_UNBOX(a);
-    if (bind(SOCKET_UNBOX(s), (struct sockaddr *)&(sa->address), sa->address_len))
+    struct sockaddr_len *sa = sockaddr_len_unbox(a);
+    if (bind(socket_unbox(s), (struct sockaddr *)&(sa->address), sa->address_len))
     {
         return lean_io_result_mk_ok(lean_box(0));
     }
@@ -411,7 +355,7 @@ lean_obj_res lean_socket_bind(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_arg w
  */
 lean_obj_res lean_socket_listen(b_lean_obj_arg s, uint8_t n, lean_obj_arg w)
 {
-    if (listen(SOCKET_UNBOX(s), (int)n))
+    if (listen(socket_unbox(s), (int)n))
     {
 
         return lean_io_result_mk_ok(lean_box(0));
@@ -422,20 +366,20 @@ lean_obj_res lean_socket_listen(b_lean_obj_arg s, uint8_t n, lean_obj_arg w)
     }
 }
 
-/**
- * constant Socket.accept (s : @& Socket) : IO SockAddr
- */
-lean_obj_res lean_socket_accept(b_lean_obj_arg s, uint8_t n, lean_obj_arg w)
-{
-    // TODO:
-}
+// /**
+//  * constant Socket.accept (s : @& Socket) : IO SockAddr
+//  */
+// lean_obj_res lean_socket_accept(b_lean_obj_arg s, uint8_t n, lean_obj_arg w)
+// {
+//     // TODO:
+// }
 
 /**
  * constant Socket.shutdown (s : @& Socket) (h : ShutdownHow) : IO Unit 
  */
 lean_obj_res lean_socket_shutdown(b_lean_obj_arg s, uint8_t h, lean_obj_arg w)
 {
-    if (listen(SOCKET_UNBOX(s), h))
+    if (listen(socket_unbox(s), h))
     {
         return lean_io_result_mk_ok(lean_box(0));
     }
@@ -448,23 +392,33 @@ lean_obj_res lean_socket_shutdown(b_lean_obj_arg s, uint8_t h, lean_obj_arg w)
 // ## SockAddr
 
 /**
- * constant SockAddr.mk (host : @& String) (port : @& String) : IO SockAddr
+ * constant SockAddr.mk (a : @& SockAddrArgs) : IO SockAddr
  */
-lean_obj_res lean_sockaddr_mk(b_lean_obj_arg h, b_lean_obj_arg p, lean_obj_arg w)
+lean_obj_res lean_sockaddr_mk(b_lean_obj_arg a, lean_obj_arg w)
 {
+    lean_object *h = lean_ctor_get(a, 0);
+    lean_object *p = lean_ctor_get(a, 1);
+    uint8_t f = lean_ctor_get_uint8(a, lean_ctor_num_objs(a) * sizeof(void *));
+    uint8_t t = lean_ctor_get_uint8(a, lean_ctor_num_objs(a) * sizeof(void *) + sizeof(uint8_t));
     const char *host = lean_string_cstr(h);
     const char *port = lean_string_cstr(p);
+    int family = address_family_unbox(f);
+    int type = sock_type_unbox(t);
+    struct addrinfo hints;
     struct addrinfo *ai_res;
-    struct sockaddrwithlen res;
-    int code = getaddrinfo(host, port, NULL, &ai_res);
-    if (code < 0)
+    memset(&hints, 0, sizeof hints);
+    hints.ai_family = family;
+    hints.ai_socktype = type;
+    struct sockaddr_len *sal = malloc(sizeof(struct sockaddr_len));
+    int status = getaddrinfo(host, port, &hints, &ai_res);
+    if (status < 0)
     {
-        return lean_io_result_mk_error(get_addrinfo_error(code));
+        return lean_io_result_mk_error(get_addrinfo_error(status));
     }
-    res.address_len = ai_res->ai_addrlen;
-    memcpy(&(res.address), &(ai_res->ai_addr), res.address_len);
+    sal->address_len = ai_res->ai_addrlen;
+    sal->address = *(struct sockaddr_storage *)(ai_res->ai_addr);
     freeaddrinfo(ai_res);
-    return lean_io_result_mk_ok(SOCKADDR_BOX(&res));
+    return lean_io_result_mk_ok(sockaddr_len_box(sal));
 }
 
 /**
@@ -472,6 +426,67 @@ lean_obj_res lean_sockaddr_mk(b_lean_obj_arg h, b_lean_obj_arg p, lean_obj_arg w
  */
 uint32_t lean_sockaddr_length(b_lean_obj_arg a, lean_obj_arg w)
 {
-    struct sockaddrwithlen *sa = SOCKADDR_UNBOX(a);
+    struct sockaddr_len *sa = sockaddr_len_unbox(a);
     return sa->address_len;
+}
+
+/**
+ * constant Sock.family (a : @&SockAddr) : AddressFamily
+ */
+uint8_t lean_sockaddr_family(b_lean_obj_arg a, lean_obj_arg w)
+{
+    struct sockaddr_len *sa = sockaddr_len_unbox(a);
+    return address_family_box(sa->address.ss_family);
+}
+
+/**
+ * constant Sock.port (a : @&SockAddr) : Option UInt16
+ */
+lean_obj_res lean_sockaddr_port(b_lean_obj_arg a, lean_obj_arg w)
+{
+    lean_object *o;
+    struct sockaddr_len *sa = sockaddr_len_unbox(a);
+    if (sa->address.ss_family == AF_INET)
+    {
+        o = lean_alloc_ctor(1, 1, 0);
+        lean_ctor_set(o, 0, lean_box_uint16(ntohs(((struct sockaddr_in *)&(sa->address))->sin_port)));
+    }
+    else if (sa->address.ss_family == AF_INET6)
+    {
+        o = lean_alloc_ctor(1, 1, 0);
+        lean_ctor_set(o, 0, lean_box_uint16(ntohs(((struct sockaddr_in6 *)&(sa->address))->sin6_port)));
+    }
+    else
+    {
+        o = lean_alloc_ctor(0, 0, 0);
+    }
+    return o;
+}
+
+/**
+ * constant Sock.host (a : @&SockAddr) : Option String
+ */
+lean_obj_res lean_sockaddr_host(b_lean_obj_arg a, lean_obj_arg w)
+{
+    lean_object *o;
+    struct sockaddr_len *sa = sockaddr_len_unbox(a);
+    if (sa->address.ss_family == AF_INET)
+    {
+        char ip4[INET_ADDRSTRLEN];
+        inet_ntop(AF_INET, &(((struct sockaddr_in *)&(sa->address))->sin_addr), ip4, INET_ADDRSTRLEN);
+        o = lean_alloc_ctor(1, 1, 0);
+        lean_ctor_set(o, 0, lean_mk_string(ip4));
+    }
+    else if (sa->address.ss_family == AF_INET6)
+    {
+        char ip6[INET6_ADDRSTRLEN];
+        inet_ntop(AF_INET6, &(((struct sockaddr_in6 *)&(sa->address))->sin6_addr), ip6, INET6_ADDRSTRLEN);
+        o = lean_alloc_ctor(1, 1, 0);
+        lean_ctor_set(o, 0, lean_mk_string(ip6));
+    }
+    else
+    {
+        o = lean_alloc_ctor(0, 0, 0);
+    }
+    return o;
 }

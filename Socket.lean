@@ -47,20 +47,25 @@ constant Socket : Type := Unit
 constant SockAddr : Type := Unit
 
 /-- Wrapper for PF_*** constants like PF_INET6, see `Socket.mk` for usage. -/
-inductive SockDomain where
+inductive AddressFamily where
+  | unspecified
   | inet
   | inet6
+  deriving Inhabited
 
 /-- Wrapper for SOCK_*** constants like SOCK_STREAM, see `Socket.mk` for usage. -/
 inductive SockType where
+  | zero
   | stream
   | dgram
+  deriving Inhabited
 
 /-- Wrapper for SHUT_*** constants like SHUT_RD, see `Socket.shutdown` for usage. -/
 inductive ShutdownHow where
   | read
   | write
   | readwrite
+  deriving Inhabited
 
 --------------------------------------------------------------------------------
 -- # Behaviors
@@ -73,7 +78,7 @@ namespace Socket
 /--
   Create a new `Socket` using the specified domain and type.
 -/
-@[extern "lean_socket_mk"] constant mk (d : SockDomain) (t : SockType) : IO Socket
+@[extern "lean_socket_mk"] constant mk (d : AddressFamily) (t : SockType) : IO Socket
 
 /--
   Close the `Socket`.
@@ -100,10 +105,10 @@ namespace Socket
 -/
 @[extern "lean_socket_listen"] constant listen (s : @& Socket) (n : @& UInt8) : IO Unit
 
-/--
-  Accept a connection on a socket.
--/
-@[extern "lean_socket_accept"] constant accept (s : @& Socket) : IO (SockAddr × UInt32)
+-- /--
+--   Accept a connection on a socket.
+-- -/
+-- @[extern "lean_socket_accept"] constant accept (s : @& Socket) : IO (SockAddr × UInt32)
 
 -- /--
 --   Send a message from a socket.
@@ -132,15 +137,45 @@ namespace Socket
 
 end Socket
 
+-- ## AddressFamily
+
+instance : ToString AddressFamily where
+  toString : AddressFamily → String
+    | AddressFamily.unspecified => "AF_UNSPEC"
+    | AddressFamily.inet => "AF_INET"
+    | AddressFamily.inet6 => "AF_INET6"
+
+-- ## SockType
+
+instance : ToString SockType where
+  toString : SockType → String
+    | SockType.zero => "0"
+    | SockType.stream => "SOCK_STREAM"
+    | SockType.dgram => "SOCK_DGRAM"
+
 -- ## SockAddr
 
 namespace SockAddr
 
+structure SockAddrArgs where
+  host : String
+  port : String
+  family : AddressFamily := AddressFamily.unspecified
+  type : SockType := SockType.zero
+  deriving Inhabited
+
 /--
   This function internally calls getaddrinfo.
 -/
-@[extern "lean_sockaddr_mk"] constant mk (host : @& String) (port : @& String) : IO SockAddr
+@[extern "lean_sockaddr_mk"] constant mk (a : @& SockAddrArgs) : IO SockAddr
 
 @[extern "lean_sockaddr_length"] constant length (a : @&SockAddr) : UInt32
+
+@[extern "lean_sockaddr_family"] constant family (a : @&SockAddr) : AddressFamily
+
+@[extern "lean_sockaddr_port"] constant port (a : @&SockAddr) : Option UInt16
+
+@[extern "lean_sockaddr_host"] constant host (a : @&SockAddr) : Option String
+
 
 end SockAddr

@@ -2,7 +2,7 @@ import Lake
 open System Lake DSL
 
 def nativeDir : FilePath := "native"
-def nativeSrc := nativeDir / "native.cpp"
+def nativeSrc := nativeDir / "native.c"
 
 def buildDir := defaultBuildDir
 def nativeO := buildDir / nativeDir / "native.o"

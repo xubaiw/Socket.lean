@@ -7,5 +7,12 @@
 import Socket
 
 def main : IO Unit := do
-  let s ← SockAddr.mk "www.example.com" "80"
-  IO.println s.length
+  let s ← SockAddr.mk {
+    host := "www.example.com"
+    port := "80"
+    family := AddressFamily.inet
+    type := SockType.stream
+  }
+  IO.println "Remote Info:"
+  
+  IO.println s!"host: {s.host} port: {s.port} family: {s.family}"
