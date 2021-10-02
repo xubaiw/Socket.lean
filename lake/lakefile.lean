@@ -1,7 +1,7 @@
 import Lake
 open System Lake DSL
 
-def nativeDir : FilePath := "native"
+def nativeDir : FilePath := "../native"
 def nativeSrc := nativeDir / "native.c"
 
 def buildDir := defaultBuildDir
@@ -16,6 +16,8 @@ def cLibTarget (pkgDir : FilePath) : FileTarget :=
 
 package (pkgDir) (args) {
   name := "socket"
+  srcDir := "../"
+  buildDir := "../build"
   libRoots := #[`Socket]
   moreLibTargets := #[cLibTarget pkgDir]
 }

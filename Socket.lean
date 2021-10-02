@@ -118,7 +118,7 @@ namespace Socket
 /--
   Receive a message from a socket.
 -/
-@[extern "lean_socket_send"] constant recv (s : @& Socket) (n : @& USize) : IO ByteArray
+@[extern "lean_socket_recv"] constant recv (s : @& Socket) (n : @& USize) : IO ByteArray
 
 /--
   Send a message from a socket.
