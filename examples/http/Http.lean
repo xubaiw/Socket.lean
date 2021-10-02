@@ -7,5 +7,5 @@
 import Socket
 
 def main : IO Unit := do
-  let s ← Socket.mk SockDomain.inet SockType.stream
-  s.close
+  let s ← SockAddr.mk "www.example.com" "80"
+  IO.println s.length

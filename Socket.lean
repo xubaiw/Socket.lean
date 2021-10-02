@@ -41,7 +41,9 @@ builtin_initialize initSocket
 -/
 constant Socket : Type := Unit
 
--- TODO: doc
+/--
+  This structure holds both the length and the content for the C `sockaddr`.
+-/
 constant SockAddr : Type := Unit
 
 /-- Wrapper for PF_*** constants like PF_INET6, see `Socket.mk` for usage. -/
@@ -94,23 +96,51 @@ namespace Socket
 @[extern "lean_socket_bind"] constant bind (s : @& Socket) (a : @& SockAddr) (l : @& UInt32) : IO Unit
 
 /--
-  Listen for connections on a socket
+  Listen for connections on a socket.
 -/
 @[extern "lean_socket_listen"] constant listen (s : @& Socket) (n : @& UInt8) : IO Unit
 
 /--
-  Accept a connection on a socket
+  Accept a connection on a socket.
 -/
 @[extern "lean_socket_accept"] constant accept (s : @& Socket) : IO (SockAddr × UInt32)
 
-@[extern "lean_socket_send"] constant send (s : @& Socket) (b : ByteArray) : IO ByteArray
+-- /--
+--   Send a message from a socket.
+-- -/
+-- @[extern "lean_socket_send"] constant send (s : @& Socket) (b : ByteArray) : IO ByteArray
 
-@[extern "lean_socket_send"] constant recv (s : @& Socket) (b : ByteArray) : IO ByteArray 
+-- /--
+--   Receive a message from a socket.
+-- -/
+-- @[extern "lean_socket_send"] constant recv (s : @& Socket) (b : ByteArray) : IO ByteArray 
 
-@[extern "lean_socket_sendto"] constant sendto (s : @& Socket) (b : ByteArray) (a : @& SockAddr) (l : @& UInt32) : IO ByteArray
+-- /--
+--   Send a message from a socket.
+-- -/
+-- @[extern "lean_socket_sendto"] constant sendto (s : @& Socket) (b : ByteArray) (a : @& SockAddr) (l : @& UInt32) : IO ByteArray
 
-@[extern "lean_socket_recvfrom"] constant recvfrom (s : @& Socket) (b : ByteArray) : IO (ByteArray × SockAddr × UInt32)
+-- /--
+--   Receive a message from a socket.
+-- -/
+-- @[extern "lean_socket_recvfrom"] constant recvfrom (s : @& Socket) (b : ByteArray) : IO (ByteArray × SockAddr × UInt32)
 
+/--
+  Shut down part of a full-duplex connection.
+-/
 @[extern "lean_socket_shutdown"] constant shutdown (s : @& Socket) (h : ShutdownHow) : IO Unit 
 
 end Socket
+
+-- ## SockAddr
+
+namespace SockAddr
+
+/--
+  This function internally calls getaddrinfo.
+-/
+@[extern "lean_sockaddr_mk"] constant mk (host : @& String) (port : @& String) : IO SockAddr
+
+@[extern "lean_sockaddr_length"] constant length (a : @&SockAddr) : UInt32
+
+end SockAddr
