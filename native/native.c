@@ -120,8 +120,10 @@ static int sock_type_unbox(uint8_t type)
     switch (type)
     {
     case 0:
-        return SOCK_STREAM;
+        return 0;
     case 1:
+        return SOCK_STREAM;
+    case 2:
         return SOCK_DGRAM;
     default:
         return -1;
@@ -154,7 +156,7 @@ static inline lean_obj_res lean_box_uint16(uint16_t v)
  * `lean_object *`(`Socket`) -> `SOCKET *` conversion
  * use macro instead of function to avoid foward declaration
  */
-#define socket_unbox(s) (*(SOCKET *)(lean_get_external_data(s)))
+#define socket_unbox(s) ((SOCKET *)(lean_get_external_data(s)))
 
 /**
  * `sockaddr_len` -> `lean_object *`(`SockAddr`) conversion
@@ -284,16 +286,15 @@ lean_obj_res lean_socket_initialize()
 /**
  * constant Socket.mk (d : AddressFamily) (t : SockType) : IO Socket
  */
-lean_obj_res lean_socket_mk(uint8_t domain_obj, uint8_t type_obj, lean_obj_arg w)
+lean_obj_res lean_socket_mk(uint8_t af_obj, uint8_t type_obj, lean_obj_arg w)
 {
-    int domain = address_family_unbox(domain_obj);
+    int family = address_family_unbox(af_obj);
     int type = sock_type_unbox(type_obj);
-    // heap allocation to make it available out of this function
-    SOCKET *socket_ptr = malloc(sizeof(SOCKET));
-    *socket_ptr = socket(domain, type, 0);
-    if (ISVALIDSOCKET(*socket_ptr))
+    SOCKET *socket_fd = malloc(sizeof(SOCKET));
+    *socket_fd = socket(family, type, 0);
+    if (ISVALIDSOCKET(*socket_fd))
     {
-        return lean_io_result_mk_ok(socket_box(socket_ptr));
+        return lean_io_result_mk_ok(socket_box(socket_fd));
     }
     else
     {
@@ -306,7 +307,7 @@ lean_obj_res lean_socket_mk(uint8_t domain_obj, uint8_t type_obj, lean_obj_arg w
  */
 lean_obj_res lean_socket_close(b_lean_obj_arg s, lean_obj_arg w)
 {
-    if (!CLOSESOCKET(socket_unbox(s)))
+    if (CLOSESOCKET(*socket_unbox(s)) == 0)
     {
         return lean_io_result_mk_ok(lean_box(0));
     }
@@ -317,13 +318,12 @@ lean_obj_res lean_socket_close(b_lean_obj_arg s, lean_obj_arg w)
 }
 
 /**
- * TODO:
  * constant Socket.connect (s : @& Socket) (a : @& SockAddr) : IO Unit
  */
 lean_obj_res lean_socket_connect(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_arg w)
 {
     struct sockaddr_len *sa = sockaddr_len_unbox(a);
-    if (connect(socket_unbox(s), (struct sockaddr *)&(sa->address), sa->address_len))
+    if (connect(*socket_unbox(s), (struct sockaddr *)&(sa->address), sa->address_len) == 0)
     {
         return lean_io_result_mk_ok(lean_box(0));
     }
@@ -334,13 +334,12 @@ lean_obj_res lean_socket_connect(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_ar
 }
 
 /**
- * TODO: 
  * constant Socket.bind (s : @& Socket) (a : @& SockAddr) : IO Unit
  */
 lean_obj_res lean_socket_bind(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_arg w)
 {
     struct sockaddr_len *sa = sockaddr_len_unbox(a);
-    if (bind(socket_unbox(s), (struct sockaddr *)&(sa->address), sa->address_len))
+    if (bind(*socket_unbox(s), (struct sockaddr *)&(sa->address), sa->address_len) == 0)
     {
         return lean_io_result_mk_ok(lean_box(0));
     }
@@ -355,9 +354,8 @@ lean_obj_res lean_socket_bind(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_arg w
  */
 lean_obj_res lean_socket_listen(b_lean_obj_arg s, uint8_t n, lean_obj_arg w)
 {
-    if (listen(socket_unbox(s), (int)n))
+    if (listen(*socket_unbox(s), (int)n) == 0)
     {
-
         return lean_io_result_mk_ok(lean_box(0));
     }
     else
@@ -366,22 +364,114 @@ lean_obj_res lean_socket_listen(b_lean_obj_arg s, uint8_t n, lean_obj_arg w)
     }
 }
 
-// /**
-//  * constant Socket.accept (s : @& Socket) : IO SockAddr
-//  */
-// lean_obj_res lean_socket_accept(b_lean_obj_arg s, uint8_t n, lean_obj_arg w)
-// {
-//     // TODO:
-// }
+/**
+ * constant Socket.accept (s : @& Socket) : IO (SockAddr × Socket)
+ */
+lean_obj_res lean_socket_accept(b_lean_obj_arg s, lean_obj_arg w)
+{
+    struct sockaddr_len *sal = malloc(sizeof(struct sockaddr_len));
+    SOCKET *sockfd = socket_unbox(s);
+    SOCKET *new_fd = malloc(sizeof(SOCKET));
+    *new_fd = accept(*sockfd, (struct sockaddr *)&(sal->address), &(sal->address_len));
+    if (ISVALIDSOCKET(*new_fd))
+    {
+        lean_object *o = lean_alloc_ctor(0, 2, 0);
+        lean_ctor_set(o, 0, sockaddr_len_box(sal));
+        lean_ctor_set(o, 1, socket_box(new_fd));
+        return lean_io_result_mk_ok(o);
+    }
+    else
+    {
+        return lean_io_result_mk_error(get_socket_error());
+    }
+}
 
 /**
  * constant Socket.shutdown (s : @& Socket) (h : ShutdownHow) : IO Unit 
  */
 lean_obj_res lean_socket_shutdown(b_lean_obj_arg s, uint8_t h, lean_obj_arg w)
 {
-    if (listen(socket_unbox(s), h))
+    if (listen(*socket_unbox(s), h))
     {
         return lean_io_result_mk_ok(lean_box(0));
+    }
+    else
+    {
+        return lean_io_result_mk_error(get_socket_error());
+    }
+}
+
+/**
+ * constant Socket.send (s : @& Socket) (b : @& ByteArray) : IO USize
+ */
+lean_obj_res lean_socket_send(b_lean_obj_arg s, b_lean_obj_arg b, lean_obj_arg w)
+{
+    lean_sarray_object *arr = lean_to_sarray(b);
+    ssize_t bytes = send(*socket_unbox(s), arr->m_data, arr->m_size, MSG_OOB);
+    if (bytes >= 0)
+    {
+        return lean_io_result_mk_ok(lean_box_usize(bytes));
+    }
+    else
+    {
+        return lean_io_result_mk_error(get_socket_error());
+    }
+}
+
+/**
+ * constant Socket.sendto (s : @& Socket) (b : @& ByteArray) (a : @& SockAddr) : IO USize
+ */
+lean_obj_res lean_socket_sendto(b_lean_obj_arg s, b_lean_obj_arg b, b_lean_obj_arg a, lean_obj_arg w)
+{
+    lean_sarray_object *arr = lean_to_sarray(b);
+    struct sockaddr_len *sal = sockaddr_len_unbox(a);
+    ssize_t bytes = sendto(*socket_unbox(s), arr->m_data, arr->m_size, MSG_OOB, (struct sockaddr *)&(sal->address), sal->address_len);
+    if (bytes >= 0)
+    {
+        return lean_io_result_mk_ok(lean_box_usize(bytes));
+    }
+    else
+    {
+        return lean_io_result_mk_error(get_socket_error());
+    }
+}
+
+/**
+ * constant Socket.recv (s : @& Socket) (n : @& USize) : IO ByteArray
+ */
+lean_obj_res lean_socket_recv(b_lean_obj_arg s, size_t n, lean_obj_arg w)
+{
+    lean_object *arr = lean_alloc_sarray(1, 0, n);
+    ssize_t bytes = recv(*socket_unbox(s), lean_sarray_cptr(arr), n, MSG_OOB);
+    if (bytes >= 0)
+    {
+        lean_to_sarray(arr)->m_size = bytes;
+        return lean_io_result_mk_ok(arr);
+    }
+    else
+    {
+        return lean_io_result_mk_error(get_socket_error());
+    }
+}
+
+
+/**
+ * constant Socket.recvfrom (s : @& Socket) (n : @& USize) : IO (SockAddr × ByteArray)
+ */
+lean_obj_res lean_socket_recvfrom(b_lean_obj_arg s, size_t n, lean_obj_arg w)
+{
+    struct sockaddr_len *sal = malloc(sizeof(struct sockaddr_len));
+    lean_object *arr = lean_alloc_sarray(1, 0, n);
+    struct sockaddr_storage remote_addr;
+    socklen_t addr_size;
+    ssize_t bytes = recvfrom(*socket_unbox(s), lean_sarray_cptr(arr), n, MSG_OOB, (struct sockaddr *)&(sal->address), &(sal->address_len));
+    if (bytes >= 0)
+    {
+        lean_to_sarray(arr)->m_size = bytes;
+        lean_object *o = lean_alloc_ctor(0, 2, 0);
+        lean_ctor_set(o, 0, sockaddr_len_box(sal));
+        lean_ctor_set(o, 1, arr);
+        return lean_io_result_mk_ok(arr);
     }
     else
     {

@@ -7,12 +7,30 @@
 import Socket
 
 def main : IO Unit := do
-  let s ← SockAddr.mk {
+  -- dns
+  let remote ← SockAddr.mk {
     host := "www.example.com"
     port := "80"
     family := AddressFamily.inet
     type := SockType.stream
   }
-  IO.println "Remote Info:"
-  
-  IO.println s!"host: {s.host} port: {s.port} family: {s.family}"
+  IO.println s!"Remote: {remote}"
+
+  -- -- accept
+  -- let addrLocal ← SockAddr.mk {
+  --   host := "localhost"
+  --   port := "8080"
+  --   family := AddressFamily.inet
+  --   type := SockType.stream
+  -- }
+  -- IO.println addrLocal
+  -- let socket ← Socket.mk AddressFamily.inet SockType.stream
+  -- socket.bind addrLocal
+  -- socket.listen 5
+  -- let (a, s) ← socket.accept
+  -- IO.println a
+
+  let s ← Socket.mk AddressFamily.inet SockType.stream
+  s.connect remote
+
+  IO.println "success"

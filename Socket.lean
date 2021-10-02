@@ -93,42 +93,42 @@ namespace Socket
 /--
   Initiate a connection on a socket.
 -/
-@[extern "lean_socket_connect"] constant connect (s : @& Socket) (a : @& SockAddr) (l : @& UInt32) : IO Unit
+@[extern "lean_socket_connect"] constant connect (s : @& Socket) (a : @& SockAddr) : IO Unit
 
 /--
   Bind a name to a socket.
 -/
-@[extern "lean_socket_bind"] constant bind (s : @& Socket) (a : @& SockAddr) (l : @& UInt32) : IO Unit
+@[extern "lean_socket_bind"] constant bind (s : @& Socket) (a : @& SockAddr) : IO Unit
 
 /--
   Listen for connections on a socket.
 -/
 @[extern "lean_socket_listen"] constant listen (s : @& Socket) (n : @& UInt8) : IO Unit
 
--- /--
---   Accept a connection on a socket.
--- -/
--- @[extern "lean_socket_accept"] constant accept (s : @& Socket) : IO (SockAddr × UInt32)
+/--
+  Accept a connection on a socket.
+-/
+@[extern "lean_socket_accept"] constant accept (s : @& Socket) : IO (SockAddr × Socket)
 
--- /--
---   Send a message from a socket.
--- -/
--- @[extern "lean_socket_send"] constant send (s : @& Socket) (b : ByteArray) : IO ByteArray
+/--
+  Send a message from a socket.
+-/
+@[extern "lean_socket_send"] constant send (s : @& Socket) (b : @& ByteArray) : IO USize
 
--- /--
---   Receive a message from a socket.
--- -/
--- @[extern "lean_socket_send"] constant recv (s : @& Socket) (b : ByteArray) : IO ByteArray 
+/--
+  Receive a message from a socket.
+-/
+@[extern "lean_socket_send"] constant recv (s : @& Socket) (n : @& USize) : IO ByteArray
 
--- /--
---   Send a message from a socket.
--- -/
--- @[extern "lean_socket_sendto"] constant sendto (s : @& Socket) (b : ByteArray) (a : @& SockAddr) (l : @& UInt32) : IO ByteArray
+/--
+  Send a message from a socket.
+-/
+@[extern "lean_socket_sendto"] constant sendto (s : @& Socket) (b : @& ByteArray) (a : @& SockAddr) : IO USize
 
--- /--
---   Receive a message from a socket.
--- -/
--- @[extern "lean_socket_recvfrom"] constant recvfrom (s : @& Socket) (b : ByteArray) : IO (ByteArray × SockAddr × UInt32)
+/--
+  Receive a message from a socket.
+-/
+@[extern "lean_socket_recvfrom"] constant recvfrom (s : @& Socket) (n : @& USize) : IO (SockAddr × ByteArray)
 
 /--
   Shut down part of a full-duplex connection.
@@ -177,5 +177,7 @@ structure SockAddrArgs where
 
 @[extern "lean_sockaddr_host"] constant host (a : @&SockAddr) : Option String
 
-
 end SockAddr
+
+instance : ToString SockAddr where
+  toString a := s!"{a.host}:{a.port}({a.family})"
