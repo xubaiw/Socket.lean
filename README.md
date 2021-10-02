@@ -4,6 +4,6 @@
 
 ## Blocked By
 
-- [x] Unbox fixed precision Int.
-- [ ] Low-level data manipulation using `ByteArray` ([lean4-bytearray]()).
+- [x] Unbox fixed precision Int ([lean4-int](https://github.com/xubaiw/lean4-int)).
+- [ ] Low-level data manipulation using `ByteArray` ([lean4-bytearray](https://github.com/xubaiw/lean4-bytearray)).
 - [ ] Platform specific elaboration.
