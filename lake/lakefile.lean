@@ -1,22 +1,16 @@
 import Lake
 open System Lake DSL
 
-def nativeDir : FilePath := "../native"
-def nativeSrc := nativeDir / "native.c"
-
-def buildDir := defaultBuildDir
-def nativeO := buildDir / nativeDir / "native.o"
-def cLib := buildDir / nativeDir / "native.a"
-
 def nativeOTarget (pkgDir : FilePath) : FileTarget :=
-  oFileTarget (pkgDir / nativeO) (pkgDir / nativeSrc : FilePath) #[] "gcc"
+  oFileTarget (pkgDir / "../build/native/native.o") (pkgDir / "../native/native.c" : FilePath) #[] "gcc"
 
 def cLibTarget (pkgDir : FilePath) : FileTarget :=
-  staticLibTarget (pkgDir / cLib) #[nativeOTarget pkgDir]
+  staticLibTarget (pkgDir / "../build/native/native.a") #[nativeOTarget pkgDir]
 
 package (pkgDir) (args) {
   name := "socket"
   srcDir := "../"
+  buildDir := "../build"
   libRoots := #[`Socket]
   moreLibTargets := #[cLibTarget pkgDir]
 }
