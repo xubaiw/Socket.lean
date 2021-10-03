@@ -368,11 +368,11 @@ lean_obj_res lean_socket_listen(b_lean_obj_arg s, uint8_t n, lean_obj_arg w)
 lean_obj_res lean_socket_accept(b_lean_obj_arg s, lean_obj_arg w)
 {
     sockaddr_len *sal = malloc(sizeof(sockaddr_len));
-    SOCKET *sockfd = socket_unbox(s);
     SOCKET *new_fd = malloc(sizeof(SOCKET));
-    *new_fd = accept(*sockfd, (sockaddr *)&(sal->address), &(sal->address_len));
+    *new_fd = accept(*socket_unbox(s), (sockaddr *)(&(sal->address)), &(sal->address_len));
     if (ISVALIDSOCKET(*new_fd))
     {
+        // printf("%d\n", sal->address_len);
         lean_object *o = lean_alloc_ctor(0, 2, 0);
         lean_ctor_set(o, 0, sockaddr_len_box(sal));
         lean_ctor_set(o, 1, socket_box(new_fd));
@@ -380,6 +380,7 @@ lean_obj_res lean_socket_accept(b_lean_obj_arg s, lean_obj_arg w)
     }
     else
     {
+        printf("fail\n");
         return lean_io_result_mk_error(get_socket_error());
     }
 }
