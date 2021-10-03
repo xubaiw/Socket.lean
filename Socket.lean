@@ -183,4 +183,8 @@ structure SockAddrArgs where
 end SockAddr
 
 instance : ToString SockAddr where
-  toString a := s!"{a.host}:{a.port}({a.family})"
+  toString a := 
+    let host := a.host.getD "none"
+    let port := a.port.map (s!"{·}") |>.getD "none"
+    let family := a.family.map (s!"{·}") |>.getD "none"
+    s!"({host}, {port}, {family})"
