@@ -20,6 +20,7 @@ partial def serve (socket : @& Socket) : IO Unit := do
       "\r\n\r\n"
     let bytesSend ← socket'.send strSend.toUTF8
     socket'.close
+  IO.println "Incoming..."
   serve socket
 
 /--
@@ -28,7 +29,7 @@ partial def serve (socket : @& Socket) : IO Unit := do
 def main : IO Unit := do
   -- configure local SockAddr
   let localAddr ← SockAddr.mk {
-    host := "127.0.0.1"
+    host := "localhost"
     port := "8080"
     family := AddressFamily.inet
     type := SockType.stream
@@ -42,7 +43,7 @@ def main : IO Unit := do
 
   -- listen to HTTP requests
   socket.listen 5
-  IO.println s!"Listening at http://127.0.0.1:8080."
+  IO.println s!"Listening at http://localhost:8080."
 
   -- serving
   serve socket
