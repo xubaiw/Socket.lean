@@ -190,7 +190,6 @@ extern lean_obj_res lean_mk_io_user_error(lean_obj_arg);
 
 static lean_obj_res get_socket_error()
 {
-    // get errnum and error details
 #ifdef _WIN32
     int errnum = WSAGetLastError();
     wchar_t *s = NULL;
@@ -198,7 +197,10 @@ static lean_obj_res get_socket_error()
                    NULL, errnum,
                    MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
                    (LPWSTR)&s, 0, NULL);
-    lean_object *details = lean_mk_string(s);
+    char *err_str;
+    wcstombs(err_str, s, NULL);
+    lean_object *details = lean_mk_string(err_str);
+    LocalFree(s);
 #else
     int errnum = errno;
     lean_object *details = lean_mk_string(strerror(errnum));
@@ -208,7 +210,20 @@ static lean_obj_res get_socket_error()
 
 static lean_obj_res get_addrinfo_error(int errnum)
 {
+#ifdef _WIN32
+    int errnum = WSAGetLastError();
+    wchar_t *s = NULL;
+    FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+                   NULL, errnum,
+                   MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+                   (LPWSTR)&s, 0, NULL);
+    char *err_str;
+    wcstombs(err_str, s, NULL);
+    lean_object *details = lean_mk_string(err_str);
+    LocalFree(s);
+#else
     lean_object *details = lean_mk_string(gai_strerror(errnum));
+#endif
     return lean_mk_io_user_error(details);
 }
 
