@@ -174,9 +174,7 @@ structure SockAddrArgs where
 -/
 @[extern "lean_sockaddr_mk"] constant mk (a : @& SockAddrArgs) : IO SockAddr
 
-@[extern "lean_sockaddr_length"] constant length (a : @&SockAddr) : UInt32
-
-@[extern "lean_sockaddr_family"] constant family (a : @&SockAddr) : AddressFamily
+@[extern "lean_sockaddr_family"] constant family (a : @&SockAddr) : Option AddressFamily
 
 @[extern "lean_sockaddr_port"] constant port (a : @&SockAddr) : Option UInt16
 

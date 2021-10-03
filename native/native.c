@@ -94,19 +94,16 @@ static lean_external_class *g_sockaddr_external_class = NULL;
 
 // ## Conversion
 
-static int address_family_box(int af)
+lean_object *lean_option_mk_some(lean_object *v)
 {
-    switch (af)
-    {
-    case AF_UNSPEC:
-        return 0;
-    case AF_INET:
-        return 1;
-    case AF_INET6:
-        return 2;
-    default:
-        return 0;
-    }
+    lean_object *option = lean_alloc_ctor(1, 1, 0);
+    lean_ctor_set(option, 0, v);
+    return option;
+}
+
+lean_object *lean_option_mk_none()
+{
+    return lean_alloc_ctor(0, 0, 0);
 }
 
 static int address_family_unbox(uint8_t af)
@@ -527,21 +524,21 @@ lean_obj_res lean_sockaddr_mk(b_lean_obj_arg a, lean_obj_arg w)
 }
 
 /**
- * constant SockAddr.length (a : @&SockAddr) : UInt32
+ * constant Sock.family (a : @&SockAddr) : Option AddressFamily
  */
-uint32_t lean_sockaddr_length(b_lean_obj_arg a, lean_obj_arg w)
+lean_obj_res lean_sockaddr_family(b_lean_obj_arg a, lean_obj_arg w)
 {
-    sockaddr_len *sa = sockaddr_len_unbox(a);
-    return sa->address_len;
-}
-
-/**
- * constant Sock.family (a : @&SockAddr) : AddressFamily
- */
-uint8_t lean_sockaddr_family(b_lean_obj_arg a, lean_obj_arg w)
-{
-    sockaddr_len *sa = sockaddr_len_unbox(a);
-    return address_family_box(sa->address.ss_family);
+    switch (sockaddr_len_unbox(a)->address.ss_family)
+    {
+    case AF_UNSPEC:
+        return lean_option_mk_some(lean_box(0));
+    case AF_INET:
+        return lean_option_mk_some(lean_box(1));
+    case AF_INET6:
+        return lean_option_mk_some(lean_box(2));
+    default:
+        return lean_option_mk_none();
+    }
 }
 
 /**
