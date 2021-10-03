@@ -462,8 +462,6 @@ lean_obj_res lean_socket_recvfrom(b_lean_obj_arg s, size_t n, lean_obj_arg w)
 {
     struct sockaddr_len *sal = malloc(sizeof(struct sockaddr_len));
     lean_object *arr = lean_alloc_sarray(1, 0, n);
-    struct sockaddr_storage remote_addr;
-    socklen_t addr_size;
     ssize_t bytes = recvfrom(*socket_unbox(s), lean_sarray_cptr(arr), n, MSG_OOB, (struct sockaddr *)&(sal->address), &(sal->address_len));
     if (bytes >= 0)
     {
@@ -472,6 +470,25 @@ lean_obj_res lean_socket_recvfrom(b_lean_obj_arg s, size_t n, lean_obj_arg w)
         lean_ctor_set(o, 0, sockaddr_len_box(sal));
         lean_ctor_set(o, 1, arr);
         return lean_io_result_mk_ok(arr);
+    }
+    else
+    {
+        return lean_io_result_mk_error(get_socket_error());
+    }
+}
+
+
+
+/**
+ * constant Socket.peer (s : @& Socket) : IO SockAddr
+ */
+lean_obj_res lean_socket_peer(b_lean_obj_arg s, lean_obj_arg w)
+{
+    struct sockaddr_len *sal = malloc(sizeof(struct sockaddr_len));
+    int status = getpeername(*socket_unbox(s), (struct sockaddr *)&(sal->address), &(sal->address_len));
+    if (status == 0)
+    {
+        return lean_io_result_mk_ok(sockaddr_len_box(sal));
     }
     else
     {
@@ -554,7 +571,7 @@ lean_obj_res lean_sockaddr_port(b_lean_obj_arg a, lean_obj_arg w)
 }
 
 /**
- * constant Sock.host (a : @&SockAddr) : Option String
+ * constant SockAddr.host (a : @&SockAddr) : Option String
  */
 lean_obj_res lean_sockaddr_host(b_lean_obj_arg a, lean_obj_arg w)
 {

@@ -17,7 +17,6 @@ def cLibTarget (pkgDir : FilePath) : FileTarget :=
 package (pkgDir) (args) {
   name := "socket"
   srcDir := "../"
-  buildDir := "../build"
   libRoots := #[`Socket]
   moreLibTargets := #[cLibTarget pkgDir]
 }

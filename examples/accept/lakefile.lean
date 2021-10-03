@@ -7,7 +7,7 @@ package {
   dependencies := [
     {
       name := "socket"
-      src := Source.path "../.."
+      src := Source.path "../../lake"
     }
   ]
 }

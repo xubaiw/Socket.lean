@@ -135,6 +135,11 @@ namespace Socket
 -/
 @[extern "lean_socket_shutdown"] constant shutdown (s : @& Socket) (h : ShutdownHow) : IO Unit 
 
+/--
+  Get address of connected peer.
+-/
+@[extern "lean_socket_peer"] constant peer (s : @& Socket) : IO SockAddr
+
 end Socket
 
 -- ## AddressFamily
