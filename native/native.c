@@ -154,22 +154,6 @@ static int sock_type_unbox(uint8_t type)
     }
 }
 
-static inline lean_obj_res lean_box_uint16(uint16_t v)
-{
-    if (sizeof(void *) == 4)
-    {
-        /* 32-bit implementation */
-        lean_obj_res r = lean_alloc_ctor(0, 0, sizeof(uint16_t));
-        lean_ctor_set_uint16(r, 0, v);
-        return r;
-    }
-    else
-    {
-        /* 64-bit implementation */
-        return lean_box(v);
-    }
-}
-
 /**
  * `SOCKET *` -> `lean_object *`(`Socket`) conversion
  * use macro instead of function to avoid foward declaration
@@ -570,12 +554,12 @@ lean_obj_res lean_sockaddr_port(b_lean_obj_arg a, lean_obj_arg w)
     if (sa->address.ss_family == AF_INET)
     {
         o = lean_alloc_ctor(1, 1, 0);
-        lean_ctor_set(o, 0, lean_box_uint16(ntohs(((sockaddr_in *)&(sa->address))->sin_port)));
+        lean_ctor_set(o, 0, lean_box(ntohs(((sockaddr_in *)&(sa->address))->sin_port)));
     }
     else if (sa->address.ss_family == AF_INET6)
     {
         o = lean_alloc_ctor(1, 1, 0);
-        lean_ctor_set(o, 0, lean_box_uint16(ntohs(((sockaddr_in6 *)&(sa->address))->sin6_port)));
+        lean_ctor_set(o, 0, lean_box(ntohs(((sockaddr_in6 *)&(sa->address))->sin6_port)));
     }
     else
     {
