@@ -405,7 +405,7 @@ lean_obj_res lean_socket_shutdown(b_lean_obj_arg s, uint8_t h, lean_obj_arg w)
 lean_obj_res lean_socket_send(b_lean_obj_arg s, b_lean_obj_arg b, lean_obj_arg w)
 {
     lean_sarray_object *arr = lean_to_sarray(b);
-    ssize_t bytes = send(*socket_unbox(s), arr->m_data, arr->m_size, MSG_OOB);
+    ssize_t bytes = send(*socket_unbox(s), arr->m_data, arr->m_size, 0);
     if (bytes >= 0)
     {
         return lean_io_result_mk_ok(lean_box_usize(bytes));
@@ -423,7 +423,7 @@ lean_obj_res lean_socket_sendto(b_lean_obj_arg s, b_lean_obj_arg b, b_lean_obj_a
 {
     lean_sarray_object *arr = lean_to_sarray(b);
     sockaddr_len *sal = sockaddr_len_unbox(a);
-    ssize_t bytes = sendto(*socket_unbox(s), arr->m_data, arr->m_size, MSG_OOB, (sockaddr *)&(sal->address), sal->address_len);
+    ssize_t bytes = sendto(*socket_unbox(s), arr->m_data, arr->m_size, 0, (sockaddr *)&(sal->address), sal->address_len);
     if (bytes >= 0)
     {
         return lean_io_result_mk_ok(lean_box_usize(bytes));
@@ -440,7 +440,7 @@ lean_obj_res lean_socket_sendto(b_lean_obj_arg s, b_lean_obj_arg b, b_lean_obj_a
 lean_obj_res lean_socket_recv(b_lean_obj_arg s, size_t n, lean_obj_arg w)
 {
     lean_object *arr = lean_alloc_sarray(1, 0, n);
-    ssize_t bytes = recv(*socket_unbox(s), lean_sarray_cptr(arr), n, MSG_OOB);
+    ssize_t bytes = recv(*socket_unbox(s), lean_sarray_cptr(arr), n, 0);
     if (bytes >= 0)
     {
         lean_to_sarray(arr)->m_size = bytes;
@@ -459,7 +459,7 @@ lean_obj_res lean_socket_recvfrom(b_lean_obj_arg s, size_t n, lean_obj_arg w)
 {
     sockaddr_len *sal = malloc(sizeof(sockaddr_len));
     lean_object *arr = lean_alloc_sarray(1, 0, n);
-    ssize_t bytes = recvfrom(*socket_unbox(s), lean_sarray_cptr(arr), n, MSG_OOB, (sockaddr *)&(sal->address), &(sal->address_len));
+    ssize_t bytes = recvfrom(*socket_unbox(s), lean_sarray_cptr(arr), n, 0, (sockaddr *)&(sal->address), &(sal->address_len));
     if (bytes >= 0)
     {
         lean_to_sarray(arr)->m_size = bytes;
