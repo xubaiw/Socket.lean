@@ -37,6 +37,39 @@
 #endif
 
 // ==============================================================================
+// # Statics and Types
+// ==============================================================================
+
+typedef struct sockaddr sockaddr;
+typedef struct sockaddr_in sockaddr_in;
+typedef struct sockaddr_in6 sockaddr_in6;
+typedef struct sockaddr_storage sockaddr_storage;
+typedef struct addrinfo addrinfo;
+
+/**
+ * Group sockaddr and its length together as a external class.
+ */
+typedef struct sockaddr_len
+{
+    socklen_t address_len;
+    sockaddr_storage address;
+} sockaddr_len;
+
+/**
+ * External class for Socket.
+ * 
+ * This class register `SOCKET *` (which is `int *` on *nix) as a lean external class.
+ */
+static lean_external_class *g_socket_external_class = NULL;
+
+/**
+ * External class for SockAddr.
+ * 
+ * This class register `sockaddr_len *` as a lean external class.
+ */
+static lean_external_class *g_sockaddr_external_class = NULL;
+
+// ==============================================================================
 // # Utilities
 // ==============================================================================
 
@@ -58,15 +91,6 @@
 #define SOCKET int
 
 #endif
-
-/**
- * Group sockaddr and its length together as a external class.
- */
-struct sockaddr_len
-{
-    socklen_t address_len;
-    struct sockaddr_storage address;
-};
 
 // ## Conversion
 
@@ -150,25 +174,34 @@ static inline lean_obj_res lean_box_uint16(uint16_t v)
  * `SOCKET *` -> `lean_object *`(`Socket`) conversion
  * use macro instead of function to avoid foward declaration
  */
-#define socket_box(s) lean_alloc_external(g_socket_external_class, s)
+lean_object *socket_box(SOCKET *s)
+{
+    return lean_alloc_external(g_socket_external_class, s);
+}
 
 /**
  * `lean_object *`(`Socket`) -> `SOCKET *` conversion
  * use macro instead of function to avoid foward declaration
  */
-#define socket_unbox(s) ((SOCKET *)(lean_get_external_data(s)))
+SOCKET *socket_unbox(lean_object *s) { return (SOCKET *)(lean_get_external_data(s)); }
 
 /**
  * `sockaddr_len` -> `lean_object *`(`SockAddr`) conversion
  * use macro instead of function to avoid foward declaration
  */
-#define sockaddr_len_box(s) lean_alloc_external(g_sockaddr_external_class, s)
+lean_object *sockaddr_len_box(sockaddr_len *s)
+{
+    return lean_alloc_external(g_sockaddr_external_class, s);
+}
 
 /**
  * `lean_object *`(`SockAddr`) -> `sockaddr_len *` conversion
  * use macro instead of function to avoid foward declaration
  */
-#define sockaddr_len_unbox(s) ((struct sockaddr_len *)(lean_get_external_data(s)))
+sockaddr_len *sockaddr_len_unbox(lean_object *s)
+{
+    return (sockaddr_len *)(lean_get_external_data(s));
+}
 
 // ## Errors
 
@@ -202,22 +235,6 @@ static lean_obj_res get_addrinfo_error(int errnum)
 // # Initialization
 // ==============================================================================
 
-// ## External Classes
-
-/**
- * External class for Socket.
- * 
- * This class register `SOCKET *` (which is `int *` on *nix) as a lean external class.
- */
-static lean_external_class *g_socket_external_class = NULL;
-
-/**
- * External class for SockAddr.
- * 
- * This class register `sockaddr_len *` as a lean external class.
- */
-static lean_external_class *g_sockaddr_external_class = NULL;
-
 // ## Finalizers
 
 /**
@@ -235,7 +252,7 @@ inline static void socket_finalizer(void *socket_ptr)
  */
 inline static void sockaddr_finalizer(void *sal)
 {
-    free((struct sockaddr_len *)sal);
+    free((sockaddr_len *)sal);
 }
 
 // ## Foreach iterators
@@ -322,8 +339,8 @@ lean_obj_res lean_socket_close(b_lean_obj_arg s, lean_obj_arg w)
  */
 lean_obj_res lean_socket_connect(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_arg w)
 {
-    struct sockaddr_len *sa = sockaddr_len_unbox(a);
-    if (connect(*socket_unbox(s), (struct sockaddr *)&(sa->address), sa->address_len) == 0)
+    sockaddr_len *sa = sockaddr_len_unbox(a);
+    if (connect(*socket_unbox(s), (sockaddr *)&(sa->address), sa->address_len) == 0)
     {
         return lean_io_result_mk_ok(lean_box(0));
     }
@@ -338,8 +355,8 @@ lean_obj_res lean_socket_connect(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_ar
  */
 lean_obj_res lean_socket_bind(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_arg w)
 {
-    struct sockaddr_len *sa = sockaddr_len_unbox(a);
-    if (bind(*socket_unbox(s), (struct sockaddr *)&(sa->address), sa->address_len) == 0)
+    sockaddr_len *sa = sockaddr_len_unbox(a);
+    if (bind(*socket_unbox(s), (sockaddr *)&(sa->address), sa->address_len) == 0)
     {
         return lean_io_result_mk_ok(lean_box(0));
     }
@@ -369,10 +386,10 @@ lean_obj_res lean_socket_listen(b_lean_obj_arg s, uint8_t n, lean_obj_arg w)
  */
 lean_obj_res lean_socket_accept(b_lean_obj_arg s, lean_obj_arg w)
 {
-    struct sockaddr_len *sal = malloc(sizeof(struct sockaddr_len));
+    sockaddr_len *sal = malloc(sizeof(sockaddr_len));
     SOCKET *sockfd = socket_unbox(s);
     SOCKET *new_fd = malloc(sizeof(SOCKET));
-    *new_fd = accept(*sockfd, (struct sockaddr *)&(sal->address), &(sal->address_len));
+    *new_fd = accept(*sockfd, (sockaddr *)&(sal->address), &(sal->address_len));
     if (ISVALIDSOCKET(*new_fd))
     {
         lean_object *o = lean_alloc_ctor(0, 2, 0);
@@ -424,8 +441,8 @@ lean_obj_res lean_socket_send(b_lean_obj_arg s, b_lean_obj_arg b, lean_obj_arg w
 lean_obj_res lean_socket_sendto(b_lean_obj_arg s, b_lean_obj_arg b, b_lean_obj_arg a, lean_obj_arg w)
 {
     lean_sarray_object *arr = lean_to_sarray(b);
-    struct sockaddr_len *sal = sockaddr_len_unbox(a);
-    ssize_t bytes = sendto(*socket_unbox(s), arr->m_data, arr->m_size, MSG_OOB, (struct sockaddr *)&(sal->address), sal->address_len);
+    sockaddr_len *sal = sockaddr_len_unbox(a);
+    ssize_t bytes = sendto(*socket_unbox(s), arr->m_data, arr->m_size, MSG_OOB, (sockaddr *)&(sal->address), sal->address_len);
     if (bytes >= 0)
     {
         return lean_io_result_mk_ok(lean_box_usize(bytes));
@@ -454,15 +471,14 @@ lean_obj_res lean_socket_recv(b_lean_obj_arg s, size_t n, lean_obj_arg w)
     }
 }
 
-
 /**
  * constant Socket.recvfrom (s : @& Socket) (n : @& USize) : IO (SockAddr × ByteArray)
  */
 lean_obj_res lean_socket_recvfrom(b_lean_obj_arg s, size_t n, lean_obj_arg w)
 {
-    struct sockaddr_len *sal = malloc(sizeof(struct sockaddr_len));
+    sockaddr_len *sal = malloc(sizeof(sockaddr_len));
     lean_object *arr = lean_alloc_sarray(1, 0, n);
-    ssize_t bytes = recvfrom(*socket_unbox(s), lean_sarray_cptr(arr), n, MSG_OOB, (struct sockaddr *)&(sal->address), &(sal->address_len));
+    ssize_t bytes = recvfrom(*socket_unbox(s), lean_sarray_cptr(arr), n, MSG_OOB, (sockaddr *)&(sal->address), &(sal->address_len));
     if (bytes >= 0)
     {
         lean_to_sarray(arr)->m_size = bytes;
@@ -477,15 +493,13 @@ lean_obj_res lean_socket_recvfrom(b_lean_obj_arg s, size_t n, lean_obj_arg w)
     }
 }
 
-
-
 /**
  * constant Socket.peer (s : @& Socket) : IO SockAddr
  */
 lean_obj_res lean_socket_peer(b_lean_obj_arg s, lean_obj_arg w)
 {
-    struct sockaddr_len *sal = malloc(sizeof(struct sockaddr_len));
-    int status = getpeername(*socket_unbox(s), (struct sockaddr *)&(sal->address), &(sal->address_len));
+    sockaddr_len *sal = malloc(sizeof(sockaddr_len));
+    int status = getpeername(*socket_unbox(s), (sockaddr *)&(sal->address), &(sal->address_len));
     if (status == 0)
     {
         return lean_io_result_mk_ok(sockaddr_len_box(sal));
@@ -511,19 +525,19 @@ lean_obj_res lean_sockaddr_mk(b_lean_obj_arg a, lean_obj_arg w)
     const char *port = lean_string_cstr(p);
     int family = address_family_unbox(f);
     int type = sock_type_unbox(t);
-    struct addrinfo hints;
-    struct addrinfo *ai_res;
+    addrinfo hints;
+    addrinfo *ai_res;
     memset(&hints, 0, sizeof hints);
     hints.ai_family = family;
     hints.ai_socktype = type;
-    struct sockaddr_len *sal = malloc(sizeof(struct sockaddr_len));
+    sockaddr_len *sal = malloc(sizeof(sockaddr_len));
     int status = getaddrinfo(host, port, &hints, &ai_res);
     if (status < 0)
     {
         return lean_io_result_mk_error(get_addrinfo_error(status));
     }
     sal->address_len = ai_res->ai_addrlen;
-    sal->address = *(struct sockaddr_storage *)(ai_res->ai_addr);
+    sal->address = *(sockaddr_storage *)(ai_res->ai_addr);
     freeaddrinfo(ai_res);
     return lean_io_result_mk_ok(sockaddr_len_box(sal));
 }
@@ -533,7 +547,7 @@ lean_obj_res lean_sockaddr_mk(b_lean_obj_arg a, lean_obj_arg w)
  */
 uint32_t lean_sockaddr_length(b_lean_obj_arg a, lean_obj_arg w)
 {
-    struct sockaddr_len *sa = sockaddr_len_unbox(a);
+    sockaddr_len *sa = sockaddr_len_unbox(a);
     return sa->address_len;
 }
 
@@ -542,7 +556,7 @@ uint32_t lean_sockaddr_length(b_lean_obj_arg a, lean_obj_arg w)
  */
 uint8_t lean_sockaddr_family(b_lean_obj_arg a, lean_obj_arg w)
 {
-    struct sockaddr_len *sa = sockaddr_len_unbox(a);
+    sockaddr_len *sa = sockaddr_len_unbox(a);
     return address_family_box(sa->address.ss_family);
 }
 
@@ -552,16 +566,16 @@ uint8_t lean_sockaddr_family(b_lean_obj_arg a, lean_obj_arg w)
 lean_obj_res lean_sockaddr_port(b_lean_obj_arg a, lean_obj_arg w)
 {
     lean_object *o;
-    struct sockaddr_len *sa = sockaddr_len_unbox(a);
+    sockaddr_len *sa = sockaddr_len_unbox(a);
     if (sa->address.ss_family == AF_INET)
     {
         o = lean_alloc_ctor(1, 1, 0);
-        lean_ctor_set(o, 0, lean_box_uint16(ntohs(((struct sockaddr_in *)&(sa->address))->sin_port)));
+        lean_ctor_set(o, 0, lean_box_uint16(ntohs(((sockaddr_in *)&(sa->address))->sin_port)));
     }
     else if (sa->address.ss_family == AF_INET6)
     {
         o = lean_alloc_ctor(1, 1, 0);
-        lean_ctor_set(o, 0, lean_box_uint16(ntohs(((struct sockaddr_in6 *)&(sa->address))->sin6_port)));
+        lean_ctor_set(o, 0, lean_box_uint16(ntohs(((sockaddr_in6 *)&(sa->address))->sin6_port)));
     }
     else
     {
@@ -576,18 +590,18 @@ lean_obj_res lean_sockaddr_port(b_lean_obj_arg a, lean_obj_arg w)
 lean_obj_res lean_sockaddr_host(b_lean_obj_arg a, lean_obj_arg w)
 {
     lean_object *o;
-    struct sockaddr_len *sa = sockaddr_len_unbox(a);
+    sockaddr_len *sa = sockaddr_len_unbox(a);
     if (sa->address.ss_family == AF_INET)
     {
         char ip4[INET_ADDRSTRLEN];
-        inet_ntop(AF_INET, &(((struct sockaddr_in *)&(sa->address))->sin_addr), ip4, INET_ADDRSTRLEN);
+        inet_ntop(AF_INET, &(((sockaddr_in *)&(sa->address))->sin_addr), ip4, INET_ADDRSTRLEN);
         o = lean_alloc_ctor(1, 1, 0);
         lean_ctor_set(o, 0, lean_mk_string(ip4));
     }
     else if (sa->address.ss_family == AF_INET6)
     {
         char ip6[INET6_ADDRSTRLEN];
-        inet_ntop(AF_INET6, &(((struct sockaddr_in6 *)&(sa->address))->sin6_addr), ip6, INET6_ADDRSTRLEN);
+        inet_ntop(AF_INET6, &(((sockaddr_in6 *)&(sa->address))->sin6_addr), ip6, INET6_ADDRSTRLEN);
         o = lean_alloc_ctor(1, 1, 0);
         lean_ctor_set(o, 0, lean_mk_string(ip6));
     }
