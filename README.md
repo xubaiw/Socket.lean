@@ -20,6 +20,18 @@ package foo where
   }]
 ```
 
+If you are using VSCode, the recommended `lean4.serverEnv` setting is
+
+```json
+{
+  "lean4.serverEnv": {
+    "LEAN_PATH": "${HOME}/lake/build/${pathSeparator}${workspaceFolder}/build/"
+  },
+}
+```
+
+assuming that your lake is installed at ${HOME}/lake/build/
+
 ## Usage
 
 This prints out yout local address.
