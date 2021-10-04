@@ -57,7 +57,7 @@ export AddressFamily (inet inet6)
 
 /-- Wrapper for SOCK_*** constants like SOCK_STREAM, see `Socket.mk` for usage. -/
 inductive SockType where
-  | zero
+  | unspecified
   | stream
   | dgram
   deriving Inhabited
@@ -158,7 +158,7 @@ instance : ToString AddressFamily where
 
 instance : ToString SockType where
   toString : SockType → String
-    | SockType.zero => "0"
+    | SockType.unspecified => "SOCK_UNSPEC"
     | SockType.stream => "SOCK_STREAM"
     | SockType.dgram => "SOCK_DGRAM"
 
@@ -170,7 +170,7 @@ structure SockAddrArgs where
   host : String
   port : String
   family : AddressFamily := AddressFamily.unspecified
-  type : SockType := SockType.zero
+  type : SockType := SockType.unspecified
   deriving Inhabited
 
 /--
