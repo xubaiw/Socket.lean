@@ -31,13 +31,13 @@ def main : IO Unit := do
   let localAddr ← SockAddr.mk {
     host := "localhost"
     port := "8080"
-    family := AddressFamily.inet
-    type := SockType.stream
+    family := inet
+    type := stream
   }
   IO.println s!"Local Addr: {localAddr}"
 
   -- bind a socket to local address
-  let socket ← Socket.mk AddressFamily.inet SockType.stream
+  let socket ← Socket.mk inet stream
   socket.bind localAddr
   IO.println "Socket Bound."
 

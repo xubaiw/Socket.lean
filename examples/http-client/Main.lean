@@ -11,13 +11,13 @@ def main : IO Unit := do
   let remoteAddr ← SockAddr.mk {
     host := "www.example.com"
     port := "80"
-    family := AddressFamily.inet
-    type := SockType.stream
+    family := inet
+    type := stream
   }
   IO.println s!"Remote Addr: {remoteAddr}"
 
   -- connect to remote
-  let socket ← Socket.mk AddressFamily.inet SockType.stream
+  let socket ← Socket.mk inet stream
   socket.connect remoteAddr
   IO.println "Connected!"
 

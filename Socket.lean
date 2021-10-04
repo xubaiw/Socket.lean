@@ -46,12 +46,14 @@ constant Socket : Type := Unit
 -/
 constant SockAddr : Type := Unit
 
-/-- Wrapper for PF_*** constants like PF_INET6, see `Socket.mk` for usage. -/
+/-- Wrapper for AF_*** constants like AF_INET6, see `Socket.mk` for usage. -/
 inductive AddressFamily where
   | unspecified
   | inet
   | inet6
   deriving Inhabited
+
+export AddressFamily (inet inet6)
 
 /-- Wrapper for SOCK_*** constants like SOCK_STREAM, see `Socket.mk` for usage. -/
 inductive SockType where
@@ -59,6 +61,8 @@ inductive SockType where
   | stream
   | dgram
   deriving Inhabited
+
+export SockType (stream dgram)
 
 /-- Wrapper for SHUT_*** constants like SHUT_RD, see `Socket.shutdown` for usage. -/
 inductive ShutdownHow where
