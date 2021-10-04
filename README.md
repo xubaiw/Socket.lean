@@ -6,18 +6,18 @@ The socket programming package for Lean 4.
 
 ### Lake
 
+*NOTE: As `lake` is undergoing breaking changes, the recommended revision to use is [`111a47f`](https://github.com/leanprover/lake/commit/111a47f8964088aa452aa0fcdd0c1d88562cca68), otherwise you may see errors and have to modify the `lakefile.lean` file yourself.*
+
 ```lean
 import Lake
 open System Lake DSL
 
-package where
-  name := "foo"
+package foo where
   dependencies := #[{
-    name := "socket"
+    name := `socket
     src := Source.git "https://github.com/xubaiw/lean4-socket.git" "main"
     dir := "lake"
   }]
-
 ```
 
 ## Usage

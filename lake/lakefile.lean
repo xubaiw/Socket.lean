@@ -7,8 +7,7 @@ def nativeOTarget (pkgDir : FilePath) : FileTarget :=
 def cLibTarget (pkgDir : FilePath) : FileTarget :=
   staticLibTarget (pkgDir / "../build/native/native.a") #[nativeOTarget pkgDir]
 
-package (pkgDir) (args) {
-  name := "socket"
+package socket (pkgDir) (args) {
   srcDir := "../"
   buildDir := "../build"
   libRoots := #[`Socket]

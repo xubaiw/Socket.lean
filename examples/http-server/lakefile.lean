@@ -1,12 +1,8 @@
 import Lake
 open Lake DSL
 
-package {
-  name := "http-server"
-  dependencies := #[
-    {
-      name := "socket"
-      src := Source.path "../../lake"
-    }
-  ]
-}
+package http_server where
+  dependencies := #[{
+    name := `socket
+    src := Source.path "../../lake"
+  }]
