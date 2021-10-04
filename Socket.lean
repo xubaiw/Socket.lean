@@ -78,7 +78,7 @@ namespace Socket
 /--
   Create a new `Socket` using the specified domain and type.
 -/
-@[extern "lean_socket_mk"] constant mk (d : AddressFamily) (t : SockType) : IO Socket
+@[extern "lean_socket_mk"] constant mk (d : @& AddressFamily) (t : @& SockType) : IO Socket
 
 /--
   Close the `Socket`.
@@ -174,11 +174,11 @@ structure SockAddrArgs where
 -/
 @[extern "lean_sockaddr_mk"] constant mk (a : @& SockAddrArgs) : IO SockAddr
 
-@[extern "lean_sockaddr_family"] constant family (a : @&SockAddr) : Option AddressFamily
+@[extern "lean_sockaddr_family"] constant family (a : @& SockAddr) : Option AddressFamily
 
-@[extern "lean_sockaddr_port"] constant port (a : @&SockAddr) : Option UInt16
+@[extern "lean_sockaddr_port"] constant port (a : @& SockAddr) : Option UInt16
 
-@[extern "lean_sockaddr_host"] constant host (a : @&SockAddr) : Option String
+@[extern "lean_sockaddr_host"] constant host (a : @& SockAddr) : Option String
 
 end SockAddr
 
