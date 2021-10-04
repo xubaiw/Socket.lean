@@ -384,6 +384,7 @@ lean_obj_res lean_socket_accept(b_lean_obj_arg s, lean_obj_arg w)
 {
     sockaddr_len *sal = malloc(sizeof(sockaddr_len));
     SOCKET *new_fd = malloc(sizeof(SOCKET));
+    sal->address_len = sizeof(sockaddr);
     *new_fd = accept(*socket_unbox(s), (sockaddr *)(&(sal->address)), &(sal->address_len));
     if (ISVALIDSOCKET(*new_fd))
     {

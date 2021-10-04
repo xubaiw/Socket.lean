@@ -20,7 +20,7 @@ partial def serve (socket : @& Socket) : IO Unit := do
       "\r\n\r\n"
     let bytesSend ← socket'.send strSend.toUTF8
     socket'.close
-  IO.println "Incoming..."
+  IO.println s!"Incoming: {remoteAddr}"
   serve socket
 
 /--
