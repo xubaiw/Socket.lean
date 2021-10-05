@@ -39,12 +39,12 @@ builtin_initialize initSocket
   The `Socket` type is made opaque since implementation of socket may
   be different across platforms (`int` on *nix and `SOCKET` on Windows).
 -/
-constant Socket : Type := Unit
+constant Socket : Type
 
 /--
   This structure holds both the length and the content for the C `sockaddr`.
 -/
-constant SockAddr : Type := Unit
+constant SockAddr : Type
 
 /-- Wrapper for AF_*** constants like AF_INET6, see `Socket.mk` for usage. -/
 inductive AddressFamily where
@@ -192,3 +192,7 @@ instance : ToString SockAddr where
     let port := a.port.map (s!"{·}") |>.getD "none"
     let family := a.family.map (s!"{·}") |>.getD "none"
     s!"({host}, {port}, {family})"
+
+-- ## Other Functions
+
+@[extern "lean_gethostname"] constant hostName : IO String

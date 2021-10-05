@@ -610,3 +610,18 @@ lean_obj_res lean_sockaddr_host(b_lean_obj_arg a, lean_obj_arg w)
     return o;
 }
 
+// ## Other Functions
+
+/**
+ * constant hostName : IO String
+ */
+lean_obj_res lean_gethostname()
+{
+    char buffer[100];
+    int status = gethostname(buffer, 100);
+    if (status < 0)
+    {
+        return lean_io_result_mk_error(get_socket_error());
+    }
+    return lean_io_result_mk_ok(lean_mk_string(buffer));
+}
