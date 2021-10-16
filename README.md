@@ -37,7 +37,7 @@ def main : IO Unit := do
 
 You can also refer to the [http-client](./examples/http-client) and [http-server](./examples/http-server) examples to find the basic usage.
 
-There are bunch of comments in the source code. However, documentation like Hackage or docs.rs is not available since there is no doc genreator for lean4 yet.
+Documentation like Hackage or docs.rs is not available since there is no doc genreator for lean4 yet.
 
 To grasp the essence, you should be careful about the `Socket` and `SockAddr` type. 
 

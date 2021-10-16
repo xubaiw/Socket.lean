@@ -14,7 +14,7 @@ import Init.System.IOError
   Initialize the socket environment.
 
   This function does the following things:
-  1. register `Socket` type from external class
+  1. register `Socket` and `SockAddr` type from external class
   2. call `WSAStartup` on windows
   3. register `WSACleanup` on windows
 

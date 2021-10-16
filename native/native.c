@@ -250,7 +250,7 @@ inline static void noop_foreach(void *mod, b_lean_obj_arg fn) {}
  * Initialize socket environment.
  * 
  * This function does the following things:
- * 1. register (`Socket`)`g_socket_external_class` class
+ * 1. register `Socket` and `SockAddr` class
  * 2. WSAStartup on windows
  * 3. register WSACleanup on windows
  * 
