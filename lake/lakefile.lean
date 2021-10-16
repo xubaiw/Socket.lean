@@ -12,4 +12,5 @@ package socket (pkgDir) (args) {
   buildDir := "../build"
   libRoots := #[`Socket]
   moreLibTargets := #[cLibTarget pkgDir]
+  defaultFacet := PackageFacet.staticLib
 }
