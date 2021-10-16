@@ -14,9 +14,7 @@ package foo where
   dependencies := #[{
     name := `socket
     src := Source.git "https://github.com/xubaiw/lean4-socket.git" "main"
-    dir := "lake"
   }]
-  moreLinkArgs := if Platform.isWindows then #["-lWs2_32"] else #[]
 ```
 
 ## Usage
