@@ -6,6 +6,6 @@ def linkArgs := if isWindows then #["-lWs2_32"] else #[]
 package gethostname where
   dependencies := #[{
     name := `socket
-    src := Source.path "../../lake"
+    src := Source.path "../.."
   }]
   moreLinkArgs := linkArgs
