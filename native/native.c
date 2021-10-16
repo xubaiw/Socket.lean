@@ -73,7 +73,7 @@ static lean_external_class *g_sockaddr_external_class = NULL;
 // # Utilities
 // ==============================================================================
 
-// ## Cross Platform Socket Definitions
+// ## Socket Types and Functions
 
 #ifdef _WIN32
 
@@ -83,6 +83,11 @@ static lean_external_class *g_sockaddr_external_class = NULL;
 #ifndef IPV6_V6ONLY
 #define IPV6_V6ONLY 27
 #endif
+
+static void cleanup()
+{
+    WSACleanup();
+}
 
 #else
 
@@ -240,11 +245,6 @@ inline static void sockaddr_finalizer(void *sal)
 inline static void noop_foreach(void *mod, b_lean_obj_arg fn) {}
 
 // ## Initialization Entry
-
-static void cleanup()
-{
-    WSACleanup();
-}
 
 /**
  * Initialize socket environment.
