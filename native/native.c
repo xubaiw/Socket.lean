@@ -198,31 +198,12 @@ static lean_obj_res get_socket_error()
                    MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
                    (LPWSTR)&s, 0, NULL);
     char *err_str;
-    wcstombs(err_str, s, NULL);
+    wcstombs(err_str, s, 100);
     lean_object *details = lean_mk_string(err_str);
     LocalFree(s);
 #else
     int errnum = errno;
     lean_object *details = lean_mk_string(strerror(errnum));
-#endif
-    return lean_mk_io_user_error(details);
-}
-
-static lean_obj_res get_addrinfo_error(int errnum)
-{
-#ifdef _WIN32
-    int errnum = WSAGetLastError();
-    wchar_t *s = NULL;
-    FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-                   NULL, errnum,
-                   MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-                   (LPWSTR)&s, 0, NULL);
-    char *err_str;
-    wcstombs(err_str, s, NULL);
-    lean_object *details = lean_mk_string(err_str);
-    LocalFree(s);
-#else
-    lean_object *details = lean_mk_string(gai_strerror(errnum));
 #endif
     return lean_mk_io_user_error(details);
 }
@@ -260,6 +241,11 @@ inline static void noop_foreach(void *mod, b_lean_obj_arg fn) {}
 
 // ## Initialization Entry
 
+static void cleanup()
+{
+    WSACleanup();
+}
+
 /**
  * Initialize socket environment.
  * 
@@ -280,11 +266,11 @@ lean_obj_res lean_socket_initialize()
     {
         return lean_io_result_mk_error(get_socket_error());
     }
-    if (atexit(WSACleanup))
+    if (atexit(cleanup))
     {
         int errnum = errno;
         lean_object *details = lean_mk_string(strerror(errnum));
-        return lean_io_result_mk_error(mk_io_error(errnum, details));
+        return lean_io_result_mk_error(lean_mk_io_user_error(details));
     }
 #endif
     return lean_io_result_mk_ok(lean_box(0));
@@ -532,7 +518,21 @@ lean_obj_res lean_sockaddr_mk(b_lean_obj_arg a, lean_obj_arg w)
     int status = getaddrinfo(host, port, &hints, &ai_res);
     if (status < 0)
     {
-        return lean_io_result_mk_error(get_addrinfo_error(status));
+#ifdef _WIN32
+        int errnum = WSAGetLastError();
+        wchar_t *s = NULL;
+        FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+                       NULL, errnum,
+                       MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+                       (LPWSTR)&s, 0, NULL);
+        char *err_str;
+        wcstombs(err_str, s, 100);
+        lean_object *details = lean_mk_string(err_str);
+        LocalFree(s);
+#else
+        lean_object *details = lean_mk_string(gai_strerror(status));
+#endif
+        return lean_io_result_mk_error(lean_mk_io_user_error(details));
     }
     sal->address_len = ai_res->ai_addrlen;
     sal->address = *(sockaddr_storage *)(ai_res->ai_addr);
