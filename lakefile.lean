@@ -8,7 +8,7 @@ def cLibTarget (pkgDir : FilePath) : FileTarget :=
   staticLibTarget (pkgDir / "./build/native/native.a") #[nativeOTarget pkgDir]
 
 package socket (pkgDir) (args) {
-  moreLibTargets := #[cLibTarget pkgDir]
+  moreLibTargets := if Platform.isWindows then #[cLibTarget pkgDir, inputFileTarget "C:\\Windows\\System32\\ws2_32.dll"] else #[cLibTarget pkgDir]
   defaultFacet := PackageFacet.staticLib
 }
 
@@ -22,4 +22,18 @@ script examples (args) do
       cwd := ex.path
     }
     IO.println o.stderr
+  return 0
+
+script clean (args) do
+  let examplesDir ← ("examples" : FilePath).readDir
+  let o ← IO.Process.output {
+      cmd := "lake"
+      args := #["clean"]
+  }
+  for ex in examplesDir do
+    let o ← IO.Process.output {
+      cmd := "lake"
+      args := #["clean"]
+      cwd := ex.path
+    }
   return 0
