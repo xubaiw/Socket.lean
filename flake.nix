@@ -36,6 +36,7 @@
           src = ./native;
           name = "lean-socket-native";
           updateCCOptions = o: o ++ [ "-I${leanPkgs.lean-bin-tools-unwrapped}/include" ];
+          extraDrvArgs = { linkName = "lean-socket-native"; };
         };
         project = leanPkgs.buildLeanPackage {
           name = "Socket";
@@ -51,6 +52,7 @@
       {
         inherit project;
         packages = {
+          inherit native;
           inherit (project) modRoot sharedLib staticLib;
           inherit examples;
         };
