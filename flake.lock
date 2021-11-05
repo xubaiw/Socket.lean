@@ -249,11 +249,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1636139685,
-        "narHash": "sha256-mMttTxYEoBoWM2snCcsuFbswXEzkO/bxmdpdQLrlu9s=",
+        "lastModified": 1636142049,
+        "narHash": "sha256-Hr3vVviMfOYm3IPCWlkZN0aMnEOEJDWvMuZROoVM1g4=",
         "owner": "yatima-inc",
         "repo": "nix-utils",
-        "rev": "e3e009e6591a364ab7bb63f93651407c13ef2305",
+        "rev": "00ff7f96fd633a021e2152c10b0059cfa7e30d0a",
         "type": "github"
       },
       "original": {

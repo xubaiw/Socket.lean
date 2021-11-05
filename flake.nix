@@ -31,7 +31,7 @@
         leanPkgs = lean.packages.${system};
         pkgs = import nixpkgs { inherit system; };
         name = "lean-socket";
-        inherit (utils.lib.${system}) buildCLib;
+        inherit (utils.lib.${system}) buildCLib forEachRowJoin;
         native = buildCLib {
           src = ./native;
           name = "lean-socket-native";
@@ -40,7 +40,6 @@
         project = leanPkgs.buildLeanPackage {
           name = "Socket";
           src = ./.;
-          debug = true;
           nativeSharedLibs = [ native.sharedLib ];
         };
         examples = import ./examples/default.nix {
@@ -56,9 +55,13 @@
           inherit examples;
         };
 
-        checks = {
-          inherit examples;
-        };
+        checks =
+          let
+            exampleExecutables = forEachRowJoin (name: p: { ${name} = p.executable; }) examples;
+          in
+          {
+            inherit exampleExecutables;
+          };
 
         defaultPackage = project.modRoot;
         devShell = pkgs.mkShell {
