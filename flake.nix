@@ -35,6 +35,7 @@
         native = buildCLib {
           src = ./native;
           name = "lean-socket-native";
+          updateCCOptions = o: o ++ [ "-I${leanPkgs.lean-bin-tools-unwrapped}/include" ];
         };
         project = leanPkgs.buildLeanPackage {
           name = "Socket";
