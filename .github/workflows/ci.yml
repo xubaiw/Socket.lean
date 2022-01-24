@@ -65,4 +65,4 @@ jobs:
     - name: Check Socket
       run: lake build
     - name: Test Examples
-      run: lake run examples
+      run: lake script run examples
