@@ -1,4 +1,20 @@
 namespace Socket
+
+/--
+  Initialize the socket environment.
+
+  This function does the following things:
+  1. register `Socket` and `SockAddr` type from external class
+  2. call `WSAStartup` on windows
+  3. register `WSACleanup` on windows
+
+  This function should always and only be called with `initialize initSocket`.
+ -/
+@[extern "lean_socket_initialize"]
+private constant initSocket : IO Unit
+
+builtin_initialize initSocket
+
 /--
   The low-level networking primitives for lean.
 
@@ -53,5 +69,7 @@ inductive ShutdownHow where
   | write
   | readwrite
   deriving Inhabited
+
+@[extern "lean_gethostname"] constant hostname : IO String
 
 end Socket
