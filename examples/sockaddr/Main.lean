@@ -1,5 +1,7 @@
 import Socket
 
+open Socket
+
 def main : IO Unit := do
   -- Local Address
   IO.println "\n-- Local address --\n"

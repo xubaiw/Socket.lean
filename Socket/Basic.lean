@@ -1,3 +1,4 @@
+namespace Socket
 /--
   The low-level networking primitives for lean.
 
@@ -52,3 +53,5 @@ inductive ShutdownHow where
   | write
   | readwrite
   deriving Inhabited
+
+end Socket

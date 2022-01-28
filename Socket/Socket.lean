@@ -1,6 +1,7 @@
 import Socket.Basic
 
 namespace Socket
+namespace Socket
 
 /--
   Create a new `Socket` using the specified domain and type.
@@ -67,4 +68,5 @@ namespace Socket
 -/
 @[extern "lean_socket_peer"] constant peer (s : @& Socket) : IO SockAddr
 
+end Socket
 end Socket

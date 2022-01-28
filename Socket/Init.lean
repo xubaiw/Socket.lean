@@ -1,3 +1,4 @@
+namespace Socket
 /--
   Initialize the socket environment.
 
@@ -11,3 +12,5 @@
 @[extern "lean_socket_initialize"] constant initSocket : IO Unit
 
 builtin_initialize initSocket
+
+end Socket

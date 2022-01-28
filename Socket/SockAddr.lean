@@ -1,5 +1,6 @@
 import Socket.Basic
 
+namespace Socket
 namespace SockAddr
 
 structure SockAddrArgs where
@@ -28,3 +29,5 @@ instance : ToString SockAddr where
     let port := a.port.map (s!"{·}") |>.getD "none"
     let family := a.family.map (s!"{·}") |>.getD "none"
     s!"({host}, {port}, {family})"
+
+end Socket

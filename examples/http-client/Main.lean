@@ -1,5 +1,7 @@
 import Socket
 
+open Socket
+
 def main : IO Unit := do
   -- configure remote SockAddr
   let remoteAddr ← SockAddr.mk {

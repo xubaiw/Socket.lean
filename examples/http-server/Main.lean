@@ -1,5 +1,7 @@
 import Socket
 
+open Socket
+
 /--
   Send back hello on accept.
 -/
