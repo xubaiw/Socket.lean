@@ -1,0 +1,3163 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="/style.css"></link><link rel="stylesheet" href="/pygments.css"></link><link rel="shortcut icon" href="/favicon.ico"></link><title>Init.Notation</title>
+<meta charset="UTF-8"></meta><meta name="viewport" content="width=device-width, initial-scale=1"></meta></head>
+<body>
+<input id="nav_toggle" type="checkbox"></input><header>
+<h1>
+<label for="nav_toggle">
+</label>
+Documentation</h1>
+<p class="header_filename break_within">Init.Notation</p>
+<form action="https://google.com/search" method="get" id="search_form">
+<input type="hidden" name="sitesearch" value="https://leanprover-community.github.io/mathlib_docs"></input><input type="text" name="q" autocomplete="off"></input><button>Google site search</button>
+</form>
+</header>
+<nav class="internal_nav">
+<h3>
+<a class="break_within" href="#top">Init.Notation</a>
+</h3>
+<p class="gh_nav_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean">source</a>
+</p>
+<div class="imports">
+<details>
+<summary>Imports</summary>
+<ul>
+<li>
+<a href="/Init/Prelude.html">Init.Prelude</a>
+</li>
+</ul>
+</details>
+<details>
+<summary>Imported by</summary>
+<ul>
+<li>
+<a href="/Init.html">Init</a>
+</li>
+<li>
+<a href="/Init/SizeOf.html">Init.SizeOf</a>
+</li>
+</ul>
+</details>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Syntax.addPrec">Lean.Parser.Syntax.addPrec</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Syntax.subPrec">Lean.Parser.Syntax.subPrec</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Syntax.addPrio">Lean.Parser.Syntax.addPrio</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Syntax.subPrio">Lean.Parser.Syntax.subPrio</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#precMax">precMax</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#precArg">precArg</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#precLead">precLead</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«prec(_)»">«prec(_)»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#precMin">precMin</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#precMin1">precMin1</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#termMax_prec">termMax_prec</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#prioDefault">prioDefault</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#prioLow">prioLow</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#prioMid">prioMid</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#prioHigh">prioHigh</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«prio(_)»">«prio(_)»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«stx_+»">«stx_+»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«stx_*»">«stx_*»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#stx_?">stx_?</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«stx_<|>_»">«stx_<|>_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«stx_,*»">«stx_,*»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«stx_,+»">«stx_,+»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«stx_,*,?»">«stx_,*,?»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«stx_,+,?»">«stx_,+,?»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#stx!_">stx!_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#rawNatLit">rawNatLit</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_∘_»">«term_∘_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_×_»">«term_×_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_|||_»">«term_|||_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_^^^_»">«term_^^^_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_&&&_»">«term_&&&_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_+_»">«term_+_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_-_»">«term_-_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_*_»">«term_*_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_/_»">«term_/_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_%_»">«term_%_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_<<<_»">«term_<<<_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_>>>_»">«term_>>>_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_^_»">«term_^_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_++_»">«term_++_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term-_»">«term-_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term~~~_»">«term~~~_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_<=_»">«term_<=_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_≤_»">«term_≤_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_<_»">«term_<_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_>=_»">«term_>=_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_≥_»">«term_≥_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_>_»">«term_>_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_=_»">«term_=_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_==_»">«term_==_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_/\_»">«term_/\_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_∧_»">«term_∧_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_\/_»">«term_\/_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_∨_»">«term_∨_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term¬_»">«term¬_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_&&_»">«term_&&_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_||_»">«term_||_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#term!_">term!_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_::_»">«term_::_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_<|>_»">«term_<|>_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_>>_»">«term_>>_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_>>=_»">«term_>>=_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_<*>_»">«term_<*>_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_<*_»">«term_<*_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_*>_»">«term_*>_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_<$>_»">«term_<$>_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#termDepIfThenElse">termDepIfThenElse</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#termIfThenElse">termIfThenElse</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«termIfLet_:=_Then_Else_»">«termIfLet_:=_Then_Else_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_<|_»">«term_<|_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_|>_»">«term_|>_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term_$__»">«term_$__»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term{__:_//_}»">«term{__:_//_}»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#termWithout_expected_type_">termWithout_expected_type_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term[_]»">«term[_]»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term%[_|_]»">«term%[_|_]»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.term_Matches_">Lean.term_Matches_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.termThis">Lean.termThis</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.intro">Lean.Parser.Tactic.intro</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.intros">Lean.Parser.Tactic.intros</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.rename">Lean.Parser.Tactic.rename</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.revert">Lean.Parser.Tactic.revert</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.clear">Lean.Parser.Tactic.clear</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.subst">Lean.Parser.Tactic.subst</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.assumption">Lean.Parser.Tactic.assumption</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.contradiction">Lean.Parser.Tactic.contradiction</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.apply">Lean.Parser.Tactic.apply</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.exact">Lean.Parser.Tactic.exact</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.refine">Lean.Parser.Tactic.refine</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.refine'">Lean.Parser.Tactic.refine'</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.constructor">Lean.Parser.Tactic.constructor</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.case">Lean.Parser.Tactic.case</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.«tacticNext___=>_»">Lean.Parser.Tactic.«tacticNext___=>_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.allGoals">Lean.Parser.Tactic.allGoals</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.anyGoals">Lean.Parser.Tactic.anyGoals</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.focus">Lean.Parser.Tactic.focus</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.skip">Lean.Parser.Tactic.skip</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.done">Lean.Parser.Tactic.done</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.traceState">Lean.Parser.Tactic.traceState</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.failIfSuccess">Lean.Parser.Tactic.failIfSuccess</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.paren">Lean.Parser.Tactic.paren</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.withReducible">Lean.Parser.Tactic.withReducible</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.withReducibleAndInstances">Lean.Parser.Tactic.withReducibleAndInstances</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.first">Lean.Parser.Tactic.first</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.rotateLeft">Lean.Parser.Tactic.rotateLeft</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.rotateRight">Lean.Parser.Tactic.rotateRight</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticTry_">Lean.Parser.Tactic.tacticTry_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.«tactic_<;>_»">Lean.Parser.Tactic.«tactic_<;>_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticRfl">Lean.Parser.Tactic.tacticRfl</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticAdmit">Lean.Parser.Tactic.tacticAdmit</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticSorry">Lean.Parser.Tactic.tacticSorry</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticInfer_instance">Lean.Parser.Tactic.tacticInfer_instance</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.config">Lean.Parser.Tactic.config</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.locationWildcard">Lean.Parser.Tactic.locationWildcard</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.locationHyp">Lean.Parser.Tactic.locationHyp</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.location">Lean.Parser.Tactic.location</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.change">Lean.Parser.Tactic.change</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.changeWith">Lean.Parser.Tactic.changeWith</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.rwRule">Lean.Parser.Tactic.rwRule</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.rwRuleSeq">Lean.Parser.Tactic.rwRuleSeq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.rewriteSeq">Lean.Parser.Tactic.rewriteSeq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.rwSeq">Lean.Parser.Tactic.rwSeq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.rwWithRfl">Lean.Parser.Tactic.rwWithRfl</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.expandRwSeq">Lean.Parser.Tactic.expandRwSeq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.injection">Lean.Parser.Tactic.injection</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.injections">Lean.Parser.Tactic.injections</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.discharger">Lean.Parser.Tactic.discharger</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.simpPre">Lean.Parser.Tactic.simpPre</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.simpPost">Lean.Parser.Tactic.simpPost</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.simpLemma">Lean.Parser.Tactic.simpLemma</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.simpErase">Lean.Parser.Tactic.simpErase</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.simpStar">Lean.Parser.Tactic.simpStar</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.simp">Lean.Parser.Tactic.simp</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.simpAll">Lean.Parser.Tactic.simpAll</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.delta">Lean.Parser.Tactic.delta</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.unfold">Lean.Parser.Tactic.unfold</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticRefine_lift_">Lean.Parser.Tactic.tacticRefine_lift_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticHave_">Lean.Parser.Tactic.tacticHave_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.«tacticHave__:=_»">Lean.Parser.Tactic.«tacticHave__:=_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticSuffices_">Lean.Parser.Tactic.tacticSuffices_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticLet_">Lean.Parser.Tactic.tacticLet_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticShow_">Lean.Parser.Tactic.tacticShow_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.letrec">Lean.Parser.Tactic.letrec</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticRefine_lift'_">Lean.Parser.Tactic.tacticRefine_lift'_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticHave'_">Lean.Parser.Tactic.tacticHave'_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.«tacticHave'__:=_»">Lean.Parser.Tactic.«tacticHave'__:=_»</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticLet'_">Lean.Parser.Tactic.tacticLet'_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.inductionAlt">Lean.Parser.Tactic.inductionAlt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.inductionAlts">Lean.Parser.Tactic.inductionAlts</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.induction">Lean.Parser.Tactic.induction</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.generalizeArg">Lean.Parser.Tactic.generalizeArg</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.generalize">Lean.Parser.Tactic.generalize</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.casesTarget">Lean.Parser.Tactic.casesTarget</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.cases">Lean.Parser.Tactic.cases</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.existsIntro">Lean.Parser.Tactic.existsIntro</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.renameI">Lean.Parser.Tactic.renameI</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticRepeat_">Lean.Parser.Tactic.tacticRepeat_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticTrivial">Lean.Parser.Tactic.tacticTrivial</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.split">Lean.Parser.Tactic.split</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.specialize">Lean.Parser.Tactic.specialize</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.tacticUnhygienic_">Lean.Parser.Tactic.tacticUnhygienic_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Attr.simp">Lean.Parser.Attr.simp</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#«term‹_›»">«term‹_›»</a>
+</div>
+</nav>
+<main>
+<div class="decl" id="Lean.Parser.Syntax.addPrec">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L15-L15">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Syntax.addPrec">Lean.Parser.Syntax.addPrec</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Syntax.subPrec">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L16-L16">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Syntax.subPrec">Lean.Parser.Syntax.subPrec</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Syntax.addPrio">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L18-L18">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Syntax.addPrio">Lean.Parser.Syntax.addPrio</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Syntax.subPrio">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L19-L19">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Syntax.subPrio">Lean.Parser.Syntax.subPrio</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="precMax">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L23-L23">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#precMax">precMax</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="precArg">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L24-L24">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#precArg">precArg</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="precLead">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L25-L25">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#precLead">precLead</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«prec(_)»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L26-L26">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«prec(_)»">«prec(_)»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="precMin">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L27-L27">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#precMin">precMin</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="precMin1">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L28-L28">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#precMin1">precMin1</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="termMax_prec">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L32-L32">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#termMax_prec">termMax_prec</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="prioDefault">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L34-L34">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#prioDefault">prioDefault</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="prioLow">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L35-L35">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#prioLow">prioLow</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="prioMid">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L36-L36">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#prioMid">prioMid</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="prioHigh">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L37-L37">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#prioHigh">prioHigh</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«prio(_)»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L38-L38">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«prio(_)»">«prio(_)»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«stx_+»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L42-L42">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«stx_+»">«stx_+»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«stx_*»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L43-L43">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«stx_*»">«stx_*»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="stx_?">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L44-L44">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#stx_?">stx_?</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«stx_<|>_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L45-L45">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«stx_<|>_»">«stx_<|>_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«stx_,*»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L54-L54">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«stx_,*»">«stx_,*»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«stx_,+»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L55-L55">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«stx_,+»">«stx_,+»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«stx_,*,?»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L57-L57">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«stx_,*,?»">«stx_,*,?»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«stx_,+,?»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L58-L58">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«stx_,+,?»">«stx_,+,?»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="stx!_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L60-L60">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#stx!_">stx!_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="rawNatLit">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L62-L62">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#rawNatLit">rawNatLit</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_∘_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L64-L64">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_∘_»">«term_∘_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_×_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L65-L65">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_×_»">«term_×_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_|||_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L67-L67">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_|||_»">«term_|||_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_^^^_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L68-L68">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_^^^_»">«term_^^^_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_&&&_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L69-L69">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_&&&_»">«term_&&&_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_+_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L70-L70">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_+_»">«term_+_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_-_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L71-L71">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_-_»">«term_-_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_*_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L72-L72">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_*_»">«term_*_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_/_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L73-L73">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_/_»">«term_/_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_%_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L74-L74">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_%_»">«term_%_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_<<<_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L75-L75">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_<<<_»">«term_<<<_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_>>>_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L76-L76">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_>>>_»">«term_>>>_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_^_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L77-L77">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_^_»">«term_^_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_++_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L78-L78">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_++_»">«term_++_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term-_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L79-L79">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term-_»">«term-_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term~~~_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L80-L80">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term~~~_»">«term~~~_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_<=_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L95-L95">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_<=_»">«term_<=_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_≤_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L96-L96">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_≤_»">«term_≤_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_<_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L97-L97">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_<_»">«term_<_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_>=_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L98-L98">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_>=_»">«term_>=_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_≥_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L99-L99">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_≥_»">«term_≥_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_>_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L100-L100">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_>_»">«term_>_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_=_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L101-L101">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_=_»">«term_=_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_==_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L102-L102">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_==_»">«term_==_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_/\_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L118-L118">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_/\_»">«term_/\_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_∧_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L119-L119">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_∧_»">«term_∧_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_\/_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L120-L120">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_\/_»">«term_\/_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_∨_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L121-L121">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_∨_»">«term_∨_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term¬_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L122-L122">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term¬_»">«term¬_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_&&_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L124-L124">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_&&_»">«term_&&_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_||_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L125-L125">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_||_»">«term_||_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="term!_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L126-L126">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#term!_">term!_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_::_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L128-L128">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_::_»">«term_::_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_<|>_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L129-L129">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_<|>_»">«term_<|>_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_>>_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L130-L130">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_>>_»">«term_>>_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_>>=_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L131-L131">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_>>=_»">«term_>>=_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_<*>_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L132-L132">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_<*>_»">«term_<*>_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_<*_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L133-L133">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_<*_»">«term_<*_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_*>_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L134-L134">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_*>_»">«term_*>_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_<$>_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L135-L135">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_<$>_»">«term_<$>_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="termDepIfThenElse">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L140-L142">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#termDepIfThenElse">termDepIfThenElse</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="termIfThenElse">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L147-L149">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#termIfThenElse">termIfThenElse</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«termIfLet_:=_Then_Else_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L154-L154">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«termIfLet_:=_Then_Else_»">«termIfLet_:=_Then_Else_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_<|_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L157-L157">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_<|_»">«term_<|_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_|>_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L163-L163">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_|>_»">«term_|>_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term_$__»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L171-L171">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term_$__»">«term_$__»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term{__:_//_}»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L177-L177">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term{__:_//_}»">«term{__:_//_}»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="termWithout_expected_type_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L187-L187">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#termWithout_expected_type_">termWithout_expected_type_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term[_]»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L189-L189">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term[_]»">«term[_]»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term%[_|_]»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L190-L190">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term%[_|_]»">«term%[_|_]»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.term_Matches_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L206-L206">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.term_Matches_">Lean.term_Matches_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.termThis">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L210-L211">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.termThis">Lean.termThis</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.intro">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L214-L232">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.intro">Lean.Parser.Tactic.intro</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.intros">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L233-L234">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.intros">Lean.Parser.Tactic.intros</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.rename">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L235-L238">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.rename">Lean.Parser.Tactic.rename</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.revert">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L239-L240">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.revert">Lean.Parser.Tactic.revert</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.clear">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L241-L242">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.clear">Lean.Parser.Tactic.clear</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.subst">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L243-L246">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.subst">Lean.Parser.Tactic.subst</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.assumption">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L247-L250">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.assumption">Lean.Parser.Tactic.assumption</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.contradiction">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L251-L261">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.contradiction">Lean.Parser.Tactic.contradiction</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.apply">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L262-L270">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.apply">Lean.Parser.Tactic.apply</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.exact">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L271-L274">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.exact">Lean.Parser.Tactic.exact</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.refine">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L275-L279">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.refine">Lean.Parser.Tactic.refine</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.refine'">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L280-L281">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.refine'">Lean.Parser.Tactic.refine'</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.constructor">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L282-L283">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.constructor">Lean.Parser.Tactic.constructor</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.case">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L284-L287">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.case">Lean.Parser.Tactic.case</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.«tacticNext___=>_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L288-L291">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.«tacticNext___=>_»">Lean.Parser.Tactic.«tacticNext___=>_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.allGoals">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L293-L294">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.allGoals">Lean.Parser.Tactic.allGoals</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.anyGoals">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L295-L296">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.anyGoals">Lean.Parser.Tactic.anyGoals</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.focus">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L297-L300">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.focus">Lean.Parser.Tactic.focus</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.skip">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L301-L302">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.skip">Lean.Parser.Tactic.skip</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.done">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L303-L304">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.done">Lean.Parser.Tactic.done</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.traceState">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L305-L305">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.traceState">Lean.Parser.Tactic.traceState</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.failIfSuccess">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L306-L306">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.failIfSuccess">Lean.Parser.Tactic.failIfSuccess</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.paren">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L307-L307">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.paren">Lean.Parser.Tactic.paren</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.withReducible">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L308-L308">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.withReducible">Lean.Parser.Tactic.withReducible</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.withReducibleAndInstances">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L309-L309">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.withReducibleAndInstances">Lean.Parser.Tactic.withReducibleAndInstances</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.first">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L310-L311">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.first">Lean.Parser.Tactic.first</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.rotateLeft">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L312-L312">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.rotateLeft">Lean.Parser.Tactic.rotateLeft</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.rotateRight">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L313-L313">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.rotateRight">Lean.Parser.Tactic.rotateRight</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticTry_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L314-L315">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticTry_">Lean.Parser.Tactic.tacticTry_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.«tactic_<;>_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L316-L317">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.«tactic_<;>_»">Lean.Parser.Tactic.«tactic_<;>_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticRfl">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L319-L320">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticRfl">Lean.Parser.Tactic.tacticRfl</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticAdmit">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L321-L322">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticAdmit">Lean.Parser.Tactic.tacticAdmit</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticSorry">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L323-L324">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticSorry">Lean.Parser.Tactic.tacticSorry</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticInfer_instance">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L325-L325">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticInfer_instance">Lean.Parser.Tactic.tacticInfer_instance</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.config">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L327-L328">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.config">Lean.Parser.Tactic.config</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.locationWildcard">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L330-L330">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.locationWildcard">Lean.Parser.Tactic.locationWildcard</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.locationHyp">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L331-L331">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.locationHyp">Lean.Parser.Tactic.locationHyp</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.location">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L332-L332">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.location">Lean.Parser.Tactic.location</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.change">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L334-L334">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.change">Lean.Parser.Tactic.change</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.changeWith">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L335-L335">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.changeWith">Lean.Parser.Tactic.changeWith</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.rwRule">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L337-L337">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.rwRule">Lean.Parser.Tactic.rwRule</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.rwRuleSeq">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L338-L338">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.rwRuleSeq">Lean.Parser.Tactic.rwRuleSeq</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.rewriteSeq">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L340-L340">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.rewriteSeq">Lean.Parser.Tactic.rewriteSeq</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.rwSeq">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L342-L342">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.rwSeq">Lean.Parser.Tactic.rwSeq</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.rwWithRfl">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L344-L351">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.rwWithRfl">Lean.Parser.Tactic.rwWithRfl</a>
+</span>
+<span class="decl_args">
+<span class="fn">(kind : <a href="/Init/Prelude.html#Lean.SyntaxNodeKind">Lean.SyntaxNodeKind</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(atom : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(stx : <a href="/Init/Prelude.html#Lean.Syntax">Lean.Syntax</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Lean.MacroM">Lean.MacroM</a> <a href="/Init/Prelude.html#Lean.Syntax">Lean.Syntax</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.expandRwSeq">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L353-L354">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.expandRwSeq">Lean.Parser.Tactic.expandRwSeq</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.Macro">Lean.Macro</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.injection">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L356-L356">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.injection">Lean.Parser.Tactic.injection</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.injections">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L358-L358">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.injections">Lean.Parser.Tactic.injections</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.discharger">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L360-L360">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.discharger">Lean.Parser.Tactic.discharger</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.simpPre">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L362-L362">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.simpPre">Lean.Parser.Tactic.simpPre</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.simpPost">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L363-L363">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.simpPost">Lean.Parser.Tactic.simpPost</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.simpLemma">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L364-L364">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.simpLemma">Lean.Parser.Tactic.simpLemma</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.simpErase">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L365-L365">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.simpErase">Lean.Parser.Tactic.simpErase</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.simpStar">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L366-L366">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.simpStar">Lean.Parser.Tactic.simpStar</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.simp">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L367-L367">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.simp">Lean.Parser.Tactic.simp</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.simpAll">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L368-L368">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.simpAll">Lean.Parser.Tactic.simpAll</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.delta">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L370-L373">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.delta">Lean.Parser.Tactic.delta</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.unfold">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L374-L378">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.unfold">Lean.Parser.Tactic.unfold</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticRefine_lift_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L382-L382">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticRefine_lift_">Lean.Parser.Tactic.tacticRefine_lift_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticHave_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L384-L384">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticHave_">Lean.Parser.Tactic.tacticHave_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.«tacticHave__:=_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L386-L386">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.«tacticHave__:=_»">Lean.Parser.Tactic.«tacticHave__:=_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticSuffices_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L387-L387">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticSuffices_">Lean.Parser.Tactic.tacticSuffices_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticLet_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L388-L388">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticLet_">Lean.Parser.Tactic.tacticLet_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticShow_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L389-L389">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticShow_">Lean.Parser.Tactic.tacticShow_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.letrec">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L390-L390">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.letrec">Lean.Parser.Tactic.letrec</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticRefine_lift'_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L395-L395">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticRefine_lift'_">Lean.Parser.Tactic.tacticRefine_lift'_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticHave'_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L396-L396">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticHave'_">Lean.Parser.Tactic.tacticHave'_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.«tacticHave'__:=_»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L397-L397">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.«tacticHave'__:=_»">Lean.Parser.Tactic.«tacticHave'__:=_»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticLet'_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L398-L398">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticLet'_">Lean.Parser.Tactic.tacticLet'_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.inductionAlt">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L400-L400">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.inductionAlt">Lean.Parser.Tactic.inductionAlt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.inductionAlts">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L401-L401">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.inductionAlts">Lean.Parser.Tactic.inductionAlts</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.induction">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L402-L402">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.induction">Lean.Parser.Tactic.induction</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.generalizeArg">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L404-L404">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.generalizeArg">Lean.Parser.Tactic.generalizeArg</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.generalize">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L405-L408">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.generalize">Lean.Parser.Tactic.generalize</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.casesTarget">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L410-L410">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.casesTarget">Lean.Parser.Tactic.casesTarget</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.cases">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L411-L411">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.cases">Lean.Parser.Tactic.cases</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.existsIntro">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L413-L413">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.existsIntro">Lean.Parser.Tactic.existsIntro</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.renameI">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L415-L416">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.renameI">Lean.Parser.Tactic.renameI</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticRepeat_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L418-L418">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticRepeat_">Lean.Parser.Tactic.tacticRepeat_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticTrivial">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L422-L422">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticTrivial">Lean.Parser.Tactic.tacticTrivial</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.split">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L424-L424">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.split">Lean.Parser.Tactic.split</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.specialize">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L426-L432">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.specialize">Lean.Parser.Tactic.specialize</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.tacticUnhygienic_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L440-L440">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Tactic.tacticUnhygienic_">Lean.Parser.Tactic.tacticUnhygienic_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Attr.simp">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L446-L446">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#Lean.Parser.Attr.simp">Lean.Parser.Attr.simp</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+<div class="decl" id="«term‹_›»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Notation.lean#L452-L452">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Notation.html#«term‹_›»">«term‹_›»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+</main>
+<nav class="nav">
+<h3>General documentation</h3>
+<div class="nav_link">
+<a href="/">index</a>
+</div>
+<h3>Library</h3>
+<div class="module_list">
+<details class="nav_sect" data-path="/Init.html" open="">
+<summary>Init</summary>
+<details class="nav_sect" data-path="/Init/Control.html">
+<summary>Init.Control</summary>
+<div class="nav_link">
+<a href="/Init/Control/Basic.html">Init.Control.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/EState.html">Init.Control.EState</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Except.html">Init.Control.Except</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/ExceptCps.html">Init.Control.ExceptCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Id.html">Init.Control.Id</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Lawful.html">Init.Control.Lawful</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Option.html">Init.Control.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Reader.html">Init.Control.Reader</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/State.html">Init.Control.State</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateCps.html">Init.Control.StateCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateRef.html">Init.Control.StateRef</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data.html">
+<summary>Init.Data</summary>
+<details class="nav_sect" data-path="/Init/Data/Array.html">
+<summary>Init.Data.Array</summary>
+<div class="nav_link">
+<a href="/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/Subarray.html">Init.Data.Array.Subarray</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ByteArray.html">
+<summary>Init.Data.ByteArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray/Basic.html">Init.Data.ByteArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Char.html">
+<summary>Init.Data.Char</summary>
+<div class="nav_link">
+<a href="/Init/Data/Char/Basic.html">Init.Data.Char.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Fin.html">
+<summary>Init.Data.Fin</summary>
+<div class="nav_link">
+<a href="/Init/Data/Fin/Basic.html">Init.Data.Fin.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/FloatArray.html">
+<summary>Init.Data.FloatArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray/Basic.html">Init.Data.FloatArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Format.html">
+<summary>Init.Data.Format</summary>
+<div class="nav_link">
+<a href="/Init/Data/Format/Basic.html">Init.Data.Format.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Instances.html">Init.Data.Format.Instances</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Macro.html">Init.Data.Format.Macro</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Syntax.html">Init.Data.Format.Syntax</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Int.html">
+<summary>Init.Data.Int</summary>
+<div class="nav_link">
+<a href="/Init/Data/Int/Basic.html">Init.Data.Int.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/List.html">
+<summary>Init.Data.List</summary>
+<div class="nav_link">
+<a href="/Init/Data/List/Basic.html">Init.Data.List.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/BasicAux.html">Init.Data.List.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/Control.html">Init.Data.List.Control</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Nat.html">
+<summary>Init.Data.Nat</summary>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Basic.html">Init.Data.Nat.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Bitwise.html">Init.Data.Nat.Bitwise</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Control.html">Init.Data.Nat.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Div.html">Init.Data.Nat.Div</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Gcd.html">Init.Data.Nat.Gcd</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Option.html">
+<summary>Init.Data.Option</summary>
+<div class="nav_link">
+<a href="/Init/Data/Option/Basic.html">Init.Data.Option.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/BasicAux.html">Init.Data.Option.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/Instances.html">Init.Data.Option.Instances</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/String.html">
+<summary>Init.Data.String</summary>
+<div class="nav_link">
+<a href="/Init/Data/String/Basic.html">Init.Data.String.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String/Extra.html">Init.Data.String.Extra</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ToString.html">
+<summary>Init.Data.ToString</summary>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Basic.html">Init.Data.ToString.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Data/Array.html">Init.Data.Array</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Basic.html">Init.Data.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray.html">Init.Data.ByteArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Char.html">Init.Data.Char</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Fin.html">Init.Data.Fin</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Float.html">Init.Data.Float</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray.html">Init.Data.FloatArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format.html">Init.Data.Format</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Hashable.html">Init.Data.Hashable</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Int.html">Init.Data.Int</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List.html">Init.Data.List</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat.html">Init.Data.Nat</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/OfScientific.html">Init.Data.OfScientific</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option.html">Init.Data.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Ord.html">Init.Data.Ord</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Random.html">Init.Data.Random</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Range.html">Init.Data.Range</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Repr.html">Init.Data.Repr</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Stream.html">Init.Data.Stream</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String.html">Init.Data.String</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString.html">Init.Data.ToString</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/UInt.html">Init.Data.UInt</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/System.html">
+<summary>Init.System</summary>
+<div class="nav_link">
+<a href="/Init/System/FilePath.html">Init.System.FilePath</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IO.html">Init.System.IO</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IOError.html">Init.System.IOError</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/Platform.html">Init.System.Platform</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/ST.html">Init.System.ST</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Classical.html">Init.Classical</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Coe.html">Init.Coe</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control.html">Init.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Conv.html">Init.Conv</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Core.html">Init.Core</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data.html">Init.Data</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Fix.html">Init.Fix</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Hints.html">Init.Hints</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Meta.html">Init.Meta</a>
+</div>
+<div class="nav_link" visible="">
+<a href="/Init/Notation.html">Init.Notation</a>
+</div>
+<div class="nav_link">
+<a href="/Init/NotationExtra.html">Init.NotationExtra</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Prelude.html">Init.Prelude</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SimpLemmas.html">Init.SimpLemmas</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SizeOf.html">Init.SizeOf</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Util.html">Init.Util</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WF.html">Init.WF</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WFTactics.html">Init.WFTactics</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Socket.html">
+<summary>Socket</summary>
+<div class="nav_link">
+<a href="/Socket/Basic.html">Socket.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/SockAddr.html">Socket.SockAddr</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Socket.html">Socket.Socket</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Util.html">Socket.Util</a>
+</div>
+</details>
+</div>
+</nav>
+<script>
+siteRoot = "/";
+    </script>
+<script src="/nav.js">
+</script>
+</body>
+</html>

@@ -1,0 +1,3131 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="/style.css"></link><link rel="stylesheet" href="/pygments.css"></link><link rel="shortcut icon" href="/favicon.ico"></link><title>Init.Data.String.Basic</title>
+<meta charset="UTF-8"></meta><meta name="viewport" content="width=device-width, initial-scale=1"></meta></head>
+<body>
+<input id="nav_toggle" type="checkbox"></input><header>
+<h1>
+<label for="nav_toggle">
+</label>
+Documentation</h1>
+<p class="header_filename break_within">Init.Data.String.Basic</p>
+<form action="https://google.com/search" method="get" id="search_form">
+<input type="hidden" name="sitesearch" value="https://leanprover-community.github.io/mathlib_docs"></input><input type="text" name="q" autocomplete="off"></input><button>Google site search</button>
+</form>
+</header>
+<nav class="internal_nav">
+<h3>
+<a class="break_within" href="#top">Init.Data.String.Basic</a>
+</h3>
+<p class="gh_nav_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean">source</a>
+</p>
+<div class="imports">
+<details>
+<summary>Imports</summary>
+<ul>
+<li>
+<a href="/Init/Data/Char/Basic.html">Init.Data.Char.Basic</a>
+</li>
+<li>
+<a href="/Init/Data/List/Basic.html">Init.Data.List.Basic</a>
+</li>
+<li>
+<a href="/Init/Data/Option/Basic.html">Init.Data.Option.Basic</a>
+</li>
+</ul>
+</details>
+<details>
+<summary>Imported by</summary>
+<ul>
+<li>
+<a href="/Init/Util.html">Init.Util</a>
+</li>
+<li>
+<a href="/Init/Data/Basic.html">Init.Data.Basic</a>
+</li>
+<li>
+<a href="/Init/Data/String.html">Init.Data.String</a>
+</li>
+<li>
+<a href="/Init/System/FilePath.html">Init.System.FilePath</a>
+</li>
+<li>
+<a href="/Init/System/IOError.html">Init.System.IOError</a>
+</li>
+<li>
+<a href="/Init/Data/Format/Basic.html">Init.Data.Format.Basic</a>
+</li>
+<li>
+<a href="/Init/Data/ToString/Basic.html">Init.Data.ToString.Basic</a>
+</li>
+</ul>
+</details>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#List.asString">List.asString</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.instLTString">String.instLTString</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.decLt">String.decLt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.length">String.length</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.push">String.push</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.append">String.append</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.toList">String.toList</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.get">String.get</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.getOp">String.getOp</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.set">String.set</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.modify">String.modify</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.next">String.next</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.prev">String.prev</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.front">String.front</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.back">String.back</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.atEnd">String.atEnd</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.posOfAux">String.posOfAux</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.posOf">String.posOf</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.revPosOfAux">String.revPosOfAux</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.revPosOf">String.revPosOf</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.findAux">String.findAux</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.find">String.find</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.revFindAux">String.revFindAux</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.revFind">String.revFind</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.firstDiffPos">String.firstDiffPos</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.firstDiffPos.loop">String.firstDiffPos.loop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.extract">String.extract</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.splitAux">String.splitAux</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.split">String.split</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.splitOnAux">String.splitOnAux</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.splitOn">String.splitOn</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.instInhabitedString">String.instInhabitedString</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.instAppendString">String.instAppendString</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.str">String.str</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.pushn">String.pushn</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.isEmpty">String.isEmpty</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.join">String.join</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.singleton">String.singleton</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.intercalate">String.intercalate</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.intercalate.go">String.intercalate.go</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator">String.Iterator</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.instDecidableEqIterator">String.instDecidableEqIterator</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.mkIterator">String.mkIterator</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.toString">String.Iterator.toString</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.remainingBytes">String.Iterator.remainingBytes</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.pos">String.Iterator.pos</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.curr">String.Iterator.curr</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.next">String.Iterator.next</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.prev">String.Iterator.prev</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.hasNext">String.Iterator.hasNext</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.hasPrev">String.Iterator.hasPrev</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.setCurr">String.Iterator.setCurr</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.toEnd">String.Iterator.toEnd</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.extract">String.Iterator.extract</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.forward">String.Iterator.forward</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.remainingToString">String.Iterator.remainingToString</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.nextn">String.Iterator.nextn</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.prevn">String.Iterator.prevn</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.offsetOfPosAux">String.offsetOfPosAux</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.offsetOfPos">String.offsetOfPos</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.foldlAux">String.foldlAux</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.foldlAux.loop">String.foldlAux.loop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.foldl">String.foldl</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.foldrAux">String.foldrAux</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.foldrAux.loop">String.foldrAux.loop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.foldr">String.foldr</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.anyAux">String.anyAux</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.anyAux.loop">String.anyAux.loop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.any">String.any</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.all">String.all</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.contains">String.contains</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.mapAux">String.mapAux</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.map">String.map</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.isNat">String.isNat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.toNat?">String.toNat?</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.substrEq">String.substrEq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.substrEq.loop">String.substrEq.loop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.isPrefixOf">String.isPrefixOf</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.replace">String.replace</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.replace.loop">String.replace.loop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.isEmpty">Substring.isEmpty</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.toString">Substring.toString</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.toIterator">Substring.toIterator</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.get">Substring.get</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.next">Substring.next</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.prev">Substring.prev</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.nextn">Substring.nextn</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.prevn">Substring.prevn</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.front">Substring.front</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.posOf">Substring.posOf</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.drop">Substring.drop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.dropRight">Substring.dropRight</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.take">Substring.take</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.takeRight">Substring.takeRight</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.atEnd">Substring.atEnd</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.extract">Substring.extract</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.splitOn">Substring.splitOn</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.splitOn.loop">Substring.splitOn.loop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.foldl">Substring.foldl</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.foldr">Substring.foldr</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.any">Substring.any</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.all">Substring.all</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.contains">Substring.contains</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.takeWhile">Substring.takeWhile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.dropWhile">Substring.dropWhile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.takeRightWhile">Substring.takeRightWhile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.dropRightWhile">Substring.dropRightWhile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.trimLeft">Substring.trimLeft</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.trimRight">Substring.trimRight</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.trim">Substring.trim</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.isNat">Substring.isNat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.toNat?">Substring.toNat?</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.beq">Substring.beq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Substring.hasBeq">Substring.hasBeq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.drop">String.drop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.dropRight">String.dropRight</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.take">String.take</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.takeRight">String.takeRight</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.takeWhile">String.takeWhile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.dropWhile">String.dropWhile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.takeRightWhile">String.takeRightWhile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.dropRightWhile">String.dropRightWhile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.startsWith">String.startsWith</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.endsWith">String.endsWith</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.trimRight">String.trimRight</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.trimLeft">String.trimLeft</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.trim">String.trim</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.nextWhile">String.nextWhile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.nextUntil">String.nextUntil</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.toUpper">String.toUpper</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.toLower">String.toLower</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.capitalize">String.capitalize</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.decapitalize">String.decapitalize</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Char.toString">Char.toString</a>
+</div>
+</nav>
+<main>
+<div class="decl" id="List.asString">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L12-L13">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#List.asString">List.asString</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#Char">Char</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.instLTString">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L16-L17">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.instLTString">String.instLTString</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#LT">LT</a> <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.decLt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L20-L21">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.decLt">String.decLt</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s₁ : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(s₂ : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Decidable">Decidable</a> (<span class="fn"><span class="fn">s₁</span> <a href="/Init/Prelude.html#LT.lt"><</a> <span class="fn">s₂</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="String.length">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L24-L25">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.length">String.length</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#String">String</a> → <a href="/Init/Prelude.html#Nat">Nat</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.push">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L30-L31">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.push">String.push</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#String">String</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.append">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L36-L37">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.append">String.append</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/Init/Prelude.html#String">String</a> → <a href="/Init/Prelude.html#String">String</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.toList">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L40-L41">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.toList">String.toList</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#Char">Char</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.get">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L48-L49">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.get">String.get</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <a href="/Init/Prelude.html#Char">Char</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.getOp">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L51-L52">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.getOp">String.getOp</a>
+</span>
+<span class="decl_args">
+<span class="fn">(self : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(idx : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Char">Char</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.set">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L60-L61">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.set">String.set</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#String">String</a></span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.modify">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L63-L64">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.modify">String.modify</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Char">Char</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.next">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L67-L69">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.next">String.next</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String.Pos">String.Pos</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.prev">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L79-L80">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.prev">String.prev</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <a href="/Init/Prelude.html#String.Pos">String.Pos</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.front">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L82-L83">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.front">String.front</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Char">Char</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.back">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L85-L86">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.back">String.back</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Char">Char</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.atEnd">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L89-L90">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.atEnd">String.atEnd</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.posOfAux">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L95-L98">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.posOfAux">String.posOfAux</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(c : <a href="/Init/Prelude.html#Char">Char</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(stopPos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(pos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String.Pos">String.Pos</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.posOf">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L100-L101">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.posOf">String.posOf</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(c : <a href="/Init/Prelude.html#Char">Char</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String.Pos">String.Pos</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.revPosOfAux">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L103-L106">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.revPosOfAux">String.revPosOfAux</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(c : <a href="/Init/Prelude.html#Char">Char</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(pos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Option">Option</a> <a href="/Init/Prelude.html#String.Pos">String.Pos</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.revPosOf">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L108-L110">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.revPosOf">String.revPosOf</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(c : <a href="/Init/Prelude.html#Char">Char</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Option">Option</a> <a href="/Init/Prelude.html#String.Pos">String.Pos</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.findAux">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L112-L115">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.findAux">String.findAux</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(stopPos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(pos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String.Pos">String.Pos</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.find">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L117-L118">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.find">String.find</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String.Pos">String.Pos</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.revFindAux">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L120-L123">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.revFindAux">String.revFindAux</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(pos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Option">Option</a> <a href="/Init/Prelude.html#String.Pos">String.Pos</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.revFind">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L125-L127">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.revFind">String.revFind</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Option">Option</a> <a href="/Init/Prelude.html#String.Pos">String.Pos</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.firstDiffPos">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L130-L135">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.firstDiffPos">String.firstDiffPos</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String.Pos">String.Pos</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.firstDiffPos.loop">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L132-L134">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.firstDiffPos.loop">String.firstDiffPos.loop</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(stopPos : <a href="/Init/Prelude.html#Nat">Nat</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String.Pos">String.Pos</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.extract">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L146-L147">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.extract">String.extract</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <a href="/Init/Prelude.html#String">String</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.splitAux">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L149-L157">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.splitAux">String.splitAux</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(r : <span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#String">String</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.split">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L159-L160">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.split">String.split</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.splitOnAux">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L162-L174">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.splitOnAux">String.splitOnAux</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(sep : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(j : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(r : <span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#String">String</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.splitOn">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L176-L177">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.splitOn">String.splitOn</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(sep : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Prelude.html#String">String</a> <span class="fn">" "</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.instInhabitedString">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L179-L179">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.instInhabitedString">String.instInhabitedString</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Inhabited">Inhabited</a> <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.instAppendString">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L181-L181">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.instAppendString">String.instAppendString</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Append">Append</a> <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.str">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L183-L183">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.str">String.str</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#String">String</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.pushn">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L185-L186">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.pushn">String.pushn</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(c : <a href="/Init/Prelude.html#Char">Char</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(n : <a href="/Init/Prelude.html#Nat">Nat</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.isEmpty">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L188-L189">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.isEmpty">String.isEmpty</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.join">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L191-L192">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.join">String.join</a>
+</span>
+<span class="decl_args">
+<span class="fn">(l : <span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#String">String</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.singleton">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L194-L195">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.singleton">String.singleton</a>
+</span>
+<span class="decl_args">
+<span class="fn">(c : <a href="/Init/Prelude.html#Char">Char</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.intercalate">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L197-L202">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.intercalate">String.intercalate</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#String">String</a></span> → <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.intercalate.go">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L200-L202">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.intercalate.go">String.intercalate.go</a>
+</span>
+<span class="decl_args">
+<span class="fn">(acc : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#String">String</a></span> → <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L204-L207">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="String.Iterator.mk">
+<li class="structure_field" id="String.Iterator.s">
+s: <a href="/Init/Prelude.html#String">String</a></li>
+<li class="structure_field" id="String.Iterator.i">
+i: <a href="/Init/Prelude.html#String.Pos">String.Pos</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="String.instDecidableEqIterator">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L207-L207">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.instDecidableEqIterator">String.instDecidableEqIterator</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#DecidableEq">DecidableEq</a> <a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.mkIterator">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L209-L210">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.mkIterator">String.mkIterator</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.toString">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L213-L214">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.toString">String.Iterator.toString</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.remainingBytes">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L216-L217">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.remainingBytes">String.Iterator.remainingBytes</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <a href="/Init/Prelude.html#Nat">Nat</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.pos">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L219-L220">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.pos">String.Iterator.pos</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <a href="/Init/Prelude.html#String.Pos">String.Pos</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.curr">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L222-L223">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.curr">String.Iterator.curr</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <a href="/Init/Prelude.html#Char">Char</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.next">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L225-L226">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.next">String.Iterator.next</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.prev">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L228-L229">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.prev">String.Iterator.prev</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.hasNext">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L231-L232">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.hasNext">String.Iterator.hasNext</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.hasPrev">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L234-L235">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.hasPrev">String.Iterator.hasPrev</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.setCurr">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L237-L238">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.setCurr">String.Iterator.setCurr</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.toEnd">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L240-L241">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.toEnd">String.Iterator.toEnd</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.extract">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L243-L246">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.extract">String.Iterator.extract</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.forward">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L248-L250">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.forward">String.Iterator.forward</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.remainingToString">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L252-L253">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.remainingToString">String.Iterator.remainingToString</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.nextn">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L255-L257">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.nextn">String.Iterator.nextn</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.prevn">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L259-L261">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.Iterator.prevn">String.Iterator.prevn</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a> → <span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.offsetOfPosAux">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L264-L268">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.offsetOfPosAux">String.offsetOfPosAux</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(pos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(offset : <a href="/Init/Prelude.html#Nat">Nat</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Nat">Nat</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.offsetOfPos">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L270-L271">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.offsetOfPos">String.offsetOfPos</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(pos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Nat">Nat</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.foldlAux">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L273-L277">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.foldlAux">String.foldlAux</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(stopPos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">α</span></div></div>
+</div>
+</div>
+<div class="decl" id="String.foldlAux.loop">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L274-L276">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.foldlAux.loop">String.foldlAux.loop</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(stopPos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">α</span></div></div>
+</div>
+</div>
+<div class="decl" id="String.foldl">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L279-L280">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.foldl">String.foldl</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(init : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">α</span></div></div>
+</div>
+</div>
+<div class="decl" id="String.foldrAux">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L282-L286">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.foldrAux">String.foldrAux</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <span class="fn"><span class="fn">α</span> → <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(stopPos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">α</span></div></div>
+</div>
+</div>
+<div class="decl" id="String.foldrAux.loop">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L283-L285">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.foldrAux.loop">String.foldrAux.loop</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <span class="fn"><span class="fn">α</span> → <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(stopPos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">α</span></div></div>
+</div>
+</div>
+<div class="decl" id="String.foldr">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L288-L289">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.foldr">String.foldr</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <span class="fn"><span class="fn">α</span> → <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(init : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">α</span></div></div>
+</div>
+</div>
+<div class="decl" id="String.anyAux">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L291-L296">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.anyAux">String.anyAux</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(stopPos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.anyAux.loop">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L292-L295">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.anyAux.loop">String.anyAux.loop</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(stopPos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.any">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L298-L299">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.any">String.any</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.all">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L301-L302">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.all">String.all</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.contains">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L304-L305">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.contains">String.contains</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(c : <a href="/Init/Prelude.html#Char">Char</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.mapAux">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L307-L312">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.mapAux">String.mapAux</a>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Char">Char</a></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.map">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L314-L315">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.map">String.map</a>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Char">Char</a></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.isNat">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L317-L318">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.isNat">String.isNat</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.toNat?">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L320-L324">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.toNat?">String.toNat?</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Option">Option</a> <a href="/Init/Prelude.html#Nat">Nat</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.substrEq">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L329-L337">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.substrEq">String.substrEq</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s1 : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(off1 : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(s2 : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(off2 : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(sz : <a href="/Init/Prelude.html#Nat">Nat</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.substrEq.loop">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L332-L337">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.substrEq.loop">String.substrEq.loop</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s1 : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(s2 : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(off1 : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(off2 : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(stop1 : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.isPrefixOf">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L340-L341">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.isPrefixOf">String.isPrefixOf</a>
+</span>
+<span class="decl_args">
+<span class="fn">(p : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.replace">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L344-L353">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.replace">String.replace</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(pattern : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(replacement : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.replace.loop">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L347-L353">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.replace.loop">String.replace.loop</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(pattern : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(replacement : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(acc : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(accStop : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(pos : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.isEmpty">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L359-L360">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.isEmpty">Substring.isEmpty</a>
+</span>
+<span class="decl_args">
+<span class="fn">(ss : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.toString">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L362-L363">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.toString">Substring.toString</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.toIterator">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L365-L366">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.toIterator">Substring.toIterator</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <a href="/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.get">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L369-L370">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.get">Substring.get</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn"><a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <a href="/Init/Prelude.html#Char">Char</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.next">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L374-L377">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.next">Substring.next</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn"><a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <a href="/Init/Prelude.html#String.Pos">String.Pos</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.prev">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L381-L384">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.prev">Substring.prev</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn"><a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <a href="/Init/Prelude.html#String.Pos">String.Pos</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.nextn">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L386-L388">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.nextn">Substring.nextn</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <a href="/Init/Prelude.html#String.Pos">String.Pos</a></span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.prevn">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L390-L392">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.prevn">Substring.prevn</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn"><a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <a href="/Init/Prelude.html#String.Pos">String.Pos</a></span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.front">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L394-L395">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.front">Substring.front</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Char">Char</a></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.posOf">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L399-L401">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.posOf">Substring.posOf</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(c : <a href="/Init/Prelude.html#Char">Char</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String.Pos">String.Pos</a></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.drop">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L403-L404">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.drop">Substring.drop</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <a href="/Init/Prelude.html#Substring">Substring</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.dropRight">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L406-L407">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.dropRight">Substring.dropRight</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <a href="/Init/Prelude.html#Substring">Substring</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.take">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L409-L410">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.take">Substring.take</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <a href="/Init/Prelude.html#Substring">Substring</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.takeRight">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L412-L413">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.takeRight">Substring.takeRight</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <a href="/Init/Prelude.html#Substring">Substring</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.atEnd">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L415-L416">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.atEnd">Substring.atEnd</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn"><a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.extract">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L418-L419">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.extract">Substring.extract</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn"><a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <a href="/Init/Prelude.html#String.Pos">String.Pos</a> → <a href="/Init/Prelude.html#Substring">Substring</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.splitOn">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L421-L441">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.splitOn">Substring.splitOn</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(sep : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Prelude.html#String">String</a> <span class="fn">" "</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#Substring">Substring</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.splitOn.loop">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L425-L440">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.splitOn.loop">Substring.splitOn.loop</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(sep : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Prelude.html#String">String</a> <span class="fn">" "</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(j : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(r : <span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#Substring">Substring</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <a href="/Init/Prelude.html#Substring">Substring</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.foldl">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L443-L445">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.foldl">Substring.foldl</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(init : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">α</span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.foldr">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L447-L449">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.foldr">Substring.foldr</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <span class="fn"><span class="fn">α</span> → <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(init : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">α</span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.any">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L451-L453">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.any">Substring.any</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.all">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L455-L456">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.all">Substring.all</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.contains">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L458-L459">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.contains">Substring.contains</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(c : <a href="/Init/Prelude.html#Char">Char</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.takeWhile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L466-L469">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.takeWhile">Substring.takeWhile</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn">(<span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>) → <a href="/Init/Prelude.html#Substring">Substring</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.dropWhile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L471-L474">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.dropWhile">Substring.dropWhile</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn">(<span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>) → <a href="/Init/Prelude.html#Substring">Substring</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.takeRightWhile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L484-L487">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.takeRightWhile">Substring.takeRightWhile</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn">(<span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>) → <a href="/Init/Prelude.html#Substring">Substring</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.dropRightWhile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L489-L492">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.dropRightWhile">Substring.dropRightWhile</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <span class="fn">(<span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>) → <a href="/Init/Prelude.html#Substring">Substring</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.trimLeft">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L494-L495">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.trimLeft">Substring.trimLeft</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Substring">Substring</a></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.trimRight">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L497-L498">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.trimRight">Substring.trimRight</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Substring">Substring</a></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.trim">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L500-L504">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.trim">Substring.trim</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Substring">Substring</a> → <a href="/Init/Prelude.html#Substring">Substring</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.isNat">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L506-L507">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.isNat">Substring.isNat</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.toNat?">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L509-L513">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.toNat?">Substring.toNat?</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Option">Option</a> <a href="/Init/Prelude.html#Nat">Nat</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.beq">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L515-L516">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.beq">Substring.beq</a>
+</span>
+<span class="decl_args">
+<span class="fn">(ss1 : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(ss2 : <a href="/Init/Prelude.html#Substring">Substring</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="Substring.hasBeq">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L518-L518">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Substring.hasBeq">Substring.hasBeq</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#BEq">BEq</a> <a href="/Init/Prelude.html#Substring">Substring</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.drop">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L524-L525">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.drop">String.drop</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(n : <a href="/Init/Prelude.html#Nat">Nat</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.dropRight">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L527-L528">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.dropRight">String.dropRight</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(n : <a href="/Init/Prelude.html#Nat">Nat</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.take">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L530-L531">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.take">String.take</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(n : <a href="/Init/Prelude.html#Nat">Nat</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.takeRight">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L533-L534">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.takeRight">String.takeRight</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(n : <a href="/Init/Prelude.html#Nat">Nat</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.takeWhile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L536-L537">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.takeWhile">String.takeWhile</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.dropWhile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L539-L540">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.dropWhile">String.dropWhile</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.takeRightWhile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L542-L543">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.takeRightWhile">String.takeRightWhile</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.dropRightWhile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L545-L546">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.dropRightWhile">String.dropRightWhile</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.startsWith">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L548-L549">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.startsWith">String.startsWith</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(pre : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.endsWith">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L551-L552">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.endsWith">String.endsWith</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(post : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.trimRight">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L554-L555">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.trimRight">String.trimRight</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.trimLeft">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L557-L558">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.trimLeft">String.trimLeft</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.trim">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L560-L561">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.trim">String.trim</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.nextWhile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L563-L564">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.nextWhile">String.nextWhile</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String.Pos">String.Pos</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.nextUntil">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L566-L567">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.nextUntil">String.nextUntil</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <span class="fn"><a href="/Init/Prelude.html#Char">Char</a> → <a href="/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String.Pos">String.Pos</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.toUpper">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L569-L570">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.toUpper">String.toUpper</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.toLower">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L572-L573">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.toLower">String.toLower</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.capitalize">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L575-L576">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.capitalize">String.capitalize</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.decapitalize">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L578-L579">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#String.decapitalize">String.decapitalize</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+<div class="decl" id="Char.toString">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/String/Basic.lean#L583-L584">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/String/Basic.html#Char.toString">Char.toString</a>
+</span>
+<span class="decl_args">
+<span class="fn">(c : <a href="/Init/Prelude.html#Char">Char</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#String">String</a></div></div>
+</div>
+</div>
+</main>
+<nav class="nav">
+<h3>General documentation</h3>
+<div class="nav_link">
+<a href="/">index</a>
+</div>
+<h3>Library</h3>
+<div class="module_list">
+<details class="nav_sect" data-path="/Init.html" open="">
+<summary>Init</summary>
+<details class="nav_sect" data-path="/Init/Control.html">
+<summary>Init.Control</summary>
+<div class="nav_link">
+<a href="/Init/Control/Basic.html">Init.Control.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/EState.html">Init.Control.EState</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Except.html">Init.Control.Except</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/ExceptCps.html">Init.Control.ExceptCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Id.html">Init.Control.Id</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Lawful.html">Init.Control.Lawful</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Option.html">Init.Control.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Reader.html">Init.Control.Reader</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/State.html">Init.Control.State</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateCps.html">Init.Control.StateCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateRef.html">Init.Control.StateRef</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data.html" open="">
+<summary>Init.Data</summary>
+<details class="nav_sect" data-path="/Init/Data/Array.html">
+<summary>Init.Data.Array</summary>
+<div class="nav_link">
+<a href="/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/Subarray.html">Init.Data.Array.Subarray</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ByteArray.html">
+<summary>Init.Data.ByteArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray/Basic.html">Init.Data.ByteArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Char.html">
+<summary>Init.Data.Char</summary>
+<div class="nav_link">
+<a href="/Init/Data/Char/Basic.html">Init.Data.Char.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Fin.html">
+<summary>Init.Data.Fin</summary>
+<div class="nav_link">
+<a href="/Init/Data/Fin/Basic.html">Init.Data.Fin.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/FloatArray.html">
+<summary>Init.Data.FloatArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray/Basic.html">Init.Data.FloatArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Format.html">
+<summary>Init.Data.Format</summary>
+<div class="nav_link">
+<a href="/Init/Data/Format/Basic.html">Init.Data.Format.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Instances.html">Init.Data.Format.Instances</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Macro.html">Init.Data.Format.Macro</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Syntax.html">Init.Data.Format.Syntax</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Int.html">
+<summary>Init.Data.Int</summary>
+<div class="nav_link">
+<a href="/Init/Data/Int/Basic.html">Init.Data.Int.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/List.html">
+<summary>Init.Data.List</summary>
+<div class="nav_link">
+<a href="/Init/Data/List/Basic.html">Init.Data.List.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/BasicAux.html">Init.Data.List.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/Control.html">Init.Data.List.Control</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Nat.html">
+<summary>Init.Data.Nat</summary>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Basic.html">Init.Data.Nat.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Bitwise.html">Init.Data.Nat.Bitwise</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Control.html">Init.Data.Nat.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Div.html">Init.Data.Nat.Div</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Gcd.html">Init.Data.Nat.Gcd</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Option.html">
+<summary>Init.Data.Option</summary>
+<div class="nav_link">
+<a href="/Init/Data/Option/Basic.html">Init.Data.Option.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/BasicAux.html">Init.Data.Option.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/Instances.html">Init.Data.Option.Instances</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/String.html" open="">
+<summary>Init.Data.String</summary>
+<div class="nav_link" visible="">
+<a href="/Init/Data/String/Basic.html">Init.Data.String.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String/Extra.html">Init.Data.String.Extra</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ToString.html">
+<summary>Init.Data.ToString</summary>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Basic.html">Init.Data.ToString.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Data/Array.html">Init.Data.Array</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Basic.html">Init.Data.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray.html">Init.Data.ByteArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Char.html">Init.Data.Char</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Fin.html">Init.Data.Fin</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Float.html">Init.Data.Float</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray.html">Init.Data.FloatArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format.html">Init.Data.Format</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Hashable.html">Init.Data.Hashable</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Int.html">Init.Data.Int</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List.html">Init.Data.List</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat.html">Init.Data.Nat</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/OfScientific.html">Init.Data.OfScientific</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option.html">Init.Data.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Ord.html">Init.Data.Ord</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Random.html">Init.Data.Random</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Range.html">Init.Data.Range</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Repr.html">Init.Data.Repr</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Stream.html">Init.Data.Stream</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String.html">Init.Data.String</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString.html">Init.Data.ToString</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/UInt.html">Init.Data.UInt</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/System.html">
+<summary>Init.System</summary>
+<div class="nav_link">
+<a href="/Init/System/FilePath.html">Init.System.FilePath</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IO.html">Init.System.IO</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IOError.html">Init.System.IOError</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/Platform.html">Init.System.Platform</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/ST.html">Init.System.ST</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Classical.html">Init.Classical</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Coe.html">Init.Coe</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control.html">Init.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Conv.html">Init.Conv</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Core.html">Init.Core</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data.html">Init.Data</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Fix.html">Init.Fix</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Hints.html">Init.Hints</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Meta.html">Init.Meta</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Notation.html">Init.Notation</a>
+</div>
+<div class="nav_link">
+<a href="/Init/NotationExtra.html">Init.NotationExtra</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Prelude.html">Init.Prelude</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SimpLemmas.html">Init.SimpLemmas</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SizeOf.html">Init.SizeOf</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Util.html">Init.Util</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WF.html">Init.WF</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WFTactics.html">Init.WFTactics</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Socket.html">
+<summary>Socket</summary>
+<div class="nav_link">
+<a href="/Socket/Basic.html">Socket.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/SockAddr.html">Socket.SockAddr</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Socket.html">Socket.Socket</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Util.html">Socket.Util</a>
+</div>
+</details>
+</div>
+</nav>
+<script>
+siteRoot = "/";
+    </script>
+<script src="/nav.js">
+</script>
+</body>
+</html>

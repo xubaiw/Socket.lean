@@ -1,0 +1,3821 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="/style.css"></link><link rel="stylesheet" href="/pygments.css"></link><link rel="shortcut icon" href="/favicon.ico"></link><title>Init.System.IO</title>
+<meta charset="UTF-8"></meta><meta name="viewport" content="width=device-width, initial-scale=1"></meta></head>
+<body>
+<input id="nav_toggle" type="checkbox"></input><header>
+<h1>
+<label for="nav_toggle">
+</label>
+Documentation</h1>
+<p class="header_filename break_within">Init.System.IO</p>
+<form action="https://google.com/search" method="get" id="search_form">
+<input type="hidden" name="sitesearch" value="https://leanprover-community.github.io/mathlib_docs"></input><input type="text" name="q" autocomplete="off"></input><button>Google site search</button>
+</form>
+</header>
+<nav class="internal_nav">
+<h3>
+<a class="break_within" href="#top">Init.System.IO</a>
+</h3>
+<p class="gh_nav_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean">source</a>
+</p>
+<div class="imports">
+<details>
+<summary>Imports</summary>
+<ul>
+<li>
+<a href="/Init/Control/EState.html">Init.Control.EState</a>
+</li>
+<li>
+<a href="/Init/Control/Reader.html">Init.Control.Reader</a>
+</li>
+<li>
+<a href="/Init/Data/ByteArray.html">Init.Data.ByteArray</a>
+</li>
+<li>
+<a href="/Init/Data/Ord.html">Init.Data.Ord</a>
+</li>
+<li>
+<a href="/Init/Data/String.html">Init.Data.String</a>
+</li>
+<li>
+<a href="/Init/System/FilePath.html">Init.System.FilePath</a>
+</li>
+<li>
+<a href="/Init/System/IOError.html">Init.System.IOError</a>
+</li>
+<li>
+<a href="/Init/System/ST.html">Init.System.ST</a>
+</li>
+<li>
+<a href="/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
+</li>
+</ul>
+</details>
+<details>
+<summary>Imported by</summary>
+<ul>
+<li>
+<a href="/Init/System.html">Init.System</a>
+</li>
+<li>
+<a href="/Init/Control/StateRef.html">Init.Control.StateRef</a>
+</li>
+<li>
+<a href="/Init/Data/Random.html">Init.Data.Random</a>
+</li>
+</ul>
+</details>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.RealWorld">IO.RealWorld</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#EIO">EIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMonadEIO">instMonadEIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMonadFinallyEIO">instMonadFinallyEIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMonadExceptOfEIO">instMonadExceptOfEIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instOrElseEIO">instOrElseEIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instInhabitedEIO">instInhabitedEIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#BaseIO">BaseIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMonadBaseIO">instMonadBaseIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMonadFinallyBaseIO">instMonadFinallyBaseIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#BaseIO.toEIO">BaseIO.toEIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMonadLiftBaseIOEIO">instMonadLiftBaseIOEIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#EIO.toBaseIO">EIO.toBaseIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#EIO.catchExceptions">EIO.catchExceptions</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO">IO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#BaseIO.toIO">BaseIO.toIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#EIO.toIO">EIO.toIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#EIO.toIO'">EIO.toIO'</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.toEIO">IO.toEIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#unsafeBaseIO">unsafeBaseIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#unsafeEIO">unsafeEIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#unsafeIO">unsafeIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#timeit">timeit</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#allocprof">allocprof</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.initializing">IO.initializing</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#BaseIO.asTask">BaseIO.asTask</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#BaseIO.mapTask">BaseIO.mapTask</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#BaseIO.bindTask">BaseIO.bindTask</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#BaseIO.mapTasks">BaseIO.mapTasks</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#BaseIO.mapTasks.go">BaseIO.mapTasks.go</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#EIO.asTask">EIO.asTask</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#EIO.mapTask">EIO.mapTask</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#EIO.bindTask">EIO.bindTask</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#EIO.mapTasks">EIO.mapTasks</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.ofExcept">IO.ofExcept</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.lazyPure">IO.lazyPure</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.monoMsNow">IO.monoMsNow</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.getRandomBytes">IO.getRandomBytes</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.sleep">IO.sleep</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.asTask">IO.asTask</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.mapTask">IO.mapTask</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.bindTask">IO.bindTask</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.mapTasks">IO.mapTasks</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.checkCanceled">IO.checkCanceled</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.cancel">IO.cancel</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.hasFinished">IO.hasFinished</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.wait">IO.wait</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.waitAny">IO.waitAny</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.getNumHeartbeats">IO.getNumHeartbeats</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Mode">IO.FS.Mode</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle">IO.FS.Handle</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Stream">IO.FS.Stream</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.instInhabitedStream">IO.FS.instInhabitedStream</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.getStdin">IO.getStdin</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.getStdout">IO.getStdout</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.getStderr">IO.getStderr</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.setStdin">IO.setStdin</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.setStdout">IO.setStdout</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.setStderr">IO.setStderr</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.iterate">IO.iterate</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.mkPrim">IO.FS.Handle.mkPrim</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.mk">IO.FS.Handle.mk</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.isEof">IO.FS.Handle.isEof</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.flush">IO.FS.Handle.flush</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.read">IO.FS.Handle.read</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.write">IO.FS.Handle.write</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.getLine">IO.FS.Handle.getLine</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.putStr">IO.FS.Handle.putStr</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.realPath">IO.FS.realPath</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.removeFile">IO.FS.removeFile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.removeDir">IO.FS.removeDir</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.createDir">IO.FS.createDir</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.getEnv">IO.getEnv</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.appPath">IO.appPath</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.currentDir">IO.currentDir</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.withFile">IO.FS.withFile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.putStrLn">IO.FS.Handle.putStrLn</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.readBinToEnd">IO.FS.Handle.readBinToEnd</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.readBinToEnd.loop">IO.FS.Handle.readBinToEnd.loop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.readToEnd">IO.FS.Handle.readToEnd</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Handle.readToEnd.loop">IO.FS.Handle.readToEnd.loop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.readBinFile">IO.FS.readBinFile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.readFile">IO.FS.readFile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.lines">IO.FS.lines</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.lines.read">IO.FS.lines.read</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.writeBinFile">IO.FS.writeBinFile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.writeFile">IO.FS.writeFile</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Stream.putStrLn">IO.FS.Stream.putStrLn</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.DirEntry">IO.FS.DirEntry</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.instReprDirEntry">IO.FS.instReprDirEntry</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.DirEntry.path">IO.FS.DirEntry.path</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.FileType">IO.FS.FileType</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.instReprFileType">IO.FS.instReprFileType</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.instBEqFileType">IO.FS.instBEqFileType</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.SystemTime">IO.FS.SystemTime</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.instInhabitedSystemTime">IO.FS.instInhabitedSystemTime</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.instReprSystemTime">IO.FS.instReprSystemTime</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.instOrdSystemTime">IO.FS.instOrdSystemTime</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.instBEqSystemTime">IO.FS.instBEqSystemTime</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.instLTSystemTime">IO.FS.instLTSystemTime</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.instLESystemTime">IO.FS.instLESystemTime</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Metadata">IO.FS.Metadata</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.instReprMetadata">IO.FS.instReprMetadata</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#System.FilePath.readDir">System.FilePath.readDir</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#System.FilePath.metadata">System.FilePath.metadata</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#System.FilePath.isDir">System.FilePath.isDir</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#System.FilePath.pathExists">System.FilePath.pathExists</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#System.FilePath.walkDir">System.FilePath.walkDir</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#System.FilePath.walkDir.go">System.FilePath.walkDir.go</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.withStdin">IO.withStdin</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.withStdout">IO.withStdout</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.withStderr">IO.withStderr</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.print">IO.print</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.println">IO.println</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.eprint">IO.eprint</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.eprintln">IO.eprintln</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.appDir">IO.appDir</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.createDirAll">IO.FS.createDirAll</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.removeDirAll">IO.FS.removeDirAll</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Process.Stdio">IO.Process.Stdio</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Process.Stdio.toHandleType">IO.Process.Stdio.toHandleType</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Process.StdioConfig">IO.Process.StdioConfig</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Process.SpawnArgs">IO.Process.SpawnArgs</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Process.Child">IO.Process.Child</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Process.spawn">IO.Process.spawn</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Process.Child.wait">IO.Process.Child.wait</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Process.Child.takeStdin">IO.Process.Child.takeStdin</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Process.Output">IO.Process.Output</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Process.output">IO.Process.output</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Process.run">IO.Process.run</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Process.exit">IO.Process.exit</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.AccessRight">IO.AccessRight</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.AccessRight.flags">IO.AccessRight.flags</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FileRight">IO.FileRight</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FileRight.flags">IO.FileRight.flags</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Prim.setAccessRights">IO.Prim.setAccessRights</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.setAccessRights">IO.setAccessRights</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.Ref">IO.Ref</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.instMonadLiftSTRealWorldBaseIO">IO.instMonadLiftSTRealWorldBaseIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.mkRef">IO.mkRef</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Stream.ofHandle">IO.FS.Stream.ofHandle</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Stream.Buffer">IO.FS.Stream.Buffer</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.Stream.ofBuffer">IO.FS.Stream.ofBuffer</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#IO.FS.withIsolatedStreams">IO.FS.withIsolatedStreams</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Eval">Lean.Eval</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.instEval">Lean.instEval</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.instEval_1">Lean.instEval_1</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.instEvalUnit">Lean.instEvalUnit</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.instEvalIO">Lean.instEvalIO</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.runEval">Lean.runEval</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#termPrintln!__">termPrintln!__</a>
+</div>
+</nav>
+<main>
+<div class="decl" id="IO.RealWorld">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L23-L23">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.RealWorld">IO.RealWorld</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+</div>
+</div>
+<div class="decl" id="EIO">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L32-L32">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#EIO">EIO</a>
+</span>
+<span class="decl_args">
+<span class="fn">(ε : <span class="fn">Type</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">Type</span> → <span class="fn">Type</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="instMonadEIO">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L34-L34">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#instMonadEIO">instMonadEIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> (<span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="instMonadFinallyEIO">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L35-L35">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#instMonadFinallyEIO">instMonadFinallyEIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Control/Except.html#MonadFinally">MonadFinally</a> (<span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="instMonadExceptOfEIO">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L36-L36">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#instMonadExceptOfEIO">instMonadExceptOfEIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#MonadExceptOf">MonadExceptOf</a> <span class="fn">ε</span> (<span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="instOrElseEIO">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L37-L37">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#instOrElseEIO">instOrElseEIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#OrElse">OrElse</a> (<span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="instInhabitedEIO">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L38-L38">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#instInhabitedEIO">instInhabitedEIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Inhabited">Inhabited</a> <span class="fn">ε</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Inhabited">Inhabited</a> (<span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="BaseIO">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L41-L41">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#BaseIO">BaseIO</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">Type</span> → <span class="fn">Type</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="instMonadBaseIO">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L43-L43">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#instMonadBaseIO">instMonadBaseIO</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <a href="/Init/System/IO.html#BaseIO">BaseIO</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="instMonadFinallyBaseIO">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L44-L44">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#instMonadFinallyBaseIO">instMonadFinallyBaseIO</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Control/Except.html#MonadFinally">MonadFinally</a> <a href="/Init/System/IO.html#BaseIO">BaseIO</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="BaseIO.toEIO">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L46-L48">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#BaseIO.toEIO">BaseIO.toEIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(act : <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="instMonadLiftBaseIOEIO">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L50-L50">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#instMonadLiftBaseIOEIO">instMonadLiftBaseIOEIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#MonadLift">MonadLift</a> <a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="EIO.toBaseIO">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L52-L55">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#EIO.toBaseIO">EIO.toBaseIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(act : <span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="EIO.catchExceptions">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L57-L60">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#EIO.catchExceptions">EIO.catchExceptions</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(act : <span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><span class="fn">ε</span> → <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L63-L63">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO">IO</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">Type</span> → <span class="fn">Type</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="BaseIO.toIO">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L65-L66">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#BaseIO.toIO">BaseIO.toIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(act : <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="EIO.toIO">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L68-L69">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#EIO.toIO">EIO.toIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">ε</span> → <a href="/Init/System/IOError.html#IO.Error">IO.Error</a></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(act : <span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="EIO.toIO'">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L71-L72">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#EIO.toIO'">EIO.toIO'</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(act : <span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.toEIO">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L74-L75">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.toEIO">IO.toEIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><a href="/Init/System/IOError.html#IO.Error">IO.Error</a> → <span class="fn">ε</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(act : <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="unsafeBaseIO">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L81-L83">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#unsafeBaseIO">unsafeBaseIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(fn : <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">α</span></div></div>
+</div>
+</div>
+<div class="decl" id="unsafeEIO">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L85-L86">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#unsafeEIO">unsafeEIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(fn : <span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="unsafeIO">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L88-L89">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#unsafeIO">unsafeIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(fn : <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <a href="/Init/System/IOError.html#IO.Error">IO.Error</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="timeit">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L91-L91">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#timeit">timeit</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(msg : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(fn : <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="allocprof">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L92-L92">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#allocprof">allocprof</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(msg : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(fn : <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.initializing">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L99-L99">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.initializing">IO.initializing</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/Prelude.html#Bool">Bool</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="BaseIO.asTask">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L112-L113">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#BaseIO.asTask">BaseIO.asTask</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(act : <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="BaseIO.mapTask">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L117-L118">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#BaseIO.mapTask">BaseIO.mapTask</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">β</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(t : <span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">β</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="BaseIO.bindTask">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L122-L123">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#BaseIO.bindTask">BaseIO.bindTask</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(t : <span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">β</span></span>)</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">β</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="BaseIO.mapTasks">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L125-L131">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#BaseIO.mapTasks">BaseIO.mapTasks</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <span class="fn">α</span></span> → <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">β</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(tasks : <span class="fn"><a href="/Init/Prelude.html#List">List</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">β</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="BaseIO.mapTasks.go">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L128-L131">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#BaseIO.mapTasks.go">BaseIO.mapTasks.go</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <span class="fn">α</span></span> → <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">β</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Prelude.html#List">List</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span> → <span class="fn"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <span class="fn">α</span></span> → <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">β</span></span>)</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="EIO.asTask">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L138-L139">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#EIO.asTask">EIO.asTask</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(act : <span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="EIO.mapTask">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L142-L143">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#EIO.mapTask">EIO.mapTask</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> <span class="fn">β</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(t : <span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">β</span></span>)</span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="EIO.bindTask">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L146-L147">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#EIO.bindTask">EIO.bindTask</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(t : <span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">β</span></span>)</span>)</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">β</span></span>)</span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="EIO.mapTasks">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L150-L151">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#EIO.mapTasks">EIO.mapTasks</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <span class="fn">α</span></span> → <span class="fn"><a href="/Init/System/IO.html#EIO">EIO</a> <span class="fn">ε</span> <span class="fn">β</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(tasks : <span class="fn"><a href="/Init/Prelude.html#List">List</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">β</span></span>)</span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.ofExcept">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L157-L160">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.ofExcept">IO.ofExcept</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Data/ToString/Basic.html#ToString">ToString</a> <span class="fn">ε</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(e : <span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.lazyPure">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L162-L163">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.lazyPure">IO.lazyPure</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(fn : <span class="fn"><a href="/Init/Prelude.html#Unit">Unit</a> → <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.monoMsNow">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L166-L166">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.monoMsNow">IO.monoMsNow</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/Prelude.html#Nat">Nat</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.getRandomBytes">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L170-L170">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.getRandomBytes">IO.getRandomBytes</a>
+</span>
+<span class="decl_args">
+<span class="fn">(nBytes : <a href="/Init/Prelude.html#USize">USize</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.sleep">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L172-L174">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.sleep">IO.sleep</a>
+</span>
+<span class="decl_args">
+<span class="fn">(ms : <a href="/Init/Prelude.html#UInt32">UInt32</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.asTask">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L177-L178">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.asTask">IO.asTask</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(act : <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <a href="/Init/System/IOError.html#IO.Error">IO.Error</a> <span class="fn">α</span></span>)</span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.mapTask">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L181-L182">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.mapTask">IO.mapTask</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">β</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(t : <span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <a href="/Init/System/IOError.html#IO.Error">IO.Error</a> <span class="fn">β</span></span>)</span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.bindTask">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L185-L186">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.bindTask">IO.bindTask</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(t : <span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <a href="/Init/System/IOError.html#IO.Error">IO.Error</a> <span class="fn">β</span></span>)</span>)</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <a href="/Init/System/IOError.html#IO.Error">IO.Error</a> <span class="fn">β</span></span>)</span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.mapTasks">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L189-L190">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.mapTasks">IO.mapTasks</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn"><a href="/Init/Prelude.html#List">List</a> <span class="fn">α</span></span> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">β</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(tasks : <span class="fn"><a href="/Init/Prelude.html#List">List</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(prio : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <a href="/Init/System/IOError.html#IO.Error">IO.Error</a> <span class="fn">β</span></span>)</span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.checkCanceled">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L193-L193">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.checkCanceled">IO.checkCanceled</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/Prelude.html#Bool">Bool</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.cancel">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L196-L196">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.cancel">IO.cancel</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span> → <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.hasFinished">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L199-L199">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.hasFinished">IO.hasFinished</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span> → <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/Prelude.html#Bool">Bool</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.wait">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L202-L203">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.wait">IO.wait</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(t : <span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.waitAny">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L206-L206">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.waitAny">IO.waitAny</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Prelude.html#List">List</a> (<span class="fn"><a href="/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.getNumHeartbeats">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L209-L209">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.getNumHeartbeats">IO.getNumHeartbeats</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/Prelude.html#Nat">Nat</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Mode">
+<div class="inductive">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L211-L212">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">inductive</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Mode">IO.FS.Mode</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="constructors">
+<li class="constructor" id="IO.FS.Mode.read">
+read: <a href="/Init/System/IO.html#IO.FS.Mode">IO.FS.Mode</a></li>
+<li class="constructor" id="IO.FS.Mode.write">
+write: <a href="/Init/System/IO.html#IO.FS.Mode">IO.FS.Mode</a></li>
+<li class="constructor" id="IO.FS.Mode.readWrite">
+readWrite: <a href="/Init/System/IO.html#IO.FS.Mode">IO.FS.Mode</a></li>
+<li class="constructor" id="IO.FS.Mode.append">
+append: <a href="/Init/System/IO.html#IO.FS.Mode">IO.FS.Mode</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L214-L214">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Stream">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L219-L226">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="IO.FS.Stream.mk">
+<li class="structure_field" id="IO.FS.Stream.isEof">
+isEof: <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Bool">Bool</a></span></li>
+<li class="structure_field" id="IO.FS.Stream.flush">
+flush: <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></li>
+<li class="structure_field" id="IO.FS.Stream.read">
+read: <span class="fn"><a href="/Init/Prelude.html#USize">USize</a> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></span></span></li>
+<li class="structure_field" id="IO.FS.Stream.write">
+write: <span class="fn"><a href="/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></span></li>
+<li class="structure_field" id="IO.FS.Stream.getLine">
+getLine: <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#String">String</a></span></li>
+<li class="structure_field" id="IO.FS.Stream.putStr">
+putStr: <span class="fn"><a href="/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.FS.instInhabitedStream">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L226-L226">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.instInhabitedStream">IO.FS.instInhabitedStream</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Inhabited">Inhabited</a> <a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.getStdin">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L230-L230">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.getStdin">IO.getStdin</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.getStdout">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L231-L231">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.getStdout">IO.getStdout</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.getStderr">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L232-L232">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.getStderr">IO.getStderr</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.setStdin">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L235-L235">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.setStdin">IO.setStdin</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a> → <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.setStdout">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L237-L237">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.setStdout">IO.setStdout</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a> → <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.setStderr">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L239-L239">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.setStderr">IO.setStderr</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a> → <span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.iterate">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L241-L245">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.iterate">IO.iterate</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> (<span class="fn"><span class="fn">α</span> <a href="/Init/Core.html#Sum">⊕</a> <span class="fn">β</span></span>)</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">β</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.mkPrim">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L261-L261">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.mkPrim">IO.FS.Handle.mkPrim</a>
+</span>
+<span class="decl_args">
+<span class="fn">(fn : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(mode : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.mk">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L263-L264">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.mk">IO.FS.Handle.mk</a>
+</span>
+<span class="decl_args">
+<span class="fn">(fn : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(Mode : <a href="/Init/System/IO.html#IO.FS.Mode">IO.FS.Mode</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(bin : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Prelude.html#Bool">Bool</a> <a href="/Init/Prelude.html#Bool.true">true</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.isEof">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L271-L271">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.isEof">IO.FS.Handle.isEof</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/Prelude.html#Bool">Bool</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.flush">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L272-L272">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.flush">IO.FS.Handle.flush</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.read">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L273-L273">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.read">IO.FS.Handle.read</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(bytes : <a href="/Init/Prelude.html#USize">USize</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.write">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L274-L274">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.write">IO.FS.Handle.write</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(buffer : <a href="/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.getLine">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L276-L276">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.getLine">IO.FS.Handle.getLine</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.putStr">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L277-L277">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.putStr">IO.FS.Handle.putStr</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.realPath">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L281-L281">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.realPath">IO.FS.realPath</a>
+</span>
+<span class="decl_args">
+<span class="fn">(fname : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.removeFile">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L282-L282">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.removeFile">IO.FS.removeFile</a>
+</span>
+<span class="decl_args">
+<span class="fn">(fname : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.removeDir">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L284-L284">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.removeDir">IO.FS.removeDir</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.createDir">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L285-L285">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.createDir">IO.FS.createDir</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.getEnv">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L289-L289">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.getEnv">IO.getEnv</a>
+</span>
+<span class="decl_args">
+<span class="fn">(var : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/Prelude.html#Option">Option</a> <a href="/Init/Prelude.html#String">String</a></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.appPath">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L290-L290">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.appPath">IO.appPath</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.currentDir">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L291-L291">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.currentDir">IO.currentDir</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.withFile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L296-L297">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.withFile">IO.FS.withFile</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(fn : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(mode : <a href="/Init/System/IO.html#IO.FS.Mode">IO.FS.Mode</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.putStrLn">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L299-L300">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.putStrLn">IO.FS.Handle.putStrLn</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.readBinToEnd">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L302-L309">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.readBinToEnd">IO.FS.Handle.readBinToEnd</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.readBinToEnd.loop">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L303-L308">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.readBinToEnd.loop">IO.FS.Handle.readBinToEnd.loop</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(acc : <a href="/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.readToEnd">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L311-L318">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.readToEnd">IO.FS.Handle.readToEnd</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Handle.readToEnd.loop">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L312-L317">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Handle.readToEnd.loop">IO.FS.Handle.readToEnd.loop</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.readBinFile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L320-L322">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.readBinFile">IO.FS.readBinFile</a>
+</span>
+<span class="decl_args">
+<span class="fn">(fname : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.readFile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L324-L326">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.readFile">IO.FS.readFile</a>
+</span>
+<span class="decl_args">
+<span class="fn">(fname : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.lines">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L328-L340">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.lines">IO.FS.lines</a>
+</span>
+<span class="decl_args">
+<span class="fn">(fname : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> (<span class="fn"><a href="/Init/Prelude.html#Array">Array</a> <a href="/Init/Prelude.html#String">String</a></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.lines.read">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L330-L339">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.lines.read">IO.FS.lines.read</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(lines : <span class="fn"><a href="/Init/Prelude.html#Array">Array</a> <a href="/Init/Prelude.html#String">String</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> (<span class="fn"><a href="/Init/Prelude.html#Array">Array</a> <a href="/Init/Prelude.html#String">String</a></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.writeBinFile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L342-L344">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.writeBinFile">IO.FS.writeBinFile</a>
+</span>
+<span class="decl_args">
+<span class="fn">(fname : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(content : <a href="/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.writeFile">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L346-L348">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.writeFile">IO.FS.writeFile</a>
+</span>
+<span class="decl_args">
+<span class="fn">(fname : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(content : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Stream.putStrLn">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L350-L351">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Stream.putStrLn">IO.FS.Stream.putStrLn</a>
+</span>
+<span class="decl_args">
+<span class="fn">(strm : <a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.DirEntry">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L353-L356">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.DirEntry">IO.FS.DirEntry</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="IO.FS.DirEntry.mk">
+<li class="structure_field" id="IO.FS.DirEntry.root">
+root: <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a></li>
+<li class="structure_field" id="IO.FS.DirEntry.fileName">
+fileName: <a href="/Init/Prelude.html#String">String</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.FS.instReprDirEntry">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L356-L356">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.instReprDirEntry">IO.FS.instReprDirEntry</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Repr.html#Repr">Repr</a> <a href="/Init/System/IO.html#IO.FS.DirEntry">IO.FS.DirEntry</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.DirEntry.path">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L358-L359">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.DirEntry.path">IO.FS.DirEntry.path</a>
+</span>
+<span class="decl_args">
+<span class="fn">(entry : <a href="/Init/System/IO.html#IO.FS.DirEntry">IO.FS.DirEntry</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.FileType">
+<div class="inductive">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L361-L366">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">inductive</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="constructors">
+<li class="constructor" id="IO.FS.FileType.dir">
+dir: <a href="/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType</a></li>
+<li class="constructor" id="IO.FS.FileType.file">
+file: <a href="/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType</a></li>
+<li class="constructor" id="IO.FS.FileType.symlink">
+symlink: <a href="/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType</a></li>
+<li class="constructor" id="IO.FS.FileType.other">
+other: <a href="/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.FS.instReprFileType">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L366-L366">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.instReprFileType">IO.FS.instReprFileType</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Repr.html#Repr">Repr</a> <a href="/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.instBEqFileType">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L366-L366">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.instBEqFileType">IO.FS.instBEqFileType</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#BEq">BEq</a> <a href="/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.SystemTime">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L368-L371">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.SystemTime">IO.FS.SystemTime</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="IO.FS.SystemTime.mk">
+<li class="structure_field" id="IO.FS.SystemTime.sec">
+sec: <a href="/Init/Data/Int/Basic.html#Int">Int</a></li>
+<li class="structure_field" id="IO.FS.SystemTime.nsec">
+nsec: <a href="/Init/Prelude.html#UInt32">UInt32</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.FS.instInhabitedSystemTime">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L371-L371">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.instInhabitedSystemTime">IO.FS.instInhabitedSystemTime</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Inhabited">Inhabited</a> <a href="/Init/System/IO.html#IO.FS.SystemTime">IO.FS.SystemTime</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.instReprSystemTime">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L371-L371">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.instReprSystemTime">IO.FS.instReprSystemTime</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Repr.html#Repr">Repr</a> <a href="/Init/System/IO.html#IO.FS.SystemTime">IO.FS.SystemTime</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.instOrdSystemTime">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L371-L371">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.instOrdSystemTime">IO.FS.instOrdSystemTime</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Ord.html#Ord">Ord</a> <a href="/Init/System/IO.html#IO.FS.SystemTime">IO.FS.SystemTime</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.instBEqSystemTime">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L371-L371">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.instBEqSystemTime">IO.FS.instBEqSystemTime</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#BEq">BEq</a> <a href="/Init/System/IO.html#IO.FS.SystemTime">IO.FS.SystemTime</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.instLTSystemTime">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L373-L373">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.instLTSystemTime">IO.FS.instLTSystemTime</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#LT">LT</a> <a href="/Init/System/IO.html#IO.FS.SystemTime">IO.FS.SystemTime</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.instLESystemTime">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L374-L374">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.instLESystemTime">IO.FS.instLESystemTime</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#LE">LE</a> <a href="/Init/System/IO.html#IO.FS.SystemTime">IO.FS.SystemTime</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Metadata">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L376-L382">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Metadata">IO.FS.Metadata</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="IO.FS.Metadata.mk">
+<li class="structure_field" id="IO.FS.Metadata.accessed">
+accessed: <a href="/Init/System/IO.html#IO.FS.SystemTime">IO.FS.SystemTime</a></li>
+<li class="structure_field" id="IO.FS.Metadata.modified">
+modified: <a href="/Init/System/IO.html#IO.FS.SystemTime">IO.FS.SystemTime</a></li>
+<li class="structure_field" id="IO.FS.Metadata.byteSize">
+byteSize: <a href="/Init/Prelude.html#UInt64">UInt64</a></li>
+<li class="structure_field" id="IO.FS.Metadata.type">
+type: <a href="/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.FS.instReprMetadata">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L382-L382">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.instReprMetadata">IO.FS.instReprMetadata</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Repr.html#Repr">Repr</a> <a href="/Init/System/IO.html#IO.FS.Metadata">IO.FS.Metadata</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="System.FilePath.readDir">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L391-L391">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#System.FilePath.readDir">System.FilePath.readDir</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> (<span class="fn"><a href="/Init/Prelude.html#Array">Array</a> <a href="/Init/System/IO.html#IO.FS.DirEntry">IO.FS.DirEntry</a></span>)</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="System.FilePath.metadata">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L394-L394">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#System.FilePath.metadata">System.FilePath.metadata</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/System/IO.html#IO.FS.Metadata">IO.FS.Metadata</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="System.FilePath.isDir">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L396-L399">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#System.FilePath.isDir">System.FilePath.isDir</a>
+</span>
+<span class="decl_args">
+<span class="fn">(p : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/Prelude.html#Bool">Bool</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="System.FilePath.pathExists">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L401-L402">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#System.FilePath.pathExists">System.FilePath.pathExists</a>
+</span>
+<span class="decl_args">
+<span class="fn">(p : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Init/Prelude.html#Bool">Bool</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="System.FilePath.walkDir">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L407-L424">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#System.FilePath.walkDir">System.FilePath.walkDir</a>
+</span>
+<span class="decl_args">
+<span class="fn">(p : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(enter : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> (<span class="fn"><a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Bool">Bool</a></span></span>) <span class="fn">fun <span class="fn">x</span> => <span class="fn"><a href="/Init/Prelude.html#Pure.pure">pure</a> <a href="/Init/Prelude.html#Bool.true">true</a></span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> (<span class="fn"><a href="/Init/Prelude.html#Array">Array</a> <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="System.FilePath.walkDir.go">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L410-L424">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#System.FilePath.walkDir.go">System.FilePath.walkDir.go</a>
+</span>
+<span class="decl_args">
+<span class="fn">(enter : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> (<span class="fn"><a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Bool">Bool</a></span></span>) <span class="fn">fun <span class="fn">x</span> => <span class="fn"><a href="/Init/Prelude.html#Pure.pure">pure</a> <a href="/Init/Prelude.html#Bool.true">true</a></span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(p : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Control/State.html#StateT">StateT</a> (<span class="fn"><a href="/Init/Prelude.html#Array">Array</a> <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a></span>) <a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.withStdin">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L430-L432">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.withStdin">IO.withStdin</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type</span> → <span class="fn">Type u_1</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Control/Except.html#MonadFinally">MonadFinally</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#MonadLiftT">MonadLiftT</a> <a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.withStdout">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L434-L439">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.withStdout">IO.withStdout</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type</span> → <span class="fn">Type u_1</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Control/Except.html#MonadFinally">MonadFinally</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#MonadLiftT">MonadLiftT</a> <a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.withStderr">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L441-L443">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.withStderr">IO.withStderr</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type</span> → <span class="fn">Type u_1</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Control/Except.html#MonadFinally">MonadFinally</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#MonadLiftT">MonadLiftT</a> <a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.print">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L445-L447">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.print">IO.print</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Data/ToString/Basic.html#ToString">ToString</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.println">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L449-L450">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.println">IO.println</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Data/ToString/Basic.html#ToString">ToString</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.eprint">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L452-L454">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.eprint">IO.eprint</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Data/ToString/Basic.html#ToString">ToString</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.eprintln">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L456-L457">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.eprintln">IO.eprintln</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Data/ToString/Basic.html#ToString">ToString</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.appDir">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L467-L471">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.appDir">IO.appDir</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.createDirAll">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L474-L486">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.createDirAll">IO.FS.createDirAll</a>
+</span>
+<span class="decl_args">
+<span class="fn">(p : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.removeDirAll">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L491-L497">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.removeDirAll">IO.FS.removeDirAll</a>
+</span>
+<span class="decl_args">
+<span class="fn">(p : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.Process.Stdio">
+<div class="inductive">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L500-L503">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">inductive</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Process.Stdio">IO.Process.Stdio</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="constructors">
+<li class="constructor" id="IO.Process.Stdio.piped">
+piped: <a href="/Init/System/IO.html#IO.Process.Stdio">IO.Process.Stdio</a></li>
+<li class="constructor" id="IO.Process.Stdio.inherit">
+inherit: <a href="/Init/System/IO.html#IO.Process.Stdio">IO.Process.Stdio</a></li>
+<li class="constructor" id="IO.Process.Stdio.null">
+null: <a href="/Init/System/IO.html#IO.Process.Stdio">IO.Process.Stdio</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.Process.Stdio.toHandleType">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L505-L508">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Process.Stdio.toHandleType">IO.Process.Stdio.toHandleType</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO.Process.Stdio">IO.Process.Stdio</a> → <span class="fn">Type</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.Process.StdioConfig">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L510-L516">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Process.StdioConfig">IO.Process.StdioConfig</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="IO.Process.StdioConfig.mk">
+<li class="structure_field" id="IO.Process.StdioConfig.stdin">
+stdin: <a href="/Init/System/IO.html#IO.Process.Stdio">IO.Process.Stdio</a></li>
+<li class="structure_field" id="IO.Process.StdioConfig.stdout">
+stdout: <a href="/Init/System/IO.html#IO.Process.Stdio">IO.Process.Stdio</a></li>
+<li class="structure_field" id="IO.Process.StdioConfig.stderr">
+stderr: <a href="/Init/System/IO.html#IO.Process.Stdio">IO.Process.Stdio</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.Process.SpawnArgs">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L518-L526">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Process.SpawnArgs">IO.Process.SpawnArgs</a>
+</span>
+<span class="decl_extends">extends</span>
+<span class="decl_parent">
+<span class="fn"><a class="break_within" href="/Init/System/IO.html#IO.Process.StdioConfig">IO.Process.StdioConfig</a>
+</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="IO.Process.SpawnArgs.mk">
+<li class="structure_field" id="IO.Process.SpawnArgs.cmd">
+cmd: <a href="/Init/Prelude.html#String">String</a></li>
+<li class="structure_field" id="IO.Process.SpawnArgs.args">
+args: <span class="fn"><a href="/Init/Prelude.html#Array">Array</a> <a href="/Init/Prelude.html#String">String</a></span></li>
+<li class="structure_field" id="IO.Process.SpawnArgs.cwd">
+cwd: <span class="fn"><a href="/Init/Prelude.html#Option">Option</a> <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a></span></li>
+<li class="structure_field" id="IO.Process.SpawnArgs.env">
+env: <span class="fn"><a href="/Init/Prelude.html#Array">Array</a> (<span class="fn"><a href="/Init/Prelude.html#String">String</a> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn"><a href="/Init/Prelude.html#Option">Option</a> <a href="/Init/Prelude.html#String">String</a></span></span>)</span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.Process.Child">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L529-L532">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Process.Child">IO.Process.Child</a>
+</span>
+<span class="decl_args">
+<span class="fn">(cfg : <a href="/Init/System/IO.html#IO.Process.StdioConfig">IO.Process.StdioConfig</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="IO.Process.Child.mk">
+<li class="structure_field" id="IO.Process.Child.stdin">
+stdin: <span class="fn"><a href="/Init/System/IO.html#IO.Process.Stdio.toHandleType">IO.Process.Stdio.toHandleType</a> <span class="fn"><span class="fn">cfg</span>.stdin</span></span></li>
+<li class="structure_field" id="IO.Process.Child.stdout">
+stdout: <span class="fn"><a href="/Init/System/IO.html#IO.Process.Stdio.toHandleType">IO.Process.Stdio.toHandleType</a> <span class="fn"><span class="fn">cfg</span>.stdout</span></span></li>
+<li class="structure_field" id="IO.Process.Child.stderr">
+stderr: <span class="fn"><a href="/Init/System/IO.html#IO.Process.Stdio.toHandleType">IO.Process.Stdio.toHandleType</a> <span class="fn"><span class="fn">cfg</span>.stderr</span></span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.Process.spawn">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L534-L534">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Process.spawn">IO.Process.spawn</a>
+</span>
+<span class="decl_args">
+<span class="fn">(args : <a href="/Init/System/IO.html#IO.Process.SpawnArgs">IO.Process.SpawnArgs</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> (<span class="fn"><a href="/Init/System/IO.html#IO.Process.Child">IO.Process.Child</a> <span class="fn"><span class="fn">args</span>.toStdioConfig</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.Process.Child.wait">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L536-L536">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Process.Child.wait">IO.Process.Child.wait</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{cfg : <a href="/Init/System/IO.html#IO.Process.StdioConfig">IO.Process.StdioConfig</a>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/System/IO.html#IO.Process.Child">IO.Process.Child</a> <span class="fn">cfg</span></span> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#UInt32">UInt32</a></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.Process.Child.takeStdin">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L544-L545">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Process.Child.takeStdin">IO.Process.Child.takeStdin</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{cfg : <a href="/Init/System/IO.html#IO.Process.StdioConfig">IO.Process.StdioConfig</a>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/System/IO.html#IO.Process.Child">IO.Process.Child</a> <span class="fn">cfg</span></span> →
+  <span class="fn"><a href="/Init/System/IO.html#IO">IO</a>
+    (<span class="fn"><span class="fn"><a href="/Init/System/IO.html#IO.Process.Stdio.toHandleType">IO.Process.Stdio.toHandleType</a> <span class="fn"><span class="fn">cfg</span>.stdin</span></span> <a href="/Init/Prelude.html#Prod">×</a>       <span class="fn"><a href="/Init/System/IO.html#IO.Process.Child">IO.Process.Child</a> <span class="fn">{ stdin := <a href="/Init/System/IO.html#IO.Process.Stdio.null">IO.Process.Stdio.null</a>, stdout := <span class="fn"><span class="fn">cfg</span>.stdout</span>, stderr := <span class="fn"><span class="fn">cfg</span>.stderr</span> }</span></span></span>)</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.Process.Output">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L547-L550">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Process.Output">IO.Process.Output</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="IO.Process.Output.mk">
+<li class="structure_field" id="IO.Process.Output.exitCode">
+exitCode: <a href="/Init/Prelude.html#UInt32">UInt32</a></li>
+<li class="structure_field" id="IO.Process.Output.stdout">
+stdout: <a href="/Init/Prelude.html#String">String</a></li>
+<li class="structure_field" id="IO.Process.Output.stderr">
+stderr: <a href="/Init/Prelude.html#String">String</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.Process.output">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L553-L559">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Process.output">IO.Process.output</a>
+</span>
+<span class="decl_args">
+<span class="fn">(args : <a href="/Init/System/IO.html#IO.Process.SpawnArgs">IO.Process.SpawnArgs</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/System/IO.html#IO.Process.Output">IO.Process.Output</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.Process.run">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L562-L566">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Process.run">IO.Process.run</a>
+</span>
+<span class="decl_args">
+<span class="fn">(args : <a href="/Init/System/IO.html#IO.Process.SpawnArgs">IO.Process.SpawnArgs</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.Process.exit">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L568-L568">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Process.exit">IO.Process.exit</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#UInt8">UInt8</a> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.AccessRight">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L572-L575">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.AccessRight">IO.AccessRight</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="IO.AccessRight.mk">
+<li class="structure_field" id="IO.AccessRight.read">
+read: <a href="/Init/Prelude.html#Bool">Bool</a></li>
+<li class="structure_field" id="IO.AccessRight.write">
+write: <a href="/Init/Prelude.html#Bool">Bool</a></li>
+<li class="structure_field" id="IO.AccessRight.execution">
+execution: <a href="/Init/Prelude.html#Bool">Bool</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.AccessRight.flags">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L577-L581">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.AccessRight.flags">IO.AccessRight.flags</a>
+</span>
+<span class="decl_args">
+<span class="fn">(acc : <a href="/Init/System/IO.html#IO.AccessRight">IO.AccessRight</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#UInt32">UInt32</a></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FileRight">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L583-L586">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FileRight">IO.FileRight</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="IO.FileRight.mk">
+<li class="structure_field" id="IO.FileRight.user">
+user: <a href="/Init/System/IO.html#IO.AccessRight">IO.AccessRight</a></li>
+<li class="structure_field" id="IO.FileRight.group">
+group: <a href="/Init/System/IO.html#IO.AccessRight">IO.AccessRight</a></li>
+<li class="structure_field" id="IO.FileRight.other">
+other: <a href="/Init/System/IO.html#IO.AccessRight">IO.AccessRight</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.FileRight.flags">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L588-L592">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FileRight.flags">IO.FileRight.flags</a>
+</span>
+<span class="decl_args">
+<span class="fn">(acc : <a href="/Init/System/IO.html#IO.FileRight">IO.FileRight</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#UInt32">UInt32</a></div></div>
+</div>
+</div>
+<div class="decl" id="IO.Prim.setAccessRights">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L594-L594">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Prim.setAccessRights">IO.Prim.setAccessRights</a>
+</span>
+<span class="decl_args">
+<span class="fn">(filename : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(mode : <a href="/Init/Prelude.html#UInt32">UInt32</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.setAccessRights">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L596-L597">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.setAccessRights">IO.setAccessRights</a>
+</span>
+<span class="decl_args">
+<span class="fn">(filename : <a href="/Init/System/FilePath.html#System.FilePath">System.FilePath</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(mode : <a href="/Init/System/IO.html#IO.FileRight">IO.FileRight</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.Ref">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L600-L600">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.Ref">IO.Ref</a>
+</span>
+<span class="decl_args">
+<span class="fn">(α : <span class="fn">Type</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.instMonadLiftSTRealWorldBaseIO">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L602-L602">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.instMonadLiftSTRealWorldBaseIO">IO.instMonadLiftSTRealWorldBaseIO</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#MonadLift">MonadLift</a> (<span class="fn"><a href="/Init/System/ST.html#ST">ST</a> <a href="/Init/System/IO.html#IO.RealWorld">IO.RealWorld</a></span>) <a href="/Init/System/IO.html#BaseIO">BaseIO</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.mkRef">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L604-L605">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.mkRef">IO.mkRef</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Init/System/IO.html#IO.Ref">IO.Ref</a> <span class="fn">α</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Stream.ofHandle">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L611-L618">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Stream.ofHandle">IO.FS.Stream.ofHandle</a>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <a href="/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.Stream.Buffer">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L620-L622">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Stream.Buffer">IO.FS.Stream.Buffer</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="IO.FS.Stream.Buffer.mk">
+<li class="structure_field" id="IO.FS.Stream.Buffer.data">
+data: <a href="/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></li>
+<li class="structure_field" id="IO.FS.Stream.Buffer.pos">
+pos: <a href="/Init/Prelude.html#Nat">Nat</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="IO.FS.Stream.ofBuffer">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L624-L642">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.Stream.ofBuffer">IO.FS.Stream.ofBuffer</a>
+</span>
+<span class="decl_args">
+<span class="fn">(r : <span class="fn"><a href="/Init/System/IO.html#IO.Ref">IO.Ref</a> <a href="/Init/System/IO.html#IO.FS.Stream.Buffer">IO.FS.Stream.Buffer</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/System/IO.html#IO.FS.Stream">IO.FS.Stream</a></div></div>
+</div>
+</div>
+<div class="decl" id="IO.FS.withIsolatedStreams">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L646-L655">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#IO.FS.withIsolatedStreams">IO.FS.withIsolatedStreams</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type</span> → <span class="fn">Type u_1</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Control/Except.html#MonadFinally">MonadFinally</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#MonadLiftT">MonadLiftT</a> <a href="/Init/System/IO.html#BaseIO">BaseIO</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Init/Prelude.html#String">String</a> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn">α</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.Eval">
+<div class="class">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L665-L669">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">class</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#Lean.Eval">Lean.Eval</a>
+</span>
+<span class="decl_args">
+<span class="fn">(α : <span class="fn">Type u</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type u</span></div></div>
+<ul class="structure_fields" id="Lean.Eval.mk">
+<li class="structure_field" id="Lean.Eval.eval">
+eval: <span class="fn">(<span class="fn"><a href="/Init/Prelude.html#Unit">Unit</a> → <span class="fn">α</span></span>) → <span class="fn"><span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Prelude.html#Bool">Bool</a> <a href="/Init/Prelude.html#Bool.true">true</a></span> → <span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></span></span></li>
+</ul>
+<details class="instances">
+<summary>Instances</summary>
+<ul>
+<li>
+<a href="/Init/System/IO.html#Lean.instEval">Lean.instEval</a>
+</li>
+<li>
+<a href="/Init/System/IO.html#Lean.instEval_1">Lean.instEval_1</a>
+</li>
+<li>
+<a href="/Init/System/IO.html#Lean.instEvalIO">Lean.instEvalIO</a>
+</li>
+<li>
+<a href="/Init/System/IO.html#Lean.instEvalUnit">Lean.instEvalUnit</a>
+</li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="Lean.instEval">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L671-L672">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#Lean.instEval">Lean.instEval</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Data/ToString/Basic.html#ToString">ToString</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#Lean.Eval">Lean.Eval</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.instEval_1">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L674-L675">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#Lean.instEval_1">Lean.instEval_1</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Data/Repr.html#Repr">Repr</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#Lean.Eval">Lean.Eval</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.instEvalUnit">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L677-L678">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#Lean.instEvalUnit">Lean.instEvalUnit</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#Lean.Eval">Lean.Eval</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.instEvalIO">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L680-L683">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#Lean.instEvalIO">Lean.instEvalIO</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/System/IO.html#Lean.Eval">Lean.Eval</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#Lean.Eval">Lean.Eval</a> (<span class="fn"><a href="/Init/System/IO.html#IO">IO</a> <span class="fn">α</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.runEval">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L685-L686">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#Lean.runEval">Lean.runEval</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/System/IO.html#Lean.Eval">Lean.Eval</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn"><a href="/Init/Prelude.html#Unit">Unit</a> → <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/System/IO.html#IO">IO</a> (<span class="fn"><a href="/Init/Prelude.html#String">String</a> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <a href="/Init/System/IOError.html#IO.Error">IO.Error</a> <a href="/Init/Prelude.html#Unit">Unit</a></span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="termPrintln!__">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IO.lean#L690-L690">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/System/IO.html#termPrintln!__">termPrintln!__</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+</div>
+</div>
+</main>
+<nav class="nav">
+<h3>General documentation</h3>
+<div class="nav_link">
+<a href="/">index</a>
+</div>
+<h3>Library</h3>
+<div class="module_list">
+<details class="nav_sect" data-path="/Init.html" open="">
+<summary>Init</summary>
+<details class="nav_sect" data-path="/Init/Control.html">
+<summary>Init.Control</summary>
+<div class="nav_link">
+<a href="/Init/Control/Basic.html">Init.Control.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/EState.html">Init.Control.EState</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Except.html">Init.Control.Except</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/ExceptCps.html">Init.Control.ExceptCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Id.html">Init.Control.Id</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Lawful.html">Init.Control.Lawful</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Option.html">Init.Control.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Reader.html">Init.Control.Reader</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/State.html">Init.Control.State</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateCps.html">Init.Control.StateCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateRef.html">Init.Control.StateRef</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data.html">
+<summary>Init.Data</summary>
+<details class="nav_sect" data-path="/Init/Data/Array.html">
+<summary>Init.Data.Array</summary>
+<div class="nav_link">
+<a href="/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/Subarray.html">Init.Data.Array.Subarray</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ByteArray.html">
+<summary>Init.Data.ByteArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray/Basic.html">Init.Data.ByteArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Char.html">
+<summary>Init.Data.Char</summary>
+<div class="nav_link">
+<a href="/Init/Data/Char/Basic.html">Init.Data.Char.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Fin.html">
+<summary>Init.Data.Fin</summary>
+<div class="nav_link">
+<a href="/Init/Data/Fin/Basic.html">Init.Data.Fin.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/FloatArray.html">
+<summary>Init.Data.FloatArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray/Basic.html">Init.Data.FloatArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Format.html">
+<summary>Init.Data.Format</summary>
+<div class="nav_link">
+<a href="/Init/Data/Format/Basic.html">Init.Data.Format.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Instances.html">Init.Data.Format.Instances</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Macro.html">Init.Data.Format.Macro</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Syntax.html">Init.Data.Format.Syntax</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Int.html">
+<summary>Init.Data.Int</summary>
+<div class="nav_link">
+<a href="/Init/Data/Int/Basic.html">Init.Data.Int.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/List.html">
+<summary>Init.Data.List</summary>
+<div class="nav_link">
+<a href="/Init/Data/List/Basic.html">Init.Data.List.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/BasicAux.html">Init.Data.List.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/Control.html">Init.Data.List.Control</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Nat.html">
+<summary>Init.Data.Nat</summary>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Basic.html">Init.Data.Nat.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Bitwise.html">Init.Data.Nat.Bitwise</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Control.html">Init.Data.Nat.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Div.html">Init.Data.Nat.Div</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Gcd.html">Init.Data.Nat.Gcd</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Option.html">
+<summary>Init.Data.Option</summary>
+<div class="nav_link">
+<a href="/Init/Data/Option/Basic.html">Init.Data.Option.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/BasicAux.html">Init.Data.Option.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/Instances.html">Init.Data.Option.Instances</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/String.html">
+<summary>Init.Data.String</summary>
+<div class="nav_link">
+<a href="/Init/Data/String/Basic.html">Init.Data.String.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String/Extra.html">Init.Data.String.Extra</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ToString.html">
+<summary>Init.Data.ToString</summary>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Basic.html">Init.Data.ToString.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Data/Array.html">Init.Data.Array</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Basic.html">Init.Data.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray.html">Init.Data.ByteArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Char.html">Init.Data.Char</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Fin.html">Init.Data.Fin</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Float.html">Init.Data.Float</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray.html">Init.Data.FloatArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format.html">Init.Data.Format</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Hashable.html">Init.Data.Hashable</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Int.html">Init.Data.Int</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List.html">Init.Data.List</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat.html">Init.Data.Nat</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/OfScientific.html">Init.Data.OfScientific</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option.html">Init.Data.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Ord.html">Init.Data.Ord</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Random.html">Init.Data.Random</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Range.html">Init.Data.Range</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Repr.html">Init.Data.Repr</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Stream.html">Init.Data.Stream</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String.html">Init.Data.String</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString.html">Init.Data.ToString</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/UInt.html">Init.Data.UInt</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/System.html" open="">
+<summary>Init.System</summary>
+<div class="nav_link">
+<a href="/Init/System/FilePath.html">Init.System.FilePath</a>
+</div>
+<div class="nav_link" visible="">
+<a href="/Init/System/IO.html">Init.System.IO</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IOError.html">Init.System.IOError</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/Platform.html">Init.System.Platform</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/ST.html">Init.System.ST</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Classical.html">Init.Classical</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Coe.html">Init.Coe</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control.html">Init.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Conv.html">Init.Conv</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Core.html">Init.Core</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data.html">Init.Data</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Fix.html">Init.Fix</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Hints.html">Init.Hints</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Meta.html">Init.Meta</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Notation.html">Init.Notation</a>
+</div>
+<div class="nav_link">
+<a href="/Init/NotationExtra.html">Init.NotationExtra</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Prelude.html">Init.Prelude</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SimpLemmas.html">Init.SimpLemmas</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SizeOf.html">Init.SizeOf</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Util.html">Init.Util</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WF.html">Init.WF</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WFTactics.html">Init.WFTactics</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Socket.html">
+<summary>Socket</summary>
+<div class="nav_link">
+<a href="/Socket/Basic.html">Socket.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/SockAddr.html">Socket.SockAddr</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Socket.html">Socket.Socket</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Util.html">Socket.Util</a>
+</div>
+</details>
+</div>
+</nav>
+<script>
+siteRoot = "/";
+    </script>
+<script src="/nav.js">
+</script>
+</body>
+</html>

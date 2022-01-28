@@ -1,0 +1,1877 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="/style.css"></link><link rel="stylesheet" href="/pygments.css"></link><link rel="shortcut icon" href="/favicon.ico"></link><title>Init.WF</title>
+<meta charset="UTF-8"></meta><meta name="viewport" content="width=device-width, initial-scale=1"></meta></head>
+<body>
+<input id="nav_toggle" type="checkbox"></input><header>
+<h1>
+<label for="nav_toggle">
+</label>
+Documentation</h1>
+<p class="header_filename break_within">Init.WF</p>
+<form action="https://google.com/search" method="get" id="search_form">
+<input type="hidden" name="sitesearch" value="https://leanprover-community.github.io/mathlib_docs"></input><input type="text" name="q" autocomplete="off"></input><button>Google site search</button>
+</form>
+</header>
+<nav class="internal_nav">
+<h3>
+<a class="break_within" href="#top">Init.WF</a>
+</h3>
+<p class="gh_nav_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean">source</a>
+</p>
+<div class="imports">
+<details>
+<summary>Imports</summary>
+<ul>
+<li>
+<a href="/Init/SizeOf.html">Init.SizeOf</a>
+</li>
+<li>
+<a href="/Init/Data/Nat/Basic.html">Init.Data.Nat.Basic</a>
+</li>
+</ul>
+</details>
+<details>
+<summary>Imported by</summary>
+<ul>
+<li>
+<a href="/Init.html">Init</a>
+</li>
+<li>
+<a href="/Init/WFTactics.html">Init.WFTactics</a>
+</li>
+<li>
+<a href="/Init/Data/Nat/Div.html">Init.Data.Nat.Div</a>
+</li>
+</ul>
+</details>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Acc">Acc</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Acc.ndrec">Acc.ndrec</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Acc.ndrecOn">Acc.ndrecOn</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Acc.inv">Acc.inv</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#WellFounded">WellFounded</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#WellFoundedRelation">WellFoundedRelation</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#WellFounded.apply">WellFounded.apply</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#WellFounded.recursion">WellFounded.recursion</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#WellFounded.induction">WellFounded.induction</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#WellFounded.fixF">WellFounded.fixF</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#WellFounded.fixFEq">WellFounded.fixFEq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#WellFounded.fix">WellFounded.fix</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#WellFounded.fix_eq">WellFounded.fix_eq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#emptyWf">emptyWf</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Subrelation.accessible">Subrelation.accessible</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Subrelation.wf">Subrelation.wf</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#InvImage.accessible">InvImage.accessible</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#InvImage.wf">InvImage.wf</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#invImage">invImage</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#TC.accessible">TC.accessible</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#TC.wf">TC.wf</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Nat.lt_wfRel">Nat.lt_wfRel</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Measure">Measure</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#measure">measure</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#SizeOfRef">SizeOfRef</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#sizeOfWFRel">sizeOfWFRel</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instWellFoundedRelation">instWellFoundedRelation</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Prod.Lex">Prod.Lex</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Prod.RProd">Prod.RProd</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Prod.lexAccessible">Prod.lexAccessible</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Prod.lex">Prod.lex</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Prod.instWellFoundedRelationProd">Prod.instWellFoundedRelationProd</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Prod.RProdSubLex">Prod.RProdSubLex</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Prod.rprod">Prod.rprod</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#PSigma.Lex">PSigma.Lex</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#PSigma.lexAccessible">PSigma.lexAccessible</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#PSigma.lex">PSigma.lex</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#PSigma.instWellFoundedRelationPSigma">PSigma.instWellFoundedRelationPSigma</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#PSigma.lexNdep">PSigma.lexNdep</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#PSigma.lexNdepWf">PSigma.lexNdepWf</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#PSigma.RevLex">PSigma.RevLex</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#PSigma.revLexAccessible">PSigma.revLexAccessible</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#PSigma.revLex">PSigma.revLex</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#PSigma.SkipLeft">PSigma.SkipLeft</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#PSigma.skipLeft">PSigma.skipLeft</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#PSigma.mkSkipLeft">PSigma.mkSkipLeft</a>
+</div>
+</nav>
+<main>
+<div class="decl" id="Acc">
+<div class="inductive">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L14-L15">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">inductive</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Acc">Acc</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">α</span> → <span class="fn">Prop</span></span></div></div>
+<ul class="constructors">
+<li class="constructor" id="Acc.intro">
+intro: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>} (x : <span class="fn">α</span>), <span class="fn">(<span class="fn">∀ (y : <span class="fn">α</span>), <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">y</span></span></span></span>) → <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">x</span></span></span></span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="Acc.ndrec">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L17-L20">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Acc.ndrec">Acc.ndrec</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u2</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{C : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort u1</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(m : <span class="fn">(x : <span class="fn">α</span>) → <span class="fn">(<span class="fn">∀ (y : <span class="fn">α</span>), <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">y</span></span></span></span>) → <span class="fn">(<span class="fn">(y : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><span class="fn">C</span> <span class="fn">y</span></span></span></span>) → <span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></span></span></span>)</span></span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{a : <span class="fn">α</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(n : <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">a</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">C</span> <span class="fn">a</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Acc.ndrecOn">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L22-L26">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Acc.ndrecOn">Acc.ndrecOn</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u2</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{C : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort u1</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{a : <span class="fn">α</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(n : <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">a</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(m : <span class="fn">(x : <span class="fn">α</span>) → <span class="fn">(<span class="fn">∀ (y : <span class="fn">α</span>), <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">y</span></span></span></span>) → <span class="fn">(<span class="fn">(y : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><span class="fn">C</span> <span class="fn">y</span></span></span></span>) → <span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">C</span> <span class="fn">a</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Acc.inv">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L31-L33">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Acc.inv">Acc.inv</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{x : <span class="fn">α</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{y : <span class="fn">α</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(h₁ : <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">x</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h₂ : <span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">y</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="WellFounded">
+<div class="inductive">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L37-L38">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">inductive</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#WellFounded">WellFounded</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Prop</span></div></div>
+<ul class="constructors">
+<li class="constructor" id="WellFounded.intro">
+intro: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}, <span class="fn">(<span class="fn">∀ (a : <span class="fn">α</span>), <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">a</span></span></span>) → <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span></span></span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="WellFoundedRelation">
+<div class="class">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L40-L42">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">class</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a>
+</span>
+<span class="decl_args">
+<span class="fn">(α : <span class="fn">Sort u</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Sort (max 1 u)</span></div></div>
+<ul class="structure_fields" id="WellFoundedRelation.mk">
+<li class="structure_field" id="WellFoundedRelation.rel">
+rel: <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span></li>
+<li class="structure_field" id="WellFoundedRelation.wf">
+wf: <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">rel</span></span></li>
+</ul>
+<details class="instances">
+<summary>Instances</summary>
+<ul>
+<li>
+<a href="/Init/WF.html#instWellFoundedRelation">instWellFoundedRelation</a>
+</li>
+<li>
+<a href="/Init/WF.html#Prod.instWellFoundedRelationProd">Prod.instWellFoundedRelationProd</a>
+</li>
+<li>
+<a href="/Init/WF.html#PSigma.instWellFoundedRelationPSigma">PSigma.instWellFoundedRelationPSigma</a>
+</li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="WellFounded.apply">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L45-L47">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#WellFounded.apply">WellFounded.apply</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(wf : <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">a</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="WellFounded.recursion">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L52-L54">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#WellFounded.recursion">WellFounded.recursion</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(hwf : <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{C : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort v</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn">(x : <span class="fn">α</span>) → <span class="fn">(<span class="fn">(y : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><span class="fn">C</span> <span class="fn">y</span></span></span></span>) → <span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">C</span> <span class="fn">a</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="WellFounded.induction">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L56-L57">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#WellFounded.induction">WellFounded.induction</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(hwf : <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{C : <span class="fn"><span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn">(x : <span class="fn">α</span>) → <span class="fn">(<span class="fn">(y : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><span class="fn">C</span> <span class="fn">y</span></span></span></span>) → <span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">C</span> <span class="fn">a</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="WellFounded.fixF">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L62-L64">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#WellFounded.fixF">WellFounded.fixF</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{C : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort v</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(F : <span class="fn">(x : <span class="fn">α</span>) → <span class="fn">(<span class="fn">(y : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><span class="fn">C</span> <span class="fn">y</span></span></span></span>) → <span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">x</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="WellFounded.fixFEq">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L66-L68">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#WellFounded.fixFEq">WellFounded.fixFEq</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{C : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort v</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(F : <span class="fn">(x : <span class="fn">α</span>) → <span class="fn">(<span class="fn">(y : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><span class="fn">C</span> <span class="fn">y</span></span></span></span>) → <span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(acx : <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">x</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/WF.html#WellFounded.fixF">WellFounded.fixF</a> <span class="fn">F</span> <span class="fn">x</span> <span class="fn">acx</span></span> <a href="/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">F</span> <span class="fn">x</span> <span class="fn">fun <span class="fn">y</span> <span class="fn">p</span> => <span class="fn"><a href="/Init/WF.html#WellFounded.fixF">WellFounded.fixF</a> <span class="fn">F</span> <span class="fn">y</span> (_ : <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> (<span class="fn">fun <span class="fn">y</span> <span class="fn">x</span> => <span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span></span>) <span class="fn">y</span></span>)</span></span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="WellFounded.fix">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L75-L76">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#WellFounded.fix">WellFounded.fix</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{C : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(hwf : <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(F : <span class="fn">(x : <span class="fn">α</span>) → <span class="fn">(<span class="fn">(y : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><span class="fn">C</span> <span class="fn">y</span></span></span></span>) → <span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="WellFounded.fix_eq">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L79-L81">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#WellFounded.fix_eq">WellFounded.fix_eq</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{C : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(hwf : <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(F : <span class="fn">(x : <span class="fn">α</span>) → <span class="fn">(<span class="fn">(y : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><span class="fn">C</span> <span class="fn">y</span></span></span></span>) → <span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/WF.html#WellFounded.fix">WellFounded.fix</a> <span class="fn">hwf</span> <span class="fn">F</span> <span class="fn">x</span></span> <a href="/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">F</span> <span class="fn">x</span> <span class="fn">fun <span class="fn">y</span> <span class="fn">h</span> => <span class="fn"><a href="/Init/WF.html#WellFounded.fix">WellFounded.fix</a> <span class="fn">hwf</span> <span class="fn">F</span> <span class="fn">y</span></span></span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="emptyWf">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L87-L94">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#emptyWf">emptyWf</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Subrelation.accessible">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L100-L105">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Subrelation.accessible">Subrelation.accessible</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{q : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{a : <span class="fn">α</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(h₁ : <span class="fn"><a href="/Init/Core.html#Subrelation">Subrelation</a> <span class="fn">q</span> <span class="fn">r</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(ac : <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">a</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">q</span> <span class="fn">a</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Subrelation.wf">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L107-L108">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Subrelation.wf">Subrelation.wf</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{q : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(h₁ : <span class="fn"><a href="/Init/Core.html#Subrelation">Subrelation</a> <span class="fn">q</span> <span class="fn">r</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h₂ : <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">q</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="InvImage.accessible">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L124-L125">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#InvImage.accessible">InvImage.accessible</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Sort v</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{a : <span class="fn">α</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(ac : <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> (<span class="fn"><span class="fn">f</span> <span class="fn">a</span></span>)</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#Acc">Acc</a> (<span class="fn"><a href="/Init/Core.html#InvImage">InvImage</a> <span class="fn">r</span> <span class="fn">f</span></span>) <span class="fn">a</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="InvImage.wf">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L127-L128">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#InvImage.wf">InvImage.wf</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Sort v</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/Init/Core.html#InvImage">InvImage</a> <span class="fn">r</span> <span class="fn">f</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="invImage">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L131-L133">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#invImage">invImage</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Sort u_2</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">β</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="TC.accessible">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L139-L146">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#TC.accessible">TC.accessible</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{z : <span class="fn">α</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(ac : <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">z</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#Acc">Acc</a> (<span class="fn"><a href="/Init/Core.html#TC">TC</a> <span class="fn">r</span></span>) <span class="fn">z</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="TC.wf">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L148-L149">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#TC.wf">TC.wf</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/Init/Core.html#TC">TC</a> <span class="fn">r</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="Nat.lt_wfRel">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L153-L169">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Nat.lt_wfRel">Nat.lt_wfRel</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <a href="/Init/Prelude.html#Nat">Nat</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Measure">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L171-L172">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Measure">Measure</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">(<span class="fn"><span class="fn">α</span> → <a href="/Init/Prelude.html#Nat">Nat</a></span>) → <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="measure">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L174-L175">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#measure">measure</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <a href="/Init/Prelude.html#Nat">Nat</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="SizeOfRef">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L177-L178">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#SizeOfRef">SizeOfRef</a>
+</span>
+<span class="decl_args">
+<span class="fn">(α : <span class="fn">Sort u</span>)</span></span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/SizeOf.html#SizeOf">SizeOf</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="sizeOfWFRel">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L180-L181">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#sizeOfWFRel">sizeOfWFRel</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/SizeOf.html#SizeOf">SizeOf</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="instWellFoundedRelation">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L183-L184">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#instWellFoundedRelation">instWellFoundedRelation</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/SizeOf.html#SizeOf">SizeOf</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Prod.Lex">
+<div class="inductive">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L195-L197">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">inductive</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Prod.Lex">Prod.Lex</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(ra : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(rb : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><span class="fn">α</span> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span> → <span class="fn"><span class="fn">α</span> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span> → <span class="fn">Prop</span></span></div></div>
+<ul class="constructors">
+<li class="constructor" id="Prod.Lex.left">
+left: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span class="fn">Type v</span>} {ra : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>} {rb : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>} {a₁ : <span class="fn">α</span>} (b₁ : <span class="fn">β</span>) {a₂ : <span class="fn">α</span>} (b₂ : <span class="fn">β</span>),
+  <span class="fn"><span class="fn"><span class="fn">ra</span> <span class="fn">a₁</span> <span class="fn">a₂</span></span> → <span class="fn"><a href="/Init/WF.html#Prod.Lex">Prod.Lex</a> <span class="fn">ra</span> <span class="fn">rb</span> <span class="fn">(<span class="fn">a₁</span>, <span class="fn">b₁</span>)</span> <span class="fn">(<span class="fn">a₂</span>, <span class="fn">b₂</span>)</span></span></span></span></li>
+<li class="constructor" id="Prod.Lex.right">
+right: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span class="fn">Type v</span>} {ra : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>} {rb : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>} (a : <span class="fn">α</span>) {b₁ b₂ : <span class="fn">β</span>},
+  <span class="fn"><span class="fn"><span class="fn">rb</span> <span class="fn">b₁</span> <span class="fn">b₂</span></span> → <span class="fn"><a href="/Init/WF.html#Prod.Lex">Prod.Lex</a> <span class="fn">ra</span> <span class="fn">rb</span> <span class="fn">(<span class="fn">a</span>, <span class="fn">b₁</span>)</span> <span class="fn">(<span class="fn">a</span>, <span class="fn">b₂</span>)</span></span></span></span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="Prod.RProd">
+<div class="inductive">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L200-L201">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">inductive</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Prod.RProd">Prod.RProd</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(ra : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(rb : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><span class="fn">α</span> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span> → <span class="fn"><span class="fn">α</span> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span> → <span class="fn">Prop</span></span></div></div>
+<ul class="constructors">
+<li class="constructor" id="Prod.RProd.intro">
+intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span class="fn">Type v</span>} {ra : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>} {rb : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>} {a₁ : <span class="fn">α</span>} {b₁ : <span class="fn">β</span>} {a₂ : <span class="fn">α</span>} {b₂ : <span class="fn">β</span>},
+  <span class="fn"><span class="fn"><span class="fn">ra</span> <span class="fn">a₁</span> <span class="fn">a₂</span></span> → <span class="fn"><span class="fn"><span class="fn">rb</span> <span class="fn">b₁</span> <span class="fn">b₂</span></span> → <span class="fn"><a href="/Init/WF.html#Prod.RProd">Prod.RProd</a> <span class="fn">ra</span> <span class="fn">rb</span> <span class="fn">(<span class="fn">a₁</span>, <span class="fn">b₁</span>)</span> <span class="fn">(<span class="fn">a₂</span>, <span class="fn">b₂</span>)</span></span></span></span></span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="Prod.lexAccessible">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L209-L218">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Prod.lexAccessible">Prod.lexAccessible</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ra : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{rb : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(aca : <span class="fn">∀ (a : <span class="fn">α</span>), <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">ra</span> <span class="fn">a</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(acb : <span class="fn">∀ (b : <span class="fn">β</span>), <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">rb</span> <span class="fn">b</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <span class="fn">β</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#Acc">Acc</a> (<span class="fn"><a href="/Init/WF.html#Prod.Lex">Prod.Lex</a> <span class="fn">ra</span> <span class="fn">rb</span></span>) <span class="fn">(<span class="fn">a</span>, <span class="fn">b</span>)</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Prod.lex">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L221-L223">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Prod.lex">Prod.lex</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(ha : <span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hb : <span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">β</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><span class="fn">α</span> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="Prod.instWellFoundedRelationProd">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L225-L226">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Prod.instWellFoundedRelationProd">Prod.instWellFoundedRelationProd</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[ha : <span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[hb : <span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">β</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><span class="fn">α</span> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="Prod.RProdSubLex">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L229-L231">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Prod.RProdSubLex">Prod.RProdSubLex</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ra : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{rb : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn"><span class="fn">α</span> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <span class="fn"><span class="fn">α</span> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><a href="/Init/WF.html#Prod.RProd">Prod.RProd</a> <span class="fn">ra</span> <span class="fn">rb</span> <span class="fn">a</span> <span class="fn">b</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#Prod.Lex">Prod.Lex</a> <span class="fn">ra</span> <span class="fn">rb</span> <span class="fn">a</span> <span class="fn">b</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Prod.rprod">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L234-L239">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#Prod.rprod">Prod.rprod</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(ha : <span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hb : <span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">β</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><span class="fn">α</span> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="PSigma.Lex">
+<div class="inductive">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L252-L254">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">inductive</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#PSigma.Lex">PSigma.Lex</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort v</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <span class="fn">(a : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">β</span> <span class="fn">a</span></span> → <span class="fn"><span class="fn">β</span> <span class="fn">a</span></span> → <span class="fn">Prop</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Core.html#PSigma">PSigma</a> <span class="fn">β</span></span> → <span class="fn"><a href="/Init/Core.html#PSigma">PSigma</a> <span class="fn">β</span></span> → <span class="fn">Prop</span></span></div></div>
+<ul class="constructors">
+<li class="constructor" id="PSigma.Lex.left">
+left: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort v</span></span>} {r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>} {s : <span class="fn">(a : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">β</span> <span class="fn">a</span></span> → <span class="fn"><span class="fn">β</span> <span class="fn">a</span></span> → <span class="fn">Prop</span></span></span>} {a₁ : <span class="fn">α</span>} (b₁ : <span class="fn"><span class="fn">β</span> <span class="fn">a₁</span></span>) {a₂ : <span class="fn">α</span>}
+  (b₂ : <span class="fn"><span class="fn">β</span> <span class="fn">a₂</span></span>), <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">a₁</span> <span class="fn">a₂</span></span> → <span class="fn"><a href="/Init/WF.html#PSigma.Lex">PSigma.Lex</a> <span class="fn">r</span> <span class="fn">s</span> <span class="fn">{ fst := <span class="fn">a₁</span>, snd := <span class="fn">b₁</span> }</span> <span class="fn">{ fst := <span class="fn">a₂</span>, snd := <span class="fn">b₂</span> }</span></span></span></span></li>
+<li class="constructor" id="PSigma.Lex.right">
+right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort v</span></span>} {r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>} {s : <span class="fn">(a : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">β</span> <span class="fn">a</span></span> → <span class="fn"><span class="fn">β</span> <span class="fn">a</span></span> → <span class="fn">Prop</span></span></span>} (a : <span class="fn">α</span>) {b₁ b₂ : <span class="fn"><span class="fn">β</span> <span class="fn">a</span></span>},
+  <span class="fn"><span class="fn"><span class="fn">s</span> <span class="fn">a</span> <span class="fn">b₁</span> <span class="fn">b₂</span></span> → <span class="fn"><a href="/Init/WF.html#PSigma.Lex">PSigma.Lex</a> <span class="fn">r</span> <span class="fn">s</span> <span class="fn">{ fst := <span class="fn">a</span>, snd := <span class="fn">b₁</span> }</span> <span class="fn">{ fst := <span class="fn">a</span>, snd := <span class="fn">b₂</span> }</span></span></span></span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="PSigma.lexAccessible">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L261-L270">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#PSigma.lexAccessible">PSigma.lexAccessible</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{s : <span class="fn">(a : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">β</span> <span class="fn">a</span></span> → <span class="fn"><span class="fn">β</span> <span class="fn">a</span></span> → <span class="fn">Prop</span></span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{a : <span class="fn">α</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(aca : <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">a</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(acb : <span class="fn">∀ (a : <span class="fn">α</span>), <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><span class="fn">s</span> <span class="fn">a</span></span>)</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <span class="fn"><span class="fn">β</span> <span class="fn">a</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#Acc">Acc</a> (<span class="fn"><a href="/Init/WF.html#PSigma.Lex">PSigma.Lex</a> <span class="fn">r</span> <span class="fn">s</span></span>) <span class="fn">{ fst := <span class="fn">a</span>, snd := <span class="fn">b</span> }</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="PSigma.lex">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L273-L275">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#PSigma.lex">PSigma.lex</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort v</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(ha : <span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hb : <span class="fn">(a : <span class="fn">α</span>) → <span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><span class="fn">β</span> <span class="fn">a</span></span>)</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><a href="/Init/Core.html#PSigma">PSigma</a> <span class="fn">β</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="PSigma.instWellFoundedRelationPSigma">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L277-L278">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#PSigma.instWellFoundedRelationPSigma">PSigma.instWellFoundedRelationPSigma</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn"><span class="fn">α</span> → <span class="fn">Sort v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[ha : <span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[hb : <span class="fn">(a : <span class="fn">α</span>) → <span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><span class="fn">β</span> <span class="fn">a</span></span>)</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><a href="/Init/Core.html#PSigma">PSigma</a> <span class="fn">β</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="PSigma.lexNdep">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L285-L286">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#PSigma.lexNdep">PSigma.lexNdep</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Sort v</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">(_ : <span class="fn">α</span>) ×' <span class="fn">β</span></span> → <span class="fn">(_ : <span class="fn">α</span>) ×' <span class="fn">β</span></span> → <span class="fn">Prop</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="PSigma.lexNdepWf">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L288-L289">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#PSigma.lexNdepWf">PSigma.lexNdepWf</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Sort v</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{s : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(ha : <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hb : <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">s</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/Init/WF.html#PSigma.lexNdep">PSigma.lexNdep</a> <span class="fn">r</span> <span class="fn">s</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="PSigma.RevLex">
+<div class="inductive">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L296-L298">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">inductive</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#PSigma.RevLex">PSigma.RevLex</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Sort v</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(s : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">(_ : <span class="fn">α</span>) ×' <span class="fn">β</span></span> → <span class="fn">(_ : <span class="fn">α</span>) ×' <span class="fn">β</span></span> → <span class="fn">Prop</span></span></div></div>
+<ul class="constructors">
+<li class="constructor" id="PSigma.RevLex.left">
+left: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span class="fn">Sort v</span>} {r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>} {s : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>} {a₁ a₂ : <span class="fn">α</span>} (b : <span class="fn">β</span>),
+  <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">a₁</span> <span class="fn">a₂</span></span> → <span class="fn"><a href="/Init/WF.html#PSigma.RevLex">PSigma.RevLex</a> <span class="fn">r</span> <span class="fn">s</span> <span class="fn">{ fst := <span class="fn">a₁</span>, snd := <span class="fn">b</span> }</span> <span class="fn">{ fst := <span class="fn">a₂</span>, snd := <span class="fn">b</span> }</span></span></span></span></li>
+<li class="constructor" id="PSigma.RevLex.right">
+right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span class="fn">Sort v</span>} {r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>} {s : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>} (a₁ : <span class="fn">α</span>) {b₁ : <span class="fn">β</span>} (a₂ : <span class="fn">α</span>) {b₂ : <span class="fn">β</span>},
+  <span class="fn"><span class="fn"><span class="fn">s</span> <span class="fn">b₁</span> <span class="fn">b₂</span></span> → <span class="fn"><a href="/Init/WF.html#PSigma.RevLex">PSigma.RevLex</a> <span class="fn">r</span> <span class="fn">s</span> <span class="fn">{ fst := <span class="fn">a₁</span>, snd := <span class="fn">b₁</span> }</span> <span class="fn">{ fst := <span class="fn">a₂</span>, snd := <span class="fn">b₂</span> }</span></span></span></span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="PSigma.revLexAccessible">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L306-L316">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#PSigma.revLexAccessible">PSigma.revLexAccessible</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Sort v</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{s : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{b : <span class="fn">β</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(acb : <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">s</span> <span class="fn">b</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(aca : <span class="fn">∀ (a : <span class="fn">α</span>), <span class="fn"><a href="/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">a</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#Acc">Acc</a> (<span class="fn"><a href="/Init/WF.html#PSigma.RevLex">PSigma.RevLex</a> <span class="fn">r</span> <span class="fn">s</span></span>) <span class="fn">{ fst := <span class="fn">a</span>, snd := <span class="fn">b</span> }</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="PSigma.revLex">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L318-L319">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#PSigma.revLex">PSigma.revLex</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Sort v</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{r : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{s : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(ha : <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(hb : <span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">s</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/Init/WF.html#PSigma.RevLex">PSigma.RevLex</a> <span class="fn">r</span> <span class="fn">s</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="PSigma.SkipLeft">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L323-L324">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#PSigma.SkipLeft">PSigma.SkipLeft</a>
+</span>
+<span class="decl_args">
+<span class="fn">(α : <span class="fn">Type u</span>)</span></span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">(_ : <span class="fn">α</span>) ×' <span class="fn">β</span></span> → <span class="fn">(_ : <span class="fn">α</span>) ×' <span class="fn">β</span></span> → <span class="fn">Prop</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="PSigma.skipLeft">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L326-L328">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#PSigma.skipLeft">PSigma.skipLeft</a>
+</span>
+<span class="decl_args">
+<span class="fn">(α : <span class="fn">Type u</span>)</span></span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(hb : <span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">β</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn">(_ : <span class="fn">α</span>) ×' <span class="fn">β</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="PSigma.mkSkipLeft">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L330-L331">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/WF.html#PSigma.mkSkipLeft">PSigma.mkSkipLeft</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{b₁ : <span class="fn">β</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{b₂ : <span class="fn">β</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{s : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(a₁ : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(a₂ : <span class="fn">α</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><span class="fn">s</span> <span class="fn">b₁</span> <span class="fn">b₂</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/WF.html#PSigma.SkipLeft">PSigma.SkipLeft</a> <span class="fn">α</span> <span class="fn">s</span> <span class="fn">{ fst := <span class="fn">a₁</span>, snd := <span class="fn">b₁</span> }</span> <span class="fn">{ fst := <span class="fn">a₂</span>, snd := <span class="fn">b₂</span> }</span></span></div></div>
+</div>
+</div>
+</main>
+<nav class="nav">
+<h3>General documentation</h3>
+<div class="nav_link">
+<a href="/">index</a>
+</div>
+<h3>Library</h3>
+<div class="module_list">
+<details class="nav_sect" data-path="/Init.html" open="">
+<summary>Init</summary>
+<details class="nav_sect" data-path="/Init/Control.html">
+<summary>Init.Control</summary>
+<div class="nav_link">
+<a href="/Init/Control/Basic.html">Init.Control.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/EState.html">Init.Control.EState</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Except.html">Init.Control.Except</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/ExceptCps.html">Init.Control.ExceptCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Id.html">Init.Control.Id</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Lawful.html">Init.Control.Lawful</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Option.html">Init.Control.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Reader.html">Init.Control.Reader</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/State.html">Init.Control.State</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateCps.html">Init.Control.StateCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateRef.html">Init.Control.StateRef</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data.html">
+<summary>Init.Data</summary>
+<details class="nav_sect" data-path="/Init/Data/Array.html">
+<summary>Init.Data.Array</summary>
+<div class="nav_link">
+<a href="/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/Subarray.html">Init.Data.Array.Subarray</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ByteArray.html">
+<summary>Init.Data.ByteArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray/Basic.html">Init.Data.ByteArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Char.html">
+<summary>Init.Data.Char</summary>
+<div class="nav_link">
+<a href="/Init/Data/Char/Basic.html">Init.Data.Char.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Fin.html">
+<summary>Init.Data.Fin</summary>
+<div class="nav_link">
+<a href="/Init/Data/Fin/Basic.html">Init.Data.Fin.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/FloatArray.html">
+<summary>Init.Data.FloatArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray/Basic.html">Init.Data.FloatArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Format.html">
+<summary>Init.Data.Format</summary>
+<div class="nav_link">
+<a href="/Init/Data/Format/Basic.html">Init.Data.Format.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Instances.html">Init.Data.Format.Instances</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Macro.html">Init.Data.Format.Macro</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Syntax.html">Init.Data.Format.Syntax</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Int.html">
+<summary>Init.Data.Int</summary>
+<div class="nav_link">
+<a href="/Init/Data/Int/Basic.html">Init.Data.Int.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/List.html">
+<summary>Init.Data.List</summary>
+<div class="nav_link">
+<a href="/Init/Data/List/Basic.html">Init.Data.List.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/BasicAux.html">Init.Data.List.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/Control.html">Init.Data.List.Control</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Nat.html">
+<summary>Init.Data.Nat</summary>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Basic.html">Init.Data.Nat.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Bitwise.html">Init.Data.Nat.Bitwise</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Control.html">Init.Data.Nat.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Div.html">Init.Data.Nat.Div</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Gcd.html">Init.Data.Nat.Gcd</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Option.html">
+<summary>Init.Data.Option</summary>
+<div class="nav_link">
+<a href="/Init/Data/Option/Basic.html">Init.Data.Option.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/BasicAux.html">Init.Data.Option.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/Instances.html">Init.Data.Option.Instances</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/String.html">
+<summary>Init.Data.String</summary>
+<div class="nav_link">
+<a href="/Init/Data/String/Basic.html">Init.Data.String.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String/Extra.html">Init.Data.String.Extra</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ToString.html">
+<summary>Init.Data.ToString</summary>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Basic.html">Init.Data.ToString.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Data/Array.html">Init.Data.Array</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Basic.html">Init.Data.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray.html">Init.Data.ByteArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Char.html">Init.Data.Char</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Fin.html">Init.Data.Fin</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Float.html">Init.Data.Float</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray.html">Init.Data.FloatArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format.html">Init.Data.Format</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Hashable.html">Init.Data.Hashable</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Int.html">Init.Data.Int</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List.html">Init.Data.List</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat.html">Init.Data.Nat</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/OfScientific.html">Init.Data.OfScientific</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option.html">Init.Data.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Ord.html">Init.Data.Ord</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Random.html">Init.Data.Random</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Range.html">Init.Data.Range</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Repr.html">Init.Data.Repr</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Stream.html">Init.Data.Stream</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String.html">Init.Data.String</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString.html">Init.Data.ToString</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/UInt.html">Init.Data.UInt</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/System.html">
+<summary>Init.System</summary>
+<div class="nav_link">
+<a href="/Init/System/FilePath.html">Init.System.FilePath</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IO.html">Init.System.IO</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IOError.html">Init.System.IOError</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/Platform.html">Init.System.Platform</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/ST.html">Init.System.ST</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Classical.html">Init.Classical</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Coe.html">Init.Coe</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control.html">Init.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Conv.html">Init.Conv</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Core.html">Init.Core</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data.html">Init.Data</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Fix.html">Init.Fix</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Hints.html">Init.Hints</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Meta.html">Init.Meta</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Notation.html">Init.Notation</a>
+</div>
+<div class="nav_link">
+<a href="/Init/NotationExtra.html">Init.NotationExtra</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Prelude.html">Init.Prelude</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SimpLemmas.html">Init.SimpLemmas</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SizeOf.html">Init.SizeOf</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Util.html">Init.Util</a>
+</div>
+<div class="nav_link" visible="">
+<a href="/Init/WF.html">Init.WF</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WFTactics.html">Init.WFTactics</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Socket.html">
+<summary>Socket</summary>
+<div class="nav_link">
+<a href="/Socket/Basic.html">Socket.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/SockAddr.html">Socket.SockAddr</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Socket.html">Socket.Socket</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Util.html">Socket.Util</a>
+</div>
+</details>
+</div>
+</nav>
+<script>
+siteRoot = "/";
+    </script>
+<script src="/nav.js">
+</script>
+</body>
+</html>

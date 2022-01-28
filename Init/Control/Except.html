@@ -1,0 +1,1542 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="/style.css"></link><link rel="stylesheet" href="/pygments.css"></link><link rel="shortcut icon" href="/favicon.ico"></link><title>Init.Control.Except</title>
+<meta charset="UTF-8"></meta><meta name="viewport" content="width=device-width, initial-scale=1"></meta></head>
+<body>
+<input id="nav_toggle" type="checkbox"></input><header>
+<h1>
+<label for="nav_toggle">
+</label>
+Documentation</h1>
+<p class="header_filename break_within">Init.Control.Except</p>
+<form action="https://google.com/search" method="get" id="search_form">
+<input type="hidden" name="sitesearch" value="https://leanprover-community.github.io/mathlib_docs"></input><input type="text" name="q" autocomplete="off"></input><button>Google site search</button>
+</form>
+</header>
+<nav class="internal_nav">
+<h3>
+<a class="break_within" href="#top">Init.Control.Except</a>
+</h3>
+<p class="gh_nav_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean">source</a>
+</p>
+<div class="imports">
+<details>
+<summary>Imports</summary>
+<ul>
+<li>
+<a href="/Init/Coe.html">Init.Coe</a>
+</li>
+<li>
+<a href="/Init/Control/Basic.html">Init.Control.Basic</a>
+</li>
+<li>
+<a href="/Init/Control/Id.html">Init.Control.Id</a>
+</li>
+</ul>
+</details>
+<details>
+<summary>Imported by</summary>
+<ul>
+<li>
+<a href="/Init/Control.html">Init.Control</a>
+</li>
+<li>
+<a href="/Init/Control/EState.html">Init.Control.EState</a>
+</li>
+<li>
+<a href="/Init/Control/Lawful.html">Init.Control.Lawful</a>
+</li>
+<li>
+<a href="/Init/Control/Option.html">Init.Control.Option</a>
+</li>
+<li>
+<a href="/Init/Control/Reader.html">Init.Control.Reader</a>
+</li>
+<li>
+<a href="/Init/Control/State.html">Init.Control.State</a>
+</li>
+<li>
+<a href="/Init/Data/String/Extra.html">Init.Data.String.Extra</a>
+</li>
+</ul>
+</details>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Except.pure">Except.pure</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Except.map">Except.map</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Except.map_id">Except.map_id</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Except.mapError">Except.mapError</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Except.bind">Except.bind</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Except.toBool">Except.toBool</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Except.toOption">Except.toOption</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Except.tryCatch">Except.tryCatch</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Except.orElseLazy">Except.orElseLazy</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Except.instMonadExcept">Except.instMonadExcept</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT">ExceptT</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.mk">ExceptT.mk</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.run">ExceptT.run</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.pure">ExceptT.pure</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.bindCont">ExceptT.bindCont</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.bind">ExceptT.bind</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.map">ExceptT.map</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.lift">ExceptT.lift</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.instMonadLiftExceptExceptT">ExceptT.instMonadLiftExceptExceptT</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.instMonadLiftExceptT">ExceptT.instMonadLiftExceptT</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.tryCatch">ExceptT.tryCatch</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.instMonadFunctorExceptT">ExceptT.instMonadFunctorExceptT</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.instMonadExceptT">ExceptT.instMonadExceptT</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.adapt">ExceptT.adapt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMonadExceptOfExceptT">instMonadExceptOfExceptT</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMonadExceptOfExceptT_1">instMonadExceptOfExceptT_1</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instInhabitedExceptT">instInhabitedExceptT</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMonadExceptOfExcept">instMonadExceptOfExcept</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#MonadExcept.orelse'">MonadExcept.orelse'</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#observing">observing</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#liftExcept">liftExcept</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMonadControlExceptT">instMonadControlExceptT</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#MonadFinally">MonadFinally</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#tryFinally">tryFinally</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Id.finally">Id.finally</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ExceptT.finally">ExceptT.finally</a>
+</div>
+</nav>
+<main>
+<div class="decl" id="Except.pure">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L16-L17">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#Except.pure">Except.pure</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Except.map">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L19-L21">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#Except.map">Except.map</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type u_2</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span> → <span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">β</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Except.map_id">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L23-L26">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#Except.map_id">Except.map_id</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Control/Except.html#Except.map">Except.map</a> <span class="fn">id</span></span> <a href="/Init/Prelude.html#Eq">=</a> <span class="fn">id</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Except.mapError">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L28-L30">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#Except.mapError">Except.mapError</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε' : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_2</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">ε</span> → <span class="fn">ε'</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span> → <span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε'</span> <span class="fn">α</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Except.bind">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L32-L35">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#Except.bind">Except.bind</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type u_2</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(ma : <span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">β</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">β</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Except.toBool">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L37-L39">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#Except.toBool">Except.toBool</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span> → <a href="/Init/Prelude.html#Bool">Bool</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Except.toOption">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L41-L43">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#Except.toOption">Except.toOption</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span> → <span class="fn"><a href="/Init/Prelude.html#Option">Option</a> <span class="fn">α</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Except.tryCatch">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L45-L48">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#Except.tryCatch">Except.tryCatch</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(ma : <span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(handle : <span class="fn"><span class="fn">ε</span> → <span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Except.orElseLazy">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L50-L53">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#Except.orElseLazy">Except.orElseLazy</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(y : <span class="fn"><a href="/Init/Prelude.html#Unit">Unit</a> → <span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Except.instMonadExcept">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L55-L58">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#Except.instMonadExcept">Except.instMonadExcept</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L62-L63">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT">ExceptT</a>
+</span>
+<span class="decl_args">
+<span class="fn">(ε : <span class="fn">Type u</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(α : <span class="fn">Type u</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type v</span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.mk">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L65-L65">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.mk">ExceptT.mk</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.run">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L66-L66">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.run">ExceptT.run</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.pure">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L72-L73">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.pure">ExceptT.pure</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.bindCont">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L75-L77">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.bindCont">ExceptT.bindCont</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">β</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">β</span></span>)</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.bind">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L79-L80">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.bind">ExceptT.bind</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(ma : <span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">β</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">β</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.map">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L82-L85">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.map">ExceptT.map</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">β</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.lift">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L87-L88">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.lift">ExceptT.lift</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(t : <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.instMonadLiftExceptExceptT">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L90-L90">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.instMonadLiftExceptExceptT">ExceptT.instMonadLiftExceptExceptT</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#MonadLift">MonadLift</a> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span></span>) (<span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.instMonadLiftExceptT">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L91-L91">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.instMonadLiftExceptT">ExceptT.instMonadLiftExceptT</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#MonadLift">MonadLift</a> <span class="fn">m</span> (<span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.tryCatch">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L93-L96">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.tryCatch">ExceptT.tryCatch</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(ma : <span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(handle : <span class="fn"><span class="fn">ε</span> → <span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.instMonadFunctorExceptT">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L98-L98">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.instMonadFunctorExceptT">ExceptT.instMonadFunctorExceptT</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#MonadFunctor">MonadFunctor</a> <span class="fn">m</span> (<span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.instMonadExceptT">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L100-L103">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.instMonadExceptT">ExceptT.instMonadExceptT</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> (<span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.adapt">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L105-L106">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.adapt">ExceptT.adapt</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε' : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">ε</span> → <span class="fn">ε'</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">α</span></span> → <span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε'</span> <span class="fn">m</span> <span class="fn">α</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="instMonadExceptOfExceptT">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L110-L112">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#instMonadExceptOfExceptT">instMonadExceptOfExceptT</a>
+</span>
+<span class="decl_args">
+<span class="fn">(m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(ε₁ : <span class="fn">Type u</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(ε₂ : <span class="fn">Type u</span>)</span></span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#MonadExceptOf">MonadExceptOf</a> <span class="fn">ε₁</span> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#MonadExceptOf">MonadExceptOf</a> <span class="fn">ε₁</span> (<span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε₂</span> <span class="fn">m</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="instMonadExceptOfExceptT_1">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L114-L116">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#instMonadExceptOfExceptT_1">instMonadExceptOfExceptT_1</a>
+</span>
+<span class="decl_args">
+<span class="fn">(m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(ε : <span class="fn">Type u</span>)</span></span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#MonadExceptOf">MonadExceptOf</a> <span class="fn">ε</span> (<span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="instInhabitedExceptT">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L118-L119">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#instInhabitedExceptT">instInhabitedExceptT</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u_1</span> → <span class="fn">Type u_2</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Inhabited">Inhabited</a> <span class="fn">ε</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Inhabited">Inhabited</a> (<span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">α</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="instMonadExceptOfExcept">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L121-L123">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#instMonadExceptOfExcept">instMonadExceptOfExcept</a>
+</span>
+<span class="decl_args">
+<span class="fn">(ε : <span class="fn">Type u_1</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#MonadExceptOf">MonadExceptOf</a> <span class="fn">ε</span> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="MonadExcept.orelse'">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L130-L131">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#MonadExcept.orelse'">MonadExcept.orelse'</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type v</span> → <span class="fn">Type w</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#MonadExcept">MonadExcept</a> <span class="fn">ε</span> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(t₁ : <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(t₂ : <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(useFirstEx : <span class="fn"><a href="/Init/Prelude.html#optParam">optParam</a> <a href="/Init/Prelude.html#Bool">Bool</a> <a href="/Init/Prelude.html#Bool.true">true</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="observing">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L135-L136">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#observing">observing</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#MonadExcept">MonadExcept</a> <span class="fn">ε</span> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="liftExcept">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L138-L140">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#liftExcept">liftExcept</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u_2</span> → <span class="fn">Type u_3</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_2</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#MonadExceptOf">MonadExceptOf</a> <span class="fn">ε</span> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Pure">Pure</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Init/Prelude.html#Except">Except</a> <span class="fn">ε</span> <span class="fn">α</span></span> → <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="instMonadControlExceptT">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L142-L145">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#instMonadControlExceptT">instMonadControlExceptT</a>
+</span>
+<span class="decl_args">
+<span class="fn">(ε : <span class="fn">Type u</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>)</span></span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Control/Basic.html#MonadControl">MonadControl</a> <span class="fn">m</span> (<span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="MonadFinally">
+<div class="class">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L147-L148">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">class</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#MonadFinally">MonadFinally</a>
+</span>
+<span class="decl_args">
+<span class="fn">(m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type (max (u + 1) v)</span></div></div>
+<ul class="structure_fields" id="MonadFinally.mk">
+<li class="structure_field" id="MonadFinally.tryFinally'">
+tryFinally': <span class="fn">{α β : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">m</span> <span class="fn">α</span></span> → <span class="fn">(<span class="fn"><span class="fn"><a href="/Init/Prelude.html#Option">Option</a> <span class="fn">α</span></span> → <span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></span>) → <span class="fn"><span class="fn">m</span> (<span class="fn"><span class="fn">α</span> <a href="/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span>)</span></span></span></span></li>
+</ul>
+<details class="instances">
+<summary>Instances</summary>
+<ul>
+<li>
+<a href="/Init/System/IO.html#instMonadFinallyEIO">instMonadFinallyEIO</a>
+</li>
+<li>
+<a href="/Init/Control/Except.html#ExceptT.finally">ExceptT.finally</a>
+</li>
+<li>
+<a href="/Init/Control/Except.html#Id.finally">Id.finally</a>
+</li>
+<li>
+<a href="/Init/System/IO.html#instMonadFinallyBaseIO">instMonadFinallyBaseIO</a>
+</li>
+<li>
+<a href="/Init/Control/StateRef.html#instMonadFinallyStateRefT'">instMonadFinallyStateRefT'</a>
+</li>
+<li>
+<a href="/Init/Control/State.html#StateT.tryFinally">StateT.tryFinally</a>
+</li>
+<li>
+<a href="/Init/Control/Reader.html#ReaderT.tryFinally">ReaderT.tryFinally</a>
+</li>
+<li>
+<a href="/Init/Control/EState.html#EStateM.instMonadFinallyEStateM">EStateM.instMonadFinallyEStateM</a>
+</li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="tryFinally">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L153-L155">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#tryFinally">tryFinally</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Control/Except.html#MonadFinally">MonadFinally</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Functor">Functor</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(finalizer : <span class="fn"><span class="fn">m</span> <span class="fn">β</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Id.finally">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L157-L161">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#Id.finally">Id.finally</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Control/Except.html#MonadFinally">MonadFinally</a> <a href="/Init/Control/Id.html#Id">Id</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="ExceptT.finally">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Except.lean#L163-L171">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Control/Except.html#ExceptT.finally">ExceptT.finally</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{ε : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Control/Except.html#MonadFinally">MonadFinally</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Control/Except.html#MonadFinally">MonadFinally</a> (<span class="fn"><a href="/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span></span>)</span></div></div>
+</div>
+</div>
+</main>
+<nav class="nav">
+<h3>General documentation</h3>
+<div class="nav_link">
+<a href="/">index</a>
+</div>
+<h3>Library</h3>
+<div class="module_list">
+<details class="nav_sect" data-path="/Init.html" open="">
+<summary>Init</summary>
+<details class="nav_sect" data-path="/Init/Control.html" open="">
+<summary>Init.Control</summary>
+<div class="nav_link">
+<a href="/Init/Control/Basic.html">Init.Control.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/EState.html">Init.Control.EState</a>
+</div>
+<div class="nav_link" visible="">
+<a href="/Init/Control/Except.html">Init.Control.Except</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/ExceptCps.html">Init.Control.ExceptCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Id.html">Init.Control.Id</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Lawful.html">Init.Control.Lawful</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Option.html">Init.Control.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Reader.html">Init.Control.Reader</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/State.html">Init.Control.State</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateCps.html">Init.Control.StateCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateRef.html">Init.Control.StateRef</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data.html">
+<summary>Init.Data</summary>
+<details class="nav_sect" data-path="/Init/Data/Array.html">
+<summary>Init.Data.Array</summary>
+<div class="nav_link">
+<a href="/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/Subarray.html">Init.Data.Array.Subarray</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ByteArray.html">
+<summary>Init.Data.ByteArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray/Basic.html">Init.Data.ByteArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Char.html">
+<summary>Init.Data.Char</summary>
+<div class="nav_link">
+<a href="/Init/Data/Char/Basic.html">Init.Data.Char.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Fin.html">
+<summary>Init.Data.Fin</summary>
+<div class="nav_link">
+<a href="/Init/Data/Fin/Basic.html">Init.Data.Fin.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/FloatArray.html">
+<summary>Init.Data.FloatArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray/Basic.html">Init.Data.FloatArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Format.html">
+<summary>Init.Data.Format</summary>
+<div class="nav_link">
+<a href="/Init/Data/Format/Basic.html">Init.Data.Format.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Instances.html">Init.Data.Format.Instances</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Macro.html">Init.Data.Format.Macro</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Syntax.html">Init.Data.Format.Syntax</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Int.html">
+<summary>Init.Data.Int</summary>
+<div class="nav_link">
+<a href="/Init/Data/Int/Basic.html">Init.Data.Int.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/List.html">
+<summary>Init.Data.List</summary>
+<div class="nav_link">
+<a href="/Init/Data/List/Basic.html">Init.Data.List.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/BasicAux.html">Init.Data.List.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/Control.html">Init.Data.List.Control</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Nat.html">
+<summary>Init.Data.Nat</summary>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Basic.html">Init.Data.Nat.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Bitwise.html">Init.Data.Nat.Bitwise</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Control.html">Init.Data.Nat.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Div.html">Init.Data.Nat.Div</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Gcd.html">Init.Data.Nat.Gcd</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Option.html">
+<summary>Init.Data.Option</summary>
+<div class="nav_link">
+<a href="/Init/Data/Option/Basic.html">Init.Data.Option.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/BasicAux.html">Init.Data.Option.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/Instances.html">Init.Data.Option.Instances</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/String.html">
+<summary>Init.Data.String</summary>
+<div class="nav_link">
+<a href="/Init/Data/String/Basic.html">Init.Data.String.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String/Extra.html">Init.Data.String.Extra</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ToString.html">
+<summary>Init.Data.ToString</summary>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Basic.html">Init.Data.ToString.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Data/Array.html">Init.Data.Array</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Basic.html">Init.Data.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray.html">Init.Data.ByteArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Char.html">Init.Data.Char</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Fin.html">Init.Data.Fin</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Float.html">Init.Data.Float</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray.html">Init.Data.FloatArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format.html">Init.Data.Format</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Hashable.html">Init.Data.Hashable</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Int.html">Init.Data.Int</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List.html">Init.Data.List</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat.html">Init.Data.Nat</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/OfScientific.html">Init.Data.OfScientific</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option.html">Init.Data.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Ord.html">Init.Data.Ord</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Random.html">Init.Data.Random</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Range.html">Init.Data.Range</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Repr.html">Init.Data.Repr</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Stream.html">Init.Data.Stream</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String.html">Init.Data.String</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString.html">Init.Data.ToString</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/UInt.html">Init.Data.UInt</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/System.html">
+<summary>Init.System</summary>
+<div class="nav_link">
+<a href="/Init/System/FilePath.html">Init.System.FilePath</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IO.html">Init.System.IO</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IOError.html">Init.System.IOError</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/Platform.html">Init.System.Platform</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/ST.html">Init.System.ST</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Classical.html">Init.Classical</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Coe.html">Init.Coe</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control.html">Init.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Conv.html">Init.Conv</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Core.html">Init.Core</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data.html">Init.Data</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Fix.html">Init.Fix</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Hints.html">Init.Hints</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Meta.html">Init.Meta</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Notation.html">Init.Notation</a>
+</div>
+<div class="nav_link">
+<a href="/Init/NotationExtra.html">Init.NotationExtra</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Prelude.html">Init.Prelude</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SimpLemmas.html">Init.SimpLemmas</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SizeOf.html">Init.SizeOf</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Util.html">Init.Util</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WF.html">Init.WF</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WFTactics.html">Init.WFTactics</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Socket.html">
+<summary>Socket</summary>
+<div class="nav_link">
+<a href="/Socket/Basic.html">Socket.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/SockAddr.html">Socket.SockAddr</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Socket.html">Socket.Socket</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Util.html">Socket.Util</a>
+</div>
+</details>
+</div>
+</nav>
+<script>
+siteRoot = "/";
+    </script>
+<script src="/nav.js">
+</script>
+</body>
+</html>

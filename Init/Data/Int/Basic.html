@@ -1,0 +1,1026 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="/style.css"></link><link rel="stylesheet" href="/pygments.css"></link><link rel="shortcut icon" href="/favicon.ico"></link><title>Init.Data.Int.Basic</title>
+<meta charset="UTF-8"></meta><meta name="viewport" content="width=device-width, initial-scale=1"></meta></head>
+<body>
+<input id="nav_toggle" type="checkbox"></input><header>
+<h1>
+<label for="nav_toggle">
+</label>
+Documentation</h1>
+<p class="header_filename break_within">Init.Data.Int.Basic</p>
+<form action="https://google.com/search" method="get" id="search_form">
+<input type="hidden" name="sitesearch" value="https://leanprover-community.github.io/mathlib_docs"></input><input type="text" name="q" autocomplete="off"></input><button>Google site search</button>
+</form>
+</header>
+<nav class="internal_nav">
+<h3>
+<a class="break_within" href="#top">Init.Data.Int.Basic</a>
+</h3>
+<p class="gh_nav_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean">source</a>
+</p>
+<div class="imports">
+<details>
+<summary>Imports</summary>
+<ul>
+<li>
+<a href="/Init/Coe.html">Init.Coe</a>
+</li>
+<li>
+<a href="/Init/Data/List/Basic.html">Init.Data.List.Basic</a>
+</li>
+<li>
+<a href="/Init/Data/Nat/Div.html">Init.Data.Nat.Div</a>
+</li>
+</ul>
+</details>
+<details>
+<summary>Imported by</summary>
+<ul>
+<li>
+<a href="/Init/Data/Float.html">Init.Data.Float</a>
+</li>
+<li>
+<a href="/Init/Data/Int.html">Init.Data.Int</a>
+</li>
+<li>
+<a href="/Init/Data/Repr.html">Init.Data.Repr</a>
+</li>
+<li>
+<a href="/Init/Data/Format/Basic.html">Init.Data.Format.Basic</a>
+</li>
+<li>
+<a href="/Init/Data/ToString/Basic.html">Init.Data.ToString.Basic</a>
+</li>
+</ul>
+</details>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int">Int</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instCoeNatInt">instCoeNatInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instOfNatInt">instOfNatInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.instInhabitedInt">Int.instInhabitedInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.negOfNat">Int.negOfNat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.neg">Int.neg</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.subNatNat">Int.subNatNat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.add">Int.add</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.mul">Int.mul</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.instNegInt">Int.instNegInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.instAddInt">Int.instAddInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.instMulInt">Int.instMulInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.sub">Int.sub</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.instSubInt">Int.instSubInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.NonNeg">Int.NonNeg</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.le">Int.le</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.instLEInt">Int.instLEInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.lt">Int.lt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.instLTInt">Int.instLTInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.decEq">Int.decEq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.instDecidableEqInt">Int.instDecidableEqInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.decLe">Int.decLe</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.decLt">Int.decLt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.natAbs">Int.natAbs</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.instOfNatInt">Int.instOfNatInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.div">Int.div</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.mod">Int.mod</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.instDivInt">Int.instDivInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.instModInt">Int.instModInt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.toNat">Int.toNat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.natMod">Int.natMod</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.pow">Int.pow</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Int.instHPowIntNat">Int.instHPowIntNat</a>
+</div>
+</nav>
+<main>
+<div class="decl" id="Int">
+<div class="inductive">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L16-L18">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">inductive</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int">Int</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="constructors">
+<li class="constructor" id="Int.ofNat">
+ofNat: <span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></li>
+<li class="constructor" id="Int.negSucc">
+negSucc: <span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="instCoeNatInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L23-L23">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#instCoeNatInt">instCoeNatInt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Coe.html#Coe">Coe</a> <a href="/Init/Prelude.html#Nat">Nat</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="instOfNatInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L25-L26">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#instOfNatInt">instOfNatInt</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{n : <a href="/Init/Prelude.html#Nat">Nat</a>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#OfNat">OfNat</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a> <span class="fn">n</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.instInhabitedInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L29-L29">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.instInhabitedInt">Int.instInhabitedInt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Inhabited">Inhabited</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.negOfNat">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L31-L33">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.negOfNat">Int.negOfNat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.neg">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L37-L40">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.neg">Int.neg</a>
+</span>
+<span class="decl_args">
+<span class="fn">(n : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Data/Int/Basic.html#Int">Int</a></div></div>
+</div>
+</div>
+<div class="decl" id="Int.subNatNat">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L42-L45">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.subNatNat">Int.subNatNat</a>
+</span>
+<span class="decl_args">
+<span class="fn">(m : <a href="/Init/Prelude.html#Nat">Nat</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(n : <a href="/Init/Prelude.html#Nat">Nat</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Data/Int/Basic.html#Int">Int</a></div></div>
+</div>
+</div>
+<div class="decl" id="Int.add">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L49-L54">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.add">Int.add</a>
+</span>
+<span class="decl_args">
+<span class="fn">(m : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(n : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Data/Int/Basic.html#Int">Int</a></div></div>
+</div>
+</div>
+<div class="decl" id="Int.mul">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L58-L63">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.mul">Int.mul</a>
+</span>
+<span class="decl_args">
+<span class="fn">(m : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(n : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Data/Int/Basic.html#Int">Int</a></div></div>
+</div>
+</div>
+<div class="decl" id="Int.instNegInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L73-L74">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.instNegInt">Int.instNegInt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Neg">Neg</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.instAddInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L75-L76">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.instAddInt">Int.instAddInt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Add">Add</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.instMulInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L77-L78">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.instMulInt">Int.instMulInt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Mul">Mul</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.sub">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L81-L82">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.sub">Int.sub</a>
+</span>
+<span class="decl_args">
+<span class="fn">(m : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(n : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Data/Int/Basic.html#Int">Int</a></div></div>
+</div>
+</div>
+<div class="decl" id="Int.instSubInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L84-L85">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.instSubInt">Int.instSubInt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Sub">Sub</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.NonNeg">
+<div class="inductive">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L87-L88">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">inductive</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.NonNeg">Int.NonNeg</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Int/Basic.html#Int">Int</a> → <span class="fn">Prop</span></span></div></div>
+<ul class="constructors">
+<li class="constructor" id="Int.NonNeg.mk">
+mk: <span class="fn">∀ (n : <a href="/Init/Prelude.html#Nat">Nat</a>), <span class="fn"><a href="/Init/Data/Int/Basic.html#Int.NonNeg">Int.NonNeg</a> (<span class="fn"><a href="/Init/Data/Int/Basic.html#Int.ofNat">Int.ofNat</a> <span class="fn">n</span></span>)</span></span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="Int.le">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L90-L90">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.le">Int.le</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Prop</span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.instLEInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L92-L93">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.instLEInt">Int.instLEInt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#LE">LE</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.lt">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L95-L95">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.lt">Int.lt</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Prop</span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.instLTInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L97-L98">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.instLTInt">Int.instLTInt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#LT">LT</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.decEq">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L102-L111">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.decEq">Int.decEq</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Decidable">Decidable</a> (<span class="fn"><span class="fn">a</span> <a href="/Init/Prelude.html#Eq">=</a> <span class="fn">b</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.instDecidableEqInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L113-L113">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.instDecidableEqInt">Int.instDecidableEqInt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#DecidableEq">DecidableEq</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.decLe">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L123-L124">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.decLe">Int.decLe</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Decidable">Decidable</a> (<span class="fn"><span class="fn">a</span> <a href="/Init/Prelude.html#LE.le">≤</a> <span class="fn">b</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.decLt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L127-L128">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.decLt">Int.decLt</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Decidable">Decidable</a> (<span class="fn"><span class="fn">a</span> <a href="/Init/Prelude.html#LT.lt"><</a> <span class="fn">b</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.natAbs">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L132-L135">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.natAbs">Int.natAbs</a>
+</span>
+<span class="decl_args">
+<span class="fn">(m : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Nat">Nat</a></div></div>
+</div>
+</div>
+<div class="decl" id="Int.instOfNatInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L137-L138">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.instOfNatInt">Int.instOfNatInt</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{n : <a href="/Init/Prelude.html#Nat">Nat</a>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#OfNat">OfNat</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a> <span class="fn">n</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.div">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L141-L145">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.div">Int.div</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Int/Basic.html#Int">Int</a> → <a href="/Init/Data/Int/Basic.html#Int">Int</a> → <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.mod">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L148-L152">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.mod">Int.mod</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Int/Basic.html#Int">Int</a> → <a href="/Init/Data/Int/Basic.html#Int">Int</a> → <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.instDivInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L154-L155">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.instDivInt">Int.instDivInt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Div">Div</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.instModInt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L157-L158">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.instModInt">Int.instModInt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Mod">Mod</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.toNat">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L160-L162">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.toNat">Int.toNat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Int/Basic.html#Int">Int</a> → <a href="/Init/Prelude.html#Nat">Nat</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.natMod">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L164-L164">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.natMod">Int.natMod</a>
+</span>
+<span class="decl_args">
+<span class="fn">(m : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(n : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Nat">Nat</a></div></div>
+</div>
+</div>
+<div class="decl" id="Int.pow">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L166-L168">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.pow">Int.pow</a>
+</span>
+<span class="decl_args">
+<span class="fn">(m : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Nat">Nat</a> → <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Int.instHPowIntNat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Int/Basic.lean#L170-L171">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Int/Basic.html#Int.instHPowIntNat">Int.instHPowIntNat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#HPow">HPow</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a> <a href="/Init/Prelude.html#Nat">Nat</a> <a href="/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+</div>
+</div>
+</main>
+<nav class="nav">
+<h3>General documentation</h3>
+<div class="nav_link">
+<a href="/">index</a>
+</div>
+<h3>Library</h3>
+<div class="module_list">
+<details class="nav_sect" data-path="/Init.html" open="">
+<summary>Init</summary>
+<details class="nav_sect" data-path="/Init/Control.html">
+<summary>Init.Control</summary>
+<div class="nav_link">
+<a href="/Init/Control/Basic.html">Init.Control.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/EState.html">Init.Control.EState</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Except.html">Init.Control.Except</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/ExceptCps.html">Init.Control.ExceptCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Id.html">Init.Control.Id</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Lawful.html">Init.Control.Lawful</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Option.html">Init.Control.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Reader.html">Init.Control.Reader</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/State.html">Init.Control.State</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateCps.html">Init.Control.StateCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateRef.html">Init.Control.StateRef</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data.html" open="">
+<summary>Init.Data</summary>
+<details class="nav_sect" data-path="/Init/Data/Array.html">
+<summary>Init.Data.Array</summary>
+<div class="nav_link">
+<a href="/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/Subarray.html">Init.Data.Array.Subarray</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ByteArray.html">
+<summary>Init.Data.ByteArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray/Basic.html">Init.Data.ByteArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Char.html">
+<summary>Init.Data.Char</summary>
+<div class="nav_link">
+<a href="/Init/Data/Char/Basic.html">Init.Data.Char.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Fin.html">
+<summary>Init.Data.Fin</summary>
+<div class="nav_link">
+<a href="/Init/Data/Fin/Basic.html">Init.Data.Fin.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/FloatArray.html">
+<summary>Init.Data.FloatArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray/Basic.html">Init.Data.FloatArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Format.html">
+<summary>Init.Data.Format</summary>
+<div class="nav_link">
+<a href="/Init/Data/Format/Basic.html">Init.Data.Format.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Instances.html">Init.Data.Format.Instances</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Macro.html">Init.Data.Format.Macro</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Syntax.html">Init.Data.Format.Syntax</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Int.html" open="">
+<summary>Init.Data.Int</summary>
+<div class="nav_link" visible="">
+<a href="/Init/Data/Int/Basic.html">Init.Data.Int.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/List.html">
+<summary>Init.Data.List</summary>
+<div class="nav_link">
+<a href="/Init/Data/List/Basic.html">Init.Data.List.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/BasicAux.html">Init.Data.List.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/Control.html">Init.Data.List.Control</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Nat.html">
+<summary>Init.Data.Nat</summary>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Basic.html">Init.Data.Nat.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Bitwise.html">Init.Data.Nat.Bitwise</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Control.html">Init.Data.Nat.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Div.html">Init.Data.Nat.Div</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Gcd.html">Init.Data.Nat.Gcd</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Option.html">
+<summary>Init.Data.Option</summary>
+<div class="nav_link">
+<a href="/Init/Data/Option/Basic.html">Init.Data.Option.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/BasicAux.html">Init.Data.Option.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/Instances.html">Init.Data.Option.Instances</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/String.html">
+<summary>Init.Data.String</summary>
+<div class="nav_link">
+<a href="/Init/Data/String/Basic.html">Init.Data.String.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String/Extra.html">Init.Data.String.Extra</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ToString.html">
+<summary>Init.Data.ToString</summary>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Basic.html">Init.Data.ToString.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Data/Array.html">Init.Data.Array</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Basic.html">Init.Data.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray.html">Init.Data.ByteArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Char.html">Init.Data.Char</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Fin.html">Init.Data.Fin</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Float.html">Init.Data.Float</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray.html">Init.Data.FloatArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format.html">Init.Data.Format</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Hashable.html">Init.Data.Hashable</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Int.html">Init.Data.Int</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List.html">Init.Data.List</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat.html">Init.Data.Nat</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/OfScientific.html">Init.Data.OfScientific</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option.html">Init.Data.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Ord.html">Init.Data.Ord</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Random.html">Init.Data.Random</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Range.html">Init.Data.Range</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Repr.html">Init.Data.Repr</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Stream.html">Init.Data.Stream</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String.html">Init.Data.String</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString.html">Init.Data.ToString</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/UInt.html">Init.Data.UInt</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/System.html">
+<summary>Init.System</summary>
+<div class="nav_link">
+<a href="/Init/System/FilePath.html">Init.System.FilePath</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IO.html">Init.System.IO</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IOError.html">Init.System.IOError</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/Platform.html">Init.System.Platform</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/ST.html">Init.System.ST</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Classical.html">Init.Classical</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Coe.html">Init.Coe</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control.html">Init.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Conv.html">Init.Conv</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Core.html">Init.Core</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data.html">Init.Data</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Fix.html">Init.Fix</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Hints.html">Init.Hints</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Meta.html">Init.Meta</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Notation.html">Init.Notation</a>
+</div>
+<div class="nav_link">
+<a href="/Init/NotationExtra.html">Init.NotationExtra</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Prelude.html">Init.Prelude</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SimpLemmas.html">Init.SimpLemmas</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SizeOf.html">Init.SizeOf</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Util.html">Init.Util</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WF.html">Init.WF</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WFTactics.html">Init.WFTactics</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Socket.html">
+<summary>Socket</summary>
+<div class="nav_link">
+<a href="/Socket/Basic.html">Socket.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/SockAddr.html">Socket.SockAddr</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Socket.html">Socket.Socket</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Util.html">Socket.Util</a>
+</div>
+</details>
+</div>
+</nav>
+<script>
+siteRoot = "/";
+    </script>
+<script src="/nav.js">
+</script>
+</body>
+</html>

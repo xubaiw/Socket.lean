@@ -1,0 +1,1408 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" href="/style.css"></link><link rel="stylesheet" href="/pygments.css"></link><link rel="shortcut icon" href="/favicon.ico"></link><title>Init.Data.Float</title>
+<meta charset="UTF-8"></meta><meta name="viewport" content="width=device-width, initial-scale=1"></meta></head>
+<body>
+<input id="nav_toggle" type="checkbox"></input><header>
+<h1>
+<label for="nav_toggle">
+</label>
+Documentation</h1>
+<p class="header_filename break_within">Init.Data.Float</p>
+<form action="https://google.com/search" method="get" id="search_form">
+<input type="hidden" name="sitesearch" value="https://leanprover-community.github.io/mathlib_docs"></input><input type="text" name="q" autocomplete="off"></input><button>Google site search</button>
+</form>
+</header>
+<nav class="internal_nav">
+<h3>
+<a class="break_within" href="#top">Init.Data.Float</a>
+</h3>
+<p class="gh_nav_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean">source</a>
+</p>
+<div class="imports">
+<details>
+<summary>Imports</summary>
+<ul>
+<li>
+<a href="/Init/Core.html">Init.Core</a>
+</li>
+<li>
+<a href="/Init/Data/Int/Basic.html">Init.Data.Int.Basic</a>
+</li>
+<li>
+<a href="/Init/Data/ToString/Basic.html">Init.Data.ToString.Basic</a>
+</li>
+</ul>
+</details>
+<details>
+<summary>Imported by</summary>
+<ul>
+<li>
+<a href="/Init/Data.html">Init.Data</a>
+</li>
+<li>
+<a href="/Init/Data/OfScientific.html">Init.Data.OfScientific</a>
+</li>
+<li>
+<a href="/Init/Data/FloatArray/Basic.html">Init.Data.FloatArray.Basic</a>
+</li>
+</ul>
+</details>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#FloatSpec">FloatSpec</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#floatSpec">floatSpec</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float">Float</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instInhabitedFloat">instInhabitedFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.add">Float.add</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.sub">Float.sub</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.mul">Float.mul</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.div">Float.div</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.neg">Float.neg</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.lt">Float.lt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.le">Float.le</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instAddFloat">instAddFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instSubFloat">instSubFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMulFloat">instMulFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instDivFloat">instDivFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instNegFloat">instNegFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instLTFloat">instLTFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instLEFloat">instLEFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.beq">Float.beq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instBEqFloat">instBEqFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.decLt">Float.decLt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.decLe">Float.decLe</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#floatDecLt">floatDecLt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#floatDecLe">floatDecLe</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.toString">Float.toString</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.toUInt8">Float.toUInt8</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.toUInt16">Float.toUInt16</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.toUInt32">Float.toUInt32</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.toUInt64">Float.toUInt64</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.toUSize">Float.toUSize</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instToStringFloat">instToStringFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instReprFloat">instReprFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instReprAtomFloat">instReprAtomFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#UInt64.toFloat">UInt64.toFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.sin">Float.sin</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.cos">Float.cos</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.tan">Float.tan</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.asin">Float.asin</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.acos">Float.acos</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.atan">Float.atan</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.atan2">Float.atan2</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.sinh">Float.sinh</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.cosh">Float.cosh</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.tanh">Float.tanh</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.asinh">Float.asinh</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.acosh">Float.acosh</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.atanh">Float.atanh</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.exp">Float.exp</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.exp2">Float.exp2</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.log">Float.log</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.log2">Float.log2</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.log10">Float.log10</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.pow">Float.pow</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.sqrt">Float.sqrt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.cbrt">Float.cbrt</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instPowFloat">instPowFloat</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Float.scaleB">Float.scaleB</a>
+</div>
+</nav>
+<main>
+<div class="decl" id="FloatSpec">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L11-L17">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#FloatSpec">FloatSpec</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type 1</span></div></div>
+<ul class="structure_fields" id="FloatSpec.mk">
+<li class="structure_field" id="FloatSpec.float">
+float: <span class="fn">Type</span></li>
+<li class="structure_field" id="FloatSpec.val">
+val: <span class="fn">float</span></li>
+<li class="structure_field" id="FloatSpec.lt">
+lt: <span class="fn"><span class="fn">float</span> → <span class="fn">float</span> → <span class="fn">Prop</span></span></li>
+<li class="structure_field" id="FloatSpec.le">
+le: <span class="fn"><span class="fn">float</span> → <span class="fn">float</span> → <span class="fn">Prop</span></span></li>
+<li class="structure_field" id="FloatSpec.decLt">
+decLt: <span class="fn"><a href="/Init/Prelude.html#DecidableRel">DecidableRel</a> <span class="fn">lt</span></span></li>
+<li class="structure_field" id="FloatSpec.decLe">
+decLe: <span class="fn"><a href="/Init/Prelude.html#DecidableRel">DecidableRel</a> <span class="fn">le</span></span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="floatSpec">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L20-L27">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#floatSpec">floatSpec</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Data/Float.html#FloatSpec">FloatSpec</a></div></div>
+</div>
+</div>
+<div class="decl" id="Float">
+<div class="structure">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L29-L30">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">structure</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float">Float</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="structure_fields" id="Float.mk">
+<li class="structure_field" id="Float.val">
+val: <span class="fn"><a href="/Init/Data/Float.html#floatSpec">floatSpec</a>.float</span></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="instInhabitedFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L32-L32">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instInhabitedFloat">instInhabitedFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Inhabited">Inhabited</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.add">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L34-L34">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.add">Float.add</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.sub">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L35-L35">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.sub">Float.sub</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.mul">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L36-L36">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.mul">Float.mul</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.div">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L37-L37">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.div">Float.div</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.neg">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L38-L38">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.neg">Float.neg</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.lt">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L41-L43">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.lt">Float.lt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a> → <span class="fn">Prop</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.le">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L45-L46">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.le">Float.le</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a> → <span class="fn">Prop</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="instAddFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L48-L48">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instAddFloat">instAddFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Add">Add</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="instSubFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L49-L49">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instSubFloat">instSubFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Sub">Sub</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="instMulFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L50-L50">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instMulFloat">instMulFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Mul">Mul</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="instDivFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L51-L51">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instDivFloat">instDivFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Div">Div</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="instNegFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L52-L52">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instNegFloat">instNegFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Neg">Neg</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="instLTFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L53-L53">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instLTFloat">instLTFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#LT">LT</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="instLEFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L54-L54">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instLEFloat">instLEFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#LE">LE</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.beq">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L56-L56">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.beq">Float.beq</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Init/Data/Float.html#Float">Float</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Data/Float.html#Float">Float</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Prelude.html#Bool">Bool</a></div></div>
+</div>
+</div>
+<div class="decl" id="instBEqFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L58-L58">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instBEqFloat">instBEqFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#BEq">BEq</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.decLt">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L60-L62">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.decLt">Float.decLt</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Init/Data/Float.html#Float">Float</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Data/Float.html#Float">Float</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Decidable">Decidable</a> (<span class="fn"><span class="fn">a</span> <a href="/Init/Prelude.html#LT.lt"><</a> <span class="fn">b</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.decLe">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L64-L66">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.decLe">Float.decLe</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Init/Data/Float.html#Float">Float</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Data/Float.html#Float">Float</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Decidable">Decidable</a> (<span class="fn"><span class="fn">a</span> <a href="/Init/Prelude.html#LE.le">≤</a> <span class="fn">b</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="floatDecLt">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L68-L68">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#floatDecLt">floatDecLt</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Init/Data/Float.html#Float">Float</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Data/Float.html#Float">Float</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Decidable">Decidable</a> (<span class="fn"><span class="fn">a</span> <a href="/Init/Prelude.html#LT.lt"><</a> <span class="fn">b</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="floatDecLe">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L69-L69">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#floatDecLe">floatDecLe</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Init/Data/Float.html#Float">Float</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <a href="/Init/Data/Float.html#Float">Float</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Decidable">Decidable</a> (<span class="fn"><span class="fn">a</span> <a href="/Init/Prelude.html#LE.le">≤</a> <span class="fn">b</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.toString">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L71-L71">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.toString">Float.toString</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Prelude.html#String">String</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.toUInt8">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L73-L73">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.toUInt8">Float.toUInt8</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Prelude.html#UInt8">UInt8</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.toUInt16">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L74-L74">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.toUInt16">Float.toUInt16</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Prelude.html#UInt16">UInt16</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.toUInt32">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L75-L75">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.toUInt32">Float.toUInt32</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Prelude.html#UInt32">UInt32</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.toUInt64">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L76-L76">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.toUInt64">Float.toUInt64</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Prelude.html#UInt64">UInt64</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.toUSize">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L77-L77">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.toUSize">Float.toUSize</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Prelude.html#USize">USize</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="instToStringFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L79-L80">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instToStringFloat">instToStringFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/ToString/Basic.html#ToString">ToString</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="instReprFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L82-L83">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instReprFloat">instReprFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Repr.html#Repr">Repr</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="instReprAtomFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L85-L85">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instReprAtomFloat">instReprAtomFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Repr.html#ReprAtom">ReprAtom</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="UInt64.toFloat">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L87-L87">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#UInt64.toFloat">UInt64.toFloat</a>
+</span>
+<span class="decl_args">
+<span class="fn">(n : <a href="/Init/Prelude.html#UInt64">UInt64</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Data/Float.html#Float">Float</a></div></div>
+</div>
+</div>
+<div class="decl" id="Float.sin">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L89-L89">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.sin">Float.sin</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.cos">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L90-L90">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.cos">Float.cos</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.tan">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L91-L91">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.tan">Float.tan</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.asin">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L92-L92">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.asin">Float.asin</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.acos">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L93-L93">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.acos">Float.acos</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.atan">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L94-L94">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.atan">Float.atan</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.atan2">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L95-L95">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.atan2">Float.atan2</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.sinh">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L96-L96">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.sinh">Float.sinh</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.cosh">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L97-L97">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.cosh">Float.cosh</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.tanh">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L98-L98">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.tanh">Float.tanh</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.asinh">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L99-L99">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.asinh">Float.asinh</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.acosh">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L100-L100">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.acosh">Float.acosh</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.atanh">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L101-L101">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.atanh">Float.atanh</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.exp">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L102-L102">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.exp">Float.exp</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.exp2">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L103-L103">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.exp2">Float.exp2</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.log">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L104-L104">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.log">Float.log</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.log2">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L105-L105">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.log2">Float.log2</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.log10">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L106-L106">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.log10">Float.log10</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.pow">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L107-L107">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.pow">Float.pow</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.sqrt">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L108-L108">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.sqrt">Float.sqrt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.cbrt">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L109-L109">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.cbrt">Float.cbrt</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Data/Float.html#Float">Float</a> → <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="instPowFloat">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L111-L111">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#instPowFloat">instPowFloat</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Init/Prelude.html#Pow">Pow</a> <a href="/Init/Data/Float.html#Float">Float</a> <a href="/Init/Data/Float.html#Float">Float</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Float.scaleB">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Float.lean#L117-L117">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Init/Data/Float.html#Float.scaleB">Float.scaleB</a>
+</span>
+<span class="decl_args">
+<span class="fn">(x : <a href="/Init/Data/Float.html#Float">Float</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Init/Data/Int/Basic.html#Int">Int</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Init/Data/Float.html#Float">Float</a></div></div>
+</div>
+</div>
+</main>
+<nav class="nav">
+<h3>General documentation</h3>
+<div class="nav_link">
+<a href="/">index</a>
+</div>
+<h3>Library</h3>
+<div class="module_list">
+<details class="nav_sect" data-path="/Init.html" open="">
+<summary>Init</summary>
+<details class="nav_sect" data-path="/Init/Control.html">
+<summary>Init.Control</summary>
+<div class="nav_link">
+<a href="/Init/Control/Basic.html">Init.Control.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/EState.html">Init.Control.EState</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Except.html">Init.Control.Except</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/ExceptCps.html">Init.Control.ExceptCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Id.html">Init.Control.Id</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Lawful.html">Init.Control.Lawful</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Option.html">Init.Control.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/Reader.html">Init.Control.Reader</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/State.html">Init.Control.State</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateCps.html">Init.Control.StateCps</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control/StateRef.html">Init.Control.StateRef</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data.html" open="">
+<summary>Init.Data</summary>
+<details class="nav_sect" data-path="/Init/Data/Array.html">
+<summary>Init.Data.Array</summary>
+<div class="nav_link">
+<a href="/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Array/Subarray.html">Init.Data.Array.Subarray</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ByteArray.html">
+<summary>Init.Data.ByteArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray/Basic.html">Init.Data.ByteArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Char.html">
+<summary>Init.Data.Char</summary>
+<div class="nav_link">
+<a href="/Init/Data/Char/Basic.html">Init.Data.Char.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Fin.html">
+<summary>Init.Data.Fin</summary>
+<div class="nav_link">
+<a href="/Init/Data/Fin/Basic.html">Init.Data.Fin.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/FloatArray.html">
+<summary>Init.Data.FloatArray</summary>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray/Basic.html">Init.Data.FloatArray.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Format.html">
+<summary>Init.Data.Format</summary>
+<div class="nav_link">
+<a href="/Init/Data/Format/Basic.html">Init.Data.Format.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Instances.html">Init.Data.Format.Instances</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Macro.html">Init.Data.Format.Macro</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format/Syntax.html">Init.Data.Format.Syntax</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Int.html">
+<summary>Init.Data.Int</summary>
+<div class="nav_link">
+<a href="/Init/Data/Int/Basic.html">Init.Data.Int.Basic</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/List.html">
+<summary>Init.Data.List</summary>
+<div class="nav_link">
+<a href="/Init/Data/List/Basic.html">Init.Data.List.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/BasicAux.html">Init.Data.List.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List/Control.html">Init.Data.List.Control</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Nat.html">
+<summary>Init.Data.Nat</summary>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Basic.html">Init.Data.Nat.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Bitwise.html">Init.Data.Nat.Bitwise</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Control.html">Init.Data.Nat.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Div.html">Init.Data.Nat.Div</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Gcd.html">Init.Data.Nat.Gcd</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/Option.html">
+<summary>Init.Data.Option</summary>
+<div class="nav_link">
+<a href="/Init/Data/Option/Basic.html">Init.Data.Option.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/BasicAux.html">Init.Data.Option.BasicAux</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option/Instances.html">Init.Data.Option.Instances</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/String.html">
+<summary>Init.Data.String</summary>
+<div class="nav_link">
+<a href="/Init/Data/String/Basic.html">Init.Data.String.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String/Extra.html">Init.Data.String.Extra</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/Data/ToString.html">
+<summary>Init.Data.ToString</summary>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Basic.html">Init.Data.ToString.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Data/Array.html">Init.Data.Array</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Basic.html">Init.Data.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ByteArray.html">Init.Data.ByteArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Char.html">Init.Data.Char</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Fin.html">Init.Data.Fin</a>
+</div>
+<div class="nav_link" visible="">
+<a href="/Init/Data/Float.html">Init.Data.Float</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/FloatArray.html">Init.Data.FloatArray</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Format.html">Init.Data.Format</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Hashable.html">Init.Data.Hashable</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Int.html">Init.Data.Int</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/List.html">Init.Data.List</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Nat.html">Init.Data.Nat</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/OfScientific.html">Init.Data.OfScientific</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Option.html">Init.Data.Option</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Ord.html">Init.Data.Ord</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Random.html">Init.Data.Random</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Range.html">Init.Data.Range</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Repr.html">Init.Data.Repr</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/Stream.html">Init.Data.Stream</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/String.html">Init.Data.String</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/ToString.html">Init.Data.ToString</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data/UInt.html">Init.Data.UInt</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Init/System.html">
+<summary>Init.System</summary>
+<div class="nav_link">
+<a href="/Init/System/FilePath.html">Init.System.FilePath</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IO.html">Init.System.IO</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/IOError.html">Init.System.IOError</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/Platform.html">Init.System.Platform</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System/ST.html">Init.System.ST</a>
+</div>
+</details>
+<div class="nav_link">
+<a href="/Init/Classical.html">Init.Classical</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Coe.html">Init.Coe</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Control.html">Init.Control</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Conv.html">Init.Conv</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Core.html">Init.Core</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Data.html">Init.Data</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Fix.html">Init.Fix</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Hints.html">Init.Hints</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Meta.html">Init.Meta</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Notation.html">Init.Notation</a>
+</div>
+<div class="nav_link">
+<a href="/Init/NotationExtra.html">Init.NotationExtra</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Prelude.html">Init.Prelude</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SimpLemmas.html">Init.SimpLemmas</a>
+</div>
+<div class="nav_link">
+<a href="/Init/SizeOf.html">Init.SizeOf</a>
+</div>
+<div class="nav_link">
+<a href="/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Init/Util.html">Init.Util</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WF.html">Init.WF</a>
+</div>
+<div class="nav_link">
+<a href="/Init/WFTactics.html">Init.WFTactics</a>
+</div>
+</details>
+<details class="nav_sect" data-path="/Socket.html">
+<summary>Socket</summary>
+<div class="nav_link">
+<a href="/Socket/Basic.html">Socket.Basic</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/SockAddr.html">Socket.SockAddr</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Socket.html">Socket.Socket</a>
+</div>
+<div class="nav_link">
+<a href="/Socket/Util.html">Socket.Util</a>
+</div>
+</details>
+</div>
+</nav>
+<script>
+siteRoot = "/";
+    </script>
+<script src="/nav.js">
+</script>
+</body>
+</html>
