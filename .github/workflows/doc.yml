@@ -1,0 +1,26 @@
+name: Doc
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  docgen-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Generate Documentation
+      uses: xubaiw/actions-doc-gen4@master
+      with:
+        modules: Socket
+
+    - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
+        with:
+          branch: gh-pages 
+          folder: build/doc
