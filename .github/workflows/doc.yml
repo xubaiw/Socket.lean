@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: Generate Documentation
-      uses: xubaiw/actions-doc-gen4@master
+      uses: xubaiw/actions-doc-gen4@main
       with:
         modules: Socket
 
