@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Socket.Basic</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/58d5de21d7982a924ea41af46ea44fa7a8641688/Socket/Basic.lean">source</a>
+<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -74,12 +74,15 @@ Documentation</h1>
 <div class="nav_link">
 <a class="break_within" href="#Socket.instInhabitedShutdownHow">Socket.instInhabitedShutdownHow</a>
 </div>
+<div class="nav_link">
+<a class="break_within" href="#Socket.hostname">Socket.hostname</a>
+</div>
 </nav>
 <main>
 <div class="decl" id="Socket.Socket">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/58d5de21d7982a924ea41af46ea44fa7a8641688/Socket/Basic.lean#L13-L13">source</a>
+<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L29-L29">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
@@ -93,7 +96,7 @@ Documentation</h1>
 <div class="decl" id="Socket.SockAddr">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/58d5de21d7982a924ea41af46ea44fa7a8641688/Socket/Basic.lean#L18-L18">source</a>
+<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L34-L34">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
@@ -107,7 +110,7 @@ Documentation</h1>
 <div class="decl" id="Socket.AddressFamily">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/58d5de21d7982a924ea41af46ea44fa7a8641688/Socket/Basic.lean#L21-L25">source</a>
+<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L37-L41">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -129,7 +132,7 @@ inet6: <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily">Socket.Add
 <div class="decl" id="Socket.instInhabitedAddressFamily">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/58d5de21d7982a924ea41af46ea44fa7a8641688/Socket/Basic.lean#L25-L25">source</a>
+<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L41-L41">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -143,7 +146,7 @@ inet6: <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily">Socket.Add
 <div class="decl" id="Socket.instToStringAddressFamily">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/58d5de21d7982a924ea41af46ea44fa7a8641688/Socket/Basic.lean#L29-L33">source</a>
+<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L45-L49">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -157,7 +160,7 @@ inet6: <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily">Socket.Add
 <div class="decl" id="Socket.SockType">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/58d5de21d7982a924ea41af46ea44fa7a8641688/Socket/Basic.lean#L36-L40">source</a>
+<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L52-L56">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -179,7 +182,7 @@ dgram: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType
 <div class="decl" id="Socket.instInhabitedSockType">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/58d5de21d7982a924ea41af46ea44fa7a8641688/Socket/Basic.lean#L40-L40">source</a>
+<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L56-L56">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -193,7 +196,7 @@ dgram: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType
 <div class="decl" id="Socket.instToStringSockType">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/58d5de21d7982a924ea41af46ea44fa7a8641688/Socket/Basic.lean#L44-L48">source</a>
+<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L60-L64">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -207,7 +210,7 @@ dgram: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType
 <div class="decl" id="Socket.ShutdownHow">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/58d5de21d7982a924ea41af46ea44fa7a8641688/Socket/Basic.lean#L51-L55">source</a>
+<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L67-L71">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -229,7 +232,7 @@ readwrite: <a href="/lean4-socket/Socket/Basic.html#Socket.ShutdownHow">Socket.S
 <div class="decl" id="Socket.instInhabitedShutdownHow">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/58d5de21d7982a924ea41af46ea44fa7a8641688/Socket/Basic.lean#L55-L55">source</a>
+<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L71-L71">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -238,6 +241,20 @@ readwrite: <a href="/lean4-socket/Socket/Basic.html#Socket.ShutdownHow">Socket.S
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Inhabited">Inhabited</a> <a href="/lean4-socket/Socket/Basic.html#Socket.ShutdownHow">Socket.ShutdownHow</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Socket.hostname">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L73-L73">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/lean4-socket/Socket/Basic.html#Socket.hostname">Socket.hostname</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/System/IO.html#IO">IO</a> <a href="/lean4-socket/Init/Prelude.html#String">String</a></span></div></div>
 </div>
 </div>
 </main>
@@ -560,16 +577,10 @@ readwrite: <a href="/lean4-socket/Socket/Basic.html#Socket.ShutdownHow">Socket.S
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
-<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
-</div>
-<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Socket/Socket.html">Socket.Socket</a>
-</div>
-<div class="nav_link">
-<a href="/lean4-socket/Socket/Util.html">Socket.Util</a>
 </div>
 </details>
 </div>
