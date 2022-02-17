@@ -24,9 +24,9 @@ constant Socket.Nonempty : NonemptyType
 /--
   Opaque reference to underlying platform specific socket.
 
-  To create a `Socket`, refer to [`Socket.mk`](#Socket.Socket.mk). Then you
+  To create a `Socket`, refer to [`Socket.mk`](##Socket.Socket.mk). Then you
   can manipulate the `Socket` using common socket functions like
-  [`Socket.bind`](#Socket.Socket.bind),[`Socket.connect`](#Socket.Socket.connect),
+  [`Socket.bind`](##Socket.Socket.bind),[`Socket.connect`](##Socket.Socket.connect),
   etc. For all functions available, refer to the [`Socket` module](Socket/Socket.html).
 
   *NOTE*: `NonemptyType` is used to implement `Inhabited` for `Socket`. [detailed explanation](#explanation-usage-of-nonemptytype)
@@ -104,7 +104,7 @@ instance : ToString SockType where
 
 /--
   Enumeration of how is socket shutdown,
-  which is used in [`Socket.shutdown`](#Socket.Socket.shutdown).
+  which is used in [`Socket.shutdown`](##Socket.Socket.shutdown).
 -/
 inductive ShutdownHow where
   | read
