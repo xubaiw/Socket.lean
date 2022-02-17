@@ -20,7 +20,7 @@ jobs:
         modules: Socket
         root-url: /Socket.lean/
         doc-gen4-repo: https://github.com/xubaiw/doc-gen4.git
-        doc-gen4-checkout: 97ddf05
+        doc-gen4-checkout: 11bb2af57aa47e371432842c3b2510622739de99
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.2.2
