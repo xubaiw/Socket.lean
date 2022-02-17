@@ -1,15 +1,18 @@
 namespace Socket
 
-/--
-  Initialize the socket environment.
+/-!
+  # Socket Initialization
 
-  This function does the following things:
-  1. register `Socket` and `SockAddr` type from external class
-  2. call `WSAStartup` on windows
-  3. register `WSACleanup` on windows
+  This module automatically initializes the socket environment, and users doesn't need not care about it.
+  To initialization the environment, two steps are required:
 
-  This function should always and only be called with `initialize initSocket`.
+  1. Register external classes like `Socket` and `SockAddr`
+  2. Call platform specific startup code.
+  3. Register platform specific cleanup code.
+
  -/
+
+/-- The initialization function. Users shouldn't call this it. -/
 @[extern "lean_socket_initialize"]
 constant initSocket : IO Unit
 

@@ -3,6 +3,7 @@ import Socket.Basic
 namespace Socket
 namespace SockAddr
 
+/-- Argument for [`SockAddr.mk`](#Socket.SockAddr.mk). -/
 structure SockAddrArgs where
   host : String
   port : String
@@ -10,19 +11,21 @@ structure SockAddrArgs where
   type : SockType := SockType.unspecified
   deriving Inhabited
 
-/--
-  This function internally calls getaddrinfo.
--/
+/-- Create a [`SockAddr`](/find/Socket.SockAddr). -/
 @[extern "lean_sockaddr_mk"] constant mk (a : @& SockAddrArgs) : IO SockAddr
 
+/-- Get family of the [`SockAddr`](/find/Socket.SockAddr). -/
 @[extern "lean_sockaddr_family"] constant family (a : @& SockAddr) : Option AddressFamily
 
+/-- Get family of the [`SockAddr`](/find/Socket.SockAddr). -/
 @[extern "lean_sockaddr_port"] constant port (a : @& SockAddr) : Option UInt16
 
+/-- Get family of the [`SockAddr`](/find/Socket.SockAddr). -/
 @[extern "lean_sockaddr_host"] constant host (a : @& SockAddr) : Option String
 
 end SockAddr
 
+/-- Convert [`SockAddr`](/find/Socket.SockAddr) to `String`. -/
 instance : ToString SockAddr where
   toString a := 
     let host := a.host.getD "none"

@@ -11,9 +11,7 @@ namespace Socket
 /--
   Close the `Socket`.
 
-  ### Note
-
-  Although Socket is designed to be automatically closed when garbage collected,
+  *NOTE:* Although Socket is designed to be automatically closed when garbage collected,
   it's a good practice to manually close it beforehand.
 -/
 @[extern "lean_socket_close"] constant close (s : @& Socket) : IO Unit
