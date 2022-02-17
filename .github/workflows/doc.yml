@@ -18,7 +18,7 @@ jobs:
       uses: xubaiw/actions-doc-gen4@main
       with:
         modules: Socket
-        root-url: /lean4-socket/
+        root-url: /Socket.lean/
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.2.2
