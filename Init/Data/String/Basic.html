@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Data.String.Basic</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -469,7 +469,7 @@ Documentation</h1>
 <div class="decl" id="List.asString">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L12-L13">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L12-L13">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -492,7 +492,7 @@ Documentation</h1>
 <div class="decl" id="String.instLTString">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L16-L17">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L16-L17">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -513,7 +513,7 @@ Documentation</h1>
 <div class="decl" id="String.decLt">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L20-L21">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L20-L21">source</a>
 </div>
 <div class="attributes">@[extern  lean_string_dec_lt]</div>
 <div class="decl_header">
@@ -539,7 +539,7 @@ Documentation</h1>
 <div class="decl" id="String.length">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L24-L25">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L24-L25">source</a>
 </div>
 <div class="attributes">@[extern  lean_string_length]</div>
 <div class="decl_header">
@@ -562,7 +562,7 @@ Documentation</h1>
 <div class="decl" id="String.push">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L30-L31">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L30-L31">source</a>
 </div>
 <div class="attributes">@[extern  lean_string_push]</div>
 <div class="decl_header">
@@ -580,12 +580,13 @@ Documentation</h1>
   | <span class="fn">{ data := <span class="fn">s</span> }</span>, <span class="fn">c</span> => <span class="fn">{ data := <span class="fn"><span class="fn">s</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">[<span class="fn">c</span>]</span></span> }</span></span></span></li>
 </ul>
 </details>
-</div>
+<p>The internal implementation uses dynamic arrays and will perform destructive updates
+if the String is not shared.</p></div>
 </div>
 <div class="decl" id="String.append">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L36-L37">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L36-L37">source</a>
 </div>
 <div class="attributes">@[extern  lean_string_append]</div>
 <div class="decl_header">
@@ -603,12 +604,13 @@ Documentation</h1>
   | <span class="fn">{ data := <span class="fn">a</span> }</span>, <span class="fn">{ data := <span class="fn">b</span> }</span> => <span class="fn">{ data := <span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">b</span></span> }</span></span></span></li>
 </ul>
 </details>
-</div>
+<p>The internal implementation uses dynamic arrays and will perform destructive updates
+if the String is not shared.</p></div>
 </div>
 <div class="decl" id="String.toList">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L40-L41">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L40-L41">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -626,12 +628,12 @@ Documentation</h1>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.toList">String.toList</a> <span class="fn">s</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">s</span>.data</span></span></li>
 </ul>
 </details>
-</div>
+<p>O(n) in the runtime, where n is the length of the String</p></div>
 </div>
 <div class="decl" id="String.get">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L48-L49">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L48-L49">source</a>
 </div>
 <div class="attributes">@[extern  lean_string_utf8_get]</div>
 <div class="decl_header">
@@ -654,7 +656,7 @@ Documentation</h1>
 <div class="decl" id="String.getOp">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L51-L52">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L51-L52">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -679,7 +681,7 @@ Documentation</h1>
 <div class="decl" id="String.set">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L60-L61">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L60-L61">source</a>
 </div>
 <div class="attributes">@[extern  lean_string_utf8_set]</div>
 <div class="decl_header">
@@ -702,7 +704,7 @@ Documentation</h1>
 <div class="decl" id="String.modify">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L63-L64">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L63-L64">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -729,7 +731,7 @@ Documentation</h1>
 <div class="decl" id="String.next">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L67-L69">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L67-L69">source</a>
 </div>
 <div class="attributes">@[extern  lean_string_utf8_next]</div>
 <div class="decl_header">
@@ -756,7 +758,7 @@ Documentation</h1>
 <div class="decl" id="String.prev">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L79-L80">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L79-L80">source</a>
 </div>
 <div class="attributes">@[extern  lean_string_utf8_prev]</div>
 <div class="decl_header">
@@ -779,7 +781,7 @@ Documentation</h1>
 <div class="decl" id="String.front">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L82-L83">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L82-L83">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -802,7 +804,7 @@ Documentation</h1>
 <div class="decl" id="String.back">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L85-L86">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L85-L86">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -825,7 +827,7 @@ Documentation</h1>
 <div class="decl" id="String.atEnd">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L89-L90">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L89-L90">source</a>
 </div>
 <div class="attributes">@[extern  lean_string_utf8_at_end]</div>
 <div class="decl_header">
@@ -848,7 +850,7 @@ Documentation</h1>
 <div class="decl" id="String.posOfAux">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L95-L98">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L95-L98">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -870,7 +872,7 @@ Documentation</h1>
 <div class="decl" id="String.posOf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L100-L101">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L100-L101">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -896,7 +898,7 @@ Documentation</h1>
 <div class="decl" id="String.revPosOfAux">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L103-L106">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L103-L106">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -916,7 +918,7 @@ Documentation</h1>
 <div class="decl" id="String.revPosOf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L108-L110">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L108-L110">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -941,7 +943,7 @@ Documentation</h1>
 <div class="decl" id="String.findAux">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L112-L115">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L112-L115">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -963,7 +965,7 @@ Documentation</h1>
 <div class="decl" id="String.find">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L117-L118">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L117-L118">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -989,7 +991,7 @@ Documentation</h1>
 <div class="decl" id="String.revFindAux">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L120-L123">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L120-L123">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -1009,7 +1011,7 @@ Documentation</h1>
 <div class="decl" id="String.revFind">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L125-L127">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L125-L127">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1034,7 +1036,7 @@ Documentation</h1>
 <div class="decl" id="String.firstDiffPos">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L130-L135">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L130-L135">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1055,12 +1057,12 @@ Documentation</h1>
   <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.firstDiffPos.loop">String.firstDiffPos.loop</a> <span class="fn">a</span> <span class="fn">b</span> <span class="fn">stopPos</span> <span class="fn">0</span></span></span></span></li>
 </ul>
 </details>
-</div>
+<p>Returns the first position where the two strings differ.</p></div>
 </div>
 <div class="decl" id="String.firstDiffPos.loop">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L132-L134">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L132-L134">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -1082,7 +1084,7 @@ Documentation</h1>
 <div class="decl" id="String.extract">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L146-L147">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L146-L147">source</a>
 </div>
 <div class="attributes">@[extern  lean_string_utf8_extract]</div>
 <div class="decl_header">
@@ -1105,7 +1107,7 @@ Documentation</h1>
 <div class="decl" id="String.splitAux">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L149-L157">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L149-L157">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -1130,7 +1132,7 @@ Documentation</h1>
 <div class="decl" id="String.split">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L159-L160">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L159-L160">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -1156,7 +1158,7 @@ Documentation</h1>
 <div class="decl" id="String.splitOnAux">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L162-L174">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L162-L174">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -1182,7 +1184,7 @@ Documentation</h1>
 <div class="decl" id="String.splitOn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L176-L177">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L176-L177">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1207,7 +1209,7 @@ Documentation</h1>
 <div class="decl" id="String.instInhabitedString">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L179-L179">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L179-L179">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1228,7 +1230,7 @@ Documentation</h1>
 <div class="decl" id="String.instAppendString">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L181-L181">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L181-L181">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1249,7 +1251,7 @@ Documentation</h1>
 <div class="decl" id="String.str">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L183-L183">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L183-L183">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1270,7 +1272,7 @@ Documentation</h1>
 <div class="decl" id="String.pushn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L185-L186">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L185-L186">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1297,7 +1299,7 @@ Documentation</h1>
 <div class="decl" id="String.isEmpty">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L188-L189">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L188-L189">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1320,7 +1322,7 @@ Documentation</h1>
 <div class="decl" id="String.join">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L191-L192">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L191-L192">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1343,7 +1345,7 @@ Documentation</h1>
 <div class="decl" id="String.singleton">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L194-L195">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L194-L195">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1366,7 +1368,7 @@ Documentation</h1>
 <div class="decl" id="String.intercalate">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L197-L202">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L197-L202">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1391,7 +1393,7 @@ Documentation</h1>
 <div class="decl" id="String.intercalate.go">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L200-L202">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L200-L202">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1418,7 +1420,7 @@ Documentation</h1>
 <div class="decl" id="String.Iterator">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L204-L207">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L204-L207">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -1438,7 +1440,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.instDecidableEqIterator">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L207-L207">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L207-L207">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1459,7 +1461,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.mkIterator">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L209-L210">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L209-L210">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1482,7 +1484,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.toString">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L213-L214">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L213-L214">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1504,7 +1506,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.remainingBytes">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L216-L217">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L216-L217">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1526,7 +1528,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.pos">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L219-L220">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L219-L220">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1548,7 +1550,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.curr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L222-L223">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L222-L223">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1570,7 +1572,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.next">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L225-L226">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L225-L226">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1592,7 +1594,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.prev">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L228-L229">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L228-L229">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1614,7 +1616,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.hasNext">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L231-L232">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L231-L232">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1636,7 +1638,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.hasPrev">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L234-L235">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L234-L235">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1658,7 +1660,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.setCurr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L237-L238">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L237-L238">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1680,7 +1682,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.toEnd">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L240-L241">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L240-L241">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1702,7 +1704,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.extract">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L243-L246">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L243-L246">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1725,7 +1727,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.forward">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L248-L250">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L248-L250">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1748,7 +1750,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.remainingToString">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L252-L253">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L252-L253">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1770,7 +1772,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.nextn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L255-L257">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L255-L257">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1793,7 +1795,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.Iterator.prevn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L259-L261">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L259-L261">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1816,7 +1818,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.offsetOfPosAux">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L264-L268">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L264-L268">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -1838,7 +1840,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.offsetOfPos">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L270-L271">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L270-L271">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1863,7 +1865,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.foldlAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L273-L277">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L273-L277">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -1899,7 +1901,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.foldlAux.loop">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L274-L276">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L274-L276">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -1927,7 +1929,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.foldl">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L279-L280">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L279-L280">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -1959,7 +1961,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.foldrAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L282-L286">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L282-L286">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -1995,7 +1997,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.foldrAux.loop">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L283-L285">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L283-L285">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -2023,7 +2025,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.foldr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L288-L289">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L288-L289">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2055,7 +2057,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.anyAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L291-L296">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L291-L296">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -2085,7 +2087,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.anyAux.loop">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L292-L295">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L292-L295">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -2107,7 +2109,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.any">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L298-L299">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L298-L299">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2133,7 +2135,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.all">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L301-L302">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L301-L302">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2159,7 +2161,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.contains">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L304-L305">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L304-L305">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2184,7 +2186,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.mapAux">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L307-L312">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L307-L312">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -2205,7 +2207,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.map">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L314-L315">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L314-L315">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2231,7 +2233,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.isNat">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L317-L318">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L317-L318">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2254,7 +2256,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.toNat?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L320-L324">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L320-L324">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2279,7 +2281,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.substrEq">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L329-L337">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L329-L337">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2305,12 +2307,13 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.substrEq">String.substrEq</a> <span class="fn">s1</span> <span class="fn">off1</span> <span class="fn">s2</span> <span class="fn">off2</span> <span class="fn">sz</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   (<span class="fn"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> (<span class="fn"><span class="fn"><span class="fn">off1</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">sz</span></span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.bsize">String.bsize</a> <span class="fn">s1</span></span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#and">&&</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> (<span class="fn"><span class="fn"><span class="fn">off2</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">sz</span></span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.bsize">String.bsize</a> <span class="fn">s2</span></span></span>)</span></span> <a href="/Socket.lean/Init/Prelude.html#and">&&</a>     <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.substrEq.loop">String.substrEq.loop</a> <span class="fn">s1</span> <span class="fn">s2</span> <span class="fn">off1</span> <span class="fn">off2</span> (<span class="fn"><span class="fn">off1</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">sz</span></span>)</span></span>)</span></li>
 </ul>
 </details>
-</div>
+<p>Return <code>true</code> iff the substring of length <code>sz</code> starting at position <code>off1</code> in <code>s1</code> is equal to that starting at <code>off2</code> in <code>s2.</code>.
+False if either substring of that length does not exist.</p></div>
 </div>
 <div class="decl" id="String.substrEq.loop">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L332-L337">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L332-L337">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -2334,7 +2337,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.isPrefixOf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L340-L341">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L340-L341">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2354,12 +2357,12 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.isPrefixOf">String.isPrefixOf</a> <span class="fn">p</span> <span class="fn">s</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.substrEq">String.substrEq</a> <span class="fn">p</span> <span class="fn">0</span> <span class="fn">s</span> <span class="fn">0</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.bsize">String.bsize</a> <span class="fn">p</span></span>)</span></span></li>
 </ul>
 </details>
-</div>
+<p>Return true iff <code>p</code> is a prefix of <code>s</code></p></div>
 </div>
 <div class="decl" id="String.replace">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L344-L353">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L344-L353">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2381,12 +2384,12 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.replace">String.replace</a> <span class="fn">s</span> <span class="fn">pattern</span> <span class="fn">replacement</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.replace.loop">String.replace.loop</a> <span class="fn">s</span> <span class="fn">pattern</span> <span class="fn">replacement</span> <span class="fn">""</span> <span class="fn">0</span> <span class="fn">0</span></span></span></li>
 </ul>
 </details>
-</div>
+<p>Replace all occurrences of <code>pattern</code> in <code>s</code> with <code>replacment</code>.</p></div>
 </div>
 <div class="decl" id="String.replace.loop">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L347-L353">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L347-L353">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -2412,7 +2415,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.isEmpty">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L359-L360">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L359-L360">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2436,7 +2439,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.toString">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L362-L363">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L362-L363">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2459,7 +2462,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.toIterator">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L365-L366">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L365-L366">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2482,7 +2485,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.get">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L369-L370">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L369-L370">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2500,12 +2503,12 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
   | <span class="fn">{ str := <span class="fn">s</span>, startPos := <span class="fn">b</span>, stopPos := <span class="fn">x</span> }</span>, <span class="fn">p</span> => <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.get">String.get</a> <span class="fn">s</span> (<span class="fn"><span class="fn">b</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">p</span></span>)</span></span></span></li>
 </ul>
 </details>
-</div>
+<p>Return the codepoint at the given offset into the substring.</p></div>
 </div>
 <div class="decl" id="Substring.next">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L374-L377">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L374-L377">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2525,12 +2528,13 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
     <span class="fn">if <span class="fn"><span class="fn">absP</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">e</span></span> then <span class="fn">p</span> else <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.next">String.next</a> <span class="fn">s</span> <span class="fn">absP</span></span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn">b</span></span></span></span></span></span></li>
 </ul>
 </details>
-</div>
+<p>Given an offset of a codepoint into the substring,
+return the offset there of the next codepoint.</p></div>
 </div>
 <div class="decl" id="Substring.prev">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L381-L384">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L381-L384">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2550,12 +2554,13 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
     <span class="fn">if <span class="fn"><span class="fn">absP</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">b</span></span> then <span class="fn">p</span> else <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.prev">String.prev</a> <span class="fn">s</span> <span class="fn">absP</span></span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn">b</span></span></span></span></span></span></li>
 </ul>
 </details>
-</div>
+<p>Given an offset of a codepoint into the substring,
+return the offset there of the previous codepoint.</p></div>
 </div>
 <div class="decl" id="Substring.nextn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L386-L388">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L386-L388">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2578,7 +2583,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.prevn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L390-L392">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L390-L392">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2601,7 +2606,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.front">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L394-L395">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L394-L395">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2625,7 +2630,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.posOf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L399-L401">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L399-L401">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2647,12 +2652,13 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
   | <span class="fn">{ str := <span class="fn">s</span>, startPos := <span class="fn">b</span>, stopPos := <span class="fn">e</span> }</span> => <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.posOfAux">String.posOfAux</a> <span class="fn">s</span> <span class="fn">c</span> <span class="fn">e</span> <span class="fn">b</span></span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn">b</span></span></span></span></li>
 </ul>
 </details>
-</div>
+<p>Return the offset into <code>s</code> of the first occurence of <code>c</code> in <code>s</code>,
+or <code>s.bsize</code> if <code>c</code> doesn't occur.</p></div>
 </div>
 <div class="decl" id="Substring.drop">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L403-L404">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L403-L404">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2676,7 +2682,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.dropRight">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L406-L407">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L406-L407">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2700,7 +2706,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.take">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L409-L410">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L409-L410">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2724,7 +2730,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.takeRight">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L412-L413">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L412-L413">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2748,7 +2754,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.atEnd">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L415-L416">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L415-L416">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2771,7 +2777,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.extract">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L418-L419">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L418-L419">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2796,7 +2802,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.splitOn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L421-L441">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L421-L441">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2821,7 +2827,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.splitOn.loop">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L425-L440">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L425-L440">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -2847,7 +2853,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.foldl">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L443-L445">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L443-L445">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2880,7 +2886,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.foldr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L447-L449">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L447-L449">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2913,7 +2919,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.any">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L451-L453">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L451-L453">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2940,7 +2946,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.all">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L455-L456">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L455-L456">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2966,7 +2972,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.contains">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L458-L459">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L458-L459">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2991,7 +2997,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.takeWhile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L466-L469">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L466-L469">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3016,7 +3022,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.dropWhile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L471-L474">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L471-L474">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3041,7 +3047,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.takeRightWhile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L484-L487">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L484-L487">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3066,7 +3072,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.dropRightWhile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L489-L492">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L489-L492">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3091,7 +3097,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.trimLeft">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L494-L495">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L494-L495">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3115,7 +3121,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.trimRight">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L497-L498">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L497-L498">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3139,7 +3145,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.trim">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L500-L504">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L500-L504">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3165,7 +3171,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.isNat">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L506-L507">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L506-L507">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3188,7 +3194,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.toNat?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L509-L513">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L509-L513">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3213,7 +3219,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.beq">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L515-L516">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L515-L516">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3238,7 +3244,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Substring.hasBeq">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L518-L518">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L518-L518">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -3259,7 +3265,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.drop">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L524-L525">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L524-L525">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3284,7 +3290,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.dropRight">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L527-L528">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L527-L528">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3309,7 +3315,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.take">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L530-L531">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L530-L531">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3334,7 +3340,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.takeRight">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L533-L534">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L533-L534">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3359,7 +3365,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.takeWhile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L536-L537">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L536-L537">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3384,7 +3390,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.dropWhile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L539-L540">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L539-L540">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3409,7 +3415,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.takeRightWhile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L542-L543">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L542-L543">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3434,7 +3440,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.dropRightWhile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L545-L546">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L545-L546">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3459,7 +3465,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.startsWith">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L548-L549">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L548-L549">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3484,7 +3490,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.endsWith">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L551-L552">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L551-L552">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3509,7 +3515,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.trimRight">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L554-L555">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L554-L555">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3532,7 +3538,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.trimLeft">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L557-L558">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L557-L558">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3555,7 +3561,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.trim">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L560-L561">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L560-L561">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3578,7 +3584,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.nextWhile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L563-L564">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L563-L564">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3606,7 +3612,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.nextUntil">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L566-L567">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L566-L567">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3634,7 +3640,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.toUpper">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L569-L570">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L569-L570">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3657,7 +3663,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.toLower">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L572-L573">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L572-L573">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3680,7 +3686,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.capitalize">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L575-L576">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L575-L576">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3703,7 +3709,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="String.decapitalize">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L578-L579">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L578-L579">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3726,7 +3732,7 @@ i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></li>
 <div class="decl" id="Char.toString">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/String/Basic.lean#L583-L584">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Basic.lean#L583-L584">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>

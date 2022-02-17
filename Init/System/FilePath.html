@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.System.FilePath</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -51,13 +51,13 @@ Documentation</h1>
 <a class="break_within" href="#System.FilePath">System.FilePath</a>
 </div>
 <div class="nav_link">
-<a class="break_within" href="#System.instHashableFilePath">System.instHashableFilePath</a>
-</div>
-<div class="nav_link">
 <a class="break_within" href="#System.instInhabitedFilePath">System.instInhabitedFilePath</a>
 </div>
 <div class="nav_link">
 <a class="break_within" href="#System.instDecidableEqFilePath">System.instDecidableEqFilePath</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#System.instHashableFilePath">System.instHashableFilePath</a>
 </div>
 <div class="nav_link">
 <a class="break_within" href="#System.instReprFilePath">System.instReprFilePath</a>
@@ -142,7 +142,7 @@ Documentation</h1>
 <div class="decl" id="System.FilePath">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L15-L17">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L15-L17">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -157,31 +157,10 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 </ul>
 </div>
 </div>
-<div class="decl" id="System.instHashableFilePath">
-<div class="instance">
-<div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L17-L17">source</a>
-</div>
-<div class="decl_header">
-<span class="decl_kind">instance</span>
-<span class="decl_name">
-<a class="break_within" href="/Socket.lean/Init/System/FilePath.html#System.instHashableFilePath">System.instHashableFilePath</a>
-</span>
-<span class="decl_args">:</span>
-<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Hashable">Hashable</a> <a href="/Socket.lean/Init/System/FilePath.html#System.FilePath">System.FilePath</a></span></div></div>
-<details>
-<summary>Equations</summary>
-<ul class="equations">
-<li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.instHashableFilePath">System.instHashableFilePath</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ hash := <a href="/Socket.lean/Init/System/FilePath.html#_private.Init.System.FilePath.0.System.hashFilePath._@.Init.System.FilePath._hyg.100">[anonymous]</a> }</span></span></li>
-</ul>
-</details>
-</div>
-</div>
 <div class="decl" id="System.instInhabitedFilePath">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L17-L17">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L17-L17">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -202,7 +181,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.instDecidableEqFilePath">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L17-L17">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L17-L17">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -220,10 +199,31 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 </details>
 </div>
 </div>
+<div class="decl" id="System.instHashableFilePath">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L17-L17">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/System/FilePath.html#System.instHashableFilePath">System.instHashableFilePath</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Hashable">Hashable</a> <a href="/Socket.lean/Init/System/FilePath.html#System.FilePath">System.FilePath</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.instHashableFilePath">System.instHashableFilePath</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ hash := <a href="/Socket.lean/Init/System/FilePath.html#_private.Init.System.FilePath.0.System.hashFilePath._@.Init.System.FilePath._hyg.100">[anonymous]</a> }</span></span></li>
+</ul>
+</details>
+</div>
+</div>
 <div class="decl" id="System.instReprFilePath">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L19-L20">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L19-L20">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -244,7 +244,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.instToStringFilePath">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L22-L23">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L22-L23">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -265,7 +265,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.pathSeparator">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L28-L29">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L28-L29">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -281,12 +281,12 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.pathSeparator">System.FilePath.pathSeparator</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">if <span class="fn"><a href="/Socket.lean/Init/System/Platform.html#System.Platform.isWindows">System.Platform.isWindows</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">92</span></span> else <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">47</span></span></span></span></li>
 </ul>
 </details>
-</div>
+<p>The character that separates directories. In the case where more than one character is possible, <code>pathSeparator</code> is the 'ideal' one.</p></div>
 </div>
 <div class="decl" id="System.FilePath.pathSeparators">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L32-L33">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L32-L33">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -302,12 +302,12 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.pathSeparators">System.FilePath.pathSeparators</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><a href="/Socket.lean/Init/System/Platform.html#System.Platform.isWindows">System.Platform.isWindows</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn">[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">92</span></span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">47</span></span>]</span> else <span class="fn">[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">47</span></span>]</span></span></span></li>
 </ul>
 </details>
-</div>
+<p>The list of all possible separators.</p></div>
 </div>
 <div class="decl" id="System.FilePath.extSeparator">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L36-L36">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L36-L36">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -323,12 +323,12 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.extSeparator">System.FilePath.extSeparator</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">46</span></span></span></li>
 </ul>
 </details>
-</div>
+<p>File extension character</p></div>
 </div>
 <div class="decl" id="System.FilePath.exeExtension">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L38-L39">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L38-L39">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -349,7 +349,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.isCaseInsensitive">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L42-L42">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L42-L42">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -365,12 +365,12 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.isCaseInsensitive">System.FilePath.isCaseInsensitive</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> (<span class="fn"><a href="/Socket.lean/Init/System/Platform.html#System.Platform.isWindows">System.Platform.isWindows</a> <a href="/Socket.lean/Init/Prelude.html#or">||</a> <a href="/Socket.lean/Init/System/Platform.html#System.Platform.isOSX">System.Platform.isOSX</a></span>)</span></li>
 </ul>
 </details>
-</div>
+<p>Case-insensitive file system</p></div>
 </div>
 <div class="decl" id="System.FilePath.normalize">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L45-L50">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L45-L50">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -402,7 +402,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.isAbsolute">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L54-L55">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L54-L55">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -425,7 +425,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.isRelative">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L57-L58">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L57-L58">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -448,7 +448,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.join">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L60-L64">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L60-L64">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -474,7 +474,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.instDivFilePath">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L66-L67">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L66-L67">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -495,7 +495,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.instHDivFilePathString">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L69-L70">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L69-L70">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -516,7 +516,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.parent">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L75-L76">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L75-L76">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -539,7 +539,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.fileName">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L78-L82">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L78-L82">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -566,7 +566,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.fileStem">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L85-L90">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L85-L90">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -590,12 +590,12 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
     (<span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.fileName">System.FilePath.fileName</a> <span class="fn">p</span></span>)</span></span></li>
 </ul>
 </details>
-</div>
+<p>Extracts the stem (non-extension) part of <code>p.fileName</code>.</p></div>
 </div>
 <div class="decl" id="System.FilePath.extension">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L92-L97">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L92-L97">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -622,7 +622,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.withFileName">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L99-L102">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L99-L102">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -649,7 +649,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.withExtension">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L104-L107">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L104-L107">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -676,7 +676,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.FilePath.components">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L109-L110">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L109-L110">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -699,7 +699,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.mkFilePath">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L114-L115">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L114-L115">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -722,7 +722,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.instCoeStringFilePath">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L117-L118">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L117-L118">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -743,7 +743,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.SearchPath">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L120-L120">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L120-L120">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -765,7 +765,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.SearchPath.separator">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L125-L126">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L125-L126">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -781,12 +781,12 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.SearchPath.separator">System.SearchPath.separator</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">if <span class="fn"><a href="/Socket.lean/Init/System/Platform.html#System.Platform.isWindows">System.Platform.isWindows</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">59</span></span> else <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">58</span></span></span></span></li>
 </ul>
 </details>
-</div>
+<p>The character that is used to separate the entries in the $PATH (or %PATH%) environment variable.</p></div>
 </div>
 <div class="decl" id="System.SearchPath.parse">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L128-L129">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L128-L129">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -809,7 +809,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="System.SearchPath.toString">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/FilePath.lean#L131-L132">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/FilePath.lean#L131-L132">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>

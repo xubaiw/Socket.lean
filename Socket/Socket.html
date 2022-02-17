@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Socket.Socket</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -82,7 +82,7 @@ Documentation</h1>
 <div class="decl" id="Socket.Socket.mk">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean#L9-L9">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean#L9-L9">source</a>
 </div>
 <div class="attributes">@[extern  lean_socket_mk]</div>
 <div class="decl_header">
@@ -96,12 +96,12 @@ Documentation</h1>
 <span class="fn">(t : <a href="/Socket.lean/Socket/Basic.html#Socket.SockType">Socket.SockType</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket.Socket</a></span></div></div>
-</div>
+<p>Create a new <code>Socket</code> using the specified domain and type.</p></div>
 </div>
 <div class="decl" id="Socket.Socket.close">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean#L17-L17">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean#L17-L17">source</a>
 </div>
 <div class="attributes">@[extern  lean_socket_close]</div>
 <div class="decl_header">
@@ -113,12 +113,13 @@ Documentation</h1>
 <span class="fn">(s : <a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket.Socket</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a></span></div></div>
-</div>
+<p>Close the <code>Socket</code>.</p><p><em>NOTE:</em> Although Socket is designed to be automatically closed when garbage collected,
+it's a good practice to manually close it beforehand.</p></div>
 </div>
 <div class="decl" id="Socket.Socket.connect">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean#L22-L22">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean#L22-L22">source</a>
 </div>
 <div class="attributes">@[extern  lean_socket_connect]</div>
 <div class="decl_header">
@@ -132,12 +133,12 @@ Documentation</h1>
 <span class="fn">(a : <a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr">Socket.SockAddr</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a></span></div></div>
-</div>
+<p>Initiate a connection on a socket.</p></div>
 </div>
 <div class="decl" id="Socket.Socket.bind">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean#L27-L27">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean#L27-L27">source</a>
 </div>
 <div class="attributes">@[extern  lean_socket_bind]</div>
 <div class="decl_header">
@@ -151,12 +152,12 @@ Documentation</h1>
 <span class="fn">(a : <a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr">Socket.SockAddr</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a></span></div></div>
-</div>
+<p>Bind a name to a socket.</p></div>
 </div>
 <div class="decl" id="Socket.Socket.listen">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean#L32-L32">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean#L32-L32">source</a>
 </div>
 <div class="attributes">@[extern  lean_socket_listen]</div>
 <div class="decl_header">
@@ -170,12 +171,12 @@ Documentation</h1>
 <span class="fn">(n : <a href="/Socket.lean/Init/Prelude.html#UInt8">UInt8</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a></span></div></div>
-</div>
+<p>Listen for connections on a socket.</p></div>
 </div>
 <div class="decl" id="Socket.Socket.accept">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean#L37-L37">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean#L37-L37">source</a>
 </div>
 <div class="attributes">@[extern  lean_socket_accept]</div>
 <div class="decl_header">
@@ -187,12 +188,12 @@ Documentation</h1>
 <span class="fn">(s : <a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket.Socket</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> (<span class="fn"><a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr">Socket.SockAddr</a> <a href="/Socket.lean/Init/Prelude.html#Prod">×</a> <a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket.Socket</a></span>)</span></div></div>
-</div>
+<p>Accept a connection on a socket.</p></div>
 </div>
 <div class="decl" id="Socket.Socket.send">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean#L42-L42">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean#L42-L42">source</a>
 </div>
 <div class="attributes">@[extern  lean_socket_send]</div>
 <div class="decl_header">
@@ -206,12 +207,12 @@ Documentation</h1>
 <span class="fn">(b : <a href="/Socket.lean/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Init/Prelude.html#USize">USize</a></span></div></div>
-</div>
+<p>Send a message from a socket.</p></div>
 </div>
 <div class="decl" id="Socket.Socket.recv">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean#L47-L47">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean#L47-L47">source</a>
 </div>
 <div class="attributes">@[extern  lean_socket_recv]</div>
 <div class="decl_header">
@@ -225,12 +226,12 @@ Documentation</h1>
 <span class="fn">(n : <a href="/Socket.lean/Init/Prelude.html#USize">USize</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></span></div></div>
-</div>
+<p>Receive a message from a socket.</p></div>
 </div>
 <div class="decl" id="Socket.Socket.sendto">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean#L52-L52">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean#L52-L52">source</a>
 </div>
 <div class="attributes">@[extern  lean_socket_sendto]</div>
 <div class="decl_header">
@@ -246,12 +247,12 @@ Documentation</h1>
 <span class="fn">(a : <a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr">Socket.SockAddr</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Init/Prelude.html#USize">USize</a></span></div></div>
-</div>
+<p>Send a message from a socket.</p></div>
 </div>
 <div class="decl" id="Socket.Socket.recvfrom">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean#L57-L57">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean#L57-L57">source</a>
 </div>
 <div class="attributes">@[extern  lean_socket_recvfrom]</div>
 <div class="decl_header">
@@ -265,12 +266,12 @@ Documentation</h1>
 <span class="fn">(n : <a href="/Socket.lean/Init/Prelude.html#USize">USize</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> (<span class="fn"><a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr">Socket.SockAddr</a> <a href="/Socket.lean/Init/Prelude.html#Prod">×</a> <a href="/Socket.lean/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></span>)</span></div></div>
-</div>
+<p>Receive a message from a socket.</p></div>
 </div>
 <div class="decl" id="Socket.Socket.shutdown">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean#L62-L62">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean#L62-L62">source</a>
 </div>
 <div class="attributes">@[extern  lean_socket_shutdown]</div>
 <div class="decl_header">
@@ -284,12 +285,12 @@ Documentation</h1>
 <span class="fn">(h : <a href="/Socket.lean/Socket/Basic.html#Socket.ShutdownHow">Socket.ShutdownHow</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a></span></div></div>
-</div>
+<p>Shut down part of a full-duplex connection.</p></div>
 </div>
 <div class="decl" id="Socket.Socket.peer">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/ce23b893894842b8f9b926abee36c76472ba2e97/Socket/Socket.lean#L67-L67">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Socket.lean#L67-L67">source</a>
 </div>
 <div class="attributes">@[extern  lean_socket_peer]</div>
 <div class="decl_header">
@@ -301,7 +302,7 @@ Documentation</h1>
 <span class="fn">(s : <a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket.Socket</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr">Socket.SockAddr</a></span></div></div>
-</div>
+<p>Get address of connected peer.</p></div>
 </div>
 </main>
 <nav class="nav">
