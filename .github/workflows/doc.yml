@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: Generate Documentation
-      uses: xubaiw/actions-doc-gen4@a8701610784e4ba8d171d54800065f90687da5e4
+      uses: xubaiw/actions-doc-gen4@5ad4ea40c61458a2ffbfaa62019295d738cfc1e9
       with:
         modules: Socket
         root-url: /Socket.lean/
