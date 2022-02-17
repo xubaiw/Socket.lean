@@ -2301,7 +2301,7 @@ Documentation</h1>
 <span class="fn"><a href="/Socket.lean/Init/Notation.html#Lean.termThis">Lean.termThis</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Lean.termThis</span> <span class="fn">1024</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"this"</span></span>)</span></span></li>
 </ul>
 </details>
-<p>Special identifier introduced by "anonymous" <code>have : ...</code>, <code>suffices p ...</code> etc.</p></div>
+<p>Special identifier introduced by "anonymous" <code>have:...</code>, <code>suffices<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.skip">p</a>...</code> etc.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.intro">
 <div class="def">
@@ -2329,18 +2329,18 @@ Documentation</h1>
 </details>
 <p>Introduce one or more hypotheses, optionally naming and/or pattern-matching them.
 For each hypothesis to be introduced, the remaining main goal's target type must be a <code>let</code> or function type.</p><ul>
-<li><code>intro</code> by itself introduces one anonymous hypothesis, which can be accessed by e.g. <code>assumption</code>.</li>
-<li><code>intro x y</code> introduces two hypotheses and names them. Individual hypotheses can be anonymized via <code>_</code>,
+<li><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.intro">intro</a></code> by itself introduces one anonymous hypothesis, which can be accessed by e.g. <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.assumption">assumption</a></code>.</li>
+<li><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.intro">intro</a><a href="/Socket.lean/Init/Notation.html#precMax">x</a><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.apply">y</a></code> introduces two hypotheses and names them. Individual hypotheses can be anonymized via <code><a href="/Socket.lean/Init/Notation.html#stx!_">_</a></code>,
 or matched against a pattern:
-<pre><code class="language-lean">-- ... ⊢ α × β → ...
-intro (a, b)
--- ..., a : α, b : β ⊢ ...
+<pre><code class="language-lean">--...⊢α×β→...
+intro(a,b)
+--...,<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.simpLemma">a</a>:α,b:β⊢...
 </code></pre>
 </li>
-<li>Alternatively, <code>intro</code> can be combined with pattern matching much like <code>fun</code>:
+<li>Alternatively, <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.intro">intro</a></code> can be combined with pattern matching much like <code>fun</code>:
 <pre><code class="language-lean">intro
-| n + 1, 0 => tac
-| ...
+|<a href="/Socket.lean/Init/Notation.html#precMin">n</a>+1,0=>tac
+|...
 </code></pre>
 </li>
 </ul></div>
@@ -2368,7 +2368,7 @@ intro (a, b)
           (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`orelse</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`ident</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"_"</span></span>)</span>)</span>)</span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>intros x...</code> behaves like <code>intro x...</code>, but then keeps introducing (anonymous) hypotheses until goal is not of a function type.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.intros">intros</a>x...</code> behaves like <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.intro">intro</a>x...</code>, but then keeps introducing (anonymous) hypotheses until goal is not of a function type.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.rename">
 <div class="def">
@@ -2395,7 +2395,7 @@ intro (a, b)
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`ident</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>rename t => x</code> renames the most recent hypothesis whose type matches <code>t</code> (which may contain placeholders) to <code>x</code>,
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.rename">rename</a><a href="/Socket.lean/Init/Notation.html#prioDefault">t</a>=><a href="/Socket.lean/Init/Notation.html#precMax">x</a></code> renames the most recent hypothesis whose type matches <code><a href="/Socket.lean/Init/Notation.html#prioDefault">t</a></code> (which may contain placeholders) to <code><a href="/Socket.lean/Init/Notation.html#precMax">x</a></code>,
 or fails if no such hypothesis could be found.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.revert">
@@ -2420,7 +2420,7 @@ or fails if no such hypothesis could be found.</p></div>
         (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`colGt</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">1024</span></span>)</span>)</span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>revert x...</code> is the inverse of <code>intro x...</code>: it moves the given hypotheses into the main goal's target type.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.revert">revert</a>x...</code> is the inverse of <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.intro">intro</a>x...</code>: it moves the given hypotheses into the main goal's target type.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.clear">
 <div class="def">
@@ -2444,7 +2444,7 @@ or fails if no such hypothesis could be found.</p></div>
         (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`colGt</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">1024</span></span>)</span>)</span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>clear x...</code> removes the given hypotheses, or fails if there are remaining references to a hypothesis.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.clear">clear</a>x...</code> removes the given hypotheses, or fails if there are remaining references to a hypothesis.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.subst">
 <div class="def">
@@ -2468,8 +2468,8 @@ or fails if no such hypothesis could be found.</p></div>
         (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`colGt</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">1024</span></span>)</span>)</span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>subst x...</code> substitutes each <code>x</code> with <code>e</code> in the goal if there is a hypothesis of type <code>x = e</code> or <code>e = x</code>.
-If <code>x</code> is itself a hypothesis of type <code>y = e</code> or <code>e = y</code>, <code>y</code> is substituted instead.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.subst">subst</a>x...</code> substitutes each <code><a href="/Socket.lean/Init/Notation.html#precMax">x</a></code> with <code><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code> in the goal if there is a hypothesis of type <code><a href="/Socket.lean/Init/Notation.html#precMax">x</a>=<a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code> or <code><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a>=<a href="/Socket.lean/Init/Notation.html#precMax">x</a></code>.
+If <code><a href="/Socket.lean/Init/Notation.html#precMax">x</a></code> is itself a hypothesis of type <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.apply">y</a>=<a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code> or <code><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a>=<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.apply">y</a></code>, <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.apply">y</a></code> is substituted instead.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.assumption">
 <div class="def">
@@ -2490,8 +2490,8 @@ If <code>x</code> is itself a hypothesis of type <code>y = e</code> or <code>e =
 <span class="fn"><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.assumption">Lean.Parser.Tactic.assumption</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Lean.Parser.Tactic.assumption</span> <span class="fn">1024</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"assumption"</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>)</span></span></li>
 </ul>
 </details>
-<p><code>assumption</code> tries to solve the main goal using a hypothesis of compatible type, or else fails.
-Note also the <code>‹t›</code> term notation, which is a shorthand for <code>show t by assumption</code>.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.assumption">assumption</a></code> tries to solve the main goal using a hypothesis of compatible type, or else fails.
+Note also the <code>‹t›</code> term notation, which is a shorthand for <code>show<a href="/Socket.lean/Init/Notation.html#prioDefault">t</a>by<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.assumption">assumption</a></code>.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.contradiction">
 <div class="def">
@@ -2513,11 +2513,11 @@ Note also the <code>‹t›</code> term notation, which is a shorthand for <code
     (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"contradiction"</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>)</span></span></li>
 </ul>
 </details>
-<p><code>contradiction</code> closes the main goal if its hypotheses are "trivially contradictory".</p><pre><code class="language-lean">example (h : False) : p := by contradiction  -- inductive type/family with no applicable constructors
-example (h : none = some true) : p := by contradiction  -- injectivity of constructors
-example (h : 2 + 2 = 3) : p := by contradiction  -- decidable false proposition
-example (h : p) (h' : ¬ p) : q := by contradiction
-example (x : Nat) (h : x ≠ x) : p := by contradiction
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.contradiction">contradiction</a></code> closes the main goal if its hypotheses are "trivially contradictory".</p><pre><code class="language-lean">example(h:False):<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.skip">p</a>:=by<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.contradiction">contradiction</a><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Syntax.addPrec"></a>--inductivetype/familywithnoapplicableconstructors
+example(h:none=sometrue):<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.skip">p</a>:=by<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.contradiction">contradiction</a><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Syntax.addPrec"></a>--injectivityofconstructors
+example(h:2+2=3):<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.skip">p</a>:=by<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.contradiction">contradiction</a><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Syntax.addPrec"></a>--decidablefalseproposition
+example(h:p)(h':¬p):<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.rwRuleSeq">q</a>:=bycontradiction
+example(x:Nat)(h:<a href="/Socket.lean/Init/Notation.html#precMax">x</a>≠x):<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.skip">p</a>:=bycontradiction
 </code></pre></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.apply">
@@ -2541,10 +2541,10 @@ example (x : Nat) (h : x ≠ x) : p := by contradiction
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>apply e</code> tries to match the current goal against the conclusion of <code>e</code>'s type.
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.apply">apply</a><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code> tries to match the current goal against the conclusion of <code><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code>'s type.
 If it succeeds, then the tactic returns as many subgoals as the number of premises that
 have not been fixed by type inference or type class resolution.
-Non-dependent premises are added before dependent ones.</p><p>The <code>apply</code> tactic uses higher-order pattern matching, type class resolution, and first-order unification with dependent types.</p></div>
+Non-dependent premises are added before dependent ones.</p><p>The <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.apply">apply</a></code> tactic uses higher-order pattern matching, type class resolution, and first-order unification with dependent types.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.exact">
 <div class="def">
@@ -2567,7 +2567,7 @@ Non-dependent premises are added before dependent ones.</p><p>The <code>apply</c
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>exact e</code> closes the main goal if its target type matches that of <code>e</code>.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.exact">exact</a><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code> closes the main goal if its target type matches that of <code><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code>.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.refine">
 <div class="def">
@@ -2590,7 +2590,7 @@ Non-dependent premises are added before dependent ones.</p><p>The <code>apply</c
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>refine e</code> behaves like <code>exact e</code>, except that named (<code>?x</code>) or unnamed (<code>?_</code>) holes in <code>e</code> that are not solved
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.refine">refine</a><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code> behaves like <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.exact">exact</a><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code>, except that named (<code>?x</code>) or unnamed (<code>?_</code>) holes in <code><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code> that are not solved
 by unification with the main goal's target type are converted into new goals, using the hole's name, if any, as the goal case name.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.refine'">
@@ -2614,7 +2614,7 @@ by unification with the main goal's target type are converted into new goals, us
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>refine' e</code> behaves like <code>refine e</code>, except that unsolved placeholders (<code>_</code>) and implicit parameters are also converted into new goals.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.refine'">refine'</a><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code> behaves like <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.refine">refine</a><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code>, except that unsolved placeholders (<code><a href="/Socket.lean/Init/Notation.html#stx!_">_</a></code>) and implicit parameters are also converted into new goals.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.constructor">
 <div class="def">
@@ -2635,7 +2635,7 @@ by unification with the main goal's target type are converted into new goals, us
 <span class="fn"><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.constructor">Lean.Parser.Tactic.constructor</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Lean.Parser.Tactic.constructor</span> <span class="fn">1024</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"constructor"</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>)</span></span></li>
 </ul>
 </details>
-<p>If the main goal's target type is an inductive type, <code>constructor</code> solves it with the first matching constructor, or else fails.</p></div>
+<p>If the main goal's target type is an inductive type, <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.constructor">constructor</a></code> solves it with the first matching constructor, or else fails.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.case">
 <div class="def">
@@ -2665,8 +2665,8 @@ by unification with the main goal's target type are converted into new goals, us
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`tacticSeq</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>case tag => tac</code> focuses on the goal with case name <code>tag</code> and solves it using <code>tac</code>, or else fails.
-<code>case tag x₁ ... xₙ => tac</code> additionally renames the <code>n</code> most recent hypotheses with inaccessible names to the given names.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.case">case</a>tag=>tac</code> focuses on the goal with case name <code>tag</code> and solves it using <code>tac</code>, or else fails.
+<code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.case">case</a>tagx₁...xₙ=>tac</code> additionally renames the <code><a href="/Socket.lean/Init/Notation.html#precMin">n</a></code> most recent hypotheses with inaccessible names to the given names.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.«tacticNext___=>_»">
 <div class="def">
@@ -2694,8 +2694,8 @@ by unification with the main goal's target type are converted into new goals, us
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`tacticSeq</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>next => tac</code> focuses on the next goal solves it using <code>tac</code>, or else fails.
-<code>next x₁ ... xₙ => tac</code> additionally renames the <code>n</code> most recent hypotheses with inaccessible names to the given names.</p></div>
+<p><code>next=>tac</code> focuses on the next goal solves it using <code>tac</code>, or else fails.
+<code>nextx₁...xₙ=>tac</code> additionally renames the <code><a href="/Socket.lean/Init/Notation.html#precMin">n</a></code> most recent hypotheses with inaccessible names to the given names.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.allGoals">
 <div class="def">
@@ -2718,7 +2718,7 @@ by unification with the main goal's target type are converted into new goals, us
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`tacticSeq</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>allGoals tac</code> runs <code>tac</code> on each goal, concatenating the resulting goals, if any.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.allGoals">allGoals</a>tac</code> runs <code>tac</code> on each goal, concatenating the resulting goals, if any.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.anyGoals">
 <div class="def">
@@ -2741,7 +2741,7 @@ by unification with the main goal's target type are converted into new goals, us
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`tacticSeq</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>anyGoals tac</code> applies the tactic <code>tac</code> to every goal, and succeeds if at least one application succeeds.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.anyGoals">anyGoals</a>tac</code> applies the tactic <code>tac</code> to every goal, and succeeds if at least one application succeeds.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.focus">
 <div class="def">
@@ -2764,8 +2764,8 @@ by unification with the main goal's target type are converted into new goals, us
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`tacticSeq</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>focus tac</code> focuses on the main goal, suppressing all other goals, and runs <code>tac</code> on it.
-Usually <code>· tac</code>, which enforces that the goal is closed by <code>tac</code>, should be preferred.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.focus">focus</a>tac</code> focuses on the main goal, suppressing all other goals, and runs <code>tac</code> on it.
+Usually <code>·tac</code>, which enforces that the goal is closed by <code>tac</code>, should be preferred.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.skip">
 <div class="def">
@@ -2786,7 +2786,7 @@ Usually <code>· tac</code>, which enforces that the goal is closed by <code>tac
 <span class="fn"><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.skip">Lean.Parser.Tactic.skip</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Lean.Parser.Tactic.skip</span> <span class="fn">1024</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"skip"</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>)</span></span></li>
 </ul>
 </details>
-<p><code>skip</code> does nothing.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.skip">skip</a></code> does nothing.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.done">
 <div class="def">
@@ -2807,7 +2807,7 @@ Usually <code>· tac</code>, which enforces that the goal is closed by <code>tac
 <span class="fn"><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.done">Lean.Parser.Tactic.done</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Lean.Parser.Tactic.done</span> <span class="fn">1024</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"done"</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>)</span></span></li>
 </ul>
 </details>
-<p><code>done</code> succeeds iff there are no remaining goals.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.done">done</a></code> succeeds iff there are no remaining goals.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.traceState">
 <div class="def">
@@ -2950,7 +2950,7 @@ Usually <code>· tac</code>, which enforces that the goal is closed by <code>tac
               (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`tacticSeq</span></span>)</span>)</span>)</span>)</span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>first | tac | ...</code> runs each <code>tac</code> until one succeeds, or else fails.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.first">first</a>|tac|...</code> runs each <code>tac</code> until one succeeds, or else fails.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.rotateLeft">
 <div class="def">
@@ -3019,7 +3019,7 @@ Usually <code>· tac</code>, which enforces that the goal is closed by <code>tac
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`tacticSeq</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>try tac</code> runs <code>tac</code> and succeeds even if <code>tac</code> failed.</p></div>
+<p><code>trytac</code> runs <code>tac</code> and succeeds even if <code>tac</code> failed.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.«tactic_<;>_»">
 <div class="def">
@@ -3041,7 +3041,7 @@ Usually <code>· tac</code>, which enforces that the goal is closed by <code>tac
     (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">" <;> "</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`tactic</span> <span class="fn">0</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>tac <;> tac'</code> runs <code>tac</code> on the main goal and <code>tac'</code> on each produced goal, concatenating all goals produced by <code>tac'</code>.</p></div>
+<p><code>tac<;>tac'</code> runs <code>tac</code> on the main goal and <code>tac'</code> on each produced goal, concatenating all goals produced by <code>tac'</code>.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.tacticRfl">
 <div class="def">
@@ -3062,7 +3062,7 @@ Usually <code>· tac</code>, which enforces that the goal is closed by <code>tac
 <span class="fn"><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.tacticRfl">Lean.Parser.Tactic.tacticRfl</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Lean.Parser.Tactic.tacticRfl</span> <span class="fn">1024</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"rfl"</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>)</span></span></li>
 </ul>
 </details>
-<p><code>rfl</code> is a shorthand for <code>exact rfl</code>.</p></div>
+<p><code><a href="/Socket.lean/Init/Prelude.html#rfl">rfl</a></code> is a shorthand for <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.exact">exact</a><a href="/Socket.lean/Init/Prelude.html#rfl">rfl</a></code>.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.tacticAdmit">
 <div class="def">
@@ -3083,7 +3083,7 @@ Usually <code>· tac</code>, which enforces that the goal is closed by <code>tac
 <span class="fn"><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.tacticAdmit">Lean.Parser.Tactic.tacticAdmit</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Lean.Parser.Tactic.tacticAdmit</span> <span class="fn">1024</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"admit"</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>)</span></span></li>
 </ul>
 </details>
-<p><code>admit</code> is a shorthand for <code>exact sorry</code>.</p></div>
+<p><code>admit</code> is a shorthand for <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.exact">exact</a>sorry</code>.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.tacticSorry">
 <div class="def">
@@ -3104,7 +3104,7 @@ Usually <code>· tac</code>, which enforces that the goal is closed by <code>tac
 <span class="fn"><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.tacticSorry">Lean.Parser.Tactic.tacticSorry</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Lean.Parser.Tactic.tacticSorry</span> <span class="fn">1024</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"sorry"</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>)</span></span></li>
 </ul>
 </details>
-<p>The <code>sorry</code> tactic is a shorthand for <code>exact sorry</code>.</p></div>
+<p>The <code>sorry</code> tactic is a shorthand for <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.exact">exact</a>sorry</code>.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.tacticInfer_instance">
 <div class="def">
@@ -3795,7 +3795,7 @@ This is a low-level tactic, it will expose how recursive definitions have been c
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.unary">Lean.ParserDescr.unary</a> <span class="fn">`optional</span> <a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.location">Lean.Parser.Tactic.location</a></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p>Unfold definition. For non-recursive definitions, this tactic is identical to <code>delta</code>.
+<p>Unfold definition. For non-recursive definitions, this tactic is identical to <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.delta">delta</a></code>.
 For recursive definitions, it hides the encoding tricks used by the Lean frontend to convince the
 kernel that the definition terminates.</p></div>
 </div>
@@ -4212,8 +4212,8 @@ kernel that the definition terminates.</p></div>
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.sepBy1">Lean.ParserDescr.sepBy1</a> <a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.generalizeArg">Lean.Parser.Tactic.generalizeArg</a> <span class="fn">","</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">", "</span></span>)</span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>generalize ([h :] e = x),+</code> replaces all occurrences <code>e</code>s in the main goal with a fresh hypothesis <code>x</code>s.
-If <code>h</code> is given, <code>h : e = x</code> is introduced as well.</p></div>
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.generalize">generalize</a>([h:]<a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a>=x),+</code> replaces all occurrences <code><a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a></code>s in the main goal with a fresh hypothesis <code><a href="/Socket.lean/Init/Notation.html#precMax">x</a></code>s.
+If <code><a href="/Socket.lean/Init/Notation.html#prioHigh">h</a></code> is given, <code><a href="/Socket.lean/Init/Notation.html#prioHigh">h</a>:<a href="/Socket.lean/Init/Notation.html#termDepIfThenElse">e</a>=<a href="/Socket.lean/Init/Notation.html#precMax">x</a></code> is introduced as well.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.casesTarget">
 <div class="def">
@@ -4315,7 +4315,7 @@ If <code>h</code> is given, <code>h : e = x</code> is introduced as well.</p></d
           (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`orelse</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`ident</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"_"</span></span>)</span>)</span>)</span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>rename_i x_1 ... x_n</code> renames the last <code>n</code> inaccessible names using the given names.</p></div>
+<p><code>rename_ix_1...x_n</code> renames the last <code><a href="/Socket.lean/Init/Notation.html#precMin">n</a></code> inaccessible names using the given names.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.tacticRepeat_">
 <div class="def">
@@ -4408,10 +4408,10 @@ If <code>h</code> is given, <code>h : e = x</code> is introduced as well.</p></d
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p>The tactic <code>specialize h a₁ ... aₙ</code> works on local hypothesis <code>h</code>.
+<p>The tactic <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.specialize">specialize</a><a href="/Socket.lean/Init/Notation.html#prioHigh">h</a>a₁...aₙ</code> works on local hypothesis <code><a href="/Socket.lean/Init/Notation.html#prioHigh">h</a></code>.
 The premises of this hypothesis, either universal quantifications or non-dependent implications,
 are instantiated by concrete terms coming either from arguments <code>a₁</code> ... <code>aₙ</code>.
-The tactic adds a new hypothesis with the same name <code>h := h a₁ ... aₙ</code> and tries to clear the previous one.</p></div>
+The tactic adds a new hypothesis with the same name <code><a href="/Socket.lean/Init/Notation.html#prioHigh">h</a>:=<a href="/Socket.lean/Init/Notation.html#prioHigh">h</a>a₁...aₙ</code> and tries to clear the previous one.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.tacticUnhygienic_">
 <div class="def">

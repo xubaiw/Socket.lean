@@ -637,7 +637,7 @@ Documentation</h1>
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`tacticSeq</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p>Execute the given tactic block without converting <code>conv</code> goal into a regular goal</p></div>
+<p>Execute the given tactic block without converting <code><a href="/Socket.lean/Init/Conv.html#Lean.Parser.Tactic.Conv.conv">conv</a></code> goal into a regular goal</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.Conv.nestedTactic">
 <div class="def">
@@ -662,7 +662,7 @@ Documentation</h1>
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`tacticSeq</span></span>)</span>)</span></span></li>
 </ul>
 </details>
-<p>Focus, convert the <code>conv</code> goal <code>⊢ lhs</code> into a regular goal <code>⊢ lhs = rhs</code>, and then execute the given tactic block.</p></div>
+<p>Focus, convert the <code><a href="/Socket.lean/Init/Conv.html#Lean.Parser.Tactic.Conv.conv">conv</a></code> goal <code>⊢<a href="/Socket.lean/Init/Conv.html#Lean.Parser.Tactic.Conv.lhs">lhs</a></code> into a regular goal <code>⊢<a href="/Socket.lean/Init/Conv.html#Lean.Parser.Tactic.Conv.lhs">lhs</a>=<a href="/Socket.lean/Init/Conv.html#Lean.Parser.Tactic.Conv.rhs">rhs</a></code>, and then execute the given tactic block.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.Conv.nestedConv">
 <div class="def">
@@ -756,7 +756,7 @@ Documentation</h1>
       <a href="/Socket.lean/Init/Conv.html#Lean.Parser.Tactic.Conv.convSeq">Lean.Parser.Tactic.Conv.convSeq</a></span>)</span></span></li>
 </ul>
 </details>
-<p><code>· conv</code> focuses on the main conv goal and tries to solve it using <code>s</code></p></div>
+<p><code>·<a href="/Socket.lean/Init/Conv.html#Lean.Parser.Tactic.Conv.conv">conv</a></code> focuses on the main conv goal and tries to solve it using <code><a href="/Socket.lean/Init/Conv.html#Lean.Parser.Tactic.Conv.lhs">s</a></code></p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.Conv.convRw__">
 <div class="def">
@@ -1056,7 +1056,7 @@ Documentation</h1>
               <a href="/Socket.lean/Init/Conv.html#Lean.Parser.Tactic.Conv.convSeq">Lean.Parser.Tactic.Conv.convSeq</a></span>)</span>)</span>)</span>)</span>)</span></span></li>
 </ul>
 </details>
-<p><code>first | conv | ...</code> runs each <code>conv</code> until one succeeds, or else fails.</p></div>
+<p><code><a href="/Socket.lean/Init/Conv.html#Lean.Parser.Tactic.Conv.first">first</a>|<a href="/Socket.lean/Init/Conv.html#Lean.Parser.Tactic.Conv.conv">conv</a>|...</code> runs each <code><a href="/Socket.lean/Init/Conv.html#Lean.Parser.Tactic.Conv.conv">conv</a></code> until one succeeds, or else fails.</p></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.Conv.convRepeat_">
 <div class="def">

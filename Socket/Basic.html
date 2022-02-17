@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Socket.Basic</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -92,16 +92,16 @@ Documentation</h1>
 </nav>
 <main>
 <div class="mod_doc">
-<h1 class="markdown-heading" id="socket-type-definitions">Socket Type Definitions<a class="hover-link" href="#socket-type-definitions">#</a></h1><p>This module defines some basic types to be used across whole pacage:</p><ul>
-<li><a href="/Socket.lean/#Socket.Socket"><code>Socket</code></a>: Opaque reference to underlying socket</li>
-<li><a href="/Socket.lean/#Socket.SockAddr"><code>SockAddr</code></a>: Opaque reference to underlying socket address</li>
-<li><a href="/Socket.lean/#Socket.AddressFamily"><code>AddressFamily</code></a>: Enumeration of supported address families</li>
+<h1 class="markdown-heading" id="socket-type-definitions">Socket Type Definitions <a class="hover-link" href="#socket-type-definitions">#</a></h1><p>This module defines some basic types to be used across whole pacage:</p><ul>
+<li><code><a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket</a></code>: Opaque reference to underlying socket</li>
+<li><code><a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr">SockAddr</a></code>: Opaque reference to underlying socket address</li>
+<li><code><a href="/Socket.lean/Socket/Basic.html#Socket.AddressFamily">AddressFamily</a></code>: Enumeration of supported address families</li>
 </ul></div>
-<div class="mod_doc"><h2 class="markdown-heading" id="socket">Socket<a class="hover-link" href="#socket">#</a></h2></div>
+<div class="mod_doc"><h2 class="markdown-heading" id="socket">Socket <a class="hover-link" href="#socket">#</a></h2></div>
 <div class="decl" id="Socket.Socket.Nonempty">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L22-L22">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L22-L22">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
@@ -110,13 +110,13 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#NonemptyType">NonemptyType</a></div></div>
-<p>Use <code>NonemptyType</code> to implement <code>Inhabited</code> for <a href="/Socket.lean/#Socket.Socket"><code>Socket</code></a>.
-<a href="/Socket.lean/#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
+<p>Use <code><a href="/Socket.lean/Init/Prelude.html#NonemptyType">NonemptyType</a></code> to implement <code><a href="/Socket.lean/Init/Prelude.html#Inhabited">Inhabited</a></code> for <code><a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket</a></code>.
+<a href="#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
 </div>
 <div class="decl" id="Socket.Socket">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L36-L36">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L34-L34">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -132,17 +132,15 @@ Documentation</h1>
 <span class="fn"><a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket.Socket</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#NonemptyType.type">NonemptyType.type</a> <a href="/Socket.lean/Socket/Basic.html#Socket.Socket.Nonempty">Socket.Socket.Nonempty</a></span></span></li>
 </ul>
 </details>
-<p>Opaque reference to underlying socket.</p><p>To create a <code>Socket</code>, refer to <a href="/Socket.lean//find/Socket.Socket.mk"><code>Socket.mk</code></a>.
-Then you can manipulate the <code>Socket</code> using common socket functions like
-<a href="/Socket.lean//find/Socket.Socket.bind"><code>bind</code></a>,
-<a href="/Socket.lean//find/Socket.Socket.connect"><code>connect</code></a>, etc. For all functions
-available, refer to the <a href="/Socket.lean//Socket.Socket"><code>Socket</code></a> module.</p><p><em>NOTE</em>: The <code>Socket</code> type is made opaque since implementation of socket may
-be different across platforms (<code>int</code> on *nix and <code>SOCKET</code> on Windows).</p></div>
+<p>Opaque reference to underlying platform specific socket.</p><p>To create a <code><a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket</a></code>, refer to <a href="/Socket.lean/Socket/Socket.html#Socket.Socket.mk"><code>Socket.mk</code></a>. Then you
+can manipulate the <code><a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket</a></code> using common socket functions like
+<a href="/Socket.lean/Socket/Socket.html#Socket.Socket.bind"><code>Socket.bind</code></a>,<a href="/Socket.lean/Socket/Socket.html#Socket.Socket.connect"><code>Socket.connect</code></a>,
+etc. For all functions available, refer to the <a href="/Socket.lean/Socket/Socket.html"><code>Socket</code> module</a>.</p><p><em>NOTE</em>: <code><a href="/Socket.lean/Init/Prelude.html#NonemptyType">NonemptyType</a></code> is used to implement <code><a href="/Socket.lean/Init/Prelude.html#Inhabited">Inhabited</a></code> for <code><a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket</a></code>. <a href="#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
 </div>
 <div class="decl" id="Socket.instNonemptySocket">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L42-L42">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L40-L40">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable instance</span>
@@ -158,13 +156,13 @@ be different across platforms (<code>int</code> on *nix and <code>SOCKET</code> 
 <span class="fn"><a href="/Socket.lean/Socket/Basic.html#Socket.instNonemptySocket">Socket.instNonemptySocket</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Socket/Basic.html#Socket.instNonemptySocket.proof_1">Socket.instNonemptySocket.proof_1</a></span></li>
 </ul>
 </details>
-<p>Use <code>NonemptyType</code> to implement <code>Inhabited</code> for <a href="/Socket.lean/#Socket.Socket"><code>Socket</code></a>.
-<a href="/Socket.lean/#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
+<p>Use <code><a href="/Socket.lean/Init/Prelude.html#NonemptyType">NonemptyType</a></code> to implement <code><a href="/Socket.lean/Init/Prelude.html#Inhabited">Inhabited</a></code> for <code><a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket</a></code>.
+<a href="#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
 </div>
 <div class="decl" id="Socket.SockAddr.Nonempty">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L48-L48">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L46-L46">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
@@ -173,13 +171,13 @@ be different across platforms (<code>int</code> on *nix and <code>SOCKET</code> 
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#NonemptyType">NonemptyType</a></div></div>
-<p>Use <code>NonemptyType</code> to implement <code>Inhabited</code> for <a href="/Socket.lean/#Socket.SockAddr"><code>SockAddr</code></a>.
-<a href="/Socket.lean/#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
+<p>Use <code><a href="/Socket.lean/Init/Prelude.html#NonemptyType">NonemptyType</a></code> to implement <code><a href="/Socket.lean/Init/Prelude.html#Inhabited">Inhabited</a></code> for <code><a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr">SockAddr</a></code>.
+<a href="#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
 </div>
 <div class="decl" id="Socket.SockAddr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L55-L55">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L53-L53">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -195,12 +193,12 @@ be different across platforms (<code>int</code> on *nix and <code>SOCKET</code> 
 <span class="fn"><a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr">Socket.SockAddr</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#NonemptyType.type">NonemptyType.type</a> <a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr.Nonempty">Socket.SockAddr.Nonempty</a></span></span></li>
 </ul>
 </details>
-<p>Opaque reference to underlying socket address.</p><p><em>NOTE</em>: Different from the C <code>sockaddr</code>, <code>SockAddr</code> also includes length.</p></div>
+<p>Opaque reference to underlying socket address.</p><p><em>NOTE</em>: Different from the C <code>sockaddr</code>, <code><a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr">SockAddr</a></code> also includes length.</p></div>
 </div>
 <div class="decl" id="Socket.instNonemptySockAddr">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L61-L61">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L59-L59">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable instance</span>
@@ -216,13 +214,13 @@ be different across platforms (<code>int</code> on *nix and <code>SOCKET</code> 
 <span class="fn"><a href="/Socket.lean/Socket/Basic.html#Socket.instNonemptySockAddr">Socket.instNonemptySockAddr</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Socket/Basic.html#Socket.instNonemptySockAddr.proof_1">Socket.instNonemptySockAddr.proof_1</a></span></li>
 </ul>
 </details>
-<p>Use <code>NonemptyType</code> to implement <code>Inhabited</code> for <a href="/Socket.lean/#Socket.SockAddr"><code>SockAddr</code></a>
-<a href="/Socket.lean/#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
+<p>Use <code><a href="/Socket.lean/Init/Prelude.html#NonemptyType">NonemptyType</a></code> to implement <code><a href="/Socket.lean/Init/Prelude.html#Inhabited">Inhabited</a></code> for <code><a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr">SockAddr</a></code>
+<a href="#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
 </div>
 <div class="decl" id="Socket.AddressFamily">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L67-L71">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L65-L69">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -245,7 +243,7 @@ which is used in <a href="/Socket.lean//find/Socket.Socket.mk"><code>Socket.mk</
 <div class="decl" id="Socket.instInhabitedAddressFamily">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L71-L71">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L69-L69">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -266,7 +264,7 @@ which is used in <a href="/Socket.lean//find/Socket.Socket.mk"><code>Socket.mk</
 <div class="decl" id="Socket.instToStringAddressFamily">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L74-L78">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L72-L76">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -286,12 +284,12 @@ which is used in <a href="/Socket.lean//find/Socket.Socket.mk"><code>Socket.mk</
       | <a href="/Socket.lean/Socket/Basic.html#Socket.AddressFamily.inet6">Socket.AddressFamily.inet6</a> => <a href="/Socket.lean/Socket/Basic.html#Socket.AddressFamily.inet6">"AF_INET6"</a></span></span> }</span></span></li>
 </ul>
 </details>
-<p>Convert <code>AddressFamily</code> to <code>String</code>.</p></div>
+<p>Convert <code><a href="/Socket.lean/Socket/Basic.html#Socket.AddressFamily">AddressFamily</a></code> to <code><a href="/Socket.lean/Init/Prelude.html#String">String</a></code>.</p></div>
 </div>
 <div class="decl" id="Socket.SockType">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L84-L88">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L82-L86">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -314,7 +312,7 @@ which is used in <a href="/Socket.lean//find/Socket.Socket.mk"><code>Socket.mk</
 <div class="decl" id="Socket.instInhabitedSockType">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L88-L88">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L86-L86">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -335,7 +333,7 @@ which is used in <a href="/Socket.lean//find/Socket.Socket.mk"><code>Socket.mk</
 <div class="decl" id="Socket.instToStringSockType">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L91-L95">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L89-L93">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -355,12 +353,12 @@ which is used in <a href="/Socket.lean//find/Socket.Socket.mk"><code>Socket.mk</
       | <a href="/Socket.lean/Socket/Basic.html#Socket.SockType.dgram">Socket.SockType.dgram</a> => <a href="/Socket.lean/Socket/Basic.html#Socket.SockType.dgram">"SOCK_DGRAM"</a></span></span> }</span></span></li>
 </ul>
 </details>
-<p>Convert <code>SockType</code> to <code>String</code>.</p></div>
+<p>Convert <code><a href="/Socket.lean/Socket/Basic.html#Socket.SockType">SockType</a></code> to <code><a href="/Socket.lean/Init/Prelude.html#String">String</a></code>.</p></div>
 </div>
 <div class="decl" id="Socket.ShutdownHow">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L101-L105">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L99-L103">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -377,13 +375,13 @@ write: <a href="/Socket.lean/Socket/Basic.html#Socket.ShutdownHow">Socket.Shutdo
 <li class="constructor" id="Socket.ShutdownHow.readwrite">
 readwrite: <a href="/Socket.lean/Socket/Basic.html#Socket.ShutdownHow">Socket.ShutdownHow</a></li>
 </ul>
-<p>Enumeration of supported socket types,
-which is used in <a href="/Socket.lean//find/Socket.Socket.shutdown"><code>Socket.shutdown</code></a>.</p></div>
+<p>Enumeration of how is socket shutdown,
+which is used in <a href="/Socket.lean/Socket/Socket.html#Socket.Socket.shutdown"><code>Socket.shutdown</code></a>.</p></div>
 </div>
 <div class="decl" id="Socket.instInhabitedShutdownHow">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L105-L105">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L103-L103">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -404,7 +402,7 @@ which is used in <a href="/Socket.lean//find/Socket.Socket.shutdown"><code>Socke
 <div class="decl" id="Socket.hostname">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/Socket.lean/blob/d564727daaa48a51fc874eaa732a1b2725f0838c/Socket/Basic.lean#L108-L108">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/a55d6a764578399c678c8a194a6d4f3b2db7f5af/Socket/Basic.lean#L106-L106">source</a>
 </div>
 <div class="attributes">@[extern  lean_gethostname]</div>
 <div class="decl_header">
@@ -417,9 +415,8 @@ which is used in <a href="/Socket.lean//find/Socket.Socket.shutdown"><code>Socke
 <p>Get hostname of current machine.</p></div>
 </div>
 <div class="mod_doc">
-<h2 class="markdown-heading" id="explanation-usage-of-nonemptytype">Explanation: Usage of <code>NonemptyType</code><a class="hover-link" href="#explanation-usage-of-nonemptytype">#</a></h2><p>As <a href="/Socket.lean/#Socket.Socket"><code>Socket</code></a> and <a href="/Socket.lean/#Socket.SockAddr"><code>SockAddr</code></a>
-are implemented using <code>lean_external_class</code>. <code>NonemptyType</code> is used
-to implement <code>Inhabited</code> for these types.</p><p>A simple example of this trick can be found
+<h2 class="markdown-heading" id="explanation-usage-of-nonemptytype">Explanation: Usage of <code><a href="/Socket.lean/Init/Prelude.html#NonemptyType">NonemptyType</a></code> <a class="hover-link" href="#explanation-usage-of-nonemptytype">#</a></h2><p>As <code><a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket</a></code> and <code><a href="/Socket.lean/Socket/Basic.html#Socket.SockAddr">SockAddr</a></code> are implemented using<code>lean_external_class</code>.
+<code><a href="/Socket.lean/Init/Prelude.html#NonemptyType">NonemptyType</a></code> is used to implement <code><a href="/Socket.lean/Init/Prelude.html#Inhabited">Inhabited</a></code> for these types.</p><p>A simple example of this trick can be found
 <a href="https://github.com/xubaiw/lean4/blob/c1fccf19cb8f15daba2329e5c82c6feca825c02b/tests/compiler/foreign">here</a>
 in Lean core.</p></div>
 </main>

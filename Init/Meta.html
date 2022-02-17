@@ -1392,7 +1392,7 @@ Documentation</h1>
   else <span class="fn"><span class="fn">f</span> <span class="fn">n</span></span></span></span></li>
 </ul>
 </details>
-<p>Remove macros scopes, apply <code>f</code>, and put them back</p></div>
+<p>Remove macros scopes, apply <code><a href="/Socket.lean/Init/Meta.html#Lean.mkIdentFromRef">f</a></code>, and put them back</p></div>
 </div>
 <div class="decl" id="Lean.Name.appendAfter">
 <div class="def">
@@ -2153,7 +2153,7 @@ commands : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array">Array
 </ul>
 </details>
 <p>Create an identifier copying the position from <code>src</code>.
-To refer to a specific constant, use <code>mkCIdentFrom</code> instead.</p></div>
+To refer to a specific constant, use <code><a href="/Socket.lean/Init/Meta.html#Lean.mkCIdentFrom">mkCIdentFrom</a></code> instead.</p></div>
 </div>
 <div class="decl" id="Lean.mkIdentFromRef">
 <div class="def">
@@ -2216,8 +2216,8 @@ To refer to a specific constant, use <code>mkCIdentFrom</code> instead.</p></div
   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.ident">Lean.Syntax.ident</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.fromRef">Lean.SourceInfo.fromRef</a> <span class="fn">src</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.toSubstring">String.toSubstring</a> (<span class="fn"><a href="/Socket.lean/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">id</span></span>)</span>) <span class="fn">id</span> <span class="fn">[<span class="fn">(<span class="fn">c</span>, <span class="fn">[]</span>)</span>]</span></span></span></span></li>
 </ul>
 </details>
-<p>Create an identifier referring to a constant <code>c</code> copying the position from <code>src</code>.
-This variant of <code>mkIdentFrom</code> makes sure that the identifier cannot accidentally
+<p>Create an identifier referring to a constant <code><a href="/Socket.lean/Init/Meta.html#Lean.version.getSpecialDesc">c</a></code> copying the position from <code>src</code>.
+This variant of <code><a href="/Socket.lean/Init/Meta.html#Lean.mkIdentFrom">mkIdentFrom</a></code> makes sure that the identifier cannot accidentally
 be captured.</p></div>
 </div>
 <div class="decl" id="Lean.mkCIdentFromRef">
@@ -3273,7 +3273,7 @@ be captured.</p></div>
 </ul>
 </details>
 <p>Split a name literal (without the backtick) into its dot-separated components. For example,
-<code>foo.bla.«bo.o»</code> ↦ <code>["foo", "bla", "«bo.o»"]</code>. If the literal cannot be parsed, return <code>[]</code>.</p></div>
+<code>foo.bla.«bo.o»</code> ↦ <code>["foo","bla","«bo.o»"]</code>. If the literal cannot be parsed, return <code>[]</code>.</p></div>
 </div>
 <div class="decl" id="Lean.Syntax.decodeNameLit">
 <div class="def">
@@ -4189,9 +4189,9 @@ quote : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/In
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Meta.html#autoParam">autoParam</a> <span class="fn">α</span> <span class="fn">tactic</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">α</span></span></li>
 </ul>
 </details>
-<p>Gadget for automatic parameter support. This is similar to the <code>optParam</code> gadget, but it uses
+<p>Gadget for automatic parameter support. This is similar to the <code><a href="/Socket.lean/Init/Prelude.html#optParam">optParam</a></code> gadget, but it uses
 the given tactic.
-Like <code>optParam</code>, this gadget only affects elaboration.
+Like <code><a href="/Socket.lean/Init/Prelude.html#optParam">optParam</a></code>, this gadget only affects elaboration.
 For example, the tactic will <em>not</em> be invoked during type class resolution.</p></div>
 </div>
 <div class="decl" id="Lean.Syntax.isInterpolatedStrLit?">

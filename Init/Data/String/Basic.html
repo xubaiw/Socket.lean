@@ -2357,7 +2357,7 @@ False if either substring of that length does not exist.</p></div>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.isPrefixOf">String.isPrefixOf</a> <span class="fn">p</span> <span class="fn">s</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.substrEq">String.substrEq</a> <span class="fn">p</span> <span class="fn">0</span> <span class="fn">s</span> <span class="fn">0</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.bsize">String.bsize</a> <span class="fn">p</span></span>)</span></span></li>
 </ul>
 </details>
-<p>Return true iff <code>p</code> is a prefix of <code>s</code></p></div>
+<p>Return true iff <code><a href="/Socket.lean/Init/Data/String/Basic.html#String.getOp">p</a></code> is a prefix of <code><a href="/Socket.lean/Init/Data/String/Basic.html#String.firstDiffPos">s</a></code></p></div>
 </div>
 <div class="decl" id="String.replace">
 <div class="def">
@@ -2384,7 +2384,7 @@ False if either substring of that length does not exist.</p></div>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.replace">String.replace</a> <span class="fn">s</span> <span class="fn">pattern</span> <span class="fn">replacement</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.replace.loop">String.replace.loop</a> <span class="fn">s</span> <span class="fn">pattern</span> <span class="fn">replacement</span> <span class="fn">""</span> <span class="fn">0</span> <span class="fn">0</span></span></span></li>
 </ul>
 </details>
-<p>Replace all occurrences of <code>pattern</code> in <code>s</code> with <code>replacment</code>.</p></div>
+<p>Replace all occurrences of <code>pattern</code> in <code><a href="/Socket.lean/Init/Data/String/Basic.html#String.firstDiffPos">s</a></code> with <code>replacment</code>.</p></div>
 </div>
 <div class="decl" id="String.replace.loop">
 <div class="constant">
@@ -2652,7 +2652,7 @@ return the offset there of the previous codepoint.</p></div>
   | <span class="fn">{ str := <span class="fn">s</span>, startPos := <span class="fn">b</span>, stopPos := <span class="fn">e</span> }</span> => <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.posOfAux">String.posOfAux</a> <span class="fn">s</span> <span class="fn">c</span> <span class="fn">e</span> <span class="fn">b</span></span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn">b</span></span></span></span></li>
 </ul>
 </details>
-<p>Return the offset into <code>s</code> of the first occurence of <code>c</code> in <code>s</code>,
+<p>Return the offset into <code><a href="/Socket.lean/Init/Data/String/Basic.html#String.firstDiffPos">s</a></code> of the first occurence of <code>c</code> in <code><a href="/Socket.lean/Init/Data/String/Basic.html#String.firstDiffPos">s</a></code>,
 or <code>s.bsize</code> if <code>c</code> doesn't occur.</p></div>
 </div>
 <div class="decl" id="Substring.drop">

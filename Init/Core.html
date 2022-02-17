@@ -1664,7 +1664,7 @@ get : <span class="fn">α</span></li>
 <span class="fn"><a href="/Socket.lean/Init/Core.html#Task.Priority.dedicated">Task.Priority.dedicated</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">9</span></span></li>
 </ul>
 </details>
-<p>Any priority higher than <code>Task.Priority.max</code> will result in the task being scheduled immediately on a dedicated thread.
+<p>Any priority higher than <code><a href="/Socket.lean/Init/Core.html#Task.Priority.max">Task.Priority.max</a></code> will result in the task being scheduled immediately on a dedicated thread.
 This is particularly useful for long-running and/or I/O-bound tasks since Lean will by default allocate no more
 non-dedicated workers than the number of cores to reduce context switches.</p></div>
 </div>
@@ -7000,15 +7000,15 @@ iseqv : <span class="fn"><a href="/Socket.lean/Init/Core.html#Equivalence">Equiv
 <span class="fn">(b : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></div></div>
-<p>When the kernel tries to reduce a term <code>Lean.reduceBool c</code>, it will invoke the Lean interpreter to evaluate <code>c</code>.
-The kernel will not use the interpreter if <code>c</code> is not a constant.
-This feature is useful for performing proofs by reflection.</p><p>Remark: the Lean frontend allows terms of the from <code>Lean.reduceBool t</code> where <code>t</code> is a term not containing
-free variables. The frontend automatically declares a fresh auxiliary constant <code>c</code> and replaces the term with
-<code>Lean.reduceBool c</code>. The main motivation is that the code for <code>t</code> will be pre-compiled.</p><p>Warning: by using this feature, the Lean compiler and interpreter become part of your trusted code base.
+<p>When the kernel tries to reduce a term <code><a href="/Socket.lean/Init/Core.html#Lean.reduceBool">Lean.reduceBool</a><a href="/Socket.lean/Init/Core.html#HEq.ndrec">c</a></code>, it will invoke the Lean interpreter to evaluate <code><a href="/Socket.lean/Init/Core.html#HEq.ndrec">c</a></code>.
+The kernel will not use the interpreter if <code><a href="/Socket.lean/Init/Core.html#HEq.ndrec">c</a></code> is not a constant.
+This feature is useful for performing proofs by reflection.</p><p>Remark: the Lean frontend allows terms of the from <code><a href="/Socket.lean/Init/Core.html#Lean.reduceBool">Lean.reduceBool</a><a href="/Socket.lean/Init/Core.html#Thunk.get">t</a></code> where <code><a href="/Socket.lean/Init/Core.html#Thunk.get">t</a></code> is a term not containing
+free variables. The frontend automatically declares a fresh auxiliary constant <code><a href="/Socket.lean/Init/Core.html#HEq.ndrec">c</a></code> and replaces the term with
+<code><a href="/Socket.lean/Init/Core.html#Lean.reduceBool">Lean.reduceBool</a><a href="/Socket.lean/Init/Core.html#HEq.ndrec">c</a></code>. The main motivation is that the code for <code><a href="/Socket.lean/Init/Core.html#Thunk.get">t</a></code> will be pre-compiled.</p><p>Warning: by using this feature, the Lean compiler and interpreter become part of your trusted code base.
 This is extra 30k lines of code. More importantly, you will probably not be able to check your developement using
 external type checkers (e.g., Trepplein) that do not implement this feature.
 Keep in mind that if you are using Lean as programming language, you are already trusting the Lean compiler and interpreter.
-So, you are mainly losing the capability of type checking your developement using external checkers.</p><p>Recall that the compiler trusts the correctness of all <code>[implementedBy ...]</code> and <code>[extern ...]</code> annotations.
+So, you are mainly losing the capability of type checking your developement using external checkers.</p><p>Recall that the compiler trusts the correctness of all <code>[implementedBy...]</code> and <code>[extern...]</code> annotations.
 If an extern function is executed, then the trusted code base will also include the implementation of the associated
 foreign function.</p></div>
 </div>
@@ -7026,9 +7026,9 @@ foreign function.</p></div>
 <span class="fn">(n : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></div></div>
-<p>Similar to <code>Lean.reduceBool</code> for closed <code>Nat</code> terms.</p><p>Remark: we do not have plans for supporting a generic <code>reduceValue {α} (a : α) : α := a</code>.
+<p>Similar to <code><a href="/Socket.lean/Init/Core.html#Lean.reduceBool">Lean.reduceBool</a></code> for closed <code><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></code> terms.</p><p>Remark: we do not have plans for supporting a generic <code>reduceValue{α}(a:α):α:=<a href="/Socket.lean/Init/Core.html#Sigma">a</a></code>.
 The main issue is that it is non-trivial to convert an arbitrary runtime object back into a Lean expression.
-We believe <code>Lean.reduceBool</code> enables most interesting applications (e.g., proof by reflection).</p></div>
+We believe <code><a href="/Socket.lean/Init/Core.html#Lean.reduceBool">Lean.reduceBool</a></code> enables most interesting applications (e.g., proof by reflection).</p></div>
 </div>
 <div class="decl" id="Lean.ofReduceBool">
 <div class="axiom">

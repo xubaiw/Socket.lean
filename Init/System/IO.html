@@ -543,7 +543,7 @@ Documentation</h1>
 </ul>
 </details>
 <p>Like https://hackage.haskell.org/package/ghc-Prim-0.5.2.0/docs/GHC-Prim.html#t:RealWorld.
-Makes sure we never reorder <code>IO</code> operations.</p><pre><code>TODO: mark opaque 
+Makes sure we never reorder <code><a href="/Socket.lean/Init/System/IO.html#IO">IO</a></code> operations.</p><pre><code>TODO:markopaque
 </code></pre></div>
 </div>
 <div class="decl" id="EIO">
@@ -725,7 +725,7 @@ Makes sure we never reorder <code>IO</code> operations.</p><pre><code>TODO: mark
 <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO">EIO</a> <a href="/Socket.lean/Init/Prelude.html#Empty">Empty</a></span></span></li>
 </ul>
 </details>
-<p>An <code>EIO</code> monad that cannot throw exceptions.</p></div>
+<p>An <code><a href="/Socket.lean/Init/System/IO.html#EIO">EIO</a></code> monad that cannot throw exceptions.</p></div>
 </div>
 <div class="decl" id="instMonadBaseIO">
 <div class="instance">
@@ -1218,12 +1218,12 @@ Makes sure we never reorder <code>IO</code> operations.</p><pre><code>TODO: mark
 <span class="fn">(prio : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#optParam">optParam</a> <a href="/Socket.lean/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Socket.lean/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Socket.lean/Init/Core.html#Task">Task</a> <span class="fn">α</span></span>)</span></div></div>
-<p>Run <code>act</code> in a separate <code>Task</code>.
+<p>Run <code>act</code> in a separate <code><a href="/Socket.lean/Init/Core.html#Task">Task</a></code>.
 This is similar to Haskell's <a href="http://hackage.haskell.org/package/base-4.14.0.0/docs/System-IO-Unsafe.html#v:unsafeInterleaveIO"><code>unsafeInterleaveIO</code></a>,
-except that the <code>Task</code> is started eagerly as usual. Thus pure accesses to the <code>Task</code> do not influence the impure <code>act</code>
+except that the <code><a href="/Socket.lean/Init/Core.html#Task">Task</a></code> is started eagerly as usual. Thus pure accesses to the <code><a href="/Socket.lean/Init/Core.html#Task">Task</a></code> do not influence the impure <code>act</code>
 computation.
-Unlike with pure tasks created by <code>Task.spawn</code>, tasks created by this function will be run even if the last reference
-to the task is dropped. The <code>act</code> should manually check for cancellation via <code>IO.checkCanceled</code> if it wants to react
+Unlike with pure tasks created by <code><a href="/Socket.lean/Init/Core.html#Task.spawn">Task.spawn</a></code>, tasks created by this function will be run even if the last reference
+to the task is dropped. The <code>act</code> should manually check for cancellation via <code><a href="/Socket.lean/Init/System/IO.html#IO.checkCanceled">IO.checkCanceled</a></code> if it wants to react
 to that.</p></div>
 </div>
 <div class="decl" id="BaseIO.mapTask">
@@ -1253,7 +1253,7 @@ to that.</p></div>
 <span class="fn">(prio : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#optParam">optParam</a> <a href="/Socket.lean/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Socket.lean/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Socket.lean/Init/Core.html#Task">Task</a> <span class="fn">β</span></span>)</span></div></div>
-<p>See <code>BaseIO.asTask</code>.</p></div>
+<p>See <code><a href="/Socket.lean/Init/System/IO.html#BaseIO.asTask">BaseIO.asTask</a></code>.</p></div>
 </div>
 <div class="decl" id="BaseIO.bindTask">
 <div class="constant">
@@ -1282,7 +1282,7 @@ to that.</p></div>
 <span class="fn">(prio : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#optParam">optParam</a> <a href="/Socket.lean/Init/Core.html#Task.Priority">Task.Priority</a> <a href="/Socket.lean/Init/Core.html#Task.Priority.default">Task.Priority.default</a></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO">BaseIO</a> (<span class="fn"><a href="/Socket.lean/Init/Core.html#Task">Task</a> <span class="fn">β</span></span>)</span></div></div>
-<p>See <code>BaseIO.asTask</code>.</p></div>
+<p>See <code><a href="/Socket.lean/Init/System/IO.html#BaseIO.asTask">BaseIO.asTask</a></code>.</p></div>
 </div>
 <div class="decl" id="BaseIO.mapTasks">
 <div class="def">
@@ -1386,7 +1386,7 @@ to that.</p></div>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.asTask">EIO.asTask</a> <span class="fn">act</span> <span class="fn">prio</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.asTask">BaseIO.asTask</a> (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.toBaseIO">EIO.toBaseIO</a> <span class="fn">act</span></span>) <span class="fn">prio</span></span></span></li>
 </ul>
 </details>
-<p><code>EIO</code> specialization of <code>BaseIO.asTask</code>.</p></div>
+<p><code><a href="/Socket.lean/Init/System/IO.html#EIO">EIO</a></code> specialization of <code><a href="/Socket.lean/Init/System/IO.html#BaseIO.asTask">BaseIO.asTask</a></code>.</p></div>
 </div>
 <div class="decl" id="EIO.mapTask">
 <div class="def">
@@ -1426,7 +1426,7 @@ to that.</p></div>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.mapTask">EIO.mapTask</a> <span class="fn">f</span> <span class="fn">t</span> <span class="fn">prio</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.mapTask">BaseIO.mapTask</a> (<span class="fn">fun <span class="fn">a</span> => <span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.toBaseIO">EIO.toBaseIO</a> (<span class="fn"><span class="fn">f</span> <span class="fn">a</span></span>)</span></span>) <span class="fn">t</span> <span class="fn">prio</span></span></span></li>
 </ul>
 </details>
-<p><code>EIO</code> specialization of <code>BaseIO.mapTask</code>.</p></div>
+<p><code><a href="/Socket.lean/Init/System/IO.html#EIO">EIO</a></code> specialization of <code><a href="/Socket.lean/Init/System/IO.html#BaseIO.mapTask">BaseIO.mapTask</a></code>.</p></div>
 </div>
 <div class="decl" id="EIO.bindTask">
 <div class="def">
@@ -1466,7 +1466,7 @@ to that.</p></div>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.bindTask">EIO.bindTask</a> <span class="fn">t</span> <span class="fn">f</span> <span class="fn">prio</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.bindTask">BaseIO.bindTask</a> <span class="fn">t</span> (<span class="fn">fun <span class="fn">a</span> => <span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.catchExceptions">EIO.catchExceptions</a> (<span class="fn"><span class="fn">f</span> <span class="fn">a</span></span>) <span class="fn">fun <span class="fn">e</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">{ get := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span> }</span></span></span></span></span>) <span class="fn">prio</span></span></span></li>
 </ul>
 </details>
-<p><code>EIO</code> specialization of <code>BaseIO.bindTask</code>.</p></div>
+<p><code><a href="/Socket.lean/Init/System/IO.html#EIO">EIO</a></code> specialization of <code><a href="/Socket.lean/Init/System/IO.html#BaseIO.bindTask">BaseIO.bindTask</a></code>.</p></div>
 </div>
 <div class="decl" id="EIO.mapTasks">
 <div class="def">
@@ -1506,7 +1506,7 @@ to that.</p></div>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.mapTasks">EIO.mapTasks</a> <span class="fn">f</span> <span class="fn">tasks</span> <span class="fn">prio</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.mapTasks">BaseIO.mapTasks</a> (<span class="fn">fun <span class="fn">as</span> => <span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.toBaseIO">EIO.toBaseIO</a> (<span class="fn"><span class="fn">f</span> <span class="fn">as</span></span>)</span></span>) <span class="fn">tasks</span> <span class="fn">prio</span></span></span></li>
 </ul>
 </details>
-<p><code>EIO</code> specialization of <code>BaseIO.mapTasks</code>.</p></div>
+<p><code><a href="/Socket.lean/Init/System/IO.html#EIO">EIO</a></code> specialization of <code><a href="/Socket.lean/Init/System/IO.html#BaseIO.mapTasks">BaseIO.mapTasks</a></code>.</p></div>
 </div>
 <div class="decl" id="IO.ofExcept">
 <div class="def">
@@ -1603,7 +1603,7 @@ to that.</p></div>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></span></div></div>
 <p>Read bytes from a system entropy source. Not guaranteed to be cryptographically secure.
-If <code>nBytes = 0</code>, return immediately with an empty buffer.</p></div>
+If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 </div>
 <div class="decl" id="IO.sleep">
 <div class="def">
@@ -1656,7 +1656,7 @@ If <code>nBytes = 0</code>, return immediately with an empty buffer.</p></div>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.asTask">IO.asTask</a> <span class="fn">act</span> <span class="fn">prio</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.asTask">EIO.asTask</a> <span class="fn">act</span> <span class="fn">prio</span></span></span></li>
 </ul>
 </details>
-<p><code>IO</code> specialization of <code>EIO.asTask</code>.</p></div>
+<p><code><a href="/Socket.lean/Init/System/IO.html#IO">IO</a></code> specialization of <code><a href="/Socket.lean/Init/System/IO.html#EIO.asTask">EIO.asTask</a></code>.</p></div>
 </div>
 <div class="decl" id="IO.mapTask">
 <div class="def">
@@ -1692,7 +1692,7 @@ If <code>nBytes = 0</code>, return immediately with an empty buffer.</p></div>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.mapTask">IO.mapTask</a> <span class="fn">f</span> <span class="fn">t</span> <span class="fn">prio</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.mapTask">EIO.mapTask</a> <span class="fn">f</span> <span class="fn">t</span> <span class="fn">prio</span></span></span></li>
 </ul>
 </details>
-<p><code>IO</code> specialization of <code>EIO.mapTask</code>.</p></div>
+<p><code><a href="/Socket.lean/Init/System/IO.html#IO">IO</a></code> specialization of <code><a href="/Socket.lean/Init/System/IO.html#EIO.mapTask">EIO.mapTask</a></code>.</p></div>
 </div>
 <div class="decl" id="IO.bindTask">
 <div class="def">
@@ -1728,7 +1728,7 @@ If <code>nBytes = 0</code>, return immediately with an empty buffer.</p></div>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.bindTask">IO.bindTask</a> <span class="fn">t</span> <span class="fn">f</span> <span class="fn">prio</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.bindTask">EIO.bindTask</a> <span class="fn">t</span> <span class="fn">f</span> <span class="fn">prio</span></span></span></li>
 </ul>
 </details>
-<p><code>IO</code> specialization of <code>EIO.bindTask</code>.</p></div>
+<p><code><a href="/Socket.lean/Init/System/IO.html#IO">IO</a></code> specialization of <code><a href="/Socket.lean/Init/System/IO.html#EIO.bindTask">EIO.bindTask</a></code>.</p></div>
 </div>
 <div class="decl" id="IO.mapTasks">
 <div class="def">
@@ -1764,7 +1764,7 @@ If <code>nBytes = 0</code>, return immediately with an empty buffer.</p></div>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.mapTasks">IO.mapTasks</a> <span class="fn">f</span> <span class="fn">tasks</span> <span class="fn">prio</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.mapTasks">EIO.mapTasks</a> <span class="fn">f</span> <span class="fn">tasks</span> <span class="fn">prio</span></span></span></li>
 </ul>
 </details>
-<p><code>IO</code> specialization of <code>EIO.mapTasks</code>.</p></div>
+<p><code><a href="/Socket.lean/Init/System/IO.html#IO">IO</a></code> specialization of <code><a href="/Socket.lean/Init/System/IO.html#EIO.mapTasks">EIO.mapTasks</a></code>.</p></div>
 </div>
 <div class="decl" id="IO.checkCanceled">
 <div class="constant">
@@ -1779,7 +1779,7 @@ If <code>nBytes = 0</code>, return immediately with an empty buffer.</p></div>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></span></div></div>
-<p>Check if the task's cancellation flag has been set by calling <code>IO.cancel</code> or dropping the last reference to the task.</p></div>
+<p>Check if the task's cancellation flag has been set by calling <code><a href="/Socket.lean/Init/System/IO.html#IO.cancel">IO.cancel</a></code> or dropping the last reference to the task.</p></div>
 </div>
 <div class="decl" id="IO.cancel">
 <div class="constant">
@@ -1798,7 +1798,7 @@ If <code>nBytes = 0</code>, return immediately with an empty buffer.</p></div>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Core.html#Task">Task</a> <span class="fn">α</span></span> → <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a></span></span></div></div>
-<p>Request cooperative cancellation of the task. The task must explicitly call <code>IO.checkCanceled</code> to react to the cancellation.</p></div>
+<p>Request cooperative cancellation of the task. The task must explicitly call <code><a href="/Socket.lean/Init/System/IO.html#IO.checkCanceled">IO.checkCanceled</a></code> to react to the cancellation.</p></div>
 </div>
 <div class="decl" id="IO.hasFinished">
 <div class="constant">
@@ -1817,7 +1817,7 @@ If <code>nBytes = 0</code>, return immediately with an empty buffer.</p></div>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Core.html#Task">Task</a> <span class="fn">α</span></span> → <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></span></span></div></div>
-<p>Check if the task has finished execution, at which point calling <code>Task.get</code> will return immediately.</p></div>
+<p>Check if the task has finished execution, at which point calling <code><a href="/Socket.lean/Init/Core.html#Task.get">Task.get</a></code> will return immediately.</p></div>
 </div>
 <div class="decl" id="IO.wait">
 <div class="constant">
@@ -1938,7 +1938,7 @@ getLine : <span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> 
 <li class="structure_field" id="IO.FS.Stream.putStr">
 putStr : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a></span></span></li>
 </ul>
-<p>A pure-Lean abstraction of POSIX streams. We use <code>Stream</code>s for the standard streams stdin/stdout/stderr so we can
+<p>A pure-Lean abstraction of POSIX streams. We use <code><a href="/Socket.lean/Init/Data/Stream.html#Stream">Stream</a></code>s for the standard streams stdin/stdout/stderr so we can
 capture output of <code>#eval</code> commands into memory.</p></div>
 </div>
 <div class="decl" id="IO.FS.instInhabitedStream">
@@ -2142,8 +2142,8 @@ capture output of <code>#eval</code> commands into memory.</p></div>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></span></div></div>
 <p>Returns whether the end of the file has been reached while reading a file.
-<code>h.isEof</code> returns true /after/ the first attempt at reading past the end of <code>h</code>.
-Once <code>h.isEof</code> is true, reading <code>h</code> will always return an empty array.</p></div>
+<code>h.isEof</code> returns true /after/ the first attempt at reading past the end of <code><a href="/Socket.lean/Init/System/IO.html#IO.FS.Handle.flush">h</a></code>.
+Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/System/IO.html#IO.FS.Handle.flush">h</a></code> will always return an empty array.</p></div>
 </div>
 <div class="decl" id="IO.FS.Handle.flush">
 <div class="constant">
@@ -2283,7 +2283,7 @@ Once <code>h.isEof</code> is true, reading <code>h</code> will always return an 
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath">System.FilePath</a> → <span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a></span></span></div></div>
-<p>Remove given directory. Fails if not empty; see also <code>IO.FS.removeDirAll</code>.</p></div>
+<p>Remove given directory. Fails if not empty; see also <code><a href="/Socket.lean/Init/System/IO.html#IO.FS.removeDirAll">IO.FS.removeDirAll</a></code>.</p></div>
 </div>
 <div class="decl" id="IO.FS.createDir">
 <div class="constant">
@@ -3084,7 +3084,7 @@ type : <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#System.FilePath.walkDir">System.FilePath.walkDir</a> <span class="fn">p</span> <span class="fn">enter</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">Prod.snd</span> <a href="/Socket.lean/Init/Prelude.html#Functor.map"><$></a> <span class="fn"><a href="/Socket.lean/Init/Control/State.html#StateT.run">StateT.run</a> (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#System.FilePath.walkDir.go">System.FilePath.walkDir.go</a> <span class="fn">enter</span> <span class="fn">p</span></span>) <span class="fn">#[]</span></span></span></span></li>
 </ul>
 </details>
-<p>Return all filesystem entries of a preorder traversal of all directories satisfying <code>enter</code>, starting at <code>p</code>.
+<p>Return all filesystem entries of a preorder traversal of all directories satisfying <code>enter</code>, starting at <code><a href="/Socket.lean/Init/System/IO.html#IO.sleep">p</a></code>.
 Symbolic links are visited as well by default.</p></div>
 </div>
 <div class="decl" id="System.FilePath.walkDir.go">
@@ -3608,10 +3608,10 @@ stderr : <span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.Process.S
 <div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.Process.Child">IO.Process.Child</a> <span class="fn">cfg</span></span> →
   <span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a>
     (<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.Process.Stdio.toHandleType">IO.Process.Stdio.toHandleType</a> <span class="fn"><span class="fn">cfg</span>.stdin</span></span> <a href="/Socket.lean/Init/Prelude.html#Prod">×</a>       <span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.Process.Child">IO.Process.Child</a> <span class="fn">{ stdin := <a href="/Socket.lean/Init/System/IO.html#IO.Process.Stdio.null">IO.Process.Stdio.null</a>, stdout := <span class="fn"><span class="fn">cfg</span>.stdout</span>, stderr := <span class="fn"><span class="fn">cfg</span>.stderr</span> }</span></span></span>)</span></span></div></div>
-<p>Extract the <code>stdin</code> field from a <code>Child</code> object, allowing them to be freed independently.
+<p>Extract the <code>stdin</code> field from a <code><a href="/Socket.lean/Init/System/IO.html#IO.Process.Child">Child</a></code> object, allowing them to be freed independently.
 This operation is necessary for closing the child process' stdin while still holding on to a process handle,
-e.g. for <code>Child.wait</code>. A file handle is closed when all references to it are dropped, which without this
-operation includes the <code>Child</code> object.</p></div>
+e.g. for <code><a href="/Socket.lean/Init/System/IO.html#IO.Process.Child.wait">Child.wait</a></code>. A file handle is closed when all references to it are dropped, which without this
+operation includes the <code><a href="/Socket.lean/Init/System/IO.html#IO.Process.Child">Child</a></code> object.</p></div>
 </div>
 <div class="decl" id="IO.Process.Output">
 <div class="structure">
@@ -4071,7 +4071,7 @@ pos : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">(<span class="fn">out</span>, <span class="fn">r</span>)</span></span></span></span></li>
 </ul>
 </details>
-<p>Run action with <code>stdin</code> emptied and <code>stdout+stderr</code> captured into a <code>String</code>.</p></div>
+<p>Run action with <code>stdin</code> emptied and <code>stdout+stderr</code> captured into a <code><a href="/Socket.lean/Init/Prelude.html#String">String</a></code>.</p></div>
 </div>
 <div class="decl" id="Lean.Eval">
 <div class="class">

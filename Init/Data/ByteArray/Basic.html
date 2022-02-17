@@ -546,7 +546,7 @@ data : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array">Array</a>
       <span class="fn"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Subarray.html#Array.extract">Array.extract</a> <span class="fn"><span class="fn">dest</span>.data</span> <span class="fn">0</span> <span class="fn">destOff</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/Socket.lean/Init/Data/Array/Subarray.html#Array.extract">Array.extract</a> <span class="fn"><span class="fn">src</span>.data</span> <span class="fn">srcOff</span> (<span class="fn"><span class="fn">srcOff</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">len</span></span>)</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a>         <span class="fn"><a href="/Socket.lean/Init/Data/Array/Subarray.html#Array.extract">Array.extract</a> <span class="fn"><span class="fn">dest</span>.data</span> (<span class="fn"><span class="fn">destOff</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">len</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn"><span class="fn">dest</span>.data</span></span>)</span></span> }</span></span></li>
 </ul>
 </details>
-<p>Copy the slice at <code>[srcOff, srcOff + len)</code> in <code>src</code> to <code>[destOff, destOff + len)</code> in <code>dest</code>, growing <code>dest</code> if necessary.
+<p>Copy the slice at <code>[srcOff,srcOff+len)</code> in <code>src</code> to <code>[destOff,destOff+len)</code> in <code>dest</code>, growing <code>dest</code> if necessary.
 If <code>exact</code> is <code>false</code>, the capacity will be doubled when grown.</p></div>
 </div>
 <div class="decl" id="ByteArray.extract">
@@ -1244,7 +1244,7 @@ If <code>exact</code> is <code>false</code>, the capacity will be doubled when g
       (<span class="fn"><span class="fn">"assertion violation: "</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">"bs.size == 8\n  "</span></span>)</span></span></span></li>
 </ul>
 </details>
-<p>Interpret a <code>ByteArray</code> of size 8 as a little-endian <code>UInt64</code>.</p></div>
+<p>Interpret a <code><a href="/Socket.lean/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></code> of size 8 as a little-endian <code><a href="/Socket.lean/Init/Prelude.html#UInt64">UInt64</a></code>.</p></div>
 </div>
 <div class="decl" id="ByteArray.toUInt64BE!">
 <div class="def">
@@ -1271,7 +1271,7 @@ If <code>exact</code> is <code>false</code>, the capacity will be doubled when g
       (<span class="fn"><span class="fn">"assertion violation: "</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">"bs.size == 8\n  "</span></span>)</span></span></span></li>
 </ul>
 </details>
-<p>Interpret a <code>ByteArray</code> of size 8 as a big-endian <code>UInt64</code>.</p></div>
+<p>Interpret a <code><a href="/Socket.lean/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></code> of size 8 as a big-endian <code><a href="/Socket.lean/Init/Prelude.html#UInt64">UInt64</a></code>.</p></div>
 </div>
 </main>
 <nav class="nav">
