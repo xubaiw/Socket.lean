@@ -1,19 +1,6 @@
 namespace Socket
 
-/--
-  Initialize the socket environment.
-
-  This function does the following things:
-  1. register `Socket` and `SockAddr` type from external class
-  2. call `WSAStartup` on windows
-  3. register `WSACleanup` on windows
-
-  This function should always and only be called with `initialize initSocket`.
- -/
-@[extern "lean_socket_initialize"]
-constant initSocket : IO Unit
-
-builtin_initialize initSocket
+constant Socket.Nonempty : NonemptyType
 
 /--
   The low-level networking primitives for lean.
@@ -26,7 +13,8 @@ builtin_initialize initSocket
   The `Socket` type is made opaque since implementation of socket may
   be different across platforms (`int` on *nix and `SOCKET` on Windows).
 -/
-constant Socket : Type
+def Socket : Type := Socket.Nonempty.type
+instance : Nonempty Socket := Socket.Nonempty.property
 
 /--
   This structure holds both the length and the content for the C `sockaddr`.
