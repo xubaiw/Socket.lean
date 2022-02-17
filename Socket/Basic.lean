@@ -11,7 +11,7 @@ namespace Socket
   This function should always and only be called with `initialize initSocket`.
  -/
 @[extern "lean_socket_initialize"]
-private constant initSocket : IO Unit
+constant initSocket : IO Unit
 
 builtin_initialize initSocket
 
