@@ -15,12 +15,12 @@ jobs:
       uses: actions/checkout@master
 
     - name: Generate Documentation
-      uses: xubaiw/actions-doc-gen4@728f161965fff83d21eb7b1533ec606625cbaf19
+      uses: xubaiw/actions-doc-gen4@a870161
       with:
         modules: Socket
         root-url: /Socket.lean/
         doc-gen4-repo: https://github.com/xubaiw/doc-gen4.git
-        doc-gen4-checkout: docstring
+        doc-gen4-checkout: 97ddf05
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.2.2
