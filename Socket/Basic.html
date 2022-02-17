@@ -91,10 +91,11 @@ Documentation</h1>
 </div>
 </nav>
 <main>
-<div class="mod_doc"><h1 class="markdown-heading" id="socket-type-definitions">Socket Type Definitions<a class="hover-link" href="#socket-type-definitions">#</a></h1><p>This module defines some basic types to be used across whole pacage:</p><ul>
-<li><a href="#Socket.Socket"><code>Socket</code></a>: Opaque reference to underlying socket</li>
-<li><a href="#Socket.SockAddr"><code>SockAddr</code></a>: Opaque reference to underlying socket address</li>
-<li><a href="#Socket.AddressFamily"><code>AddressFamily</code></a>: Enumeration of supported address families</li>
+<div class="mod_doc">
+<h1 class="markdown-heading" id="socket-type-definitions">Socket Type Definitions<a class="hover-link" href="#socket-type-definitions">#</a></h1><p>This module defines some basic types to be used across whole pacage:</p><ul>
+<li><a href="/Socket.lean/#Socket.Socket"><code>Socket</code></a>: Opaque reference to underlying socket</li>
+<li><a href="/Socket.lean/#Socket.SockAddr"><code>SockAddr</code></a>: Opaque reference to underlying socket address</li>
+<li><a href="/Socket.lean/#Socket.AddressFamily"><code>AddressFamily</code></a>: Enumeration of supported address families</li>
 </ul></div>
 <div class="mod_doc"><h2 class="markdown-heading" id="socket">Socket<a class="hover-link" href="#socket">#</a></h2></div>
 <div class="decl" id="Socket.Socket.Nonempty">
@@ -109,8 +110,8 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#NonemptyType">NonemptyType</a></div></div>
-<p>Use <code>NonemptyType</code> to implement <code>Inhabited</code> for <a href="#Socket.Socket"><code>Socket</code></a>.
-<a href="#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
+<p>Use <code>NonemptyType</code> to implement <code>Inhabited</code> for <a href="/Socket.lean/#Socket.Socket"><code>Socket</code></a>.
+<a href="/Socket.lean/#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
 </div>
 <div class="decl" id="Socket.Socket">
 <div class="def">
@@ -131,11 +132,11 @@ Documentation</h1>
 <span class="fn"><a href="/Socket.lean/Socket/Basic.html#Socket.Socket">Socket.Socket</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#NonemptyType.type">NonemptyType.type</a> <a href="/Socket.lean/Socket/Basic.html#Socket.Socket.Nonempty">Socket.Socket.Nonempty</a></span></span></li>
 </ul>
 </details>
-<p>Opaque reference to underlying socket.</p><p>To create a <code>Socket</code>, refer to <a href="/find/Socket.Socket.mk"><code>Socket.mk</code></a>.
+<p>Opaque reference to underlying socket.</p><p>To create a <code>Socket</code>, refer to <a href="/Socket.lean//find/Socket.Socket.mk"><code>Socket.mk</code></a>.
 Then you can manipulate the <code>Socket</code> using common socket functions like
-<a href="/find/Socket.Socket.bind"><code>bind</code></a>,
-<a href="/find/Socket.Socket.connect"><code>connect</code></a>, etc. For all functions
-available, refer to the <a href="/Socket.Socket"><code>Socket</code></a> module.</p><p><em>NOTE</em>: The <code>Socket</code> type is made opaque since implementation of socket may
+<a href="/Socket.lean//find/Socket.Socket.bind"><code>bind</code></a>,
+<a href="/Socket.lean//find/Socket.Socket.connect"><code>connect</code></a>, etc. For all functions
+available, refer to the <a href="/Socket.lean//Socket.Socket"><code>Socket</code></a> module.</p><p><em>NOTE</em>: The <code>Socket</code> type is made opaque since implementation of socket may
 be different across platforms (<code>int</code> on *nix and <code>SOCKET</code> on Windows).</p></div>
 </div>
 <div class="decl" id="Socket.instNonemptySocket">
@@ -157,8 +158,8 @@ be different across platforms (<code>int</code> on *nix and <code>SOCKET</code> 
 <span class="fn"><a href="/Socket.lean/Socket/Basic.html#Socket.instNonemptySocket">Socket.instNonemptySocket</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Socket/Basic.html#Socket.instNonemptySocket.proof_1">Socket.instNonemptySocket.proof_1</a></span></li>
 </ul>
 </details>
-<p>Use <code>NonemptyType</code> to implement <code>Inhabited</code> for <a href="#Socket.Socket"><code>Socket</code></a>.
-<a href="#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
+<p>Use <code>NonemptyType</code> to implement <code>Inhabited</code> for <a href="/Socket.lean/#Socket.Socket"><code>Socket</code></a>.
+<a href="/Socket.lean/#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
 </div>
 <div class="decl" id="Socket.SockAddr.Nonempty">
 <div class="constant">
@@ -172,8 +173,8 @@ be different across platforms (<code>int</code> on *nix and <code>SOCKET</code> 
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#NonemptyType">NonemptyType</a></div></div>
-<p>Use <code>NonemptyType</code> to implement <code>Inhabited</code> for <a href="#Socket.SockAddr"><code>SockAddr</code></a>.
-<a href="#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
+<p>Use <code>NonemptyType</code> to implement <code>Inhabited</code> for <a href="/Socket.lean/#Socket.SockAddr"><code>SockAddr</code></a>.
+<a href="/Socket.lean/#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
 </div>
 <div class="decl" id="Socket.SockAddr">
 <div class="def">
@@ -215,8 +216,8 @@ be different across platforms (<code>int</code> on *nix and <code>SOCKET</code> 
 <span class="fn"><a href="/Socket.lean/Socket/Basic.html#Socket.instNonemptySockAddr">Socket.instNonemptySockAddr</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Socket/Basic.html#Socket.instNonemptySockAddr.proof_1">Socket.instNonemptySockAddr.proof_1</a></span></li>
 </ul>
 </details>
-<p>Use <code>NonemptyType</code> to implement <code>Inhabited</code> for <a href="#Socket.SockAddr"><code>SockAddr</code></a>
-<a href="#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
+<p>Use <code>NonemptyType</code> to implement <code>Inhabited</code> for <a href="/Socket.lean/#Socket.SockAddr"><code>SockAddr</code></a>
+<a href="/Socket.lean/#explanation-usage-of-nonemptytype">detailed explanation</a></p></div>
 </div>
 <div class="decl" id="Socket.AddressFamily">
 <div class="inductive">
@@ -239,7 +240,7 @@ inet: <a href="/Socket.lean/Socket/Basic.html#Socket.AddressFamily">Socket.Addre
 inet6: <a href="/Socket.lean/Socket/Basic.html#Socket.AddressFamily">Socket.AddressFamily</a></li>
 </ul>
 <p>Enumeration of supported address families,
-which is used in <a href="/find/Socket.Socket.mk"><code>Socket.mk</code></a>.</p></div>
+which is used in <a href="/Socket.lean//find/Socket.Socket.mk"><code>Socket.mk</code></a>.</p></div>
 </div>
 <div class="decl" id="Socket.instInhabitedAddressFamily">
 <div class="instance">
@@ -308,7 +309,7 @@ stream: <a href="/Socket.lean/Socket/Basic.html#Socket.SockType">Socket.SockType
 dgram: <a href="/Socket.lean/Socket/Basic.html#Socket.SockType">Socket.SockType</a></li>
 </ul>
 <p>Enumeration of supported socket types,
-which is used in <a href="/find/Socket.Socket.mk"><code>Socket.mk</code></a>.</p></div>
+which is used in <a href="/Socket.lean//find/Socket.Socket.mk"><code>Socket.mk</code></a>.</p></div>
 </div>
 <div class="decl" id="Socket.instInhabitedSockType">
 <div class="instance">
@@ -377,7 +378,7 @@ write: <a href="/Socket.lean/Socket/Basic.html#Socket.ShutdownHow">Socket.Shutdo
 readwrite: <a href="/Socket.lean/Socket/Basic.html#Socket.ShutdownHow">Socket.ShutdownHow</a></li>
 </ul>
 <p>Enumeration of supported socket types,
-which is used in <a href="/find/Socket.Socket.shutdown"><code>Socket.shutdown</code></a>.</p></div>
+which is used in <a href="/Socket.lean//find/Socket.Socket.shutdown"><code>Socket.shutdown</code></a>.</p></div>
 </div>
 <div class="decl" id="Socket.instInhabitedShutdownHow">
 <div class="instance">
@@ -415,7 +416,8 @@ which is used in <a href="/find/Socket.Socket.shutdown"><code>Socket.shutdown</c
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO">IO</a> <a href="/Socket.lean/Init/Prelude.html#String">String</a></span></div></div>
 <p>Get hostname of current machine.</p></div>
 </div>
-<div class="mod_doc"><h2 class="markdown-heading" id="explanation-usage-of-nonemptytype">Explanation: Usage of <code>NonemptyType</code><a class="hover-link" href="#explanation-usage-of-nonemptytype">#</a></h2><p>As <a href="#Socket.Socket"><code>Socket</code></a> and <a href="#Socket.SockAddr"><code>SockAddr</code></a>
+<div class="mod_doc">
+<h2 class="markdown-heading" id="explanation-usage-of-nonemptytype">Explanation: Usage of <code>NonemptyType</code><a class="hover-link" href="#explanation-usage-of-nonemptytype">#</a></h2><p>As <a href="/Socket.lean/#Socket.Socket"><code>Socket</code></a> and <a href="/Socket.lean/#Socket.SockAddr"><code>SockAddr</code></a>
 are implemented using <code>lean_external_class</code>. <code>NonemptyType</code> is used
 to implement <code>Inhabited</code> for these types.</p><p>A simple example of this trick can be found
 <a href="https://github.com/xubaiw/lean4/blob/c1fccf19cb8f15daba2329e5c82c6feca825c02b/tests/compiler/foreign">here</a>
