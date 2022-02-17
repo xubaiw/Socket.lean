@@ -11895,10 +11895,10 @@ read : <span class="fn"><span class="fn">m</span> <span class="fn">ρ</span></sp
 </ul>
 <p>An implementation of <a href="https://hackage.haskell.org/package/mtl-2.2.2/docs/Control-Monad-Reader-Class.html#t:MonadReader">MonadReader</a>.
 It does not contain <code>local</code> because this Function cannot be lifted using <code>monadLift</code>.
-Instead, the <code>MonadReaderAdapter</code> class provides the more general <code>adaptReader</code> Function.</p><pre><code>Note:Thisclasscanbeseenasasimplification<a href="/Socket.lean/Init/Prelude.html#lcProof">of</a>themore"principled"definition
+Instead, the <code>MonadReaderAdapter</code> class provides the more general <code>adaptReader</code> Function.</p><pre><code>Note: This class can be seen as a simplification of the more "principled" definition
 ```
-class<a href="/Socket.lean/Init/Prelude.html#MonadReader">MonadReader</a>(ρ:<a href="/Socket.lean/Init/Prelude.html#outParam">outParam</a>(Typeu))(n:<a href="/Socket.lean/Init/Prelude.html#NonemptyType">Type</a>u→<a href="/Socket.lean/Init/Prelude.html#NonemptyType">Type</a>u)where
-<a href="/Socket.lean/Init/Prelude.html#id"></a>lift{α:<a href="/Socket.lean/Init/Prelude.html#NonemptyType">Type</a>u}:({m:<a href="/Socket.lean/Init/Prelude.html#NonemptyType">Type</a>u→<a href="/Socket.lean/Init/Prelude.html#NonemptyType">Type</a>u}→[Monadm]→<a href="/Socket.lean/Init/Prelude.html#ReaderT">ReaderT</a>ρ<a href="/Socket.lean/Init/Prelude.html#False.elim">m</a>α)→<a href="/Socket.lean/Init/Prelude.html#congrFun">n</a>α
+class MonadReader (ρ : outParam (Type u)) (n : Type u → Type u) where
+  lift {α : Type u} : ({m : Type u → Type u} → [Monad m] → ReaderT ρ m α) → n α
 ```
 </code></pre><details class="instances">
 <summary>Instances</summary>

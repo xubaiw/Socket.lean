@@ -2332,15 +2332,15 @@ For each hypothesis to be introduced, the remaining main goal's target type must
 <li><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.intro">intro</a></code> by itself introduces one anonymous hypothesis, which can be accessed by e.g. <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.assumption">assumption</a></code>.</li>
 <li><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.intro">intro</a><a href="/Socket.lean/Init/Notation.html#precMax">x</a><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.apply">y</a></code> introduces two hypotheses and names them. Individual hypotheses can be anonymized via <code><a href="/Socket.lean/Init/Notation.html#stx!_">_</a></code>,
 or matched against a pattern:
-<pre><code class="language-lean">--...⊢α×β→...
-intro(a,b)
---...,<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.simpLemma">a</a>:α,b:β⊢...
+<pre><code class="language-lean">-- ... ⊢ α × β → ...
+intro (a, b)
+-- ..., a : α, b : β ⊢ ...
 </code></pre>
 </li>
 <li>Alternatively, <code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.intro">intro</a></code> can be combined with pattern matching much like <code>fun</code>:
 <pre><code class="language-lean">intro
-|<a href="/Socket.lean/Init/Notation.html#precMin">n</a>+1,0=>tac
-|...
+| n + 1, 0 => tac
+| ...
 </code></pre>
 </li>
 </ul></div>
@@ -2513,11 +2513,11 @@ Note also the <code>‹t›</code> term notation, which is a shorthand for <code
     (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"contradiction"</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>)</span></span></li>
 </ul>
 </details>
-<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.contradiction">contradiction</a></code> closes the main goal if its hypotheses are "trivially contradictory".</p><pre><code class="language-lean">example(h:False):<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.skip">p</a>:=by<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.contradiction">contradiction</a><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Syntax.addPrec"></a>--inductivetype/familywithnoapplicableconstructors
-example(h:none=sometrue):<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.skip">p</a>:=by<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.contradiction">contradiction</a><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Syntax.addPrec"></a>--injectivityofconstructors
-example(h:2+2=3):<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.skip">p</a>:=by<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.contradiction">contradiction</a><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Syntax.addPrec"></a>--decidablefalseproposition
-example(h:p)(h':¬p):<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.rwRuleSeq">q</a>:=bycontradiction
-example(x:Nat)(h:<a href="/Socket.lean/Init/Notation.html#precMax">x</a>≠x):<a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.skip">p</a>:=bycontradiction
+<p><code><a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.contradiction">contradiction</a></code> closes the main goal if its hypotheses are "trivially contradictory".</p><pre><code class="language-lean">example (h : False) : p := by contradiction  -- inductive type/family with no applicable constructors
+example (h : none = some true) : p := by contradiction  -- injectivity of constructors
+example (h : 2 + 2 = 3) : p := by contradiction  -- decidable false proposition
+example (h : p) (h' : ¬ p) : q := by contradiction
+example (x : Nat) (h : x ≠ x) : p := by contradiction
 </code></pre></div>
 </div>
 <div class="decl" id="Lean.Parser.Tactic.apply">
