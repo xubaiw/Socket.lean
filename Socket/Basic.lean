@@ -30,6 +30,16 @@ constant Socket.Nonempty : NonemptyType
   etc. For all functions available, refer to the [`Socket` module](Socket/Socket.html).
 
   *NOTE*: `NonemptyType` is used to implement `Inhabited` for `Socket`. [detailed explanation](#explanation-usage-of-nonemptytype)
+
+  ```lean
+  import Socket
+  open Socket
+
+  def main : IO Unit := do
+    let s ← Socket.mk
+    -- some socket operations
+    s.close
+  ```
 -/
 def Socket : Type := Socket.Nonempty.type
 
