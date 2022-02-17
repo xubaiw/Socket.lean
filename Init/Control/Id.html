@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Control.Id</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Id.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Id.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -73,10 +73,10 @@ Documentation</h1>
 <div class="decl" id="Id">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Id.lean#L13-L13">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Id.lean#L13-L13">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Control/Id.html#Id">Id</a>
 </span>
@@ -84,12 +84,19 @@ Documentation</h1>
 <span class="fn">(type : <span class="fn">Type u</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">Type u</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Id.html#Id">Id</a> <span class="fn">type</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">type</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Id.instMonadId">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Id.lean#L17-L20">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Id.lean#L17-L20">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -98,12 +105,19 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Monad">Monad</a> <a href="/lean4-socket/Init/Control/Id.html#Id">Id</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Control/Id.html#Id.instMonadId">Id.instMonadId</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">Monad.mk</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Id.hasBind">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Id.lean#L22-L23">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Id.lean#L22-L23">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -112,13 +126,21 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Bind">Bind</a> <a href="/lean4-socket/Init/Control/Id.html#Id">Id</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Control/Id.html#Id.hasBind">Id.hasBind</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">inferInstance</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Id.run">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Id.lean#L25-L25">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Id.lean#L25-L25">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -132,12 +154,19 @@ Documentation</h1>
 <span class="fn">(x : <span class="fn"><a href="/lean4-socket/Init/Control/Id.html#Id">Id</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">α</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Id.html#Id.run">Id.run</a> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">x</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Id.instOfNatId">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Id.lean#L27-L28">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Id.lean#L27-L28">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -158,6 +187,13 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#OfNat">OfNat</a> (<span class="fn"><a href="/lean4-socket/Init/Control/Id.html#Id">Id</a> <span class="fn">α</span></span>) <span class="fn">n</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">Id.instOfNatId</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#inferInstanceAs">inferInstanceAs</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#OfNat">OfNat</a> <span class="fn">α</span> <span class="fn">n</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -215,6 +251,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -480,6 +519,9 @@ Documentation</h1>
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -490,8 +532,10 @@ Documentation</h1>
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Data.Range</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Range.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Range.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -79,7 +79,7 @@ Documentation</h1>
 <div class="decl" id="Std.Range">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Range.lean#L12-L15">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Range.lean#L12-L15">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -90,19 +90,20 @@ Documentation</h1>
 <div class="decl_type"><span class="fn">Type</span></div></div>
 <ul class="structure_fields" id="Std.Range.mk">
 <li class="structure_field" id="Std.Range.start">
-start: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
+start : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 <li class="structure_field" id="Std.Range.stop">
-stop: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
+stop : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 <li class="structure_field" id="Std.Range.step">
-step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
+step : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 </ul>
 </div>
 </div>
 <div class="decl" id="Std.Range.forIn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Range.lean#L20-L30">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Range.lean#L20-L30">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -128,13 +129,21 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 <span class="fn">(f : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn">β</span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/lean4-socket/Init/Core.html#ForInStep">ForInStep</a> <span class="fn">β</span></span>)</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.forIn">Std.Range.forIn</a> <span class="fn">range</span> <span class="fn">init</span> <span class="fn">f</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.forIn.loop">Std.Range.forIn.loop</a> <span class="fn">f</span> <span class="fn"><span class="fn">range</span>.stop</span> <span class="fn"><span class="fn">range</span>.start</span> <span class="fn"><span class="fn">range</span>.stop</span> <span class="fn"><span class="fn">range</span>.step</span> <span class="fn">init</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Std.Range.forIn.loop">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Range.lean#L22-L29">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Range.lean#L22-L29">source</a>
 </div>
+<div class="attributes">@[specialize]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -166,12 +175,26 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 <span class="fn">(b : <span class="fn">β</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.forIn.loop">Std.Range.forIn.loop</a> <span class="fn">f</span> <span class="fn">0</span> <span class="fn">i</span> <span class="fn">stop</span> <span class="fn">step</span> <span class="fn">b</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">if <span class="fn"><span class="fn">i</span> <a href="/lean4-socket/Init/Prelude.html#GE.ge">≥</a> <span class="fn">stop</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></span> else <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></span></span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.forIn.loop">Std.Range.forIn.loop</a> <span class="fn">f</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">fuel_2</span></span>) <span class="fn">i</span> <span class="fn">stop</span> <span class="fn">step</span> <span class="fn">b</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><span class="fn">i</span> <a href="/lean4-socket/Init/Prelude.html#GE.ge">≥</a> <span class="fn">stop</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></span>
+  else <span class="fn">do
+    let a ← <span class="fn"><span class="fn">f</span> <span class="fn">i</span> <span class="fn">b</span></span>
+    <span class="fn">match <span class="fn">a</span> with
+      | <span class="fn"><a href="/lean4-socket/Init/Core.html#ForInStep.yield">ForInStep.done</a> <span class="fn">b</span></span> => <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></span>
+      | <span class="fn"><a href="/lean4-socket/Init/Core.html#ForInStep.yield">ForInStep.yield</a> <span class="fn">b</span></span> => <span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.forIn.loop">Std.Range.forIn.loop</a> <span class="fn">f</span> <span class="fn">fuel_2</span> (<span class="fn"><span class="fn">i</span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">step</span></span>) <span class="fn">stop</span> <span class="fn">step</span> <span class="fn">b</span></span></span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Std.Range.instForInRangeNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Range.lean#L32-L33">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Range.lean#L32-L33">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -184,13 +207,21 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Core.html#ForIn">ForIn</a> <span class="fn">m</span> <a href="/lean4-socket/Init/Data/Range.html#Std.Range">Std.Range</a> <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">Std.Range.instForInRangeNat</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ forIn := <span class="fn">fun {β} [<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>] => <span class="fn">Std.Range.forIn</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Std.Range.forM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Range.lean#L35-L42">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Range.lean#L35-L42">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -210,13 +241,21 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 <span class="fn">(f : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#PUnit">PUnit</a></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#PUnit">PUnit</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.forM">Std.Range.forM</a> <span class="fn">range</span> <span class="fn">f</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.forM.loop">Std.Range.forM.loop</a> <span class="fn">f</span> <span class="fn"><span class="fn">range</span>.stop</span> <span class="fn"><span class="fn">range</span>.start</span> <span class="fn"><span class="fn">range</span>.stop</span> <span class="fn"><span class="fn">range</span>.step</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Std.Range.forM.loop">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Range.lean#L36-L41">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Range.lean#L36-L41">source</a>
 </div>
+<div class="attributes">@[specialize]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -242,12 +281,24 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 <span class="fn">(step : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#PUnit">PUnit</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.forM.loop">Std.Range.forM.loop</a> <span class="fn">f</span> <span class="fn">0</span> <span class="fn">i</span> <span class="fn">stop</span> <span class="fn">step</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">if <span class="fn"><span class="fn">i</span> <a href="/lean4-socket/Init/Prelude.html#GE.ge">≥</a> <span class="fn">stop</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <a href="/lean4-socket/Init/Prelude.html#PUnit.unit">PUnit.unit</a></span> else <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <a href="/lean4-socket/Init/Prelude.html#PUnit.unit">PUnit.unit</a></span></span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.forM.loop">Std.Range.forM.loop</a> <span class="fn">f</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">fuel_2</span></span>) <span class="fn">i</span> <span class="fn">stop</span> <span class="fn">step</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><span class="fn">i</span> <a href="/lean4-socket/Init/Prelude.html#GE.ge">≥</a> <span class="fn">stop</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <a href="/lean4-socket/Init/Prelude.html#PUnit.unit">PUnit.unit</a></span>
+  else <span class="fn">do
+    <span class="fn"><span class="fn">f</span> <span class="fn">i</span></span>
+    <span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.forM.loop">Std.Range.forM.loop</a> <span class="fn">f</span> <span class="fn">fuel_2</span> (<span class="fn"><span class="fn">i</span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">step</span></span>) <span class="fn">stop</span> <span class="fn">step</span></span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Std.Range.instForMRangeNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Range.lean#L44-L45">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Range.lean#L44-L45">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -260,12 +311,19 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#ForM">ForM</a> <span class="fn">m</span> <a href="/lean4-socket/Init/Data/Range.html#Std.Range">Std.Range</a> <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">Std.Range.instForMRangeNat</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ forM := <span class="fn">fun [<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>] => <span class="fn">Std.Range.forM</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Std.Range.«term[:_]»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Range.lean#L47-L47">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Range.lean#L47-L47">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -274,12 +332,24 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.«term[:_]»">Std.Range.«term[:_]»</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Std.Range.«term[:_]»</span> <span class="fn">1024</span>
+    (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"["</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">":"</span></span>)</span>)
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"]"</span></span>)</span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Std.Range.«term[_:_]»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Range.lean#L48-L48">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Range.lean#L48-L48">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -288,12 +358,26 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.«term[_:_]»">Std.Range.«term[_:_]»</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Std.Range.«term[_:_]»</span> <span class="fn">1024</span>
+    (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"["</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">":"</span></span>)</span>)
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"]"</span></span>)</span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Std.Range.«term[:_:_]»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Range.lean#L49-L49">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Range.lean#L49-L49">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -302,12 +386,28 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.«term[:_:_]»">Std.Range.«term[:_:_]»</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Std.Range.«term[:_:_]»</span> <span class="fn">1024</span>
+    (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+            (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"["</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">":"</span></span>)</span>)
+            (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">":"</span></span>)</span>)
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"]"</span></span>)</span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Std.Range.«term[_:_:_]»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Range.lean#L50-L50">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Range.lean#L50-L50">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -316,6 +416,24 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Range.html#Std.Range.«term[_:_:_]»">Std.Range.«term[_:_:_]»</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Std.Range.«term[_:_:_]»</span> <span class="fn">1024</span>
+    (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+            (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+              (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"["</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)
+              (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">":"</span></span>)</span>)
+            (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">":"</span></span>)</span>)
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"]"</span></span>)</span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -373,6 +491,9 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -638,6 +759,9 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -648,8 +772,10 @@ step: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

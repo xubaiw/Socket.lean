@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Control.Basic</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -130,7 +130,7 @@ Documentation</h1>
 <div class="decl" id="Functor.mapRev">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L11-L12">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L11-L12">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -155,12 +155,19 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn"><span class="fn">f</span> <span class="fn">α</span></span> → <span class="fn">(<span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span>) → <span class="fn"><span class="fn">f</span> <span class="fn">β</span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Control/Basic.html#Functor.mapRev"><&></a> <span class="fn">f</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">f</span> <a href="/lean4-socket/Init/Prelude.html#Functor.map"><$></a> <span class="fn">a</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="«term_<&>_»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L14-L14">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L14-L14">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -169,13 +176,22 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#«term_<&>_»">«term_<&>_»</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.trailingNode">Lean.ParserDescr.trailingNode</a> <span class="fn">`«term_<&>_»</span> <span class="fn">100</span> <span class="fn">101</span>
+    (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">" <&> "</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">100</span></span>)</span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Functor.discard">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L16-L17">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L16-L17">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -197,12 +213,19 @@ Documentation</h1>
 <span class="fn">(x : <span class="fn"><span class="fn">f</span> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">f</span> <a href="/lean4-socket/Init/Prelude.html#PUnit">PUnit</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#Functor.discard">discard</a> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Functor.mapConst">Functor.mapConst</a> <a href="/lean4-socket/Init/Prelude.html#PUnit.unit">PUnit.unit</a> <span class="fn">x</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Alternative">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L21-L23">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L21-L23">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -219,9 +242,9 @@ Documentation</h1>
 <div class="decl_type"><span class="fn">Type (max (u + 1) v)</span></div></div>
 <ul class="structure_fields" id="Alternative.mk">
 <li class="structure_field" id="Alternative.failure">
-failure: <span class="fn">{α : <span class="fn">Type u</span>} → <span class="fn"><span class="fn">f</span> <span class="fn">α</span></span></span></li>
+failure : <span class="fn">{α : <span class="fn">Type u</span>} → <span class="fn"><span class="fn">f</span> <span class="fn">α</span></span></span></li>
 <li class="structure_field" id="Alternative.orElse">
-orElse: <span class="fn">{α : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">f</span> <span class="fn">α</span></span> → <span class="fn">(<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Unit">Unit</a> → <span class="fn"><span class="fn">f</span> <span class="fn">α</span></span></span>) → <span class="fn"><span class="fn">f</span> <span class="fn">α</span></span></span></span></span></li>
+orElse : <span class="fn">{α : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">f</span> <span class="fn">α</span></span> → <span class="fn">(<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Unit">Unit</a> → <span class="fn"><span class="fn">f</span> <span class="fn">α</span></span></span>) → <span class="fn"><span class="fn">f</span> <span class="fn">α</span></span></span></span></span></li>
 </ul>
 <details class="instances">
 <summary>Instances</summary>
@@ -245,7 +268,7 @@ orElse: <span class="fn">{α : <span class="fn">Type u</span>} → <span class="
 <div class="decl" id="instOrElse">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L25-L25">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L25-L25">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -262,13 +285,21 @@ orElse: <span class="fn">{α : <span class="fn">Type u</span>} → <span class="
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#OrElse">OrElse</a> (<span class="fn"><span class="fn">f</span> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#instOrElse">instOrElse</a> <span class="fn">f</span> <span class="fn">α</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ orElse := <span class="fn">Alternative.orElse</span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="guard">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L31-L32">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L31-L32">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -290,13 +321,21 @@ orElse: <span class="fn">{α : <span class="fn">Type u</span>} → <span class="
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">f</span> <a href="/lean4-socket/Init/Prelude.html#Unit">Unit</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#guard">guard</a> <span class="fn">p</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">if <span class="fn">p</span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <a href="/lean4-socket/Init/Prelude.html#Unit.unit">()</a></span> else <span class="fn">failure</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="optional">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L34-L35">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L34-L35">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -318,12 +357,19 @@ orElse: <span class="fn">{α : <span class="fn">Type u</span>} → <span class="
 <span class="fn">(x : <span class="fn"><span class="fn">f</span> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">f</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option">Option</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#optional">optional</a> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#HOrElse.hOrElse">HOrElse.hOrElse</a> (<span class="fn"><span class="fn">some</span> <a href="/lean4-socket/Init/Prelude.html#Functor.map"><$></a> <span class="fn">x</span></span>) <span class="fn">fun <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">none</span></span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="ToBool">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L37-L38">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L37-L38">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -336,7 +382,7 @@ orElse: <span class="fn">{α : <span class="fn">Type u</span>} → <span class="
 <div class="decl_type"><span class="fn">Type u</span></div></div>
 <ul class="structure_fields" id="ToBool.mk">
 <li class="structure_field" id="ToBool.toBool">
-toBool: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span></li>
+toBool : <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span></li>
 </ul>
 <details class="instances">
 <summary>Instances</summary>
@@ -354,7 +400,7 @@ toBool: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 <div class="decl" id="instToBoolBool">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L42-L43">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L42-L43">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -363,13 +409,21 @@ toBool: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#ToBool">ToBool</a> <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#instToBoolBool">instToBoolBool</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ toBool := <span class="fn">fun <span class="fn">b</span> => <span class="fn">b</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="bool">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L45-L48">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L45-L48">source</a>
 </div>
+<div class="attributes">@[macroInline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -395,13 +449,23 @@ toBool: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 <span class="fn">(b : <span class="fn">β</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">α</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#bool">bool</a> <span class="fn">f</span> <span class="fn">t</span> <span class="fn">b</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#ToBool.toBool">toBool</a> <span class="fn">b</span></span> with
+  | <a href="/lean4-socket/Init/Prelude.html#Bool.false">true</a> => <span class="fn">t</span>
+  | <a href="/lean4-socket/Init/Prelude.html#Bool.false">false</a> => <a href="/lean4-socket/Init/Prelude.html#Bool.false">f</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="orM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L50-L54">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L50-L54">source</a>
 </div>
+<div class="attributes">@[macroInline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -429,12 +493,23 @@ toBool: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 <span class="fn">(y : <span class="fn"><span class="fn">m</span> <span class="fn">β</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn">(<span class="fn"><span class="fn">x</span> <a href="/lean4-socket/Init/Control/Basic.html#orM"><||></a> <span class="fn">y</span></span>) <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">do
+  let b ← <span class="fn">x</span>
+  <span class="fn">match <span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#ToBool.toBool">toBool</a> <span class="fn">b</span></span> with
+    | <a href="/lean4-socket/Init/Prelude.html#Bool.false">true</a> => <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></span>
+    | <a href="/lean4-socket/Init/Prelude.html#Bool.false">false</a> => <a href="/lean4-socket/Init/Prelude.html#Bool.false">y</a></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="«term_<||>_»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L56-L56">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L56-L56">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -443,13 +518,22 @@ toBool: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#«term_<||>_»">«term_<||>_»</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.trailingNode">Lean.ParserDescr.trailingNode</a> <span class="fn">`«term_<||>_»</span> <span class="fn">30</span> <span class="fn">31</span>
+    (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">" <||> "</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">30</span></span>)</span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="andM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L58-L62">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L58-L62">source</a>
 </div>
+<div class="attributes">@[macroInline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -477,12 +561,23 @@ toBool: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 <span class="fn">(y : <span class="fn"><span class="fn">m</span> <span class="fn">β</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn">(<span class="fn"><span class="fn">x</span> <a href="/lean4-socket/Init/Control/Basic.html#andM"><&&></a> <span class="fn">y</span></span>) <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">do
+  let b ← <span class="fn">x</span>
+  <span class="fn">match <span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#ToBool.toBool">toBool</a> <span class="fn">b</span></span> with
+    | <a href="/lean4-socket/Init/Prelude.html#Bool.false">true</a> => <span class="fn">y</span>
+    | <a href="/lean4-socket/Init/Prelude.html#Bool.false">false</a> => <a href="/lean4-socket/Init/Prelude.html#Bool.false"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></a></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="«term_<&&>_»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L64-L64">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L64-L64">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -491,13 +586,22 @@ toBool: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#«term_<&&>_»">«term_<&&>_»</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.trailingNode">Lean.ParserDescr.trailingNode</a> <span class="fn">`«term_<&&>_»</span> <span class="fn">35</span> <span class="fn">36</span>
+    (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">" <&&> "</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">35</span></span>)</span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="notM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L66-L67">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L66-L67">source</a>
 </div>
+<div class="attributes">@[macroInline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -515,12 +619,19 @@ toBool: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 <span class="fn">(x : <span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#notM">notM</a> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#not">not</a> <a href="/lean4-socket/Init/Prelude.html#Functor.map"><$></a> <span class="fn">x</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="MonadControl">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L69-L72">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L69-L72">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -535,11 +646,11 @@ toBool: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 <div class="decl_type"><span class="fn">Type (max (max (u + 1) v) w)</span></div></div>
 <ul class="structure_fields" id="MonadControl.mk">
 <li class="structure_field" id="MonadControl.stM">
-stM: <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type u</span></span></li>
+stM : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type u</span></span></li>
 <li class="structure_field" id="MonadControl.liftWith">
-liftWith: <span class="fn">{α : <span class="fn">Type u</span>} → <span class="fn">(<span class="fn">(<span class="fn">{β : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">n</span> <span class="fn">β</span></span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><span class="fn">stM</span> <span class="fn">β</span></span>)</span></span></span>) → <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></span>) → <span class="fn"><span class="fn">n</span> <span class="fn">α</span></span></span></span></li>
+liftWith : <span class="fn">{α : <span class="fn">Type u</span>} → <span class="fn">(<span class="fn">(<span class="fn">{β : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">n</span> <span class="fn">β</span></span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><span class="fn">stM</span> <span class="fn">β</span></span>)</span></span></span>) → <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></span>) → <span class="fn"><span class="fn">n</span> <span class="fn">α</span></span></span></span></li>
 <li class="structure_field" id="MonadControl.restoreM">
-restoreM: <span class="fn">{α : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">m</span> (<span class="fn"><span class="fn">stM</span> <span class="fn">α</span></span>)</span> → <span class="fn"><span class="fn">n</span> <span class="fn">α</span></span></span></span></li>
+restoreM : <span class="fn">{α : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">m</span> (<span class="fn"><span class="fn">stM</span> <span class="fn">α</span></span>)</span> → <span class="fn"><span class="fn">n</span> <span class="fn">α</span></span></span></span></li>
 </ul>
 <details class="instances">
 <summary>Instances</summary>
@@ -566,7 +677,7 @@ restoreM: <span class="fn">{α : <span class="fn">Type u</span>} → <span class
 <div class="decl" id="MonadControlT">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L74-L77">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L74-L77">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -581,11 +692,11 @@ restoreM: <span class="fn">{α : <span class="fn">Type u</span>} → <span class
 <div class="decl_type"><span class="fn">Type (max (max (u + 1) v) w)</span></div></div>
 <ul class="structure_fields" id="MonadControlT.mk">
 <li class="structure_field" id="MonadControlT.stM">
-stM: <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type u</span></span></li>
+stM : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type u</span></span></li>
 <li class="structure_field" id="MonadControlT.liftWith">
-liftWith: <span class="fn">{α : <span class="fn">Type u</span>} → <span class="fn">(<span class="fn">(<span class="fn">{β : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">n</span> <span class="fn">β</span></span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><span class="fn">stM</span> <span class="fn">β</span></span>)</span></span></span>) → <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></span>) → <span class="fn"><span class="fn">n</span> <span class="fn">α</span></span></span></span></li>
+liftWith : <span class="fn">{α : <span class="fn">Type u</span>} → <span class="fn">(<span class="fn">(<span class="fn">{β : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">n</span> <span class="fn">β</span></span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><span class="fn">stM</span> <span class="fn">β</span></span>)</span></span></span>) → <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></span>) → <span class="fn"><span class="fn">n</span> <span class="fn">α</span></span></span></span></li>
 <li class="structure_field" id="MonadControlT.restoreM">
-restoreM: <span class="fn">{α : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">stM</span> <span class="fn">α</span></span> → <span class="fn"><span class="fn">n</span> <span class="fn">α</span></span></span></span></li>
+restoreM : <span class="fn">{α : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">stM</span> <span class="fn">α</span></span> → <span class="fn"><span class="fn">n</span> <span class="fn">α</span></span></span></span></li>
 </ul>
 <details class="instances">
 <summary>Instances</summary>
@@ -603,7 +714,7 @@ restoreM: <span class="fn">{α : <span class="fn">Type u</span>} → <span class
 <div class="decl" id="instMonadControlT">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L81-L84">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L81-L84">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -626,12 +737,22 @@ restoreM: <span class="fn">{α : <span class="fn">Type u</span>} → <span class
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#MonadControlT">MonadControlT</a> <span class="fn">m</span> <span class="fn">o</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#instMonadControlT">instMonadControlT</a> <span class="fn">m</span> <span class="fn">n</span> <span class="fn">o</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ stM := <span class="fn">fun <span class="fn">α</span> => <span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#MonadControlT.stM">stM</a> <span class="fn">m</span> <span class="fn">n</span> (<span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#MonadControl.stM">MonadControl.stM</a> <span class="fn">n</span> <span class="fn">o</span> <span class="fn">α</span></span>)</span></span>,
+    liftWith := <span class="fn">fun {α} <span class="fn">f</span> =>
+      <span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#MonadControl.liftWith">MonadControl.liftWith</a> <span class="fn">fun <span class="fn">x₂</span> => <span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#MonadControlT.liftWith">liftWith</a> <span class="fn">fun <span class="fn">x₁</span> => <span class="fn"><span class="fn">f</span> <span class="fn">fun {β} => <span class="fn"><span class="fn"><span class="fn">x₁</span> (<span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#MonadControl.stM">MonadControl.stM</a> <span class="fn">n</span> <span class="fn">o</span> <span class="fn">β</span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#Function.comp">∘</a> <span class="fn"><span class="fn">x₂</span> <span class="fn">β</span></span></span></span></span></span></span></span></span></span>,
+    restoreM := <span class="fn">fun {α} => <span class="fn"><span class="fn">MonadControl.restoreM</span> <a href="/lean4-socket/Init/Prelude.html#Function.comp">∘</a> <span class="fn">restoreM</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instMonadControlT_1">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L86-L89">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L86-L89">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -646,13 +767,21 @@ restoreM: <span class="fn">{α : <span class="fn">Type u</span>} → <span class
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#MonadControlT">MonadControlT</a> <span class="fn">m</span> <span class="fn">m</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#instMonadControlT_1">instMonadControlT_1</a> <span class="fn">m</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ stM := <span class="fn">fun <span class="fn">α</span> => <span class="fn">α</span></span>, liftWith := <span class="fn">fun {α} <span class="fn">f</span> => <span class="fn"><span class="fn">f</span> <span class="fn">fun {β} <span class="fn">x</span> => <span class="fn">x</span></span></span></span>, restoreM := <span class="fn">fun {α} <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">x</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="controlAt">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L92-L94">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L92-L94">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -680,13 +809,21 @@ restoreM: <span class="fn">{α : <span class="fn">Type u</span>} → <span class
 <span class="fn">(f : <span class="fn">(<span class="fn">{β : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">n</span> <span class="fn">β</span></span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#MonadControlT.stM">stM</a> <span class="fn">m</span> <span class="fn">n</span> <span class="fn">β</span></span>)</span></span></span>) → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#MonadControlT.stM">stM</a> <span class="fn">m</span> <span class="fn">n</span> <span class="fn">α</span></span>)</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">n</span> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#controlAt">controlAt</a> <span class="fn">m</span> <span class="fn">f</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#MonadControlT.liftWith">liftWith</a> <span class="fn">f</span></span> <a href="/lean4-socket/Init/Prelude.html#Bind.bind">>>=</a> <span class="fn">restoreM</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="control">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L97-L99">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L97-L99">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -716,12 +853,19 @@ restoreM: <span class="fn">{α : <span class="fn">Type u</span>} → <span class
 <span class="fn">(f : <span class="fn">(<span class="fn">{β : <span class="fn">Type u</span>} → <span class="fn"><span class="fn"><span class="fn">n</span> <span class="fn">β</span></span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#MonadControlT.stM">stM</a> <span class="fn">m</span> <span class="fn">n</span> <span class="fn">β</span></span>)</span></span></span>) → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#MonadControlT.stM">stM</a> <span class="fn">m</span> <span class="fn">n</span> <span class="fn">α</span></span>)</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">n</span> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#control">control</a> <span class="fn">f</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Control/Basic.html#controlAt">controlAt</a> <span class="fn">m</span> <span class="fn">f</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="ForM">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/Basic.lean#L108-L109">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/Basic.lean#L108-L109">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -738,7 +882,7 @@ restoreM: <span class="fn">{α : <span class="fn">Type u</span>} → <span class
 <div class="decl_type"><span class="fn">Type (max (max (max (u + 1) v) w₁) w₂)</span></div></div>
 <ul class="structure_fields" id="ForM.mk">
 <li class="structure_field" id="ForM.forM">
-forM: <span class="fn">[inst : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>] → <span class="fn"><span class="fn">γ</span> → <span class="fn">(<span class="fn"><span class="fn">α</span> → <span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#PUnit">PUnit</a></span></span>) → <span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#PUnit">PUnit</a></span></span></span></span></li>
+forM : <span class="fn">[inst : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>] → <span class="fn"><span class="fn">γ</span> → <span class="fn">(<span class="fn"><span class="fn">α</span> → <span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#PUnit">PUnit</a></span></span>) → <span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#PUnit">PUnit</a></span></span></span></span></li>
 </ul>
 <details class="instances">
 <summary>Instances</summary>
@@ -808,6 +952,9 @@ forM: <span class="fn">[inst : <span class="fn"><a href="/lean4-socket/Init/Prel
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -1073,6 +1220,9 @@ forM: <span class="fn">[inst : <span class="fn"><a href="/lean4-socket/Init/Prel
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -1083,8 +1233,10 @@ forM: <span class="fn">[inst : <span class="fn"><a href="/lean4-socket/Init/Prel
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

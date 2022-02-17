@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Socket.SockAddr</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/SockAddr.lean">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/SockAddr.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -67,7 +67,7 @@ Documentation</h1>
 <div class="decl" id="Socket.SockAddr.SockAddrArgs">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/SockAddr.lean#L6-L11">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/SockAddr.lean#L7-L12">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -78,20 +78,20 @@ Documentation</h1>
 <div class="decl_type"><span class="fn">Type</span></div></div>
 <ul class="structure_fields" id="Socket.SockAddr.SockAddrArgs.mk">
 <li class="structure_field" id="Socket.SockAddr.SockAddrArgs.host">
-host: <a href="/lean4-socket/Init/Prelude.html#String">String</a></li>
+host : <a href="/lean4-socket/Init/Prelude.html#String">String</a></li>
 <li class="structure_field" id="Socket.SockAddr.SockAddrArgs.port">
-port: <a href="/lean4-socket/Init/Prelude.html#String">String</a></li>
+port : <a href="/lean4-socket/Init/Prelude.html#String">String</a></li>
 <li class="structure_field" id="Socket.SockAddr.SockAddrArgs.family">
-family: <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily">Socket.AddressFamily</a></li>
+family : <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily">Socket.AddressFamily</a></li>
 <li class="structure_field" id="Socket.SockAddr.SockAddrArgs.type">
-type: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType</a></li>
+type : <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType</a></li>
 </ul>
 </div>
 </div>
 <div class="decl" id="Socket.SockAddr.instInhabitedSockAddrArgs">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/SockAddr.lean#L11-L11">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/SockAddr.lean#L12-L12">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -100,13 +100,21 @@ type: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType<
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Inhabited">Inhabited</a> <a href="/lean4-socket/Socket/SockAddr.html#Socket.SockAddr.SockAddrArgs">Socket.SockAddr.SockAddrArgs</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Socket/SockAddr.html#Socket.SockAddr.instInhabitedSockAddrArgs">Socket.SockAddr.instInhabitedSockAddrArgs</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ default := <span class="fn">{ host := <span class="fn">default</span>, port := <span class="fn">default</span>, family := <span class="fn">default</span>, type := <span class="fn">default</span> }</span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Socket.SockAddr.mk">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/SockAddr.lean#L16-L16">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/SockAddr.lean#L15-L15">source</a>
 </div>
+<div class="attributes">@[extern  lean_sockaddr_mk]</div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
 <span class="decl_name">
@@ -121,8 +129,9 @@ type: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType<
 <div class="decl" id="Socket.SockAddr.family">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/SockAddr.lean#L18-L18">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/SockAddr.lean#L18-L18">source</a>
 </div>
+<div class="attributes">@[extern  lean_sockaddr_family]</div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
 <span class="decl_name">
@@ -137,8 +146,9 @@ type: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType<
 <div class="decl" id="Socket.SockAddr.port">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/SockAddr.lean#L20-L20">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/SockAddr.lean#L21-L21">source</a>
 </div>
+<div class="attributes">@[extern  lean_sockaddr_port]</div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
 <span class="decl_name">
@@ -153,8 +163,9 @@ type: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType<
 <div class="decl" id="Socket.SockAddr.host">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/SockAddr.lean#L22-L22">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/SockAddr.lean#L24-L24">source</a>
 </div>
+<div class="attributes">@[extern  lean_sockaddr_host]</div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
 <span class="decl_name">
@@ -169,7 +180,7 @@ type: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType<
 <div class="decl" id="Socket.instToStringSockAddr">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/SockAddr.lean#L26-L31">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/SockAddr.lean#L29-L34">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -178,6 +189,19 @@ type: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType<
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString">ToString</a> <a href="/lean4-socket/Socket/Basic.html#Socket.SockAddr">Socket.SockAddr</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Socket/SockAddr.html#Socket.instToStringSockAddr">Socket.instToStringSockAddr</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ toString := <span class="fn">fun <span class="fn">a</span> =>
+      <span class="fn">let host := <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.getD">Option.getD</a> (<span class="fn"><a href="/lean4-socket/Socket/SockAddr.html#Socket.SockAddr.host">Socket.SockAddr.host</a> <span class="fn">a</span></span>) <span class="fn">"none"</span></span>;
+      <span class="fn">let port :=
+        <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.getD">Option.getD</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Option/Basic.html#Option.map">Option.map</a> (<span class="fn">fun <span class="fn">a</span> => <span class="fn"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">""</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">a</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">""</span></span></span></span>) (<span class="fn"><a href="/lean4-socket/Socket/SockAddr.html#Socket.SockAddr.port">Socket.SockAddr.port</a> <span class="fn">a</span></span>)</span>) <span class="fn">"none"</span></span>;
+      <span class="fn">let family :=
+        <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.getD">Option.getD</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Option/Basic.html#Option.map">Option.map</a> (<span class="fn">fun <span class="fn">a</span> => <span class="fn"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">""</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">a</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">""</span></span></span></span>) (<span class="fn"><a href="/lean4-socket/Socket/SockAddr.html#Socket.SockAddr.family">Socket.SockAddr.family</a> <span class="fn">a</span></span>)</span>) <span class="fn">"none"</span></span>;
+      <span class="fn"><span class="fn"><span class="fn"><span class="fn"><span class="fn"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">"("</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">host</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">", "</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">port</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">", "</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">family</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a>         <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">")"</span></span></span></span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -235,6 +259,9 @@ type: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType<
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -499,6 +526,9 @@ type: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType<
 <div class="nav_link">
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
+<div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
 <div class="nav_link" visible="">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
@@ -510,8 +540,10 @@ type: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType<
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

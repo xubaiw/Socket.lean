@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Socket.Basic</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -45,10 +45,22 @@ Documentation</h1>
 </details>
 </div>
 <div class="nav_link">
+<a class="break_within" href="#Socket.Socket.Nonempty">Socket.Socket.Nonempty</a>
+</div>
+<div class="nav_link">
 <a class="break_within" href="#Socket.Socket">Socket.Socket</a>
 </div>
 <div class="nav_link">
+<a class="break_within" href="#Socket.instNonemptySocket">Socket.instNonemptySocket</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Socket.SockAddr.Nonempty">Socket.SockAddr.Nonempty</a>
+</div>
+<div class="nav_link">
 <a class="break_within" href="#Socket.SockAddr">Socket.SockAddr</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Socket.instNonemptySockAddr">Socket.instNonemptySockAddr</a>
 </div>
 <div class="nav_link">
 <a class="break_within" href="#Socket.AddressFamily">Socket.AddressFamily</a>
@@ -79,38 +91,122 @@ Documentation</h1>
 </div>
 </nav>
 <main>
-<div class="decl" id="Socket.Socket">
+<div class="decl" id="Socket.Socket.Nonempty">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L29-L29">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L22-L22">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/lean4-socket/Socket/Basic.html#Socket.Socket.Nonempty">Socket.Socket.Nonempty</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#NonemptyType">NonemptyType</a></div></div>
+</div>
+</div>
+<div class="decl" id="Socket.Socket">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L36-L36">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Socket/Basic.html#Socket.Socket">Socket.Socket</a>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">Type</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Socket/Basic.html#Socket.Socket">Socket.Socket</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#NonemptyType.type">NonemptyType.type</a> <a href="/lean4-socket/Socket/Basic.html#Socket.Socket.Nonempty">Socket.Socket.Nonempty</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
-<div class="decl" id="Socket.SockAddr">
+<div class="decl" id="Socket.instNonemptySocket">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L42-L42">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">noncomputable instance</span>
+<span class="decl_name">
+<a class="break_within" href="/lean4-socket/Socket/Basic.html#Socket.instNonemptySocket">Socket.instNonemptySocket</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nonempty">Nonempty</a> <a href="/lean4-socket/Socket/Basic.html#Socket.Socket">Socket.Socket</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Socket/Basic.html#Socket.instNonemptySocket">Socket.instNonemptySocket</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Socket/Basic.html#Socket.instNonemptySocket.proof_1">Socket.instNonemptySocket.proof_1</a></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="Socket.SockAddr.Nonempty">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L34-L34">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L48-L48">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/lean4-socket/Socket/Basic.html#Socket.SockAddr.Nonempty">Socket.SockAddr.Nonempty</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#NonemptyType">NonemptyType</a></div></div>
+</div>
+</div>
+<div class="decl" id="Socket.SockAddr">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L55-L55">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Socket/Basic.html#Socket.SockAddr">Socket.SockAddr</a>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">Type</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Socket/Basic.html#Socket.SockAddr">Socket.SockAddr</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#NonemptyType.type">NonemptyType.type</a> <a href="/lean4-socket/Socket/Basic.html#Socket.SockAddr.Nonempty">Socket.SockAddr.Nonempty</a></span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="Socket.instNonemptySockAddr">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L61-L61">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">noncomputable instance</span>
+<span class="decl_name">
+<a class="break_within" href="/lean4-socket/Socket/Basic.html#Socket.instNonemptySockAddr">Socket.instNonemptySockAddr</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nonempty">Nonempty</a> <a href="/lean4-socket/Socket/Basic.html#Socket.SockAddr">Socket.SockAddr</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Socket/Basic.html#Socket.instNonemptySockAddr">Socket.instNonemptySockAddr</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Socket/Basic.html#Socket.instNonemptySockAddr.proof_1">Socket.instNonemptySockAddr.proof_1</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Socket.AddressFamily">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L37-L41">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L67-L71">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -132,7 +228,7 @@ inet6: <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily">Socket.Add
 <div class="decl" id="Socket.instInhabitedAddressFamily">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L41-L41">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L71-L71">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -141,12 +237,19 @@ inet6: <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily">Socket.Add
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Inhabited">Inhabited</a> <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily">Socket.AddressFamily</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Socket/Basic.html#Socket.instInhabitedAddressFamily">Socket.instInhabitedAddressFamily</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ default := <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily.unspecified">Socket.AddressFamily.unspecified</a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Socket.instToStringAddressFamily">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L45-L49">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L74-L78">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -155,12 +258,23 @@ inet6: <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily">Socket.Add
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString">ToString</a> <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily">Socket.AddressFamily</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Socket/Basic.html#Socket.instToStringAddressFamily">Socket.instToStringAddressFamily</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ toString := <span class="fn">fun <span class="fn">x</span> =>
+      <span class="fn">match <span class="fn">x</span> with
+      | <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily.inet6">Socket.AddressFamily.unspecified</a> => <span class="fn">"AF_UNSPEC"</span>
+      | <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily.inet6">Socket.AddressFamily.inet</a> => <span class="fn">"AF_INET"</span>
+      | <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily.inet6">Socket.AddressFamily.inet6</a> => <a href="/lean4-socket/Socket/Basic.html#Socket.AddressFamily.inet6">"AF_INET6"</a></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Socket.SockType">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L52-L56">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L84-L88">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -182,7 +296,7 @@ dgram: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType
 <div class="decl" id="Socket.instInhabitedSockType">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L56-L56">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L88-L88">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -191,12 +305,19 @@ dgram: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Inhabited">Inhabited</a> <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Socket/Basic.html#Socket.instInhabitedSockType">Socket.instInhabitedSockType</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ default := <a href="/lean4-socket/Socket/Basic.html#Socket.SockType.unspecified">Socket.SockType.unspecified</a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Socket.instToStringSockType">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L60-L64">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L91-L95">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -205,12 +326,23 @@ dgram: <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString">ToString</a> <a href="/lean4-socket/Socket/Basic.html#Socket.SockType">Socket.SockType</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Socket/Basic.html#Socket.instToStringSockType">Socket.instToStringSockType</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ toString := <span class="fn">fun <span class="fn">x</span> =>
+      <span class="fn">match <span class="fn">x</span> with
+      | <a href="/lean4-socket/Socket/Basic.html#Socket.SockType.dgram">Socket.SockType.unspecified</a> => <span class="fn">"SOCK_UNSPEC"</span>
+      | <a href="/lean4-socket/Socket/Basic.html#Socket.SockType.dgram">Socket.SockType.stream</a> => <span class="fn">"SOCK_STREAM"</span>
+      | <a href="/lean4-socket/Socket/Basic.html#Socket.SockType.dgram">Socket.SockType.dgram</a> => <a href="/lean4-socket/Socket/Basic.html#Socket.SockType.dgram">"SOCK_DGRAM"</a></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Socket.ShutdownHow">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L67-L71">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L101-L105">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -232,7 +364,7 @@ readwrite: <a href="/lean4-socket/Socket/Basic.html#Socket.ShutdownHow">Socket.S
 <div class="decl" id="Socket.instInhabitedShutdownHow">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L71-L71">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L105-L105">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -241,13 +373,21 @@ readwrite: <a href="/lean4-socket/Socket/Basic.html#Socket.ShutdownHow">Socket.S
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Inhabited">Inhabited</a> <a href="/lean4-socket/Socket/Basic.html#Socket.ShutdownHow">Socket.ShutdownHow</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Socket/Basic.html#Socket.instInhabitedShutdownHow">Socket.instInhabitedShutdownHow</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ default := <a href="/lean4-socket/Socket/Basic.html#Socket.ShutdownHow.read">Socket.ShutdownHow.read</a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Socket.hostname">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/xubaiw/lean4-socket/blob/e2b40341017eacd03d006630e6f863ab7c1ede9f/Socket/Basic.lean#L73-L73">source</a>
+<a href="https://github.com/xubaiw/Socket.lean/blob/c383b37ab56fe2fcf502f93cf6c00437fca9ace4/Socket/Basic.lean#L108-L108">source</a>
 </div>
+<div class="attributes">@[extern  lean_gethostname]</div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
 <span class="decl_name">
@@ -312,6 +452,9 @@ readwrite: <a href="/lean4-socket/Socket/Basic.html#Socket.ShutdownHow">Socket.S
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -577,6 +720,9 @@ readwrite: <a href="/lean4-socket/Socket/Basic.html#Socket.ShutdownHow">Socket.S
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -587,8 +733,10 @@ readwrite: <a href="/lean4-socket/Socket/Basic.html#Socket.ShutdownHow">Socket.S
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

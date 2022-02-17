@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Data.Array.Subarray</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -130,7 +130,7 @@ Documentation</h1>
 <div class="decl" id="Subarray">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L11-L16">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L11-L16">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -143,22 +143,22 @@ Documentation</h1>
 <div class="decl_type"><span class="fn">Type u</span></div></div>
 <ul class="structure_fields" id="Subarray.mk">
 <li class="structure_field" id="Subarray.as">
-as: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span></li>
+as : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span></li>
 <li class="structure_field" id="Subarray.start">
-start: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
+start : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 <li class="structure_field" id="Subarray.stop">
-stop: <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
+stop : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></li>
 <li class="structure_field" id="Subarray.h₁">
-h₁: <span class="fn"><span class="fn">start</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn">stop</span></span></li>
+h₁ : <span class="fn"><span class="fn">start</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn">stop</span></span></li>
 <li class="structure_field" id="Subarray.h₂">
-h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span></li>
+h₂ : <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span></li>
 </ul>
 </div>
 </div>
 <div class="decl" id="Subarray.popFront">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L20-L24">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L20-L24">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -173,15 +173,26 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(s : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.popFront">Subarray.popFront</a> <span class="fn">s</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">if h : <span class="fn"><span class="fn"><span class="fn">s</span>.start</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn"><span class="fn">s</span>.stop</span></span> then
+    <span class="fn">{ as := <span class="fn"><span class="fn">s</span>.as</span>, start := <span class="fn"><span class="fn"><span class="fn">s</span>.start</span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>, stop := <span class="fn"><span class="fn">s</span>.stop</span>, h₁ := (_ : <span class="fn"><span class="fn"><span class="fn"><span class="fn">s</span>.start</span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn"><span class="fn">s</span>.stop</span></span>),
+      h₂ := (_ : <span class="fn"><span class="fn"><span class="fn">s</span>.stop</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn"><span class="fn">s</span>.as</span></span></span>) }</span>
+  else <span class="fn">s</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.forInUnsafe">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L26-L36">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L26-L36">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">unsafe def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.forInUnsafe">Subarray.forInUnsafe</a>
 </span>
@@ -209,15 +220,24 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><span class="fn">β</span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/lean4-socket/Init/Core.html#ForInStep">ForInStep</a> <span class="fn">β</span></span>)</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.forInUnsafe">Subarray.forInUnsafe</a> <span class="fn">s</span> <span class="fn">b</span> <span class="fn">f</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">let sz := <span class="fn"><a href="/lean4-socket/Init/Data/UInt.html#USize.ofNat">USize.ofNat</a> <span class="fn"><span class="fn">s</span>.stop</span></span>;
+  <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.forInUnsafe.loop">Subarray.forInUnsafe.loop</a> <span class="fn">s</span> <span class="fn">f</span> <span class="fn">sz</span> (<span class="fn"><a href="/lean4-socket/Init/Data/UInt.html#USize.ofNat">USize.ofNat</a> <span class="fn"><span class="fn">s</span>.start</span></span>) <span class="fn">b</span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.forInUnsafe.loop">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L28-L35">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L28-L35">source</a>
 </div>
+<div class="attributes">@[specialize]</div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">unsafe def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.forInUnsafe.loop">Subarray.forInUnsafe.loop</a>
 </span>
@@ -249,13 +269,28 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(b : <span class="fn">β</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.forInUnsafe.loop">Subarray.forInUnsafe.loop</a> <span class="fn">s</span> <span class="fn">f</span> <span class="fn">sz</span> <span class="fn">i</span> <span class="fn">b</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><span class="fn">i</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn">sz</span></span> then
+    <span class="fn">let a := <span class="fn"><a href="/lean4-socket/Init/Data/Array/Basic.html#Array.uget">Array.uget</a> <span class="fn"><span class="fn">s</span>.as</span> <span class="fn">i</span> (_ : <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/UInt.html#USize.toNat">USize.toNat</a> <span class="fn">i</span></span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn"><span class="fn">s</span>.as</span></span></span>)</span>;
+    <span class="fn">do
+    let a ← <span class="fn"><span class="fn">f</span> <span class="fn">a</span> <span class="fn">b</span></span>
+    <span class="fn">match <span class="fn">a</span> with
+      | <span class="fn"><a href="/lean4-socket/Init/Core.html#ForInStep.yield">ForInStep.done</a> <span class="fn">b</span></span> => <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></span>
+      | <span class="fn"><a href="/lean4-socket/Init/Core.html#ForInStep.yield">ForInStep.yield</a> <span class="fn">b</span></span> => <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.forInUnsafe.loop">Subarray.forInUnsafe.loop</a> <span class="fn">s</span> <span class="fn">f</span> <span class="fn">sz</span> (<span class="fn"><span class="fn">i</span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>) <span class="fn">b</span></span></span></span></span>
+  else <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.forIn">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L40-L41">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L40-L41">source</a>
 </div>
+<div class="attributes">@[implementedBy Subarray.forInUnsafe]</div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
 <span class="decl_name">
@@ -290,7 +325,7 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <div class="decl" id="Subarray.instForInSubarray">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L43-L44">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L43-L44">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -307,13 +342,21 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Core.html#ForIn">ForIn</a> <span class="fn">m</span> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>) <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">Subarray.instForInSubarray</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ forIn := <span class="fn">fun {β} [<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>] => <span class="fn">Subarray.forIn</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.foldlM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L47-L48">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L47-L48">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -343,13 +386,21 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(as : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.foldlM">Subarray.foldlM</a> <span class="fn">f</span> <span class="fn">init</span> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Array/Basic.html#Array.foldlM">Array.foldlM</a> <span class="fn">f</span> <span class="fn">init</span> <span class="fn"><span class="fn">as</span>.as</span> <span class="fn"><span class="fn">as</span>.start</span> <span class="fn"><span class="fn">as</span>.stop</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.foldrM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L51-L52">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L51-L52">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -379,13 +430,21 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(as : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.foldrM">Subarray.foldrM</a> <span class="fn">f</span> <span class="fn">init</span> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Array/Basic.html#Array.foldrM">Array.foldrM</a> <span class="fn">f</span> <span class="fn">init</span> <span class="fn"><span class="fn">as</span>.as</span> <span class="fn"><span class="fn">as</span>.stop</span> <span class="fn"><span class="fn">as</span>.start</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.anyM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L55-L56">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L55-L56">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -409,13 +468,21 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(as : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.anyM">Subarray.anyM</a> <span class="fn">p</span> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Array/Basic.html#Array.anyM">Array.anyM</a> <span class="fn">p</span> <span class="fn"><span class="fn">as</span>.as</span> <span class="fn"><span class="fn">as</span>.start</span> <span class="fn"><span class="fn">as</span>.stop</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.allM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L59-L60">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L59-L60">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -439,13 +506,21 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(as : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.allM">Subarray.allM</a> <span class="fn">p</span> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Array/Basic.html#Array.allM">Array.allM</a> <span class="fn">p</span> <span class="fn"><span class="fn">as</span>.as</span> <span class="fn"><span class="fn">as</span>.start</span> <span class="fn"><span class="fn">as</span>.stop</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.forM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L63-L64">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L63-L64">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -469,13 +544,21 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(as : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#PUnit">PUnit</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.forM">Subarray.forM</a> <span class="fn">f</span> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Array/Basic.html#Array.forM">Array.forM</a> <span class="fn">f</span> <span class="fn"><span class="fn">as</span>.as</span> <span class="fn"><span class="fn">as</span>.start</span> <span class="fn"><span class="fn">as</span>.stop</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.forRevM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L67-L68">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L67-L68">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -499,13 +582,21 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(as : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <a href="/lean4-socket/Init/Prelude.html#PUnit">PUnit</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.forRevM">Subarray.forRevM</a> <span class="fn">f</span> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Array/Basic.html#Array.forRevM">Array.forRevM</a> <span class="fn">f</span> <span class="fn"><span class="fn">as</span>.as</span> <span class="fn"><span class="fn">as</span>.stop</span> <span class="fn"><span class="fn">as</span>.start</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.foldl">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L71-L72">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L71-L72">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -527,13 +618,21 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(as : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">β</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.foldl">Subarray.foldl</a> <span class="fn">f</span> <span class="fn">init</span> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Control/Id.html#Id.run">Id.run</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.foldlM">Subarray.foldlM</a> <span class="fn">f</span> <span class="fn">init</span> <span class="fn">as</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.foldr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L75-L76">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L75-L76">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -555,13 +654,21 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(as : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">β</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.foldr">Subarray.foldr</a> <span class="fn">f</span> <span class="fn">init</span> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Control/Id.html#Id.run">Id.run</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.foldrM">Subarray.foldrM</a> <span class="fn">f</span> <span class="fn">init</span> <span class="fn">as</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.any">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L79-L80">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L79-L80">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -577,13 +684,21 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(as : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.any">Subarray.any</a> <span class="fn">p</span> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Control/Id.html#Id.run">Id.run</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.anyM">Subarray.anyM</a> <span class="fn">p</span> <span class="fn">as</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.all">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L83-L84">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L83-L84">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -599,12 +714,19 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(as : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.all">Subarray.all</a> <span class="fn">p</span> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Control/Id.html#Id.run">Id.run</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.allM">Subarray.allM</a> <span class="fn">p</span> <span class="fn">as</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Array.toSubarray">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L91-L101">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L91-L101">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -623,12 +745,27 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(stop : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#optParam">optParam</a> <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span>)</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Array.toSubarray">Array.toSubarray</a> <span class="fn">as</span> <span class="fn">start</span> <span class="fn">stop</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">if h₂ : <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span> then
+    <span class="fn">if h₁ : <span class="fn"><span class="fn">start</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn">stop</span></span> then <span class="fn">{ as := <span class="fn">as</span>, start := <span class="fn">start</span>, stop := <span class="fn">stop</span>, h₁ := <span class="fn">h₁</span>, h₂ := <span class="fn">h₂</span> }</span>
+    else <span class="fn">{ as := <span class="fn">as</span>, start := <span class="fn">stop</span>, stop := <span class="fn">stop</span>, h₁ := (_ : <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn">stop</span></span>), h₂ := <span class="fn">h₂</span> }</span></span>
+  else
+    <span class="fn">if h₁ : <span class="fn"><span class="fn">start</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span> then
+      <span class="fn">{ as := <span class="fn">as</span>, start := <span class="fn">start</span>, stop := <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span>, h₁ := <span class="fn">h₁</span>, h₂ := (_ : <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span>) }</span>
+    else
+      <span class="fn">{ as := <span class="fn">as</span>, start := <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span>, stop := <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span>, h₁ := (_ : <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span>),
+        h₂ := (_ : <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span>) }</span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Array.ofSubarray">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L103-L107">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L103-L107">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -643,12 +780,31 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(s : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Array.ofSubarray">Array.ofSubarray</a> <span class="fn">s</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/lean4-socket/Init/Control/Id.html#Id.run">Id.run</a>
+    (<span class="fn">let as := <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.mkEmpty">Array.mkEmpty</a> (<span class="fn"><span class="fn"><span class="fn">s</span>.stop</span> <a href="/lean4-socket/Init/Prelude.html#HSub.hSub">-</a> <span class="fn"><span class="fn">s</span>.start</span></span>)</span>;
+    <span class="fn">do
+    let r ←
+      <span class="fn"><a href="/lean4-socket/Init/Core.html#ForIn.forIn">forIn</a> <span class="fn">s</span> <span class="fn">as</span> <span class="fn">fun <span class="fn">a</span> <span class="fn">r</span> =>
+          <span class="fn">let as := <span class="fn">r</span>;
+          <span class="fn">let as := <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.push">Array.push</a> <span class="fn">as</span> <span class="fn">a</span></span>;
+          <span class="fn">do
+          <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <a href="/lean4-socket/Init/Prelude.html#PUnit.unit">PUnit.unit</a></span>
+          <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> (<span class="fn"><a href="/lean4-socket/Init/Core.html#ForInStep.yield">ForInStep.yield</a> <span class="fn">as</span></span>)</span></span></span></span></span></span>
+    let x : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span> := <span class="fn">r</span>
+    let as : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span> := <span class="fn">x</span>
+    <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">as</span></span></span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Array.extract">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L109-L110">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L109-L110">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -667,12 +823,19 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(stop : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Array.extract">Array.extract</a> <span class="fn">as</span> <span class="fn">start</span> <span class="fn">stop</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Array.ofSubarray">Array.ofSubarray</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Array.toSubarray">Array.toSubarray</a> <span class="fn">as</span> <span class="fn">start</span> <span class="fn">stop</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Array.instCoeSubarrayArray">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L112-L112">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L112-L112">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -685,12 +848,19 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Coe.html#Coe">Coe</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">Array.instCoeSubarrayArray</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ coe := <span class="fn">Array.ofSubarray</span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Array.«term__[_:_]»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L114-L114">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L114-L114">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -699,12 +869,28 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Array.«term__[_:_]»">Array.«term__[_:_]»</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.trailingNode">Lean.ParserDescr.trailingNode</a> <span class="fn">`Array.«term__[_:_]»</span> <span class="fn">1024</span> <span class="fn">0</span>
+    (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+            (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`noWs</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"["</span></span>)</span>)
+            (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">":"</span></span>)</span>)
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"]"</span></span>)</span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Array.«term__[_:]»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L115-L115">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L115-L115">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -713,12 +899,26 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Array.«term__[_:]»">Array.«term__[_:]»</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.trailingNode">Lean.ParserDescr.trailingNode</a> <span class="fn">`Array.«term__[_:]»</span> <span class="fn">1024</span> <span class="fn">0</span>
+    (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`noWs</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"["</span></span>)</span>)
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">":"</span></span>)</span>)
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"]"</span></span>)</span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Array.«term__[:_]»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L116-L116">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L116-L116">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -727,12 +927,26 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Array.«term__[:_]»">Array.«term__[:_]»</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.trailingNode">Lean.ParserDescr.trailingNode</a> <span class="fn">`Array.«term__[:_]»</span> <span class="fn">1024</span> <span class="fn">0</span>
+    (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`noWs</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"["</span></span>)</span>)
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">":"</span></span>)</span>)
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"]"</span></span>)</span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subarray.toArray">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L125-L126">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L125-L126">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -747,12 +961,19 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <span class="fn">(s : <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.toArray">Subarray.toArray</a> <span class="fn">s</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Array.ofSubarray">Array.ofSubarray</a> <span class="fn">s</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instAppendSubarray">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L128-L131">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L128-L131">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -765,12 +986,21 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Append">Append</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instAppendSubarray</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ append := <span class="fn">fun <span class="fn">x</span> <span class="fn">y</span> =>
+      <span class="fn">let a := <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.toArray">Subarray.toArray</a> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.toArray">Subarray.toArray</a> <span class="fn">y</span></span></span>;
+      <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Array.toSubarray">Array.toSubarray</a> <span class="fn">a</span> <span class="fn">0</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a</span></span>)</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprSubarray">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L133-L134">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L133-L134">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -787,12 +1017,19 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprSubarray</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">s</span> <span class="fn">x</span> => <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.toArray">Subarray.toArray</a> <span class="fn">s</span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">".toSubarray"</span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instToStringSubarray">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/Subarray.lean#L136-L137">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/Subarray.lean#L136-L137">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -809,6 +1046,13 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString">ToString</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instToStringSubarray</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ toString := <span class="fn">fun <span class="fn">s</span> => <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray.toArray">Subarray.toArray</a> <span class="fn">s</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -866,6 +1110,9 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -1131,6 +1378,9 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -1141,8 +1391,10 @@ h₂: <span class="fn"><span class="fn">stop</span> <a href="/lean4-socket/Init/
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

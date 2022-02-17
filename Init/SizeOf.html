@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.SizeOf</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/SizeOf.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/SizeOf.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -73,7 +73,7 @@ Documentation</h1>
 <div class="decl" id="SizeOf">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/SizeOf.lean#L11-L12">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/SizeOf.lean#L11-L12">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -86,7 +86,7 @@ Documentation</h1>
 <div class="decl_type"><span class="fn">Sort (max 1 u)</span></div></div>
 <ul class="structure_fields" id="SizeOf.mk">
 <li class="structure_field" id="SizeOf.sizeOf">
-sizeOf: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span></li>
+sizeOf : <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span></li>
 </ul>
 <details class="instances">
 <summary>Instances</summary>
@@ -332,7 +332,7 @@ sizeOf: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 <div class="decl" id="default.sizeOf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/SizeOf.lean#L22-L23">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/SizeOf.lean#L22-L23">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -343,12 +343,20 @@ sizeOf: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 <span class="fn">(α : <span class="fn">Sort u</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/SizeOf.html#default.sizeOf">default.sizeOf</a> <span class="fn">α</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">let a := <span class="fn">x</span>;
+  <span class="fn">0</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instSizeOf">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/SizeOf.lean#L25-L26">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/SizeOf.lean#L25-L26">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -359,13 +367,21 @@ sizeOf: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 <span class="fn">(α : <span class="fn">Sort u</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/SizeOf.html#SizeOf">SizeOf</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/SizeOf.html#instSizeOf">instSizeOf</a> <span class="fn">α</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ sizeOf := <span class="fn"><a href="/lean4-socket/Init/SizeOf.html#default.sizeOf">default.sizeOf</a> <span class="fn">α</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="sizeOf_default">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/SizeOf.lean#L28-L28">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/SizeOf.lean#L28-L28">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -384,7 +400,7 @@ sizeOf: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 <div class="decl" id="instSizeOfNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/SizeOf.lean#L30-L31">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/SizeOf.lean#L30-L31">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -393,13 +409,21 @@ sizeOf: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/SizeOf.html#SizeOf">SizeOf</a> <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/SizeOf.html#instSizeOfNat">instSizeOfNat</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ sizeOf := <span class="fn">fun <span class="fn">n</span> => <span class="fn">n</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="sizeOf_nat">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/SizeOf.lean#L33-L33">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/SizeOf.lean#L33-L33">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -414,29 +438,47 @@ sizeOf: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 <div class="decl" id="Lean.Name.sizeOf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/SizeOf.lean#L56-L59">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/SizeOf.lean#L56-L59">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/SizeOf.html#Lean.Name.sizeOf">Lean.Name.sizeOf</a>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.Name">Lean.Name</a> → <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/SizeOf.html#Lean.Name.sizeOf">Lean.Name.sizeOf</a> <a href="/lean4-socket/Init/Prelude.html#Lean.Name.anonymous">Lean.Name.anonymous</a></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">1</span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/SizeOf.html#Lean.Name.sizeOf">Lean.Name.sizeOf</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.Name.str">Lean.Name.str</a> <span class="fn">p</span> <span class="fn">s</span> <span class="fn">x_1</span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn"><span class="fn">1</span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn"><a href="/lean4-socket/Init/SizeOf.html#Lean.Name.sizeOf">Lean.Name.sizeOf</a> <span class="fn">p</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn"><a href="/lean4-socket/Init/SizeOf.html#SizeOf.sizeOf">sizeOf</a> <span class="fn">s</span></span></span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/SizeOf.html#Lean.Name.sizeOf">Lean.Name.sizeOf</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.Name.num">Lean.Name.num</a> <span class="fn">p</span> <span class="fn">n</span> <span class="fn">x_1</span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn"><span class="fn">1</span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn"><a href="/lean4-socket/Init/SizeOf.html#Lean.Name.sizeOf">Lean.Name.sizeOf</a> <span class="fn">p</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn"><a href="/lean4-socket/Init/SizeOf.html#SizeOf.sizeOf">sizeOf</a> <span class="fn">n</span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instSizeOfName">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/SizeOf.lean#L61-L62">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/SizeOf.lean#L61-L62">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">instance</span>
+<span class="decl_kind">noncomputable instance</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/SizeOf.html#instSizeOfName">instSizeOfName</a>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/SizeOf.html#SizeOf">SizeOf</a> <a href="/lean4-socket/Init/Prelude.html#Lean.Name">Lean.Name</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/SizeOf.html#instSizeOfName">instSizeOfName</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ sizeOf := <span class="fn">fun <span class="fn">n</span> => <span class="fn"><a href="/lean4-socket/Init/SizeOf.html#Lean.Name.sizeOf">Lean.Name.sizeOf</a> <span class="fn">n</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -494,6 +536,9 @@ sizeOf: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -759,6 +804,9 @@ sizeOf: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -769,8 +817,10 @@ sizeOf: <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/I
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Data.Ord</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -112,7 +112,7 @@ Documentation</h1>
 <div class="decl" id="Ordering">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L11-L13">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L11-L13">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -134,7 +134,7 @@ gt: <a href="/lean4-socket/Init/Data/Ord.html#Ordering">Ordering</a></li>
 <div class="decl" id="instInhabitedOrdering">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L13-L13">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L13-L13">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -143,12 +143,19 @@ gt: <a href="/lean4-socket/Init/Data/Ord.html#Ordering">Ordering</a></li>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Inhabited">Inhabited</a> <a href="/lean4-socket/Init/Data/Ord.html#Ordering">Ordering</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instInhabitedOrdering">instInhabitedOrdering</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ default := <a href="/lean4-socket/Init/Data/Ord.html#Ordering.lt">Ordering.lt</a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instBEqOrdering">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L13-L13">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L13-L13">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -157,12 +164,19 @@ gt: <a href="/lean4-socket/Init/Data/Ord.html#Ordering">Ordering</a></li>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#BEq">BEq</a> <a href="/lean4-socket/Init/Data/Ord.html#Ordering">Ordering</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instBEqOrdering">instBEqOrdering</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ beq := <a href="/lean4-socket/Init/Data/Ord.html#_private.Init.Data.Ord.0.beqOrdering._@.Init.Data.Ord._hyg.12">[anonymous]</a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Ord">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L16-L17">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L16-L17">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -175,7 +189,7 @@ gt: <a href="/lean4-socket/Init/Data/Ord.html#Ordering">Ordering</a></li>
 <div class="decl_type"><span class="fn">Type u</span></div></div>
 <ul class="structure_fields" id="Ord.mk">
 <li class="structure_field" id="Ord.compare">
-compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <a href="/lean4-socket/Init/Data/Ord.html#Ordering">Ordering</a></span></li>
+compare : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <a href="/lean4-socket/Init/Data/Ord.html#Ordering">Ordering</a></span></li>
 </ul>
 <details class="instances">
 <summary>Instances</summary>
@@ -223,8 +237,9 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 <div class="decl" id="compareOfLessAndEq">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L21-L24">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L21-L24">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -252,12 +267,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Data/Ord.html#Ordering">Ordering</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#compareOfLessAndEq">compareOfLessAndEq</a> <span class="fn">x</span> <span class="fn">y</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">if <span class="fn"><span class="fn">x</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn">y</span></span> then <a href="/lean4-socket/Init/Data/Ord.html#Ordering.lt">Ordering.lt</a> else <span class="fn">if <span class="fn"><span class="fn">x</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">y</span></span> then <a href="/lean4-socket/Init/Data/Ord.html#Ordering.eq">Ordering.eq</a> else <a href="/lean4-socket/Init/Data/Ord.html#Ordering.gt">Ordering.gt</a></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instOrdNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L26-L27">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L26-L27">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -266,12 +288,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord">Ord</a> <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instOrdNat">instOrdNat</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ compare := <span class="fn">fun <span class="fn">x</span> <span class="fn">y</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#compareOfLessAndEq">compareOfLessAndEq</a> <span class="fn">x</span> <span class="fn">y</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instOrdInt">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L29-L30">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L29-L30">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -280,12 +309,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord">Ord</a> <a href="/lean4-socket/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instOrdInt">instOrdInt</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ compare := <span class="fn">fun <span class="fn">x</span> <span class="fn">y</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#compareOfLessAndEq">compareOfLessAndEq</a> <span class="fn">x</span> <span class="fn">y</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instOrdBool">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L32-L36">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L32-L36">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -294,12 +330,23 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord">Ord</a> <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instOrdBool">instOrdBool</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ compare := <span class="fn">fun <span class="fn">x</span> <span class="fn">x_1</span> =>
+      <span class="fn">match <span class="fn">x</span>, <span class="fn">x_1</span> with
+      | <a href="/lean4-socket/Init/Prelude.html#Bool.true">false</a>, <a href="/lean4-socket/Init/Prelude.html#Bool.false">true</a> => <a href="/lean4-socket/Init/Data/Ord.html#Ordering.lt">Ordering.lt</a>
+      | <a href="/lean4-socket/Init/Prelude.html#Bool.true">true</a>, <a href="/lean4-socket/Init/Prelude.html#Bool.false">false</a> => <a href="/lean4-socket/Init/Data/Ord.html#Ordering.gt">Ordering.gt</a>
+      | <span class="fn">x</span>, <span class="fn">x_2</span> => <span class="fn">Ordering.eq</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instOrdString">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L38-L39">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L38-L39">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -308,12 +355,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord">Ord</a> <a href="/lean4-socket/Init/Prelude.html#String">String</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instOrdString">instOrdString</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ compare := <span class="fn">fun <span class="fn">x</span> <span class="fn">y</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#compareOfLessAndEq">compareOfLessAndEq</a> <span class="fn">x</span> <span class="fn">y</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instOrdFin">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L41-L42">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L41-L42">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -324,12 +378,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 <span class="fn">(n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord">Ord</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Fin">Fin</a> <span class="fn">n</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instOrdFin">instOrdFin</a> <span class="fn">n</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ compare := <span class="fn">fun <span class="fn">x</span> <span class="fn">y</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord.compare">compare</a> <span class="fn"><span class="fn">x</span>.val</span> <span class="fn"><span class="fn">y</span>.val</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instOrdUInt8">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L44-L45">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L44-L45">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -338,12 +399,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord">Ord</a> <a href="/lean4-socket/Init/Prelude.html#UInt8">UInt8</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instOrdUInt8">instOrdUInt8</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ compare := <span class="fn">fun <span class="fn">x</span> <span class="fn">y</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#compareOfLessAndEq">compareOfLessAndEq</a> <span class="fn">x</span> <span class="fn">y</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instOrdUInt16">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L47-L48">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L47-L48">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -352,12 +420,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord">Ord</a> <a href="/lean4-socket/Init/Prelude.html#UInt16">UInt16</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instOrdUInt16">instOrdUInt16</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ compare := <span class="fn">fun <span class="fn">x</span> <span class="fn">y</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#compareOfLessAndEq">compareOfLessAndEq</a> <span class="fn">x</span> <span class="fn">y</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instOrdUInt32">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L50-L51">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L50-L51">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -366,12 +441,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord">Ord</a> <a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instOrdUInt32">instOrdUInt32</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ compare := <span class="fn">fun <span class="fn">x</span> <span class="fn">y</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#compareOfLessAndEq">compareOfLessAndEq</a> <span class="fn">x</span> <span class="fn">y</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instOrdUInt64">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L53-L54">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L53-L54">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -380,12 +462,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord">Ord</a> <a href="/lean4-socket/Init/Prelude.html#UInt64">UInt64</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instOrdUInt64">instOrdUInt64</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ compare := <span class="fn">fun <span class="fn">x</span> <span class="fn">y</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#compareOfLessAndEq">compareOfLessAndEq</a> <span class="fn">x</span> <span class="fn">y</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instOrdUSize">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L56-L57">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L56-L57">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -394,12 +483,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord">Ord</a> <a href="/lean4-socket/Init/Prelude.html#USize">USize</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instOrdUSize">instOrdUSize</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ compare := <span class="fn">fun <span class="fn">x</span> <span class="fn">y</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#compareOfLessAndEq">compareOfLessAndEq</a> <span class="fn">x</span> <span class="fn">y</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instOrdChar">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L59-L60">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L59-L60">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -408,12 +504,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord">Ord</a> <a href="/lean4-socket/Init/Prelude.html#Char">Char</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#instOrdChar">instOrdChar</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ compare := <span class="fn">fun <span class="fn">x</span> <span class="fn">y</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#compareOfLessAndEq">compareOfLessAndEq</a> <span class="fn">x</span> <span class="fn">y</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="ltOfOrd">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L63-L64">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L63-L64">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -430,12 +533,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#LT">LT</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">ltOfOrd</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ lt := <span class="fn">fun <span class="fn">a</span> <span class="fn">b</span> => <span class="fn">(<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord.compare">compare</a> <span class="fn">a</span> <span class="fn">b</span></span> <a href="/lean4-socket/Init/Prelude.html#BEq.beq">==</a> <a href="/lean4-socket/Init/Data/Ord.html#Ordering.lt">Ordering.lt</a></span>) <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/Prelude.html#Bool.true">true</a></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instDecidableRelLtLtOfOrd">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L66-L67">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L66-L67">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -452,12 +562,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#DecidableRel">DecidableRel</a> <span class="fn">LT.lt</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instDecidableRelLtLtOfOrd</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#inferInstanceAs">inferInstanceAs</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#DecidableRel">DecidableRel</a> <span class="fn">fun <span class="fn">a</span> <span class="fn">b</span> => <span class="fn">(<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord.compare">compare</a> <span class="fn">a</span> <span class="fn">b</span></span> <a href="/lean4-socket/Init/Prelude.html#BEq.beq">==</a> <a href="/lean4-socket/Init/Data/Ord.html#Ordering.lt">Ordering.lt</a></span>) <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/Prelude.html#Bool.true">true</a></span></span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Ordering.isLE">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L69-L72">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L69-L72">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -466,12 +583,22 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ordering">Ordering</a> → <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ordering.isLE">Ordering.isLE</a> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+  | <a href="/lean4-socket/Init/Data/Ord.html#Ordering.gt">Ordering.lt</a> => <a href="/lean4-socket/Init/Prelude.html#Bool.true">true</a>
+  | <a href="/lean4-socket/Init/Data/Ord.html#Ordering.gt">Ordering.eq</a> => <a href="/lean4-socket/Init/Prelude.html#Bool.true">true</a>
+  | <a href="/lean4-socket/Init/Data/Ord.html#Ordering.gt">Ordering.gt</a> => <a href="/lean4-socket/Init/Data/Ord.html#Ordering.gt">false</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="leOfOrd">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L74-L75">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L74-L75">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -488,12 +615,19 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#LE">LE</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">leOfOrd</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ le := <span class="fn">fun <span class="fn">a</span> <span class="fn">b</span> => <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ordering.isLE">Ordering.isLE</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord.compare">compare</a> <span class="fn">a</span> <span class="fn">b</span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/Prelude.html#Bool.true">true</a></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instDecidableRelLeLeOfOrd">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Ord.lean#L77-L78">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Ord.lean#L77-L78">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -510,6 +644,13 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#DecidableRel">DecidableRel</a> <span class="fn">LE.le</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instDecidableRelLeLeOfOrd</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#inferInstanceAs">inferInstanceAs</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#DecidableRel">DecidableRel</a> <span class="fn">fun <span class="fn">a</span> <span class="fn">b</span> => <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ordering.isLE">Ordering.isLE</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Ord.html#Ord.compare">compare</a> <span class="fn">a</span> <span class="fn">b</span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/Prelude.html#Bool.true">true</a></span></span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -567,6 +708,9 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -832,6 +976,9 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -842,8 +989,10 @@ compare: <span class="fn"><span class="fn">α</span> → <span class="fn">α</sp
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

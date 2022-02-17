@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Data.Stream</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -91,7 +91,7 @@ Documentation</h1>
 <div class="decl" id="ToStream">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L43-L44">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L43-L44">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -106,7 +106,7 @@ Documentation</h1>
 <div class="decl_type"><span class="fn">Type u</span></div></div>
 <ul class="structure_fields" id="ToStream.mk">
 <li class="structure_field" id="ToStream.toStream">
-toStream: <span class="fn"><span class="fn">collection</span> → <span class="fn">stream</span></span></li>
+toStream : <span class="fn"><span class="fn">collection</span> → <span class="fn">stream</span></span></li>
 </ul>
 <details class="instances">
 <summary>Instances</summary>
@@ -133,7 +133,7 @@ toStream: <span class="fn"><span class="fn">collection</span> → <span class="f
 <div class="decl" id="Stream">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L48-L49">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L48-L49">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -148,7 +148,7 @@ toStream: <span class="fn"><span class="fn">collection</span> → <span class="f
 <div class="decl_type"><span class="fn">Type (max u v)</span></div></div>
 <ul class="structure_fields" id="Stream.mk">
 <li class="structure_field" id="Stream.next?">
-next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option">Option</a> (<span class="fn"><span class="fn">value</span> <a href="/lean4-socket/Init/Prelude.html#Prod">×</a> <span class="fn">stream</span></span>)</span></span></li>
+next? : <span class="fn"><span class="fn">stream</span> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option">Option</a> (<span class="fn"><span class="fn">value</span> <a href="/lean4-socket/Init/Prelude.html#Prod">×</a> <span class="fn">stream</span></span>)</span></span></li>
 </ul>
 <details class="instances">
 <summary>Instances</summary>
@@ -175,7 +175,7 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 <div class="decl" id="Stream.forIn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L51-L59">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L51-L59">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -214,15 +214,23 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 <span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><span class="fn">β</span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/lean4-socket/Init/Core.html#ForInStep">ForInStep</a> <span class="fn">β</span></span>)</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#Stream.forIn">Stream.forIn</a> <span class="fn">s</span> <span class="fn">b</span> <span class="fn">f</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">let inst := <span class="fn">{ default := <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></span> }</span>;
+  <span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#Stream.forIn.visit">Stream.forIn.visit</a> <span class="fn">f</span> <span class="fn">s</span> <span class="fn">b</span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Stream.forIn.visit">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L53-L58">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L53-L58">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">constant</span>
+<span class="decl_kind">partial def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Data/Stream.html#Stream.forIn.visit">Stream.forIn.visit</a>
 </span>
@@ -263,7 +271,7 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 <div class="decl" id="instForIn">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L61-L62">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L61-L62">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -288,12 +296,19 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Core.html#ForIn">ForIn</a> <span class="fn">m</span> <span class="fn">ρ</span> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instForIn</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ forIn := <span class="fn">fun {β} [<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>] => <span class="fn">Stream.forIn</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instToStreamList">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L64-L65">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L64-L65">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -306,12 +321,19 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#ToStream">ToStream</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instToStreamList</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ toStream := <span class="fn">fun <span class="fn">c</span> => <span class="fn">c</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instToStreamArraySubarray">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L67-L68">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L67-L68">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -324,12 +346,19 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#ToStream">ToStream</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instToStreamArraySubarray</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ toStream := <span class="fn">fun <span class="fn">a</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Array.toSubarray">Array.toSubarray</a> <span class="fn">a</span> <span class="fn">0</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instToStreamSubarray">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L70-L71">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L70-L71">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -342,12 +371,19 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#ToStream">ToStream</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instToStreamSubarray</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ toStream := <span class="fn">fun <span class="fn">a</span> => <span class="fn">a</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instToStreamStringSubstring">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L73-L74">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L73-L74">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -356,12 +392,19 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#ToStream">ToStream</a> <a href="/lean4-socket/Init/Prelude.html#String">String</a> <a href="/lean4-socket/Init/Prelude.html#Substring">Substring</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#instToStreamStringSubstring">instToStreamStringSubstring</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ toStream := <span class="fn">fun <span class="fn">s</span> => <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String.toSubstring">String.toSubstring</a> <span class="fn">s</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instToStreamRange">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L76-L77">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L76-L77">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -370,12 +413,19 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#ToStream">ToStream</a> <a href="/lean4-socket/Init/Data/Range.html#Std.Range">Std.Range</a> <a href="/lean4-socket/Init/Data/Range.html#Std.Range">Std.Range</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#instToStreamRange">instToStreamRange</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ toStream := <span class="fn">fun <span class="fn">r</span> => <span class="fn">r</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instStreamProdProd">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L79-L86">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L79-L86">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -408,12 +458,27 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#Stream">Stream</a> (<span class="fn"><span class="fn">ρ</span> <a href="/lean4-socket/Init/Prelude.html#Prod">×</a> <span class="fn">γ</span></span>) (<span class="fn"><span class="fn">α</span> <a href="/lean4-socket/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instStreamProdProd</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ next? := <span class="fn">fun <span class="fn">x</span> =>
+      <span class="fn">match <span class="fn">x</span> with
+      | <span class="fn">(<span class="fn">s₁</span>, <span class="fn">s₂</span>)</span> =>
+        <span class="fn">match <span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#Stream.next?">Stream.next?</a> <span class="fn">s₁</span></span> with
+        | <span class="fn">none</span> => <span class="fn">none</span>
+        | <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">(<span class="fn">a</span>, <span class="fn">s₁</span>)</span></span> =>
+          <span class="fn">match <span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#Stream.next?">Stream.next?</a> <span class="fn">s₂</span></span> with
+          | <span class="fn">none</span> => <span class="fn">none</span>
+          | <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">(<span class="fn">b</span>, <span class="fn">s₂</span>)</span></span> => <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">(<span class="fn">(<span class="fn">a</span>, <span class="fn">b</span>)</span>, <span class="fn">s₁</span>, <span class="fn">s₂</span>)</span></span></span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instStreamList">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L88-L91">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L88-L91">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -426,12 +491,22 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#Stream">Stream</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>) <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instStreamList</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ next? := <span class="fn">fun <span class="fn">x</span> =>
+      <span class="fn">match <span class="fn">x</span> with
+      | <span class="fn">[]</span> => <span class="fn">none</span>
+      | <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span> => <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">(<span class="fn">a</span>, <span class="fn">as</span>)</span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instStreamSubarray">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L93-L99">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L93-L99">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -444,12 +519,25 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#Stream">Stream</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Subarray.html#Subarray">Subarray</a> <span class="fn">α</span></span>) <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instStreamSubarray</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ next? := <span class="fn">fun <span class="fn">s</span> =>
+      <span class="fn">if h : <span class="fn"><span class="fn"><span class="fn">s</span>.start</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn"><span class="fn">s</span>.stop</span></span> then
+        <span class="fn">let_fun this := (_ : <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn"><span class="fn">s</span>.start</span></span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn"><span class="fn">s</span>.stop</span></span>);
+        <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a>
+          <span class="fn">(<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.get">Array.get</a> <span class="fn"><span class="fn">s</span>.as</span> <span class="fn">{ val := <span class="fn"><span class="fn">s</span>.start</span>, isLt := (_ : <span class="fn"><span class="fn"><span class="fn">s</span>.start</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn"><span class="fn">s</span>.as</span></span></span>) }</span></span>,
+            <span class="fn">{ as := <span class="fn"><span class="fn">s</span>.as</span>, start := <span class="fn"><span class="fn"><span class="fn">s</span>.start</span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>, stop := <span class="fn"><span class="fn">s</span>.stop</span>, h₁ := <span class="fn">this</span>, h₂ := (_ : <span class="fn"><span class="fn"><span class="fn">s</span>.stop</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn"><span class="fn">s</span>.as</span></span></span>) }</span>)</span></span></span>
+      else <span class="fn">none</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instStreamRangeNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L101-L106">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L101-L106">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -458,12 +546,20 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#Stream">Stream</a> <a href="/lean4-socket/Init/Data/Range.html#Std.Range">Std.Range</a> <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#instStreamRangeNat">instStreamRangeNat</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ next? := <span class="fn">fun <span class="fn">r</span> =>
+      <span class="fn">if <span class="fn"><span class="fn"><span class="fn">r</span>.start</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn"><span class="fn">r</span>.stop</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">(<span class="fn"><span class="fn">r</span>.start</span>, <span class="fn">{ start := <span class="fn"><span class="fn"><span class="fn">r</span>.start</span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn"><span class="fn">r</span>.step</span></span>, stop := <span class="fn"><span class="fn">r</span>.stop</span>, step := <span class="fn"><span class="fn">r</span>.step</span> }</span>)</span></span> else <span class="fn">none</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instStreamSubstringChar">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Stream.lean#L108-L113">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Stream.lean#L108-L113">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -472,6 +568,18 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#Stream">Stream</a> <a href="/lean4-socket/Init/Prelude.html#Substring">Substring</a> <a href="/lean4-socket/Init/Prelude.html#Char">Char</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Stream.html#instStreamSubstringChar">instStreamSubstringChar</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ next? := <span class="fn">fun <span class="fn">s</span> =>
+      <span class="fn">if <span class="fn"><span class="fn"><span class="fn">s</span>.startPos</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn"><span class="fn">s</span>.stopPos</span></span> then
+        <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a>
+          <span class="fn">(<span class="fn"><a href="/lean4-socket/Init/Data/String/Basic.html#String.get">String.get</a> <span class="fn"><span class="fn">s</span>.str</span> <span class="fn"><span class="fn">s</span>.startPos</span></span>,
+            <span class="fn">{ str := <span class="fn"><span class="fn">s</span>.str</span>, startPos := <span class="fn"><a href="/lean4-socket/Init/Data/String/Basic.html#String.next">String.next</a> <span class="fn"><span class="fn">s</span>.str</span> <span class="fn"><span class="fn">s</span>.startPos</span></span>, stopPos := <span class="fn"><span class="fn">s</span>.stopPos</span> }</span>)</span></span>
+      else <span class="fn">none</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -529,6 +637,9 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -794,6 +905,9 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -804,8 +918,10 @@ next?: <span class="fn"><span class="fn">stream</span> → <span class="fn"><a h
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

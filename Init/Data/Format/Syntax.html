@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Data.Format.Syntax</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Format/Syntax.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Format/Syntax.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -61,10 +61,10 @@ Documentation</h1>
 <div class="decl" id="Lean.Syntax.formatStxAux">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Format/Syntax.lean#L22-L39">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Format/Syntax.lean#L22-L39">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">constant</span>
+<span class="decl_kind">partial def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Data/Format/Syntax.html#Lean.Syntax.formatStxAux">Lean.Syntax.formatStxAux</a>
 </span>
@@ -79,7 +79,7 @@ Documentation</h1>
 <div class="decl" id="Lean.Syntax.formatStx">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Format/Syntax.lean#L41-L42">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Format/Syntax.lean#L41-L42">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -94,12 +94,19 @@ Documentation</h1>
 <span class="fn">(showInfo : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#optParam">optParam</a> <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a> <a href="/lean4-socket/Init/Prelude.html#Bool.false">false</a></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format">Std.Format</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Format/Syntax.html#Lean.Syntax.formatStx">Lean.Syntax.formatStx</a> <span class="fn">stx</span> <span class="fn">maxDepth</span> <span class="fn">showInfo</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Format/Syntax.html#Lean.Syntax.formatStxAux">Lean.Syntax.formatStxAux</a> <span class="fn">maxDepth</span> <span class="fn">showInfo</span> <span class="fn">0</span> <span class="fn">stx</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Lean.Syntax.instToFormatSyntax">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Format/Syntax.lean#L44-L44">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Format/Syntax.lean#L44-L44">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -108,12 +115,19 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.ToFormat">Std.ToFormat</a> <a href="/lean4-socket/Init/Prelude.html#Lean.Syntax">Lean.Syntax</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Format/Syntax.html#Lean.Syntax.instToFormatSyntax">Lean.Syntax.instToFormatSyntax</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ format := <span class="fn">fun <span class="fn">stx</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Syntax.html#Lean.Syntax.formatStx">Lean.Syntax.formatStx</a> <span class="fn">stx</span> <span class="fn">none</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Lean.Syntax.instToStringSyntax">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Format/Syntax.lean#L45-L45">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Format/Syntax.lean#L45-L45">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -122,6 +136,13 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString">ToString</a> <a href="/lean4-socket/Init/Prelude.html#Lean.Syntax">Lean.Syntax</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Format/Syntax.html#Lean.Syntax.instToStringSyntax">Lean.Syntax.instToStringSyntax</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ toString := <span class="fn"><span class="fn">toString</span> <a href="/lean4-socket/Init/Prelude.html#Function.comp">∘</a> <span class="fn">Std.format</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -179,6 +200,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -444,6 +468,9 @@ Documentation</h1>
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -454,8 +481,10 @@ Documentation</h1>
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

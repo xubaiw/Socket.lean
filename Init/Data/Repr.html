@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Data.Repr</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -247,7 +247,7 @@ Documentation</h1>
 <div class="decl" id="Repr">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L16-L17">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L16-L17">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -260,7 +260,7 @@ Documentation</h1>
 <div class="decl_type"><span class="fn">Type u</span></div></div>
 <ul class="structure_fields" id="Repr.mk">
 <li class="structure_field" id="Repr.reprPrec">
-reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format">Std.Format</a></span></span></li>
+reprPrec : <span class="fn"><span class="fn">α</span> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format">Std.Format</a></span></span></li>
 </ul>
 <details class="instances">
 <summary>Instances</summary>
@@ -398,10 +398,11 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 <div class="decl" id="repr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L21-L22">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L21-L22">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">abbrev</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Data/Repr.html#repr">repr</a>
 </span>
@@ -417,15 +418,23 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 <span class="fn">(a : <span class="fn">α</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format">Std.Format</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> <span class="fn">a</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr.reprPrec">reprPrec</a> <span class="fn">a</span> <span class="fn">0</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="reprStr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L24-L25">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L24-L25">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">abbrev</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Data/Repr.html#reprStr">reprStr</a>
 </span>
@@ -441,15 +450,23 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 <span class="fn">(a : <span class="fn">α</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#String">String</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#reprStr">reprStr</a> <span class="fn">a</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.pretty">Std.Format.pretty</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr.reprPrec">reprPrec</a> <span class="fn">a</span> <span class="fn">0</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="reprArg">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L27-L28">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L27-L28">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">abbrev</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Data/Repr.html#reprArg">reprArg</a>
 </span>
@@ -465,12 +482,19 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 <span class="fn">(a : <span class="fn">α</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format">Std.Format</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#reprArg">reprArg</a> <span class="fn">a</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr.reprPrec">reprPrec</a> <span class="fn">a</span> <span class="fn">1024</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="ReprAtom">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L32-L32">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L32-L32">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -526,7 +550,7 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 <div class="decl" id="instReprIdType">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L35-L36">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L35-L36">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -543,12 +567,19 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#id">id</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprIdType</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#inferInstanceAs">inferInstanceAs</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <span class="fn">α</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprId">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L38-L39">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L38-L39">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -565,12 +596,19 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><a href="/lean4-socket/Init/Control/Id.html#Id">Id</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprId</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#inferInstanceAs">inferInstanceAs</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <span class="fn">α</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprBool">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L41-L44">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L41-L44">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -579,12 +617,22 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprBool">instReprBool</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">x</span> <span class="fn">x_1</span> =>
+      <span class="fn">match <span class="fn">x</span>, <span class="fn">x_1</span> with
+      | <a href="/lean4-socket/Init/Prelude.html#Bool.false">true</a>, <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"true"</span></span>
+      | <a href="/lean4-socket/Init/Prelude.html#Bool.false">false</a>, <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"false"</span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Repr.addAppParen">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L46-L50">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L46-L50">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -597,12 +645,19 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 <span class="fn">(prec : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format">Std.Format</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr.addAppParen">Repr.addAppParen</a> <span class="fn">f</span> <span class="fn">prec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">if <span class="fn"><span class="fn">prec</span> <a href="/lean4-socket/Init/Prelude.html#GE.ge">≥</a> <span class="fn">1024</span></span> then <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.paren">Std.Format.paren</a> <span class="fn">f</span></span> else <span class="fn">f</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprDecidable">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L52-L55">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L52-L55">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -615,12 +670,22 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Decidable">Decidable</a> <span class="fn">p</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprDecidable</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">x</span> <span class="fn">x_1</span> =>
+      <span class="fn">match <span class="fn">x</span>, <span class="fn">x_1</span> with
+      | <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Decidable.isFalse">isTrue</a> <span class="fn">x</span></span>, <span class="fn">prec</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr.addAppParen">Repr.addAppParen</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"isTrue _"</span></span>) <span class="fn">prec</span></span>
+      | <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Decidable.isFalse">isFalse</a> <span class="fn">x</span></span>, <span class="fn">prec</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr.addAppParen">Repr.addAppParen</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"isFalse _"</span></span>) <span class="fn">prec</span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprPUnit">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L57-L58">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L57-L58">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -629,12 +694,19 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#PUnit">PUnit</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprPUnit">instReprPUnit</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">x</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"PUnit.unit"</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprULift">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L60-L62">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L60-L62">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -651,12 +723,19 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#ULift">ULift</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprULift</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">v</span> <span class="fn">prec</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr.addAppParen">Repr.addAppParen</a> (<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"ULift.up "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#reprArg">reprArg</a> <span class="fn"><span class="fn">v</span>.down</span></span></span>) <span class="fn">prec</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprUnit">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L64-L65">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L64-L65">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -665,12 +744,19 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#Unit">Unit</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprUnit">instReprUnit</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">v</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"()"</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprOption">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L67-L70">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L67-L70">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -687,12 +773,22 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option">Option</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprOption</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">x</span> <span class="fn">x_1</span> =>
+      <span class="fn">match <span class="fn">x</span>, <span class="fn">x_1</span> with
+      | <span class="fn">none</span>, <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"none"</span></span>
+      | <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span>, <span class="fn">prec</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr.addAppParen">Repr.addAppParen</a> (<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"some "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#reprArg">reprArg</a> <span class="fn">a</span></span></span>) <span class="fn">prec</span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprSum">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L72-L75">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L72-L75">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -717,12 +813,22 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><span class="fn">α</span> <a href="/lean4-socket/Init/Core.html#Sum">⊕</a> <span class="fn">β</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprSum</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">x</span> <span class="fn">x_1</span> =>
+      <span class="fn">match <span class="fn">x</span>, <span class="fn">x_1</span> with
+      | <span class="fn"><a href="/lean4-socket/Init/Core.html#Sum.inr">Sum.inl</a> <span class="fn">a</span></span>, <span class="fn">prec</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr.addAppParen">Repr.addAppParen</a> (<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"Sum.inl "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#reprArg">reprArg</a> <span class="fn">a</span></span></span>) <span class="fn">prec</span></span>
+      | <span class="fn"><a href="/lean4-socket/Init/Core.html#Sum.inr">Sum.inr</a> <span class="fn">b</span></span>, <span class="fn">prec</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr.addAppParen">Repr.addAppParen</a> (<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"Sum.inr "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#reprArg">reprArg</a> <span class="fn">b</span></span></span>) <span class="fn">prec</span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="ReprTuple">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L77-L78">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L77-L78">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -735,7 +841,7 @@ reprPrec: <span class="fn"><span class="fn">α</span> → <span class="fn"><a hr
 <div class="decl_type"><span class="fn">Type u</span></div></div>
 <ul class="structure_fields" id="ReprTuple.mk">
 <li class="structure_field" id="ReprTuple.reprTuple">
-reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format">Std.Format</a></span> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format">Std.Format</a></span></span></span></li>
+reprTuple : <span class="fn"><span class="fn">α</span> → <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format">Std.Format</a></span> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format">Std.Format</a></span></span></span></li>
 </ul>
 <details class="instances">
 <summary>Instances</summary>
@@ -753,7 +859,7 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <div class="decl" id="instReprTuple">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L82-L83">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L82-L83">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -770,12 +876,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprTuple">ReprTuple</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprTuple</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprTuple := <span class="fn">fun <span class="fn">a</span> <span class="fn">xs</span> => <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> <span class="fn">a</span></span> <a href="/lean4-socket/Init/Prelude.html#List.cons">::</a> <span class="fn">xs</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprTupleProd">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L85-L86">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L85-L86">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -800,12 +913,21 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprTuple">ReprTuple</a> (<span class="fn"><span class="fn">α</span> <a href="/lean4-socket/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprTupleProd</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprTuple := <span class="fn">fun <span class="fn">x</span> <span class="fn">x_1</span> =>
+      <span class="fn">match <span class="fn">x</span>, <span class="fn">x_1</span> with
+      | <span class="fn">(<span class="fn">a</span>, <span class="fn">b</span>)</span>, <span class="fn">xs</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprTuple.reprTuple">reprTuple</a> <span class="fn">b</span> (<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> <span class="fn">a</span></span> <a href="/lean4-socket/Init/Prelude.html#List.cons">::</a> <span class="fn">xs</span></span>)</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprProd">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L88-L89">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L88-L89">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -830,12 +952,23 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><span class="fn">α</span> <a href="/lean4-socket/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprProd</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">x</span> <span class="fn">x_1</span> =>
+      <span class="fn">match <span class="fn">x</span>, <span class="fn">x_1</span> with
+      | <span class="fn">(<span class="fn">a</span>, <span class="fn">b</span>)</span>, <span class="fn">x</span> =>
+        <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.bracket">Std.Format.bracket</a> <span class="fn">"("</span>
+          (<span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> (<span class="fn"><a href="/lean4-socket/Init/Data/List/Basic.html#List.reverse">List.reverse</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprTuple.reprTuple">reprTuple</a> <span class="fn">b</span> <span class="fn">[<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> <span class="fn">a</span></span>]</span></span>)</span>) (<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">","</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.line">Std.Format.line</a></span>)</span>) <span class="fn">")"</span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprSigma">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L91-L92">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L91-L92">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -860,12 +993,21 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><a href="/lean4-socket/Init/Core.html#Sigma">Sigma</a> <span class="fn">β</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprSigma</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">x</span> <span class="fn">x_1</span> =>
+      <span class="fn">match <span class="fn">x</span>, <span class="fn">x_1</span> with
+      | <span class="fn">{ fst := <span class="fn">a</span>, snd := <span class="fn">b</span> }</span>, <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.bracket">Std.Format.bracket</a> <span class="fn">"⟨"</span> (<span class="fn"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> <span class="fn">a</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">", "</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> <span class="fn">b</span></span></span>) <span class="fn">"⟩"</span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprSubtype">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L94-L95">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L94-L95">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -886,12 +1028,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Subtype">Subtype</a> <span class="fn">p</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprSubtype</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">s</span> <span class="fn">prec</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr.reprPrec">reprPrec</a> <span class="fn"><span class="fn">s</span>.val</span> <span class="fn">prec</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.digitChar">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L99-L116">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L99-L116">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -902,12 +1051,46 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Char">Char</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.digitChar">Nat.digitChar</a> <span class="fn">n</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">0</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">48</span></span>
+  else
+    <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">1</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">49</span></span>
+    else
+      <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">2</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">50</span></span>
+      else
+        <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">3</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">51</span></span>
+        else
+          <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">4</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">52</span></span>
+          else
+            <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">5</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">53</span></span>
+            else
+              <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">6</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">54</span></span>
+              else
+                <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">7</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">55</span></span>
+                else
+                  <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">8</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">56</span></span>
+                  else
+                    <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">9</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">57</span></span>
+                    else
+                      <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">10</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">97</span></span>
+                      else
+                        <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">11</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">98</span></span>
+                        else
+                          <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">12</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">99</span></span>
+                          else
+                            <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">13</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">100</span></span>
+                            else <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">14</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">101</span></span> else <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">15</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">102</span></span> else <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">42</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.toDigitsCore">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L118-L124">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L118-L124">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -918,12 +1101,22 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(base : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <a href="/lean4-socket/Init/Prelude.html#Char">Char</a></span> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <a href="/lean4-socket/Init/Prelude.html#Char">Char</a></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.toDigitsCore">Nat.toDigitsCore</a> <span class="fn">base</span> <span class="fn">0</span> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">x</span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.toDigitsCore">Nat.toDigitsCore</a> <span class="fn">base</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">fuel</span></span>) <span class="fn">x</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><span class="fn"><span class="fn">x</span> <a href="/lean4-socket/Init/Prelude.html#HDiv.hDiv">/</a> <span class="fn">base</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">0</span></span> then <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.digitChar">Nat.digitChar</a> (<span class="fn"><span class="fn">x</span> <a href="/lean4-socket/Init/Prelude.html#HMod.hMod">%</a> <span class="fn">base</span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#List.cons">::</a> <span class="fn">x</span></span>
+  else <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.toDigitsCore">Nat.toDigitsCore</a> <span class="fn">base</span> <span class="fn">fuel</span> (<span class="fn"><span class="fn">x</span> <a href="/lean4-socket/Init/Prelude.html#HDiv.hDiv">/</a> <span class="fn">base</span></span>) (<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.digitChar">Nat.digitChar</a> (<span class="fn"><span class="fn">x</span> <a href="/lean4-socket/Init/Prelude.html#HMod.hMod">%</a> <span class="fn">base</span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#List.cons">::</a> <span class="fn">x</span></span>)</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.toDigits">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L126-L127">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L126-L127">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -936,12 +1129,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <a href="/lean4-socket/Init/Prelude.html#Char">Char</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.toDigits">Nat.toDigits</a> <span class="fn">base</span> <span class="fn">n</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.toDigitsCore">Nat.toDigitsCore</a> <span class="fn">base</span> (<span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>) <span class="fn">n</span> <span class="fn">[]</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.repr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L129-L130">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L129-L130">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -952,12 +1152,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#String">String</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.repr">Nat.repr</a> <span class="fn">n</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/String/Basic.html#List.asString">List.asString</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.toDigits">Nat.toDigits</a> <span class="fn">10</span> <span class="fn">n</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.superDigitChar">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L132-L143">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L132-L143">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -968,15 +1175,37 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Char">Char</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.superDigitChar">Nat.superDigitChar</a> <span class="fn">n</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">0</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">8304</span></span>
+  else
+    <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">1</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">185</span></span>
+    else
+      <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">2</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">178</span></span>
+      else
+        <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">3</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">179</span></span>
+        else
+          <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">4</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">8308</span></span>
+          else
+            <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">5</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">8309</span></span>
+            else
+              <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">6</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">8310</span></span>
+              else
+                <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">7</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">8311</span></span>
+                else <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">8</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">8312</span></span> else <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">9</span></span> then <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">8313</span></span> else <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">42</span></span></span></span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.toSuperDigitsAux">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L145-L150">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L145-L150">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">constant</span>
+<span class="decl_kind">partial def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Data/Repr.html#Nat.toSuperDigitsAux">Nat.toSuperDigitsAux</a>
 </span>
@@ -987,7 +1216,7 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <div class="decl" id="Nat.toSuperDigits">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L152-L153">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L152-L153">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -998,12 +1227,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <a href="/lean4-socket/Init/Prelude.html#Char">Char</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.toSuperDigits">Nat.toSuperDigits</a> <span class="fn">n</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.toSuperDigitsAux">Nat.toSuperDigitsAux</a> <span class="fn">n</span> <span class="fn">[]</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.toSuperscriptString">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L155-L156">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L155-L156">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1014,12 +1250,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#String">String</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.toSuperscriptString">Nat.toSuperscriptString</a> <span class="fn">n</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/String/Basic.html#List.asString">List.asString</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.toSuperDigits">Nat.toSuperDigits</a> <span class="fn">n</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L160-L161">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L160-L161">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1028,12 +1271,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprNat">instReprNat</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">n</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.repr">Nat.repr</a> <span class="fn">n</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Int.repr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L163-L165">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L163-L165">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1042,12 +1292,21 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Int/Basic.html#Int">Int</a> → <a href="/lean4-socket/Init/Prelude.html#String">String</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Int.repr">Int.repr</a> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+  | <span class="fn"><a href="/lean4-socket/Init/Data/Int/Basic.html#Int.negSucc">Int.ofNat</a> <span class="fn">m</span></span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.repr">Nat.repr</a> <span class="fn">m</span></span>
+  | <span class="fn"><a href="/lean4-socket/Init/Data/Int/Basic.html#Int.negSucc">Int.negSucc</a> <span class="fn">m</span></span> => <span class="fn"><span class="fn">"-"</span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.repr">Nat.repr</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">m</span></span>)</span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprInt">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L167-L168">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L167-L168">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1056,12 +1315,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprInt">instReprInt</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">i</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Int.repr">Int.repr</a> <span class="fn">i</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="hexDigitRepr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L170-L171">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L170-L171">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1072,12 +1338,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#String">String</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#hexDigitRepr">hexDigitRepr</a> <span class="fn">n</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/String/Basic.html#String.singleton">String.singleton</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Nat.digitChar">Nat.digitChar</a> <span class="fn">n</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="charToHex">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L173-L177">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L173-L177">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1088,12 +1361,22 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(c : <a href="/lean4-socket/Init/Prelude.html#Char">Char</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#String">String</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#charToHex">charToHex</a> <span class="fn">c</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">let n := <span class="fn"><a href="/lean4-socket/Init/Data/Char/Basic.html#Char.toNat">Char.toNat</a> <span class="fn">c</span></span>;
+  <span class="fn">let d2 := <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#HDiv.hDiv">/</a> <span class="fn">16</span></span>;
+  <span class="fn">let d1 := <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#HMod.hMod">%</a> <span class="fn">16</span></span>;
+  <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#hexDigitRepr">hexDigitRepr</a> <span class="fn">d2</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#hexDigitRepr">hexDigitRepr</a> <span class="fn">d1</span></span></span></span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Char.quoteCore">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L179-L185">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L179-L185">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1104,12 +1387,26 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(c : <a href="/lean4-socket/Init/Prelude.html#Char">Char</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#String">String</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Char.quoteCore">Char.quoteCore</a> <span class="fn">c</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><span class="fn">c</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">10</span></span></span> then <span class="fn">"\\n"</span>
+  else
+    <span class="fn">if <span class="fn"><span class="fn">c</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">9</span></span></span> then <span class="fn">"\\t"</span>
+    else
+      <span class="fn">if <span class="fn"><span class="fn">c</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">92</span></span></span> then <span class="fn">"\\\\"</span>
+      else
+        <span class="fn">if <span class="fn"><span class="fn">c</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">34</span></span></span> then <span class="fn">"\\\""</span>
+        else <span class="fn">if <span class="fn"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Char/Basic.html#Char.toNat">Char.toNat</a> <span class="fn">c</span></span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn">31</span></span> <a href="/lean4-socket/Init/Prelude.html#Or">∨</a> <span class="fn"><span class="fn">c</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">127</span></span></span></span> then <span class="fn"><span class="fn">"\\x"</span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#charToHex">charToHex</a> <span class="fn">c</span></span></span> else <span class="fn"><a href="/lean4-socket/Init/Data/String/Basic.html#String.singleton">String.singleton</a> <span class="fn">c</span></span></span></span></span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Char.quote">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L187-L188">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L187-L188">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1120,12 +1417,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(c : <a href="/lean4-socket/Init/Prelude.html#Char">Char</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#String">String</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Char.quote">Char.quote</a> <span class="fn">c</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn"><span class="fn">"'"</span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Char.quoteCore">Char.quoteCore</a> <span class="fn">c</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">"'"</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprChar">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L190-L191">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L190-L191">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1134,12 +1438,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#Char">Char</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprChar">instReprChar</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">c</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Char.quote">Char.quote</a> <span class="fn">c</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Char.repr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L193-L194">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L193-L194">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1150,12 +1461,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(c : <a href="/lean4-socket/Init/Prelude.html#Char">Char</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#String">String</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Char.repr">Char.repr</a> <span class="fn">c</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Char.quote">Char.quote</a> <span class="fn">c</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="String.quote">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L196-L198">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L196-L198">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1166,12 +1484,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(s : <a href="/lean4-socket/Init/Prelude.html#String">String</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#String">String</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#String.quote">String.quote</a> <span class="fn">s</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/String/Basic.html#String.isEmpty">String.isEmpty</a> <span class="fn">s</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn">"\"\""</span> else <span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/String/Basic.html#String.foldl">String.foldl</a> (<span class="fn">fun <span class="fn">s</span> <span class="fn">c</span> => <span class="fn"><span class="fn">s</span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Char.quoteCore">Char.quoteCore</a> <span class="fn">c</span></span></span></span>) <span class="fn">"\""</span> <span class="fn">s</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">"\""</span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprString">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L200-L201">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L200-L201">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1180,12 +1505,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#String">String</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprString">instReprString</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">s</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#String.quote">String.quote</a> <span class="fn">s</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprSubstring">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L203-L204">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L203-L204">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1194,12 +1526,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#Substring">Substring</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprSubstring">instReprSubstring</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">s</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> (<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#String.quote">String.quote</a> (<span class="fn"><a href="/lean4-socket/Init/Data/String/Basic.html#Substring.toString">Substring.toString</a> <span class="fn">s</span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">".toSubstring"</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprIterator">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L206-L207">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L206-L207">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1208,12 +1547,23 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprIterator">instReprIterator</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">x</span> <span class="fn">x_1</span> =>
+      <span class="fn">match <span class="fn">x</span>, <span class="fn">x_1</span> with
+      | <span class="fn">{ s := <span class="fn">s</span>, i := <span class="fn">pos</span> }</span>, <span class="fn">prec</span> =>
+        <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr.addAppParen">Repr.addAppParen</a> (<span class="fn"><span class="fn"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"String.Iterator.mk "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#reprArg">reprArg</a> <span class="fn">s</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">" "</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#reprArg">reprArg</a> <span class="fn">pos</span></span></span>)
+          <span class="fn">prec</span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprFin">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L209-L210">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L209-L210">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1224,12 +1574,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <span class="fn">(n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Fin">Fin</a> <span class="fn">n</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprFin">instReprFin</a> <span class="fn">n</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">f</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> <span class="fn"><span class="fn">f</span>.val</span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprUInt8">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L212-L213">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L212-L213">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1238,12 +1595,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#UInt8">UInt8</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprUInt8">instReprUInt8</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">n</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> (<span class="fn"><a href="/lean4-socket/Init/Data/UInt.html#UInt8.toNat">UInt8.toNat</a> <span class="fn">n</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprUInt16">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L215-L216">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L215-L216">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1252,12 +1616,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#UInt16">UInt16</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprUInt16">instReprUInt16</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">n</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> (<span class="fn"><a href="/lean4-socket/Init/Data/UInt.html#UInt16.toNat">UInt16.toNat</a> <span class="fn">n</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprUInt32">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L218-L219">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L218-L219">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1266,12 +1637,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprUInt32">instReprUInt32</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">n</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32.toNat">UInt32.toNat</a> <span class="fn">n</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprUInt64">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L221-L222">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L221-L222">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1280,12 +1658,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#UInt64">UInt64</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprUInt64">instReprUInt64</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">n</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> (<span class="fn"><a href="/lean4-socket/Init/Data/UInt.html#UInt64.toNat">UInt64.toNat</a> <span class="fn">n</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprUSize">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L224-L225">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L224-L225">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1294,12 +1679,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#USize">USize</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprUSize">instReprUSize</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">n</span> <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#repr">repr</a> (<span class="fn"><a href="/lean4-socket/Init/Data/UInt.html#USize.toNat">USize.toNat</a> <span class="fn">n</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprList">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L227-L232">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L227-L232">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1316,12 +1708,25 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprList</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">a</span> <span class="fn">n</span> =>
+      <span class="fn">let x := <span class="fn">{ format := <span class="fn">repr</span> }</span>;
+      <span class="fn">match <span class="fn">x</span> with
+      | <span class="fn">x</span> =>
+        <span class="fn">match <span class="fn">a</span>, <span class="fn">n</span> with
+        | <span class="fn">[]</span>, <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"[]"</span></span>
+        | <span class="fn">as</span>, <span class="fn">x_1</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.bracket">Std.Format.bracket</a> <span class="fn">"["</span> (<span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> <span class="fn">as</span> (<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">","</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.line">Std.Format.line</a></span>)</span>) <span class="fn">"]"</span></span></span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprList_1">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L234-L239">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L234-L239">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1342,12 +1747,25 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instReprList_1</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">a</span> <span class="fn">n</span> =>
+      <span class="fn">let x := <span class="fn">{ format := <span class="fn">repr</span> }</span>;
+      <span class="fn">match <span class="fn">x</span> with
+      | <span class="fn">x</span> =>
+        <span class="fn">match <span class="fn">a</span>, <span class="fn">n</span> with
+        | <span class="fn">[]</span>, <span class="fn">x</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"[]"</span></span>
+        | <span class="fn">as</span>, <span class="fn">x_1</span> => <span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.bracketFill">Std.Format.bracketFill</a> <span class="fn">"["</span> (<span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> <span class="fn">as</span> (<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">","</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <a href="/lean4-socket/Init/Data/Format/Basic.html#Std.Format.line">Std.Format.line</a></span>)</span>) <span class="fn">"]"</span></span></span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprAtomBool">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L241-L241">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L241-L241">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1356,12 +1774,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprAtom">ReprAtom</a> <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprAtomBool">instReprAtomBool</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{  }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprAtomNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L242-L242">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L242-L242">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1370,12 +1795,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprAtom">ReprAtom</a> <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprAtomNat">instReprAtomNat</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{  }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprAtomInt">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L243-L243">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L243-L243">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1384,12 +1816,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprAtom">ReprAtom</a> <a href="/lean4-socket/Init/Data/Int/Basic.html#Int">Int</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprAtomInt">instReprAtomInt</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{  }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprAtomChar">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L244-L244">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L244-L244">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1398,12 +1837,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprAtom">ReprAtom</a> <a href="/lean4-socket/Init/Prelude.html#Char">Char</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprAtomChar">instReprAtomChar</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{  }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprAtomString">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L245-L245">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L245-L245">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1412,12 +1858,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprAtom">ReprAtom</a> <a href="/lean4-socket/Init/Prelude.html#String">String</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprAtomString">instReprAtomString</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{  }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprAtomUInt8">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L246-L246">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L246-L246">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1426,12 +1879,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprAtom">ReprAtom</a> <a href="/lean4-socket/Init/Prelude.html#UInt8">UInt8</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprAtomUInt8">instReprAtomUInt8</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{  }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprAtomUInt16">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L247-L247">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L247-L247">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1440,12 +1900,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprAtom">ReprAtom</a> <a href="/lean4-socket/Init/Prelude.html#UInt16">UInt16</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprAtomUInt16">instReprAtomUInt16</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{  }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprAtomUInt32">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L248-L248">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L248-L248">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1454,12 +1921,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprAtom">ReprAtom</a> <a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprAtomUInt32">instReprAtomUInt32</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{  }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprAtomUInt64">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L249-L249">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L249-L249">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1468,12 +1942,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprAtom">ReprAtom</a> <a href="/lean4-socket/Init/Prelude.html#UInt64">UInt64</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprAtomUInt64">instReprAtomUInt64</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{  }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprAtomUSize">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L250-L250">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L250-L250">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1482,12 +1963,19 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#ReprAtom">ReprAtom</a> <a href="/lean4-socket/Init/Prelude.html#USize">USize</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprAtomUSize">instReprAtomUSize</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{  }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instReprSourceInfo">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Repr.lean#L252-L252">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Repr.lean#L252-L252">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1496,6 +1984,13 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#Repr">Repr</a> <a href="/lean4-socket/Init/Prelude.html#Lean.SourceInfo">Lean.SourceInfo</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Repr.html#instReprSourceInfo">instReprSourceInfo</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <a href="/lean4-socket/Init/Data/Repr.html#_private.Init.Data.Repr.0.reprSourceInfo._@.Init.Data.Repr._hyg.1750">[anonymous]</a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -1553,6 +2048,9 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -1818,6 +2316,9 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -1828,8 +2329,10 @@ reprTuple: <span class="fn"><span class="fn">α</span> → <span class="fn"><spa
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

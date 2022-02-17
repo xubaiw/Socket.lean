@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.System.IOError</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -148,7 +148,7 @@ Documentation</h1>
 <div class="decl" id="IO.Error">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L17-L54">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L17-L54">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -202,7 +202,7 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 <div class="decl" id="IO.instInhabitedError">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L54-L54">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L54-L54">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -211,12 +211,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Inhabited">Inhabited</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.instInhabitedError">IO.instInhabitedError</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ default := <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.alreadyExists</a> <span class="fn">default</span> <span class="fn">default</span> <span class="fn">default</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.userError">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L57-L58">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L57-L58">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -227,12 +234,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 <span class="fn">(s : <a href="/lean4-socket/Init/Prelude.html#String">String</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.userError">IO.userError</a> <span class="fn">s</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.userError">IO.Error.userError</a> <span class="fn">s</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instCoeStringError">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L60-L60">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L60-L60">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -241,12 +255,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Coe.html#Coe">Coe</a> <a href="/lean4-socket/Init/Prelude.html#String">String</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#instCoeStringError">instCoeStringError</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ coe := <a href="/lean4-socket/Init/System/IOError.html#IO.userError">IO.userError</a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkAlreadyExistsFile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L65-L66">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L65-L66">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -255,12 +276,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkAlreadyExistsFile">IO.Error.mkAlreadyExistsFile</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.alreadyExists</a> <a href="/lean4-socket/Init/Prelude.html#Function.comp">∘</a> <span class="fn">some</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkEofError">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L69-L70">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L69-L70">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -269,12 +297,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Unit">Unit</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkEofError">IO.Error.mkEofError</a> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error.unexpectedEof">IO.Error.unexpectedEof</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkInappropriateTypeFile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L73-L74">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L73-L74">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -283,12 +318,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkInappropriateTypeFile">IO.Error.mkInappropriateTypeFile</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.inappropriateType">IO.Error.inappropriateType</a> <a href="/lean4-socket/Init/Prelude.html#Function.comp">∘</a> <span class="fn">some</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkInterrupted">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L77-L78">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L77-L78">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -297,12 +339,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkInterrupted">IO.Error.mkInterrupted</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error.interrupted">IO.Error.interrupted</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkInvalidArgumentFile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L81-L82">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L81-L82">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -311,12 +360,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkInvalidArgumentFile">IO.Error.mkInvalidArgumentFile</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.invalidArgument">IO.Error.invalidArgument</a> <a href="/lean4-socket/Init/Prelude.html#Function.comp">∘</a> <span class="fn">some</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkNoFileOrDirectory">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L85-L86">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L85-L86">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -325,12 +381,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkNoFileOrDirectory">IO.Error.mkNoFileOrDirectory</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error.noFileOrDirectory">IO.Error.noFileOrDirectory</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkNoSuchThingFile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L89-L90">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L89-L90">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -339,12 +402,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkNoSuchThingFile">IO.Error.mkNoSuchThingFile</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.noSuchThing">IO.Error.noSuchThing</a> <a href="/lean4-socket/Init/Prelude.html#Function.comp">∘</a> <span class="fn">some</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkPermissionDeniedFile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L93-L94">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L93-L94">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -353,12 +423,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkPermissionDeniedFile">IO.Error.mkPermissionDeniedFile</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.permissionDenied">IO.Error.permissionDenied</a> <a href="/lean4-socket/Init/Prelude.html#Function.comp">∘</a> <span class="fn">some</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkResourceExhaustedFile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L97-L98">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L97-L98">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -367,12 +444,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkResourceExhaustedFile">IO.Error.mkResourceExhaustedFile</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.resourceExhausted">IO.Error.resourceExhausted</a> <a href="/lean4-socket/Init/Prelude.html#Function.comp">∘</a> <span class="fn">some</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkUnsupportedOperation">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L101-L102">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L101-L102">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -381,12 +465,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkUnsupportedOperation">IO.Error.mkUnsupportedOperation</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error.unsupportedOperation">IO.Error.unsupportedOperation</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkResourceExhausted">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L105-L106">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L105-L106">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -395,12 +486,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkResourceExhausted">IO.Error.mkResourceExhausted</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.resourceExhausted">IO.Error.resourceExhausted</a> <span class="fn">none</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkAlreadyExists">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L109-L110">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L109-L110">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -409,12 +507,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkAlreadyExists">IO.Error.mkAlreadyExists</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.alreadyExists</a> <span class="fn">none</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkInappropriateType">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L113-L114">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L113-L114">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -423,12 +528,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkInappropriateType">IO.Error.mkInappropriateType</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.inappropriateType">IO.Error.inappropriateType</a> <span class="fn">none</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkNoSuchThing">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L117-L118">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L117-L118">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -437,12 +549,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkNoSuchThing">IO.Error.mkNoSuchThing</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.noSuchThing">IO.Error.noSuchThing</a> <span class="fn">none</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkResourceVanished">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L121-L122">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L121-L122">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -451,12 +570,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkResourceVanished">IO.Error.mkResourceVanished</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error.resourceVanished">IO.Error.resourceVanished</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkResourceBusy">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L125-L126">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L125-L126">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -465,12 +591,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkResourceBusy">IO.Error.mkResourceBusy</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error.resourceBusy">IO.Error.resourceBusy</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkInvalidArgument">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L129-L130">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L129-L130">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -479,12 +612,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkInvalidArgument">IO.Error.mkInvalidArgument</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.invalidArgument">IO.Error.invalidArgument</a> <span class="fn">none</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkOtherError">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L133-L134">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L133-L134">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -493,12 +633,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkOtherError">IO.Error.mkOtherError</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherError">IO.Error.otherError</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkPermissionDenied">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L137-L138">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L137-L138">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -507,12 +654,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkPermissionDenied">IO.Error.mkPermissionDenied</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.permissionDenied">IO.Error.permissionDenied</a> <span class="fn">none</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkHardwareFault">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L141-L142">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L141-L142">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -521,12 +675,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkHardwareFault">IO.Error.mkHardwareFault</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error.hardwareFault">IO.Error.hardwareFault</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkUnsatisfiedConstraints">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L145-L146">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L145-L146">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -535,12 +696,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkUnsatisfiedConstraints">IO.Error.mkUnsatisfiedConstraints</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error.unsatisfiedConstraints">IO.Error.unsatisfiedConstraints</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkIllegalOperation">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L149-L150">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L149-L150">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -549,12 +717,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkIllegalOperation">IO.Error.mkIllegalOperation</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error.illegalOperation">IO.Error.illegalOperation</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkProtocolError">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L153-L154">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L153-L154">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -563,12 +738,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkProtocolError">IO.Error.mkProtocolError</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error.protocolError">IO.Error.protocolError</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.mkTimeExpired">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L157-L158">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L157-L158">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -577,12 +759,19 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a> → <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">String</a> → <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.mkTimeExpired">IO.Error.mkTimeExpired</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error.timeExpired">IO.Error.timeExpired</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.fopenErrorToString">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L162-L164">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L162-L164">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -597,12 +786,22 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 <span class="fn">(code : <a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option">Option</a> <a href="/lean4-socket/Init/Prelude.html#String">String</a></span> → <a href="/lean4-socket/Init/Prelude.html#String">String</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.fopenErrorToString">IO.Error.fopenErrorToString</a> <span class="fn">gist</span> <span class="fn">fn</span> <span class="fn">code</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+  | <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span> =>
+    <span class="fn"><span class="fn"><span class="fn"><span class="fn"><span class="fn"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/System/IOError.html#_private.Init.System.IOError.0.IO.Error.downCaseFirst">IO.Error.downCaseFirst</a> <span class="fn">gist</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">" (error code: "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">code</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">", "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#_private.Init.System.IOError.0.IO.Error.downCaseFirst">IO.Error.downCaseFirst</a> <span class="fn">details</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a>         <span class="fn">")\n  file: "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a>       <span class="fn">fn</span></span>
+  | <span class="fn">none</span> => <span class="fn"><span class="fn"><span class="fn"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/System/IOError.html#_private.Init.System.IOError.0.IO.Error.downCaseFirst">IO.Error.downCaseFirst</a> <span class="fn">gist</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">" (error code: "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">code</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">")\n  file: "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">fn</span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.otherErrorToString">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L166-L168">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L166-L168">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -615,12 +814,22 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 <span class="fn">(code : <a href="/lean4-socket/Init/Prelude.html#UInt32">UInt32</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option">Option</a> <a href="/lean4-socket/Init/Prelude.html#String">String</a></span> → <a href="/lean4-socket/Init/Prelude.html#String">String</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">gist</span> <span class="fn">code</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+  | <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span> =>
+    <span class="fn"><span class="fn"><span class="fn"><span class="fn"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/System/IOError.html#_private.Init.System.IOError.0.IO.Error.downCaseFirst">IO.Error.downCaseFirst</a> <span class="fn">gist</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">" (error code: "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">code</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">", "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#_private.Init.System.IOError.0.IO.Error.downCaseFirst">IO.Error.downCaseFirst</a> <span class="fn">details</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">")"</span></span>
+  | <span class="fn">none</span> => <span class="fn"><span class="fn"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/System/IOError.html#_private.Init.System.IOError.0.IO.Error.downCaseFirst">IO.Error.downCaseFirst</a> <span class="fn">gist</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">" (error code: "</span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString.toString">toString</a> <span class="fn">code</span></span></span> <a href="/lean4-socket/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">")"</span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.toString">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L171-L196">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L171-L196">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -629,12 +838,48 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a> → <a href="/lean4-socket/Init/Prelude.html#String">String</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.toString">IO.Error.toString</a> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+  | <span class="fn">IO.Error.unexpectedEof</span> => <span class="fn">"end of file"</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.inappropriateType</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">fn</span></span>) <span class="fn">code</span> <span class="fn">details</span></span> =>
+    <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.fopenErrorToString">IO.Error.fopenErrorToString</a> <span class="fn">"inappropriate type"</span> <span class="fn">fn</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.inappropriateType</a> <span class="fn">none</span> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"inappropriate type"</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.interrupted</a> <span class="fn">fn</span> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.fopenErrorToString">IO.Error.fopenErrorToString</a> <span class="fn">"interrupted system call"</span> <span class="fn">fn</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.invalidArgument</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">fn</span></span>) <span class="fn">code</span> <span class="fn">details</span></span> =>
+    <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.fopenErrorToString">IO.Error.fopenErrorToString</a> <span class="fn">"invalid argument"</span> <span class="fn">fn</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.invalidArgument</a> <span class="fn">none</span> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"invalid argument"</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.noFileOrDirectory</a> <span class="fn">fn</span> <span class="fn">code</span> <span class="fn">x</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.fopenErrorToString">IO.Error.fopenErrorToString</a> <span class="fn">"no such file or directory"</span> <span class="fn">fn</span> <span class="fn">code</span> <span class="fn">none</span></span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.noSuchThing</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">fn</span></span>) <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.fopenErrorToString">IO.Error.fopenErrorToString</a> <span class="fn">"no such thing"</span> <span class="fn">fn</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.noSuchThing</a> <span class="fn">none</span> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"no such thing"</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.permissionDenied</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">fn</span></span>) <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.fopenErrorToString">IO.Error.fopenErrorToString</a> <span class="fn">details</span> <span class="fn">fn</span> <span class="fn">code</span> <span class="fn">none</span></span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.permissionDenied</a> <span class="fn">none</span> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">details</span> <span class="fn">code</span> <span class="fn">none</span></span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.resourceExhausted</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">fn</span></span>) <span class="fn">code</span> <span class="fn">details</span></span> =>
+    <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.fopenErrorToString">IO.Error.fopenErrorToString</a> <span class="fn">"resource exhausted"</span> <span class="fn">fn</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.resourceExhausted</a> <span class="fn">none</span> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"resource exhausted"</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.alreadyExists</a> <span class="fn">none</span> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"already exists"</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.alreadyExists">IO.Error.alreadyExists</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">fn</span></span>) <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.fopenErrorToString">IO.Error.fopenErrorToString</a> <span class="fn">"already exists"</span> <span class="fn">fn</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.unsupportedOperation">IO.Error.otherError</a> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">details</span> <span class="fn">code</span> <span class="fn">none</span></span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.unsupportedOperation">IO.Error.resourceBusy</a> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"resource busy"</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.unsupportedOperation">IO.Error.resourceVanished</a> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"resource vanished"</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.unsupportedOperation">IO.Error.hardwareFault</a> <span class="fn">code</span> <span class="fn">x</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"hardware fault"</span> <span class="fn">code</span> <span class="fn">none</span></span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.unsupportedOperation">IO.Error.illegalOperation</a> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"illegal operation"</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.unsupportedOperation">IO.Error.protocolError</a> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"protocol error"</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.unsupportedOperation">IO.Error.timeExpired</a> <span class="fn">code</span> <span class="fn">details</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"time expired"</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.unsupportedOperation">IO.Error.unsatisfiedConstraints</a> <span class="fn">code</span> <span class="fn">x</span></span> => <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"directory not empty"</span> <span class="fn">code</span> <span class="fn">none</span></span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.unsupportedOperation">IO.Error.unsupportedOperation</a> <span class="fn">code</span> <span class="fn">details</span></span> =>
+    <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.otherErrorToString">IO.Error.otherErrorToString</a> <span class="fn">"unsupported operation"</span> <span class="fn">code</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Option.some">some</a> <span class="fn">details</span></span>)</span>
+  | <span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.userError">IO.Error.userError</a> <span class="fn">msg</span></span> => <span class="fn">msg</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="IO.Error.instToStringError">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/IOError.lean#L198-L198">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/IOError.lean#L198-L198">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -643,6 +888,13 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Data/ToString/Basic.html#ToString">ToString</a> <a href="/lean4-socket/Init/System/IOError.html#IO.Error">IO.Error</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/IOError.html#IO.Error.instToStringError">IO.Error.instToStringError</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ toString := <a href="/lean4-socket/Init/System/IOError.html#IO.Error.toString">IO.Error.toString</a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -700,6 +952,9 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -965,6 +1220,9 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -975,8 +1233,10 @@ userError: <span class="fn"><a href="/lean4-socket/Init/Prelude.html#String">Str
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

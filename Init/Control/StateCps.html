@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Control.StateCps</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -109,10 +109,10 @@ Documentation</h1>
 <div class="decl" id="StateCpsT">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L13-L13">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L13-L13">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Control/StateCps.html#StateCpsT">StateCpsT</a>
 </span>
@@ -124,13 +124,21 @@ Documentation</h1>
 <span class="fn">(α : <span class="fn">Type u</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">Type (max (u + 1) v)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT">StateCpsT</a> <span class="fn">σ</span> <span class="fn">m</span> <span class="fn">α</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> (<span class="fn">(δ : <span class="fn">Type u</span>) → <span class="fn"><span class="fn">σ</span> → <span class="fn">(<span class="fn"><span class="fn">α</span> → <span class="fn"><span class="fn">σ</span> → <span class="fn"><span class="fn">m</span> <span class="fn">δ</span></span></span></span>) → <span class="fn"><span class="fn">m</span> <span class="fn">δ</span></span></span></span></span>)</span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="StateCpsT.runK">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L17-L18">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L17-L18">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -160,13 +168,21 @@ Documentation</h1>
 <span class="fn">(k : <span class="fn"><span class="fn">α</span> → <span class="fn"><span class="fn">σ</span> → <span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT.runK">StateCpsT.runK</a> <span class="fn">x</span> <span class="fn">s</span> <span class="fn">k</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">x</span> <span class="fn">β</span> <span class="fn">s</span> <span class="fn">k</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="StateCpsT.run">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L20-L21">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L20-L21">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -194,13 +210,21 @@ Documentation</h1>
 <span class="fn">(s : <span class="fn">σ</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> (<span class="fn"><span class="fn">α</span> <a href="/lean4-socket/Init/Prelude.html#Prod">×</a> <span class="fn">σ</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT.run">StateCpsT.run</a> <span class="fn">x</span> <span class="fn">s</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT.runK">StateCpsT.runK</a> <span class="fn">x</span> <span class="fn">s</span> <span class="fn">fun <span class="fn">a</span> <span class="fn">s</span> => <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">(<span class="fn">a</span>, <span class="fn">s</span>)</span></span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="StateCpsT.run'">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L23-L24">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L23-L24">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -228,12 +252,19 @@ Documentation</h1>
 <span class="fn">(s : <span class="fn">σ</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT.run'">StateCpsT.run'</a> <span class="fn">x</span> <span class="fn">s</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT.runK">StateCpsT.runK</a> <span class="fn">x</span> <span class="fn">s</span> <span class="fn">fun <span class="fn">a</span> <span class="fn">s</span> => <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">a</span></span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="StateCpsT.instMonadStateCpsT">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L26-L29">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L26-L29">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -250,15 +281,22 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Monad">Monad</a> (<span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT">StateCpsT</a> <span class="fn">σ</span> <span class="fn">m</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">StateCpsT.instMonadStateCpsT</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">Monad.mk</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="StateCpsT.instLawfulMonadStateCpsTInstMonadStateCpsT">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L31-L32">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L31-L32">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">instance</span>
+<span class="decl_kind">noncomputable instance</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Control/StateCps.html#StateCpsT.instLawfulMonadStateCpsTInstMonadStateCpsT">StateCpsT.instLawfulMonadStateCpsTInstMonadStateCpsT</a>
 </span>
@@ -272,12 +310,19 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Control/Lawful.html#LawfulMonad">LawfulMonad</a> (<span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT">StateCpsT</a> <span class="fn">σ</span> <span class="fn">m</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT.instLawfulMonadStateCpsTInstMonadStateCpsT">@<a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT.instLawfulMonadStateCpsTInstMonadStateCpsT">StateCpsT.instLawfulMonadStateCpsTInstMonadStateCpsT</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT.instLawfulMonadStateCpsTInstMonadStateCpsT.proof_1">@<a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT.instLawfulMonadStateCpsTInstMonadStateCpsT.proof_1">StateCpsT.instLawfulMonadStateCpsTInstMonadStateCpsT.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="StateCpsT.instMonadStateOfStateCpsT">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L34-L37">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L34-L37">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -294,13 +339,25 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#MonadStateOf">MonadStateOf</a> <span class="fn">σ</span> (<span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT">StateCpsT</a> <span class="fn">σ</span> <span class="fn">m</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">StateCpsT.instMonadStateOfStateCpsT</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ get := <span class="fn">fun <span class="fn">δ</span> <span class="fn">s</span> <span class="fn">k</span> => <span class="fn"><span class="fn">k</span> <span class="fn">s</span> <span class="fn">s</span></span></span>, set := <span class="fn">fun <span class="fn">s</span> <span class="fn">δ</span> <span class="fn">x</span> <span class="fn">k</span> => <span class="fn"><span class="fn">k</span> <a href="/lean4-socket/Init/Prelude.html#PUnit.unit">PUnit.unit</a> <span class="fn">s</span></span></span>,
+    modifyGet := <span class="fn">fun {α} <span class="fn">f</span> <span class="fn">x</span> <span class="fn">s</span> <span class="fn">k</span> =>
+      <span class="fn">let x_1 := <span class="fn"><span class="fn">f</span> <span class="fn">s</span></span>;
+      <span class="fn">match <span class="fn">x_1</span> with
+      | <span class="fn">(<span class="fn">a</span>, <span class="fn">s</span>)</span> => <span class="fn"><span class="fn">k</span> <span class="fn">a</span> <span class="fn">s</span></span></span></span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="StateCpsT.lift">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L39-L40">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L39-L40">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -326,12 +383,21 @@ Documentation</h1>
 <span class="fn">(x : <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT">StateCpsT</a> <span class="fn">σ</span> <span class="fn">m</span> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT.lift">StateCpsT.lift</a> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">s</span> <span class="fn">k</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">do
+  let a ← <span class="fn">x</span>
+  <span class="fn"><span class="fn">k</span> <span class="fn">a</span> <span class="fn">s</span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="StateCpsT.instMonadLiftStateCpsT">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L42-L43">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L42-L43">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -352,13 +418,21 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#MonadLift">MonadLift</a> <span class="fn">m</span> (<span class="fn"><a href="/lean4-socket/Init/Control/StateCps.html#StateCpsT">StateCpsT</a> <span class="fn">σ</span> <span class="fn">m</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">StateCpsT.instMonadLiftStateCpsT</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ monadLift := <span class="fn">fun {α} => <span class="fn">StateCpsT.lift</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="StateCpsT.runK_pure">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L45-L45">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L45-L45">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -393,8 +467,9 @@ Documentation</h1>
 <div class="decl" id="StateCpsT.runK_get">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L47-L47">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L47-L47">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -423,8 +498,9 @@ Documentation</h1>
 <div class="decl" id="StateCpsT.runK_set">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L49-L49">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L49-L49">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -455,8 +531,9 @@ Documentation</h1>
 <div class="decl" id="StateCpsT.runK_modify">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L51-L51">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L51-L51">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -487,8 +564,9 @@ Documentation</h1>
 <div class="decl" id="StateCpsT.runK_lift">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L53-L53">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L53-L53">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -529,8 +607,9 @@ Documentation</h1>
 <div class="decl" id="StateCpsT.runK_monadLift">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L55-L56">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L55-L56">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -579,8 +658,9 @@ Documentation</h1>
 <div class="decl" id="StateCpsT.runK_bind_pure">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L58-L58">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L58-L58">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -625,8 +705,9 @@ Documentation</h1>
 <div class="decl" id="StateCpsT.runK_bind_lift">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L60-L61">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L60-L61">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -673,8 +754,9 @@ Documentation</h1>
 <div class="decl" id="StateCpsT.runK_bind_get">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L63-L63">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L63-L63">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -713,8 +795,9 @@ Documentation</h1>
 <div class="decl" id="StateCpsT.runK_bind_set">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L65-L65">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L65-L65">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -755,8 +838,9 @@ Documentation</h1>
 <div class="decl" id="StateCpsT.runK_bind_modify">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L67-L67">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L67-L67">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -797,8 +881,9 @@ Documentation</h1>
 <div class="decl" id="StateCpsT.run_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L69-L69">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L69-L69">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -831,8 +916,9 @@ Documentation</h1>
 <div class="decl" id="StateCpsT.run'_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Control/StateCps.lean#L71-L71">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Control/StateCps.lean#L71-L71">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -917,6 +1003,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -1182,6 +1271,9 @@ Documentation</h1>
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -1192,8 +1284,10 @@ Documentation</h1>
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

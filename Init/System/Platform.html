@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.System.Platform</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/Platform.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/Platform.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -67,8 +67,9 @@ Documentation</h1>
 <div class="decl" id="System.Platform.getIsWindows">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/Platform.lean#L12-L12">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/Platform.lean#L12-L12">source</a>
 </div>
+<div class="attributes">@[extern  lean_system_platform_windows]</div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
 <span class="decl_name">
@@ -81,8 +82,9 @@ Documentation</h1>
 <div class="decl" id="System.Platform.getIsOSX">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/Platform.lean#L13-L13">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/Platform.lean#L13-L13">source</a>
 </div>
+<div class="attributes">@[extern  lean_system_platform_osx]</div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
 <span class="decl_name">
@@ -95,8 +97,9 @@ Documentation</h1>
 <div class="decl" id="System.Platform.getIsEmscripten">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/Platform.lean#L14-L14">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/Platform.lean#L14-L14">source</a>
 </div>
+<div class="attributes">@[extern  lean_system_platform_emscripten]</div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
 <span class="decl_name">
@@ -109,7 +112,7 @@ Documentation</h1>
 <div class="decl" id="System.Platform.isWindows">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/Platform.lean#L16-L16">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/Platform.lean#L16-L16">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -118,12 +121,19 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/Platform.html#System.Platform.isWindows">System.Platform.isWindows</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/Platform.html#System.Platform.getIsWindows">System.Platform.getIsWindows</a> <a href="/lean4-socket/Init/Prelude.html#Unit.unit">()</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="System.Platform.isOSX">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/Platform.lean#L17-L17">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/Platform.lean#L17-L17">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -132,12 +142,19 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/Platform.html#System.Platform.isOSX">System.Platform.isOSX</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/Platform.html#System.Platform.getIsOSX">System.Platform.getIsOSX</a> <a href="/lean4-socket/Init/Prelude.html#Unit.unit">()</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="System.Platform.isEmscripten">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/System/Platform.lean#L18-L18">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/System/Platform.lean#L18-L18">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -146,6 +163,13 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/System/Platform.html#System.Platform.isEmscripten">System.Platform.isEmscripten</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/System/Platform.html#System.Platform.getIsEmscripten">System.Platform.getIsEmscripten</a> <a href="/lean4-socket/Init/Prelude.html#Unit.unit">()</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -203,6 +227,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -468,6 +495,9 @@ Documentation</h1>
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -478,8 +508,10 @@ Documentation</h1>
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

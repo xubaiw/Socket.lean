@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Data.Array.InsertionSort</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/InsertionSort.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/InsertionSort.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -52,8 +52,9 @@ Documentation</h1>
 <div class="decl" id="Array.insertionSort">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/InsertionSort.lean#L9-L28">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/InsertionSort.lean#L9-L28">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -69,13 +70,21 @@ Documentation</h1>
 <span class="fn">(lt : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/InsertionSort.html#Array.insertionSort">Array.insertionSort</a> <span class="fn">a</span> <span class="fn">lt</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Array/InsertionSort.html#Array.insertionSort.traverse">Array.insertionSort.traverse</a> <span class="fn">lt</span> <span class="fn">a</span> <span class="fn">0</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Array.insertionSort.traverse">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/InsertionSort.lean#L12-L19">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/InsertionSort.lean#L12-L19">source</a>
 </div>
+<div class="attributes">@[specialize]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -95,13 +104,24 @@ Documentation</h1>
 <span class="fn">(fuel : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/InsertionSort.html#Array.insertionSort.traverse">Array.insertionSort.traverse</a> <span class="fn">lt</span> <span class="fn">a</span> <span class="fn">i</span> <span class="fn">0</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">a</span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/InsertionSort.html#Array.insertionSort.traverse">Array.insertionSort.traverse</a> <span class="fn">lt</span> <span class="fn">a</span> <span class="fn">i</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">fuel_2</span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">if h : <span class="fn"><span class="fn">i</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a</span></span></span> then <span class="fn"><a href="/lean4-socket/Init/Data/Array/InsertionSort.html#Array.insertionSort.traverse">Array.insertionSort.traverse</a> <span class="fn">lt</span> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/InsertionSort.html#Array.insertionSort.swapLoop">Array.insertionSort.swapLoop</a> <span class="fn">lt</span> <span class="fn">a</span> <span class="fn">i</span> <span class="fn">h</span></span>) (<span class="fn"><span class="fn">i</span> <a href="/lean4-socket/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>) <span class="fn">fuel_2</span></span>
+  else <span class="fn">a</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Array.insertionSort.swapLoop">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Array/InsertionSort.lean#L20-L28">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Array/InsertionSort.lean#L20-L28">source</a>
 </div>
+<div class="attributes">@[specialize]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -121,6 +141,20 @@ Documentation</h1>
 <span class="fn">(h : <span class="fn"><span class="fn">j</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/InsertionSort.html#Array.insertionSort.swapLoop">Array.insertionSort.swapLoop</a> <span class="fn">lt</span> <span class="fn">a</span> <span class="fn">0</span> <span class="fn">h</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">a</span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Array/InsertionSort.html#Array.insertionSort.swapLoop">Array.insertionSort.swapLoop</a> <span class="fn">lt</span> <span class="fn">a</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">j'</span></span>) <span class="fn">h</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">(<span class="fn">fun <span class="fn">h'</span> =>
+      <span class="fn">if <span class="fn"><span class="fn"><span class="fn">lt</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.get">Array.get</a> <span class="fn">a</span> <span class="fn">{ val := <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">j'</span></span>, isLt := <span class="fn">h</span> }</span></span>) (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.get">Array.get</a> <span class="fn">a</span> <span class="fn">{ val := <span class="fn">j'</span>, isLt := <span class="fn">h'</span> }</span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/Prelude.html#Bool.true">true</a></span> then
+        <span class="fn"><a href="/lean4-socket/Init/Data/Array/InsertionSort.html#Array.insertionSort.swapLoop">Array.insertionSort.swapLoop</a> <span class="fn">lt</span> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Basic.html#Array.swap">Array.swap</a> <span class="fn">a</span> <span class="fn">{ val := <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">j'</span></span>, isLt := <span class="fn">h</span> }</span> <span class="fn">{ val := <span class="fn">j'</span>, isLt := <span class="fn">h'</span> }</span></span>) <span class="fn">j'</span>
+          (_ : <span class="fn"><span class="fn">j'</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> (<span class="fn"><a href="/lean4-socket/Init/Data/Array/Basic.html#Array.swap">Array.swap</a> <span class="fn">a</span> <span class="fn">{ val := <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">j'</span></span>, isLt := <span class="fn">h</span> }</span> <span class="fn">{ val := <span class="fn">j'</span>, isLt := <span class="fn">h'</span> }</span></span>)</span></span>)</span>
+      else <span class="fn">a</span></span></span>)
+    (_ : <span class="fn"><span class="fn">j'</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a</span></span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -178,6 +212,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link" visible="">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -443,6 +480,9 @@ Documentation</h1>
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -453,8 +493,10 @@ Documentation</h1>
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Classical</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -37,6 +37,9 @@ Documentation</h1>
 <ul>
 <li>
 <a href="/lean4-socket/Init/System/ST.html">Init.System.ST</a>
+</li>
+<li>
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </li>
 </ul>
 </details>
@@ -105,17 +108,17 @@ Documentation</h1>
 <a class="break_within" href="#Classical.byContradiction">Classical.byContradiction</a>
 </div>
 <div class="nav_link">
-<a class="break_within" href="#Classical.«tacticByCases__:_»">Classical.«tacticByCases__:_»</a>
+<a class="break_within" href="#Classical.«tacticBy_cases__:_»">Classical.«tacticBy_cases__:_»</a>
 </div>
 </nav>
 <main>
 <div class="decl" id="Classical.indefiniteDescription">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L16-L17">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L16-L17">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Classical.html#Classical.indefiniteDescription">Classical.indefiniteDescription</a>
 </span>
@@ -129,15 +132,22 @@ Documentation</h1>
 <span class="fn">(h : <span class="fn">∃ x, <span class="fn"><span class="fn">p</span> <span class="fn">x</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">{ x // <span class="fn"><span class="fn">p</span> <span class="fn">x</span></span> }</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.indefiniteDescription">Classical.indefiniteDescription</a> <span class="fn">p</span> <span class="fn">h</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Classical.choice">Classical.choice</a> (_ : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nonempty">Nonempty</a> <span class="fn">{ x // <span class="fn"><span class="fn">p</span> <span class="fn">x</span></span> }</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Classical.choose">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L19-L20">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L19-L20">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Classical.html#Classical.choose">Classical.choose</a>
 </span>
@@ -153,12 +163,19 @@ Documentation</h1>
 <span class="fn">(h : <span class="fn">∃ x, <span class="fn"><span class="fn">p</span> <span class="fn">x</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">α</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.choose">Classical.choose</a> <span class="fn">h</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">(<span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.indefiniteDescription">Classical.indefiniteDescription</a> <span class="fn">p</span> <span class="fn">h</span></span>).val</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Classical.choose_spec">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L22-L23">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L22-L23">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -182,7 +199,7 @@ Documentation</h1>
 <div class="decl" id="Classical.em">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L26-L57">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L26-L57">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -198,7 +215,7 @@ Documentation</h1>
 <div class="decl" id="Classical.exists_true_of_nonempty">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L59-L60">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L59-L60">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -216,10 +233,10 @@ Documentation</h1>
 <div class="decl" id="Classical.inhabited_of_nonempty">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L62-L63">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L62-L63">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Classical.html#Classical.inhabited_of_nonempty">Classical.inhabited_of_nonempty</a>
 </span>
@@ -231,15 +248,22 @@ Documentation</h1>
 <span class="fn">(h : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nonempty">Nonempty</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Inhabited">Inhabited</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.inhabited_of_nonempty">Classical.inhabited_of_nonempty</a> <span class="fn">h</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ default := <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Classical.choice">Classical.choice</a> <span class="fn">h</span></span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Classical.inhabited_of_exists">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L65-L66">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L65-L66">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Classical.html#Classical.inhabited_of_exists">Classical.inhabited_of_exists</a>
 </span>
@@ -255,15 +279,22 @@ Documentation</h1>
 <span class="fn">(h : <span class="fn">∃ x, <span class="fn"><span class="fn">p</span> <span class="fn">x</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Inhabited">Inhabited</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.inhabited_of_exists">Classical.inhabited_of_exists</a> <span class="fn">h</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.inhabited_of_nonempty">Classical.inhabited_of_nonempty</a> (_ : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nonempty">Nonempty</a> <span class="fn">α</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Classical.propDecidable">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L69-L72">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L69-L72">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Classical.html#Classical.propDecidable">Classical.propDecidable</a>
 </span>
@@ -271,15 +302,22 @@ Documentation</h1>
 <span class="fn">(a : <span class="fn">Prop</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Decidable">Decidable</a> <span class="fn">a</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.propDecidable">Classical.propDecidable</a> <span class="fn">a</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Classical.choice">Classical.choice</a> (_ : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nonempty">Nonempty</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Decidable">Decidable</a> <span class="fn">a</span></span>)</span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Classical.decidableInhabited">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L74-L75">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L74-L75">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Classical.html#Classical.decidableInhabited">Classical.decidableInhabited</a>
 </span>
@@ -287,15 +325,22 @@ Documentation</h1>
 <span class="fn">(a : <span class="fn">Prop</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Inhabited">Inhabited</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Decidable">Decidable</a> <span class="fn">a</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.decidableInhabited">Classical.decidableInhabited</a> <span class="fn">a</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ default := <span class="fn">inferInstance</span> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Classical.typeDecidableEq">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L77-L78">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L77-L78">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Classical.html#Classical.typeDecidableEq">Classical.typeDecidableEq</a>
 </span>
@@ -303,15 +348,22 @@ Documentation</h1>
 <span class="fn">(α : <span class="fn">Sort u</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#DecidableEq">DecidableEq</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.typeDecidableEq">Classical.typeDecidableEq</a> <span class="fn">α</span> <span class="fn">x</span> <span class="fn">y</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">inferInstance</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Classical.typeDecidable">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L80-L83">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L80-L83">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Classical.html#Classical.typeDecidable">Classical.typeDecidable</a>
 </span>
@@ -319,15 +371,24 @@ Documentation</h1>
 <span class="fn">(α : <span class="fn">Sort u</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α</span> <a href="/lean4-socket/Init/Core.html#PSum">⊕'</a> (<span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/Init/Prelude.html#False">False</a></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.typeDecidable">Classical.typeDecidable</a> <span class="fn">α</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.propDecidable">Classical.propDecidable</a> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nonempty">Nonempty</a> <span class="fn">α</span></span>)</span> with
+  | <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Decidable.isFalse">isTrue</a> <span class="fn">hp</span></span> => <span class="fn"><a href="/lean4-socket/Init/Core.html#PSum.inl">PSum.inl</a> <span class="fn">default</span></span>
+  | <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Decidable.isFalse">isFalse</a> <span class="fn">hn</span></span> => <span class="fn"><a href="/lean4-socket/Init/Core.html#PSum.inr">PSum.inr</a> (_ : <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/Init/Prelude.html#False">False</a></span>)</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Classical.strongIndefiniteDescription">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L85-L91">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L85-L91">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Classical.html#Classical.strongIndefiniteDescription">Classical.strongIndefiniteDescription</a>
 </span>
@@ -341,15 +402,27 @@ Documentation</h1>
 <span class="fn">(h : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nonempty">Nonempty</a> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">{ x // <span class="fn">(<span class="fn">∃ y, <span class="fn"><span class="fn">p</span> <span class="fn">y</span></span></span>) → <span class="fn"><span class="fn">p</span> <span class="fn">x</span></span></span> }</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.strongIndefiniteDescription">Classical.strongIndefiniteDescription</a> <span class="fn">p</span> <span class="fn">h</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">if hp : <span class="fn">∃ x, <span class="fn"><span class="fn">p</span> <span class="fn">x</span></span></span> then
+    <span class="fn">let_fun this :=
+      <span class="fn">let xp := <span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.indefiniteDescription">Classical.indefiniteDescription</a> (<span class="fn">fun <span class="fn">x</span> => <span class="fn"><span class="fn">p</span> <span class="fn">x</span></span></span>) <span class="fn">hp</span></span>;
+      <span class="fn">{ val := <span class="fn"><span class="fn">xp</span>.val</span>, property := <span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.strongIndefiniteDescription.proof_1">Classical.strongIndefiniteDescription.proof_1</a> <span class="fn">p</span> <span class="fn">hp</span></span> }</span></span>;
+    <span class="fn">this</span></span>
+  else <span class="fn">{ val := <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Classical.choice">Classical.choice</a> <span class="fn">h</span></span>, property := <span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.strongIndefiniteDescription.proof_2">Classical.strongIndefiniteDescription.proof_2</a> <span class="fn">p</span> <span class="fn">h</span> <span class="fn">hp</span></span> }</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Classical.epsilon">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L95-L96">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L95-L96">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Classical.html#Classical.epsilon">Classical.epsilon</a>
 </span>
@@ -365,12 +438,19 @@ Documentation</h1>
 <span class="fn">(p : <span class="fn"><span class="fn">α</span> → <span class="fn">Prop</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">α</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.epsilon">Classical.epsilon</a> <span class="fn">p</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">(<span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.strongIndefiniteDescription">Classical.strongIndefiniteDescription</a> <span class="fn">p</span> <span class="fn">h</span></span>).val</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Classical.epsilon_spec_aux">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L98-L99">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L98-L99">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -392,7 +472,7 @@ Documentation</h1>
 <div class="decl" id="Classical.epsilon_spec">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L101-L102">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L101-L102">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -416,7 +496,7 @@ Documentation</h1>
 <div class="decl" id="Classical.epsilon_singleton">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L104-L105">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L104-L105">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -436,7 +516,7 @@ Documentation</h1>
 <div class="decl" id="Classical.axiomOfChoice">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L109-L110">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L109-L110">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -464,7 +544,7 @@ Documentation</h1>
 <div class="decl" id="Classical.skolem">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L112-L113">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L112-L113">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -490,7 +570,7 @@ Documentation</h1>
 <div class="decl" id="Classical.propComplete">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L115-L118">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L115-L118">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -506,7 +586,7 @@ Documentation</h1>
 <div class="decl" id="Classical.byCases">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L121-L122">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L121-L122">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -532,7 +612,7 @@ Documentation</h1>
 <div class="decl" id="Classical.byContradiction">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L125-L126">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L125-L126">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -549,18 +629,31 @@ Documentation</h1>
 <div class="decl_type"><span class="fn">p</span></div></div>
 </div>
 </div>
-<div class="decl" id="Classical.«tacticByCases__:_»">
+<div class="decl" id="Classical.«tacticBy_cases__:_»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Classical.lean#L128-L128">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Classical.lean#L128-L128">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
-<a class="break_within" href="/lean4-socket/Init/Classical.html#Classical.«tacticByCases__:_»">Classical.«tacticByCases__:_»</a>
+<a class="break_within" href="/lean4-socket/Init/Classical.html#Classical.«tacticBy_cases__:_»">Classical.«tacticBy_cases__:_»</a>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Classical.html#Classical.«tacticBy_cases__:_»">Classical.«tacticBy_cases__:_»</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Classical.«tacticBy_cases__:_»</span> <span class="fn">1022</span>
+    (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"by_cases"</span> <a href="/lean4-socket/Init/Prelude.html#Bool.false">false</a></span>)
+          (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`ident</span></span>)</span>)
+        (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">":"</span></span>)</span>)
+      (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -618,6 +711,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -883,6 +979,9 @@ Documentation</h1>
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -893,8 +992,10 @@ Documentation</h1>
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

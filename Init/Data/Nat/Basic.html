@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Data.Nat.Basic</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -294,6 +294,9 @@ Documentation</h1>
 <a class="break_within" href="#Nat.gt_of_not_le">Nat.gt_of_not_le</a>
 </div>
 <div class="nav_link">
+<a class="break_within" href="#Nat.ge_of_not_lt">Nat.ge_of_not_lt</a>
+</div>
+<div class="nav_link">
 <a class="break_within" href="#Nat.add_le_add_left">Nat.add_le_add_left</a>
 </div>
 <div class="nav_link">
@@ -400,8 +403,9 @@ Documentation</h1>
 <div class="decl" id="Nat.foldAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L12-L14">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L12-L14">source</a>
 </div>
+<div class="attributes">@[specialize]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -417,13 +421,23 @@ Documentation</h1>
 <span class="fn">(s : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn">α</span> → <span class="fn">α</span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.foldAux">Nat.foldAux</a> <span class="fn">f</span> <span class="fn">s</span> <span class="fn">0</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">x</span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.foldAux">Nat.foldAux</a> <span class="fn">f</span> <span class="fn">s</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>) <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.foldAux">Nat.foldAux</a> <span class="fn">f</span> <span class="fn">s</span> <span class="fn">n</span> (<span class="fn"><span class="fn">f</span> (<span class="fn"><span class="fn">s</span> <a href="/lean4-socket/Init/Prelude.html#HSub.hSub">-</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span></span>) <span class="fn">x</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.fold">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L16-L17">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L16-L17">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -441,13 +455,21 @@ Documentation</h1>
 <span class="fn">(init : <span class="fn">α</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">α</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.fold">Nat.fold</a> <span class="fn">f</span> <span class="fn">n</span> <span class="fn">init</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.foldAux">Nat.foldAux</a> <span class="fn">f</span> <span class="fn">n</span> <span class="fn">n</span> <span class="fn">init</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.foldRev">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L19-L23">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L19-L23">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -465,13 +487,21 @@ Documentation</h1>
 <span class="fn">(init : <span class="fn">α</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">α</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.foldRev">Nat.foldRev</a> <span class="fn">f</span> <span class="fn">n</span> <span class="fn">init</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.foldRev.loop">Nat.foldRev.loop</a> <span class="fn">f</span> <span class="fn">n</span> <span class="fn">init</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.foldRev.loop">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L20-L22">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L20-L22">source</a>
 </div>
+<div class="attributes">@[specialize]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -485,13 +515,23 @@ Documentation</h1>
 <span class="fn">(f : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn">α</span> → <span class="fn">α</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn">α</span> → <span class="fn">α</span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.foldRev.loop">Nat.foldRev.loop</a> <span class="fn">f</span> <span class="fn">0</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">x</span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.foldRev.loop">Nat.foldRev.loop</a> <span class="fn">f</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>) <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.foldRev.loop">Nat.foldRev.loop</a> <span class="fn">f</span> <span class="fn">n</span> (<span class="fn"><span class="fn">f</span> <span class="fn">n</span> <span class="fn">x</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.anyAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L25-L27">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L25-L27">source</a>
 </div>
+<div class="attributes">@[specialize]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -503,13 +543,23 @@ Documentation</h1>
 <span class="fn">(s : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.anyAux">Nat.anyAux</a> <span class="fn">f</span> <span class="fn">s</span> <span class="fn">0</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/Prelude.html#Bool.false">false</a></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.anyAux">Nat.anyAux</a> <span class="fn">f</span> <span class="fn">s</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> (<span class="fn"><span class="fn"><span class="fn">f</span> (<span class="fn"><span class="fn">s</span> <a href="/lean4-socket/Init/Prelude.html#HSub.hSub">-</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span></span>)</span> <a href="/lean4-socket/Init/Prelude.html#or">||</a> <span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.anyAux">Nat.anyAux</a> <span class="fn">f</span> <span class="fn">s</span> <span class="fn">n</span></span></span>)</span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.any">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L30-L31">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L30-L31">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -521,13 +571,21 @@ Documentation</h1>
 <span class="fn">(n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.any">Nat.any</a> <span class="fn">f</span> <span class="fn">n</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.anyAux">Nat.anyAux</a> <span class="fn">f</span> <span class="fn">n</span> <span class="fn">n</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.all">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L33-L34">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L33-L34">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -539,13 +597,21 @@ Documentation</h1>
 <span class="fn">(n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.all">Nat.all</a> <span class="fn">f</span> <span class="fn">n</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#not">!</a><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.any">Nat.any</a> (<span class="fn">fun <span class="fn">i</span> => <span class="fn"><a href="/lean4-socket/Init/Prelude.html#not">!</a><span class="fn"><span class="fn">f</span> <span class="fn">i</span></span></span></span>) <span class="fn">n</span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.repeat">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L36-L40">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L36-L40">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -563,13 +629,21 @@ Documentation</h1>
 <span class="fn">(a : <span class="fn">α</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">α</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.repeat">Nat.repeat</a> <span class="fn">f</span> <span class="fn">n</span> <span class="fn">a</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.repeat.loop">Nat.repeat.loop</a> <span class="fn">f</span> <span class="fn">n</span> <span class="fn">a</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.repeat.loop">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L37-L39">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L37-L39">source</a>
 </div>
+<div class="attributes">@[specialize]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -583,13 +657,23 @@ Documentation</h1>
 <span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn">α</span> → <span class="fn">α</span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.repeat.loop">Nat.repeat.loop</a> <span class="fn">f</span> <span class="fn">0</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">x</span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.repeat.loop">Nat.repeat.loop</a> <span class="fn">f</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>) <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.repeat.loop">Nat.repeat.loop</a> <span class="fn">f</span> <span class="fn">n</span> (<span class="fn"><span class="fn">f</span> <span class="fn">x</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.zero_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L44-L44">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L44-L44">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -602,8 +686,9 @@ Documentation</h1>
 <div class="decl" id="Nat.add_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L45-L45">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L45-L45">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -624,8 +709,9 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L46-L46">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L46-L46">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -646,8 +732,9 @@ Documentation</h1>
 <div class="decl" id="Nat.lt_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L47-L47">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L47-L47">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -668,8 +755,9 @@ Documentation</h1>
 <div class="decl" id="Nat.le_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L48-L48">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L48-L48">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -690,8 +778,9 @@ Documentation</h1>
 <div class="decl" id="Nat.zero_add">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L52-L54">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L52-L54">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -706,7 +795,7 @@ Documentation</h1>
 <div class="decl" id="Nat.succ_add">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L56-L58">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L56-L58">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -724,7 +813,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_succ">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L60-L61">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L60-L61">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -742,7 +831,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_one">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L63-L64">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L63-L64">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -758,7 +847,7 @@ Documentation</h1>
 <div class="decl" id="Nat.succ_eq_add_one">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L66-L67">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L66-L67">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -774,7 +863,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_comm">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L69-L74">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L69-L74">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -792,7 +881,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_assoc">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L76-L78">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L76-L78">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -812,7 +901,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_left_comm">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L80-L81">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L80-L81">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -832,7 +921,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_right_comm">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L83-L84">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L83-L84">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -852,7 +941,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_left_cancel">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L86-L89">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L86-L89">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -878,7 +967,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_right_cancel">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L91-L93">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L91-L93">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -906,8 +995,9 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_zero">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L97-L98">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L97-L98">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -922,7 +1012,7 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_succ">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L100-L101">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L100-L101">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -940,8 +1030,9 @@ Documentation</h1>
 <div class="decl" id="Nat.zero_mul">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L103-L105">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L103-L105">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -956,7 +1047,7 @@ Documentation</h1>
 <div class="decl" id="Nat.succ_mul">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L107-L110">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L107-L110">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -974,7 +1065,7 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_comm">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L112-L114">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L112-L114">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -992,8 +1083,9 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_one">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L116-L117">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L116-L117">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -1008,8 +1100,9 @@ Documentation</h1>
 <div class="decl" id="Nat.one_mul">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L119-L120">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L119-L120">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -1024,7 +1117,7 @@ Documentation</h1>
 <div class="decl" id="Nat.left_distrib">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L122-L125">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L122-L125">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1044,7 +1137,7 @@ Documentation</h1>
 <div class="decl" id="Nat.right_distrib">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L127-L132">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L127-L132">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1064,7 +1157,7 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_add">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L134-L135">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L134-L135">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1084,7 +1177,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_mul">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L137-L138">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L137-L138">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1104,7 +1197,7 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_assoc">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L140-L149">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L140-L149">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1124,7 +1217,7 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_left_comm">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L151-L152">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L151-L152">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1144,7 +1237,7 @@ Documentation</h1>
 <div class="decl" id="Nat.succ_lt_succ">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L156-L157">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L156-L157">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1166,7 +1259,7 @@ Documentation</h1>
 <div class="decl" id="Nat.lt_succ_of_le">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L159-L160">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L159-L160">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1188,8 +1281,9 @@ Documentation</h1>
 <div class="decl" id="Nat.sub_zero">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L162-L163">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L162-L163">source</a>
 </div>
+<div class="attributes">@[simp]</div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
 <span class="decl_name">
@@ -1204,7 +1298,7 @@ Documentation</h1>
 <div class="decl" id="Nat.succ_sub_succ_eq_sub">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L165-L168">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L165-L168">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1222,7 +1316,7 @@ Documentation</h1>
 <div class="decl" id="Nat.pred_le">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L170-L172">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L170-L172">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1238,7 +1332,7 @@ Documentation</h1>
 <div class="decl" id="Nat.pred_lt">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L174-L176">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L174-L176">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1256,7 +1350,7 @@ Documentation</h1>
 <div class="decl" id="Nat.sub_le">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L178-L181">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L178-L181">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1274,7 +1368,7 @@ Documentation</h1>
 <div class="decl" id="Nat.sub_lt">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L183-L189">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L183-L189">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1296,7 +1390,7 @@ Documentation</h1>
 <div class="decl" id="Nat.sub_succ">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L191-L192">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L191-L192">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1314,7 +1408,7 @@ Documentation</h1>
 <div class="decl" id="Nat.succ_sub_succ">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L194-L195">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L194-L195">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1332,7 +1426,7 @@ Documentation</h1>
 <div class="decl" id="Nat.sub_self">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L197-L199">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L197-L199">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1348,7 +1442,7 @@ Documentation</h1>
 <div class="decl" id="Nat.lt_of_lt_of_le">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L201-L202">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L201-L202">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1374,7 +1468,7 @@ Documentation</h1>
 <div class="decl" id="Nat.lt_of_lt_of_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L204-L205">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L204-L205">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1400,7 +1494,7 @@ Documentation</h1>
 <div class="decl" id="Nat.instTransNatLtInstLTNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L207-L208">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L207-L208">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1409,12 +1503,19 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Trans">Trans</a> (<span class="fn">fun <span class="fn">a</span> <span class="fn">a_1</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn">a_1</span></span></span>) (<span class="fn">fun <span class="fn">a</span> <span class="fn">a_1</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn">a_1</span></span></span>) <span class="fn">fun <span class="fn">a</span> <span class="fn">a_1</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn">a_1</span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.instTransNatLtInstLTNat">Nat.instTransNatLtInstLTNat</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ trans := <a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.instTransNatLtInstLTNat.proof_1">@<a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.instTransNatLtInstLTNat.proof_1">Nat.instTransNatLtInstLTNat.proof_1</a></a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.instTransNatLeInstLENat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L210-L211">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L210-L211">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1423,12 +1524,19 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Trans">Trans</a> (<span class="fn">fun <span class="fn">a</span> <span class="fn">a_1</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn">a_1</span></span></span>) (<span class="fn">fun <span class="fn">a</span> <span class="fn">a_1</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn">a_1</span></span></span>) <span class="fn">fun <span class="fn">a</span> <span class="fn">a_1</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn">a_1</span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.instTransNatLeInstLENat">Nat.instTransNatLeInstLENat</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ trans := <a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.instTransNatLeInstLENat.proof_1">@<a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.instTransNatLeInstLENat.proof_1">Nat.instTransNatLeInstLENat.proof_1</a></a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.instTransNatLtInstLTNatLeInstLENat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L213-L214">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L213-L214">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1437,12 +1545,19 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Trans">Trans</a> (<span class="fn">fun <span class="fn">a</span> <span class="fn">a_1</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn">a_1</span></span></span>) (<span class="fn">fun <span class="fn">a</span> <span class="fn">a_1</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn">a_1</span></span></span>) <span class="fn">fun <span class="fn">a</span> <span class="fn">a_1</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn">a_1</span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.instTransNatLtInstLTNatLeInstLENat">Nat.instTransNatLtInstLTNatLeInstLENat</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ trans := <a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.instTransNatLtInstLTNatLeInstLENat.proof_1">@<a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.instTransNatLtInstLTNatLeInstLENat.proof_1">Nat.instTransNatLtInstLTNatLeInstLENat.proof_1</a></a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.instTransNatLeInstLENatLtInstLTNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L216-L217">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L216-L217">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1451,12 +1566,19 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Trans">Trans</a> (<span class="fn">fun <span class="fn">a</span> <span class="fn">a_1</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn">a_1</span></span></span>) (<span class="fn">fun <span class="fn">a</span> <span class="fn">a_1</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn">a_1</span></span></span>) <span class="fn">fun <span class="fn">a</span> <span class="fn">a_1</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn">a_1</span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.instTransNatLeInstLENatLtInstLTNat">Nat.instTransNatLeInstLENatLtInstLTNat</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ trans := <a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.instTransNatLeInstLENatLtInstLTNat.proof_1">@<a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.instTransNatLeInstLENatLtInstLTNat.proof_1">Nat.instTransNatLeInstLENatLtInstLTNat.proof_1</a></a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.le_of_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L219-L220">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L219-L220">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1480,7 +1602,7 @@ Documentation</h1>
 <div class="decl" id="Nat.le_of_succ_le">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L222-L223">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L222-L223">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1504,7 +1626,7 @@ Documentation</h1>
 <div class="decl" id="Nat.le_of_lt">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L225-L226">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L225-L226">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1528,10 +1650,10 @@ Documentation</h1>
 <div class="decl" id="Nat.lt.step">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L228-L228">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L228-L228">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.lt.step">Nat.lt.step</a>
 </span>
@@ -1545,12 +1667,19 @@ Documentation</h1>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn">m</span></span> → <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">m</span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.lt.step">@<a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.lt.step">Nat.lt.step</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.lt.step.proof_1">@<a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.lt.step.proof_1">Nat.lt.step.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.eq_zero_or_pos">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L230-L232">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L230-L232">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1566,10 +1695,10 @@ Documentation</h1>
 <div class="decl" id="Nat.lt.base">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L234-L234">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L234-L234">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.lt.base">Nat.lt.base</a>
 </span>
@@ -1577,12 +1706,19 @@ Documentation</h1>
 <span class="fn">(n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.lt.base">Nat.lt.base</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.lt.base.proof_1">Nat.lt.base.proof_1</a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.lt_succ_self">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L236-L236">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L236-L236">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1598,7 +1734,7 @@ Documentation</h1>
 <div class="decl" id="Nat.le_total">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L238-L241">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L238-L241">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1616,7 +1752,7 @@ Documentation</h1>
 <div class="decl" id="Nat.lt_of_le_and_ne">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L243-L246">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L243-L246">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1642,7 +1778,7 @@ Documentation</h1>
 <div class="decl" id="Nat.eq_zero_of_le_zero">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L248-L249">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L248-L249">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1662,7 +1798,7 @@ Documentation</h1>
 <div class="decl" id="Nat.lt_of_succ_lt">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L251-L252">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L251-L252">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1684,7 +1820,7 @@ Documentation</h1>
 <div class="decl" id="Nat.lt_of_succ_lt_succ">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L254-L255">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L254-L255">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1706,7 +1842,7 @@ Documentation</h1>
 <div class="decl" id="Nat.lt_of_succ_le">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L257-L258">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L257-L258">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1730,7 +1866,7 @@ Documentation</h1>
 <div class="decl" id="Nat.succ_le_of_lt">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L260-L261">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L260-L261">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1754,7 +1890,7 @@ Documentation</h1>
 <div class="decl" id="Nat.zero_lt_of_lt">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L263-L267">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L263-L267">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1776,7 +1912,7 @@ Documentation</h1>
 <div class="decl" id="Nat.le_or_eq_or_le_succ">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L269-L275">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L269-L275">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1800,7 +1936,7 @@ Documentation</h1>
 <div class="decl" id="Nat.le_add_right">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L277-L279">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L277-L279">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1818,7 +1954,7 @@ Documentation</h1>
 <div class="decl" id="Nat.le_add_left">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L281-L282">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L281-L282">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1836,7 +1972,7 @@ Documentation</h1>
 <div class="decl" id="Nat.le.dest">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L284-L292">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L284-L292">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1858,7 +1994,7 @@ Documentation</h1>
 <div class="decl" id="Nat.le.intro">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L294-L295">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L294-L295">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1886,7 +2022,7 @@ Documentation</h1>
 <div class="decl" id="Nat.not_le_of_gt">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L297-L302">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L297-L302">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1910,7 +2046,7 @@ Documentation</h1>
 <div class="decl" id="Nat.gt_of_not_le">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L304-L307">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L304-L307">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1931,10 +2067,34 @@ Documentation</h1>
 <div class="decl_type"><span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#GT.gt">></a> <span class="fn">m</span></span></div></div>
 </div>
 </div>
+<div class="decl" id="Nat.ge_of_not_lt">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L309-L312">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.ge_of_not_lt">Nat.ge_of_not_lt</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{n : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Not">¬</a><span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn">m</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#GE.ge">≥</a> <span class="fn">m</span></span></div></div>
+</div>
+</div>
 <div class="decl" id="Nat.add_le_add_left">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L309-L314">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L314-L319">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1960,7 +2120,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_le_add_right">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L316-L319">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L321-L324">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -1986,7 +2146,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_lt_add_left">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L321-L322">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L326-L327">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2012,7 +2172,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_lt_add_right">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L324-L325">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L329-L330">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2038,7 +2198,7 @@ Documentation</h1>
 <div class="decl" id="Nat.zero_lt_one">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L327-L328">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L332-L333">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2052,7 +2212,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_le_add">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L330-L331">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L335-L336">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2086,7 +2246,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_lt_add">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L333-L334">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L338-L339">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2120,7 +2280,7 @@ Documentation</h1>
 <div class="decl" id="Nat.ctor_eq_zero">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L338-L339">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L343-L344">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2134,7 +2294,7 @@ Documentation</h1>
 <div class="decl" id="Nat.one_ne_zero">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L341-L342">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L346-L347">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2148,7 +2308,7 @@ Documentation</h1>
 <div class="decl" id="Nat.zero_ne_one">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L344-L345">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L349-L350">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2162,7 +2322,7 @@ Documentation</h1>
 <div class="decl" id="Nat.succ_ne_zero">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L347-L348">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L352-L353">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2178,7 +2338,7 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_le_mul_left">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L352-L356">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L357-L361">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2204,7 +2364,7 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_le_mul_right">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L358-L359">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L363-L364">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2230,7 +2390,7 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_le_mul">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L361-L362">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L366-L367">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2264,7 +2424,7 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_lt_mul_of_pos_left">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L364-L365">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L369-L370">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2294,7 +2454,7 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_lt_mul_of_pos_right">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L367-L368">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L372-L373">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2324,7 +2484,7 @@ Documentation</h1>
 <div class="decl" id="Nat.mul_pos">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L370-L372">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L375-L377">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2350,7 +2510,7 @@ Documentation</h1>
 <div class="decl" id="Nat.pow_succ">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L376-L377">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L381-L382">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2368,7 +2528,7 @@ Documentation</h1>
 <div class="decl" id="Nat.pow_zero">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L379-L379">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L384-L384">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2384,7 +2544,7 @@ Documentation</h1>
 <div class="decl" id="Nat.pow_le_pow_of_le_left">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L381-L383">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L386-L388">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2410,7 +2570,7 @@ Documentation</h1>
 <div class="decl" id="Nat.pow_le_pow_of_le_right">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L385-L395">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L390-L400">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2438,7 +2598,7 @@ Documentation</h1>
 <div class="decl" id="Nat.pos_pow_of_pos">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L397-L398">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L402-L403">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2460,7 +2620,7 @@ Documentation</h1>
 <div class="decl" id="Nat.min">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L402-L403">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L407-L408">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2473,12 +2633,19 @@ Documentation</h1>
 <span class="fn">(m : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.min">Nat.min</a> <span class="fn">n</span> <span class="fn">m</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn">m</span></span> then <span class="fn">n</span> else <span class="fn">m</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.max">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L405-L406">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L410-L411">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2491,12 +2658,19 @@ Documentation</h1>
 <span class="fn">(m : <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.max">Nat.max</a> <span class="fn">n</span> <span class="fn">m</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/lean4-socket/Init/Prelude.html#LE.le">≤</a> <span class="fn">m</span></span> then <span class="fn">m</span> else <span class="fn">n</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.not_eq_zero_of_lt">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L409-L412">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L414-L417">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2520,7 +2694,7 @@ Documentation</h1>
 <div class="decl" id="Nat.pred_lt'">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L414-L415">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L419-L420">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2544,7 +2718,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_sub_self_left">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L417-L422">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L422-L427">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2562,7 +2736,7 @@ Documentation</h1>
 <div class="decl" id="Nat.add_sub_self_right">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L424-L425">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L429-L430">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2580,7 +2754,7 @@ Documentation</h1>
 <div class="decl" id="Nat.sub_le_succ_sub">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L427-L430">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L432-L435">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2598,7 +2772,7 @@ Documentation</h1>
 <div class="decl" id="Nat.zero_lt_sub_of_lt">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L432-L440">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L437-L445">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2622,7 +2796,7 @@ Documentation</h1>
 <div class="decl" id="Nat.sub_succ_lt_self">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L442-L447">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L447-L452">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2642,8 +2816,9 @@ Documentation</h1>
 <div class="decl" id="Prod.foldI">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L453-L454">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L458-L459">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -2661,13 +2836,21 @@ Documentation</h1>
 <span class="fn">(a : <span class="fn">α</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">α</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Prod.foldI">Prod.foldI</a> <span class="fn">f</span> <span class="fn">i</span> <span class="fn">a</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.foldAux">Nat.foldAux</a> <span class="fn">f</span> <span class="fn"><span class="fn">i</span>.snd</span> (<span class="fn"><span class="fn"><span class="fn">i</span>.snd</span> <a href="/lean4-socket/Init/Prelude.html#HSub.hSub">-</a> <span class="fn"><span class="fn">i</span>.fst</span></span>) <span class="fn">a</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Prod.anyI">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L456-L457">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L461-L462">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -2679,13 +2862,21 @@ Documentation</h1>
 <span class="fn">(i : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> <a href="/lean4-socket/Init/Prelude.html#Prod">×</a> <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Prod.anyI">Prod.anyI</a> <span class="fn">f</span> <span class="fn">i</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.anyAux">Nat.anyAux</a> <span class="fn">f</span> <span class="fn"><span class="fn">i</span>.snd</span> (<span class="fn"><span class="fn"><span class="fn">i</span>.snd</span> <a href="/lean4-socket/Init/Prelude.html#HSub.hSub">-</a> <span class="fn"><span class="fn">i</span>.fst</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Prod.allI">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Data/Nat/Basic.lean#L459-L460">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Data/Nat/Basic.lean#L464-L465">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -2697,6 +2888,13 @@ Documentation</h1>
 <span class="fn">(i : <span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> <a href="/lean4-socket/Init/Prelude.html#Prod">×</a> <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/lean4-socket/Init/Prelude.html#Bool">Bool</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Prod.allI">Prod.allI</a> <span class="fn">f</span> <span class="fn">i</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Data/Nat/Basic.html#Nat.anyAux">Nat.anyAux</a> (<span class="fn">fun <span class="fn">a</span> => <span class="fn"><a href="/lean4-socket/Init/Prelude.html#not">!</a><span class="fn"><span class="fn">f</span> <span class="fn">a</span></span></span></span>) <span class="fn"><span class="fn">i</span>.snd</span> (<span class="fn"><span class="fn"><span class="fn">i</span>.snd</span> <a href="/lean4-socket/Init/Prelude.html#HSub.hSub">-</a> <span class="fn"><span class="fn">i</span>.fst</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -2754,6 +2952,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -3019,6 +3220,9 @@ Documentation</h1>
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -3029,8 +3233,10 @@ Documentation</h1>
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

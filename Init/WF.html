@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.WF</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -190,7 +190,7 @@ Documentation</h1>
 <div class="decl" id="Acc">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L14-L15">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L14-L15">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -214,10 +214,11 @@ intro: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {r : <span cla
 <div class="decl" id="Acc.ndrec">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L17-L20">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L17-L20">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">abbrev</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#Acc.ndrec">Acc.ndrec</a>
 </span>
@@ -243,15 +244,23 @@ intro: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {r : <span cla
 <span class="fn">(n : <span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">a</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">C</span> <span class="fn">a</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#Acc.ndrec">Acc.ndrec</a> <span class="fn">m</span> <span class="fn">n</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/WF.html#Acc.rec">Acc.rec</a> <span class="fn">m</span> <span class="fn">n</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Acc.ndrecOn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L22-L26">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L22-L26">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">abbrev</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#Acc.ndrecOn">Acc.ndrecOn</a>
 </span>
@@ -277,15 +286,22 @@ intro: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {r : <span cla
 <span class="fn">(m : <span class="fn">(x : <span class="fn">α</span>) → <span class="fn">(<span class="fn">∀ (y : <span class="fn">α</span>), <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">y</span></span></span></span>) → <span class="fn">(<span class="fn">(y : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span> → <span class="fn"><span class="fn">C</span> <span class="fn">y</span></span></span></span>) → <span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">C</span> <span class="fn">a</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#Acc.ndrecOn">Acc.ndrecOn</a> <span class="fn">n</span> <span class="fn">m</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/WF.html#Acc.rec">Acc.rec</a> <span class="fn">m</span> <span class="fn">n</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Acc.inv">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L31-L33">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L31-L33">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#Acc.inv">Acc.inv</a>
 </span>
@@ -311,12 +327,19 @@ intro: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {r : <span cla
 <span class="fn">(h₂ : <span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">y</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#Acc.inv">@<a href="/lean4-socket/Init/WF.html#Acc.inv">Acc.inv</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#Acc.inv.proof_1">@<a href="/lean4-socket/Init/WF.html#Acc.inv.proof_1">Acc.inv.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="WellFounded">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L37-L38">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L37-L38">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -340,7 +363,7 @@ intro: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {r : <span cla
 <div class="decl" id="WellFoundedRelation">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L40-L42">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L40-L42">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -353,9 +376,9 @@ intro: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {r : <span cla
 <div class="decl_type"><span class="fn">Sort (max 1 u)</span></div></div>
 <ul class="structure_fields" id="WellFoundedRelation.mk">
 <li class="structure_field" id="WellFoundedRelation.rel">
-rel: <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span></li>
+rel : <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span></li>
 <li class="structure_field" id="WellFoundedRelation.wf">
-wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">rel</span></span></li>
+wf : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">rel</span></span></li>
 </ul>
 <details class="instances">
 <summary>Instances</summary>
@@ -376,10 +399,10 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <div class="decl" id="WellFounded.apply">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L45-L47">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L45-L47">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#WellFounded.apply">WellFounded.apply</a>
 </span>
@@ -397,12 +420,19 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <span class="fn">(a : <span class="fn">α</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">a</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded.apply">@<a href="/lean4-socket/Init/WF.html#WellFounded.apply">WellFounded.apply</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#WellFounded.apply.proof_1">@<a href="/lean4-socket/Init/WF.html#WellFounded.apply.proof_1">WellFounded.apply.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="WellFounded.recursion">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L52-L54">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L52-L54">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -434,7 +464,7 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <div class="decl" id="WellFounded.induction">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L56-L57">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L56-L57">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -466,10 +496,10 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <div class="decl" id="WellFounded.fixF">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L62-L64">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L62-L64">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#WellFounded.fixF">WellFounded.fixF</a>
 </span>
@@ -493,15 +523,22 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <span class="fn">(a : <span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">x</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded.fixF">WellFounded.fixF</a> <span class="fn">F</span> <span class="fn">x</span> <span class="fn">a</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/WF.html#Acc.rec">Acc.rec</a> (<span class="fn">fun <span class="fn">x₁</span> <span class="fn">ac₁</span> <span class="fn">ih</span> => <span class="fn"><span class="fn">F</span> <span class="fn">x₁</span> <span class="fn">ih</span></span></span>) <span class="fn">a</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="WellFounded.fixFEq">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L66-L68">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L66-L68">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#WellFounded.fixFEq">WellFounded.fixFEq</a>
 </span>
@@ -525,15 +562,22 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <span class="fn">(acx : <span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">x</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded.fixF">WellFounded.fixF</a> <span class="fn">F</span> <span class="fn">x</span> <span class="fn">acx</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">F</span> <span class="fn">x</span> <span class="fn">fun <span class="fn">y</span> <span class="fn">p</span> => <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded.fixF">WellFounded.fixF</a> <span class="fn">F</span> <span class="fn">y</span> (_ : <span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> (<span class="fn">fun <span class="fn">y</span> <span class="fn">x</span> => <span class="fn"><span class="fn">r</span> <span class="fn">y</span> <span class="fn">x</span></span></span>) <span class="fn">y</span></span>)</span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded.fixFEq">@<a href="/lean4-socket/Init/WF.html#WellFounded.fixFEq">WellFounded.fixFEq</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#WellFounded.fixFEq.proof_1">@<a href="/lean4-socket/Init/WF.html#WellFounded.fixFEq.proof_1">WellFounded.fixFEq.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="WellFounded.fix">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L75-L76">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L75-L76">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#WellFounded.fix">WellFounded.fix</a>
 </span>
@@ -557,12 +601,19 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <span class="fn">(x : <span class="fn">α</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">C</span> <span class="fn">x</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded.fix">WellFounded.fix</a> <span class="fn">hwf</span> <span class="fn">F</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded.fixF">WellFounded.fixF</a> <span class="fn">F</span> <span class="fn">x</span> (_ : <span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">x</span></span>)</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="WellFounded.fix_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L79-L81">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L79-L81">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -594,10 +645,10 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <div class="decl" id="emptyWf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L87-L94">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L87-L94">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#emptyWf">emptyWf</a>
 </span>
@@ -607,15 +658,22 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">emptyWf</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ rel := <span class="fn">emptyRelation</span>, wf := (_ : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">emptyRelation</span></span>) }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subrelation.accessible">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L100-L105">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L100-L105">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#Subrelation.accessible">Subrelation.accessible</a>
 </span>
@@ -641,15 +699,22 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <span class="fn">(ac : <span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">a</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> <span class="fn">q</span> <span class="fn">a</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#Subrelation.accessible">@<a href="/lean4-socket/Init/WF.html#Subrelation.accessible">Subrelation.accessible</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#Subrelation.accessible.proof_1">@<a href="/lean4-socket/Init/WF.html#Subrelation.accessible.proof_1">Subrelation.accessible.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Subrelation.wf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L107-L108">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L107-L108">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#Subrelation.wf">Subrelation.wf</a>
 </span>
@@ -671,15 +736,22 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <span class="fn">(h₂ : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">q</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#Subrelation.wf">@<a href="/lean4-socket/Init/WF.html#Subrelation.wf">Subrelation.wf</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#Subrelation.wf.proof_1">@<a href="/lean4-socket/Init/WF.html#Subrelation.wf.proof_1">Subrelation.wf.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="InvImage.accessible">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L124-L125">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L124-L125">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#InvImage.accessible">InvImage.accessible</a>
 </span>
@@ -705,15 +777,22 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <span class="fn">(ac : <span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> (<span class="fn"><span class="fn">f</span> <span class="fn">a</span></span>)</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> (<span class="fn"><a href="/lean4-socket/Init/Core.html#InvImage">InvImage</a> <span class="fn">r</span> <span class="fn">f</span></span>) <span class="fn">a</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#InvImage.accessible">@<a href="/lean4-socket/Init/WF.html#InvImage.accessible">InvImage.accessible</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#InvImage.accessible.proof_1">@<a href="/lean4-socket/Init/WF.html#InvImage.accessible.proof_1">InvImage.accessible.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="InvImage.wf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L127-L128">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L127-L128">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#InvImage.wf">InvImage.wf</a>
 </span>
@@ -735,15 +814,22 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <span class="fn">(h : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/lean4-socket/Init/Core.html#InvImage">InvImage</a> <span class="fn">r</span> <span class="fn">f</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#InvImage.wf">@<a href="/lean4-socket/Init/WF.html#InvImage.wf">InvImage.wf</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#InvImage.wf.proof_1">@<a href="/lean4-socket/Init/WF.html#InvImage.wf.proof_1">InvImage.wf.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="invImage">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L131-L133">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L131-L133">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#invImage">invImage</a>
 </span>
@@ -761,15 +847,22 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <span class="fn">(h : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">β</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#invImage">invImage</a> <span class="fn">f</span> <span class="fn">h</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ rel := <span class="fn"><a href="/lean4-socket/Init/Core.html#InvImage">InvImage</a> <span class="fn">WellFoundedRelation.rel</span> <span class="fn">f</span></span>, wf := (_ : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/lean4-socket/Init/Core.html#InvImage">InvImage</a> <span class="fn">WellFoundedRelation.rel</span> <span class="fn">f</span></span>)</span>) }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="TC.accessible">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L139-L146">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L139-L146">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#TC.accessible">TC.accessible</a>
 </span>
@@ -789,15 +882,22 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <span class="fn">(ac : <span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> <span class="fn">r</span> <span class="fn">z</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> (<span class="fn"><a href="/lean4-socket/Init/Core.html#TC">TC</a> <span class="fn">r</span></span>) <span class="fn">z</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#TC.accessible">@<a href="/lean4-socket/Init/WF.html#TC.accessible">TC.accessible</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#TC.accessible.proof_1">@<a href="/lean4-socket/Init/WF.html#TC.accessible.proof_1">TC.accessible.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="TC.wf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L148-L149">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L148-L149">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#TC.wf">TC.wf</a>
 </span>
@@ -813,29 +913,43 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <span class="fn">(h : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">r</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/lean4-socket/Init/Core.html#TC">TC</a> <span class="fn">r</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#TC.wf">@<a href="/lean4-socket/Init/WF.html#TC.wf">TC.wf</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#TC.wf.proof_1">@<a href="/lean4-socket/Init/WF.html#TC.wf.proof_1">TC.wf.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.lt_wfRel">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L153-L169">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L153-L169">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#Nat.lt_wfRel">Nat.lt_wfRel</a>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#Nat.lt_wfRel">Nat.lt_wfRel</a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">{ rel := <a href="/lean4-socket/Init/Prelude.html#Nat.lt">Nat.lt</a>, wf := <a href="/lean4-socket/Init/WF.html#Nat.lt_wfRel.proof_1">Nat.lt_wfRel.proof_1</a> }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Measure">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L171-L172">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L171-L172">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#Measure">Measure</a>
 </span>
@@ -845,15 +959,23 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">(<span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span>) → <span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">Measure</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Core.html#InvImage">InvImage</a> <span class="fn">fun <span class="fn">a</span> <span class="fn">b</span> => <span class="fn"><span class="fn">a</span> <a href="/lean4-socket/Init/Prelude.html#LT.lt"><</a> <span class="fn">b</span></span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="measure">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L174-L175">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L174-L175">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">abbrev</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#measure">measure</a>
 </span>
@@ -865,15 +987,22 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 <span class="fn">(f : <span class="fn"><span class="fn">α</span> → <a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#measure">measure</a> <span class="fn">f</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/WF.html#invImage">invImage</a> <span class="fn">f</span> <a href="/lean4-socket/Init/WF.html#Nat.lt_wfRel">Nat.lt_wfRel</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="SizeOfRef">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L177-L178">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L177-L178">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#SizeOfRef">SizeOfRef</a>
 </span>
@@ -885,15 +1014,23 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α</span> → <span class="fn">α</span> → <span class="fn">Prop</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#SizeOfRef">SizeOfRef</a> <span class="fn">α</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/WF.html#Measure">Measure</a> <span class="fn">sizeOf</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="sizeOfWFRel">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L180-L181">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L180-L181">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">abbrev</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#sizeOfWFRel">sizeOfWFRel</a>
 </span>
@@ -907,15 +1044,22 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">sizeOfWFRel</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/WF.html#measure">measure</a> <span class="fn">sizeOf</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="instWellFoundedRelation">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L183-L184">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L183-L184">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">instance</span>
+<span class="decl_kind">noncomputable instance</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#instWellFoundedRelation">instWellFoundedRelation</a>
 </span>
@@ -929,12 +1073,19 @@ wf: <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounde
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instWellFoundedRelation</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn">sizeOfWFRel</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Prod.Lex">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L195-L197">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L195-L197">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -968,7 +1119,7 @@ right: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 <div class="decl" id="Prod.RProd">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L200-L201">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L200-L201">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -999,10 +1150,10 @@ intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 <div class="decl" id="Prod.lexAccessible">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L209-L218">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L209-L218">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#Prod.lexAccessible">Prod.lexAccessible</a>
 </span>
@@ -1032,15 +1183,22 @@ intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 <span class="fn">(b : <span class="fn">β</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> (<span class="fn"><a href="/lean4-socket/Init/WF.html#Prod.Lex">Prod.Lex</a> <span class="fn">ra</span> <span class="fn">rb</span></span>) <span class="fn">(<span class="fn">a</span>, <span class="fn">b</span>)</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#Prod.lexAccessible">@<a href="/lean4-socket/Init/WF.html#Prod.lexAccessible">Prod.lexAccessible</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#Prod.lexAccessible.proof_1">@<a href="/lean4-socket/Init/WF.html#Prod.lexAccessible.proof_1">Prod.lexAccessible.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Prod.lex">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L221-L223">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L221-L223">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#Prod.lex">Prod.lex</a>
 </span>
@@ -1058,15 +1216,23 @@ intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 <span class="fn">(hb : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">β</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><span class="fn">α</span> <a href="/lean4-socket/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#Prod.lex">Prod.lex</a> <span class="fn">ha</span> <span class="fn">hb</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ rel := <span class="fn"><a href="/lean4-socket/Init/WF.html#Prod.Lex">Prod.Lex</a> <span class="fn">WellFoundedRelation.rel</span> <span class="fn">WellFoundedRelation.rel</span></span>,
+    wf := (_ : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/lean4-socket/Init/WF.html#Prod.Lex">Prod.Lex</a> <span class="fn">WellFoundedRelation.rel</span> <span class="fn">WellFoundedRelation.rel</span></span>)</span>) }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Prod.instWellFoundedRelationProd">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L225-L226">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L225-L226">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">instance</span>
+<span class="decl_kind">noncomputable instance</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#Prod.instWellFoundedRelationProd">Prod.instWellFoundedRelationProd</a>
 </span>
@@ -1088,15 +1254,22 @@ intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><span class="fn">α</span> <a href="/lean4-socket/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">Prod.instWellFoundedRelationProd</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/WF.html#Prod.lex">Prod.lex</a> <span class="fn">ha</span> <span class="fn">hb</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Prod.RProdSubLex">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L229-L231">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L229-L231">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#Prod.RProdSubLex">Prod.RProdSubLex</a>
 </span>
@@ -1124,15 +1297,22 @@ intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 <span class="fn">(h : <span class="fn"><a href="/lean4-socket/Init/WF.html#Prod.RProd">Prod.RProd</a> <span class="fn">ra</span> <span class="fn">rb</span> <span class="fn">a</span> <span class="fn">b</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#Prod.Lex">Prod.Lex</a> <span class="fn">ra</span> <span class="fn">rb</span> <span class="fn">a</span> <span class="fn">b</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#Prod.RProdSubLex">@<a href="/lean4-socket/Init/WF.html#Prod.RProdSubLex">Prod.RProdSubLex</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#Prod.RProdSubLex.proof_1">@<a href="/lean4-socket/Init/WF.html#Prod.RProdSubLex.proof_1">Prod.RProdSubLex.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Prod.rprod">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L234-L239">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L234-L239">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#Prod.rprod">Prod.rprod</a>
 </span>
@@ -1150,12 +1330,20 @@ intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 <span class="fn">(hb : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">β</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><span class="fn">α</span> <a href="/lean4-socket/Init/Prelude.html#Prod">×</a> <span class="fn">β</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#Prod.rprod">Prod.rprod</a> <span class="fn">ha</span> <span class="fn">hb</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ rel := <span class="fn"><a href="/lean4-socket/Init/WF.html#Prod.RProd">Prod.RProd</a> <span class="fn">WellFoundedRelation.rel</span> <span class="fn">WellFoundedRelation.rel</span></span>,
+    wf := (_ : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/lean4-socket/Init/WF.html#Prod.RProd">Prod.RProd</a> <span class="fn">WellFoundedRelation.rel</span> <span class="fn">WellFoundedRelation.rel</span></span>)</span>) }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="PSigma.Lex">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L252-L254">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L252-L254">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -1189,10 +1377,10 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.lexAccessible">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L261-L270">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L261-L270">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#PSigma.lexAccessible">PSigma.lexAccessible</a>
 </span>
@@ -1224,15 +1412,22 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <span class="fn">(b : <span class="fn"><span class="fn">β</span> <span class="fn">a</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> (<span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.Lex">PSigma.Lex</a> <span class="fn">r</span> <span class="fn">s</span></span>) <span class="fn">{ fst := <span class="fn">a</span>, snd := <span class="fn">b</span> }</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.lexAccessible">@<a href="/lean4-socket/Init/WF.html#PSigma.lexAccessible">PSigma.lexAccessible</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#PSigma.lexAccessible.proof_1">@<a href="/lean4-socket/Init/WF.html#PSigma.lexAccessible.proof_1">PSigma.lexAccessible.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="PSigma.lex">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L273-L275">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L273-L275">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#PSigma.lex">PSigma.lex</a>
 </span>
@@ -1250,15 +1445,23 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <span class="fn">(hb : <span class="fn">(a : <span class="fn">α</span>) → <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><span class="fn">β</span> <span class="fn">a</span></span>)</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><a href="/lean4-socket/Init/Core.html#PSigma">PSigma</a> <span class="fn">β</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.lex">PSigma.lex</a> <span class="fn">ha</span> <span class="fn">hb</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ rel := <span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.Lex">PSigma.Lex</a> <span class="fn">WellFoundedRelation.rel</span> <span class="fn">fun <span class="fn">a</span> => <span class="fn">WellFoundedRelation.rel</span></span></span>,
+    wf := (_ : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.Lex">PSigma.Lex</a> <span class="fn">WellFoundedRelation.rel</span> <span class="fn">fun <span class="fn">a</span> => <span class="fn">WellFoundedRelation.rel</span></span></span>)</span>) }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="PSigma.instWellFoundedRelationPSigma">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L277-L278">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L277-L278">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">instance</span>
+<span class="decl_kind">noncomputable instance</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#PSigma.instWellFoundedRelationPSigma">PSigma.instWellFoundedRelationPSigma</a>
 </span>
@@ -1280,15 +1483,22 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn"><a href="/lean4-socket/Init/Core.html#PSigma">PSigma</a> <span class="fn">β</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">PSigma.instWellFoundedRelationPSigma</span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.lex">PSigma.lex</a> <span class="fn">ha</span> <span class="fn">hb</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="PSigma.lexNdep">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L285-L286">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L285-L286">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#PSigma.lexNdep">PSigma.lexNdep</a>
 </span>
@@ -1306,15 +1516,22 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <span class="fn">(s : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">(_ : <span class="fn">α</span>) ×' <span class="fn">β</span></span> → <span class="fn">(_ : <span class="fn">α</span>) ×' <span class="fn">β</span></span> → <span class="fn">Prop</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.lexNdep">PSigma.lexNdep</a> <span class="fn">r</span> <span class="fn">s</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.Lex">PSigma.Lex</a> <span class="fn">r</span> <span class="fn">fun <span class="fn">a</span> => <span class="fn">s</span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="PSigma.lexNdepWf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L288-L289">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L288-L289">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#PSigma.lexNdepWf">PSigma.lexNdepWf</a>
 </span>
@@ -1340,12 +1557,19 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <span class="fn">(hb : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">s</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.lexNdep">PSigma.lexNdep</a> <span class="fn">r</span> <span class="fn">s</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.lexNdepWf">@<a href="/lean4-socket/Init/WF.html#PSigma.lexNdepWf">PSigma.lexNdepWf</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#PSigma.lexNdepWf.proof_1">@<a href="/lean4-socket/Init/WF.html#PSigma.lexNdepWf.proof_1">PSigma.lexNdepWf.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="PSigma.RevLex">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L296-L298">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L296-L298">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -1379,10 +1603,10 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.revLexAccessible">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L306-L316">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L306-L316">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#PSigma.revLexAccessible">PSigma.revLexAccessible</a>
 </span>
@@ -1414,15 +1638,22 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <span class="fn">(a : <span class="fn">α</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#Acc">Acc</a> (<span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.RevLex">PSigma.RevLex</a> <span class="fn">r</span> <span class="fn">s</span></span>) <span class="fn">{ fst := <span class="fn">a</span>, snd := <span class="fn">b</span> }</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.revLexAccessible">@<a href="/lean4-socket/Init/WF.html#PSigma.revLexAccessible">PSigma.revLexAccessible</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#PSigma.revLexAccessible.proof_1">@<a href="/lean4-socket/Init/WF.html#PSigma.revLexAccessible.proof_1">PSigma.revLexAccessible.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="PSigma.revLex">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L318-L319">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L318-L319">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#PSigma.revLex">PSigma.revLex</a>
 </span>
@@ -1448,15 +1679,22 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <span class="fn">(hb : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> <span class="fn">s</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.RevLex">PSigma.RevLex</a> <span class="fn">r</span> <span class="fn">s</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.revLex">@<a href="/lean4-socket/Init/WF.html#PSigma.revLex">PSigma.revLex</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#PSigma.revLex.proof_1">@<a href="/lean4-socket/Init/WF.html#PSigma.revLex.proof_1">PSigma.revLex.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="PSigma.SkipLeft">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L323-L324">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L323-L324">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#PSigma.SkipLeft">PSigma.SkipLeft</a>
 </span>
@@ -1470,15 +1708,22 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <span class="fn">(s : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">(_ : <span class="fn">α</span>) ×' <span class="fn">β</span></span> → <span class="fn">(_ : <span class="fn">α</span>) ×' <span class="fn">β</span></span> → <span class="fn">Prop</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.SkipLeft">PSigma.SkipLeft</a> <span class="fn">α</span> <span class="fn">s</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.RevLex">PSigma.RevLex</a> <span class="fn">emptyRelation</span> <span class="fn">s</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="PSigma.skipLeft">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L326-L328">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L326-L328">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#PSigma.skipLeft">PSigma.skipLeft</a>
 </span>
@@ -1492,15 +1737,23 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <span class="fn">(hb : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> <span class="fn">β</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#WellFoundedRelation">WellFoundedRelation</a> (<span class="fn">(_ : <span class="fn">α</span>) ×' <span class="fn">β</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.skipLeft">PSigma.skipLeft</a> <span class="fn">α</span> <span class="fn">hb</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a>   <span class="fn">{ rel := <span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.SkipLeft">PSigma.SkipLeft</a> <span class="fn">α</span> <span class="fn">WellFoundedRelation.rel</span></span>,
+    wf := (_ : <span class="fn"><a href="/lean4-socket/Init/WF.html#WellFounded">WellFounded</a> (<span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.RevLex">PSigma.RevLex</a> <span class="fn">emptyRelation</span> <span class="fn">WellFoundedRelation.rel</span></span>)</span>) }</span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="PSigma.mkSkipLeft">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/WF.lean#L330-L331">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/WF.lean#L330-L331">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">def</span>
+<span class="decl_kind">noncomputable def</span>
 <span class="decl_name">
 <a class="break_within" href="/lean4-socket/Init/WF.html#PSigma.mkSkipLeft">PSigma.mkSkipLeft</a>
 </span>
@@ -1532,6 +1785,13 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <span class="fn">(h : <span class="fn"><span class="fn">s</span> <span class="fn">b₁</span> <span class="fn">b₂</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.SkipLeft">PSigma.SkipLeft</a> <span class="fn">α</span> <span class="fn">s</span> <span class="fn">{ fst := <span class="fn">a₁</span>, snd := <span class="fn">b₁</span> }</span> <span class="fn">{ fst := <span class="fn">a₂</span>, snd := <span class="fn">b₂</span> }</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/lean4-socket/Init/WF.html#PSigma.mkSkipLeft">@<a href="/lean4-socket/Init/WF.html#PSigma.mkSkipLeft">PSigma.mkSkipLeft</a></a> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <a href="/lean4-socket/Init/WF.html#PSigma.mkSkipLeft.proof_1">@<a href="/lean4-socket/Init/WF.html#PSigma.mkSkipLeft.proof_1">PSigma.mkSkipLeft.proof_1</a></a></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -1589,6 +1849,9 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -1854,6 +2117,9 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -1864,8 +2130,10 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>

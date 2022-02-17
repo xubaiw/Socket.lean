@@ -18,7 +18,7 @@ Documentation</h1>
 <a class="break_within" href="#top">Init.Fix</a>
 </h3>
 <p class="gh_nav_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean">source</a>
 </p>
 <div class="imports">
 <details>
@@ -103,7 +103,7 @@ Documentation</h1>
 <div class="decl" id="bfix1">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L10-L12">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L10-L12">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -124,13 +124,23 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span>) → <span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix1">bfix1</a> <span class="fn">base</span> <span class="fn">rec</span> <span class="fn">0</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">base</span> <span class="fn">x</span></span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix1">bfix1</a> <span class="fn">base</span> <span class="fn">rec</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>) <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">rec</span> (<span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix1">bfix1</a> <span class="fn">base</span> <span class="fn">rec</span> <span class="fn">n</span></span>) <span class="fn">x</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fixCore1">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L15-L16">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L15-L16">source</a>
 </div>
+<div class="attributes">@[extern  c inline "lean_fixpoint(#4, #5)"]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -150,13 +160,21 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span>) → <span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore1">fixCore1</a> <span class="fn">base</span> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix1">bfix1</a> <span class="fn">base</span> <span class="fn">rec</span> <a href="/lean4-socket/Init/Prelude.html#USize.size">USize.size</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fixCore">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L18-L19">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L18-L19">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -176,13 +194,21 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span>) → <span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore">fixCore</a> <span class="fn">base</span> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore1">fixCore1</a> <span class="fn">base</span> <span class="fn">rec</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fix1">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L21-L22">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L21-L22">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -204,13 +230,21 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span>) → <span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fix1">fix1</a> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore1">fixCore1</a> (<span class="fn">fun <span class="fn">x</span> => <span class="fn">default</span></span>) <span class="fn">rec</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fix">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L24-L25">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L24-L25">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -232,12 +266,19 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span>) → <span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α</span> → <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fix">fix</a> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore1">fixCore1</a> (<span class="fn">fun <span class="fn">x</span> => <span class="fn">default</span></span>) <span class="fn">rec</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="bfix2">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L27-L29">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L27-L29">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -262,13 +303,23 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn">β</span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn">β</span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn">β</span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix2">bfix2</a> <span class="fn">base</span> <span class="fn">rec</span> <span class="fn">0</span> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">base</span> <span class="fn">x</span> <span class="fn">x</span></span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix2">bfix2</a> <span class="fn">base</span> <span class="fn">rec</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>) <span class="fn">x</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">rec</span> (<span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix2">bfix2</a> <span class="fn">base</span> <span class="fn">rec</span> <span class="fn">n</span></span>) <span class="fn">x</span> <span class="fn">x</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fixCore2">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L32-L33">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L32-L33">source</a>
 </div>
+<div class="attributes">@[extern  c inline "lean_fixpoint2(#5, #6, #7)"]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -292,13 +343,21 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn">β</span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn">β</span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn">β</span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore2">fixCore2</a> <span class="fn">base</span> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix2">bfix2</a> <span class="fn">base</span> <span class="fn">rec</span> <a href="/lean4-socket/Init/Prelude.html#USize.size">USize.size</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fix2">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L35-L36">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L35-L36">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -324,12 +383,19 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn">β</span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn">β</span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn">β</span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fix2">fix2</a> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore2">fixCore2</a> (<span class="fn">fun <span class="fn">x</span> <span class="fn">x</span> => <span class="fn">default</span></span>) <span class="fn">rec</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="bfix3">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L38-L40">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L38-L40">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -358,13 +424,23 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn">β</span></span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn">β</span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn">β</span></span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix3">bfix3</a> <span class="fn">base</span> <span class="fn">rec</span> <span class="fn">0</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">base</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix3">bfix3</a> <span class="fn">base</span> <span class="fn">rec</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>) <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">rec</span> (<span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix3">bfix3</a> <span class="fn">base</span> <span class="fn">rec</span> <span class="fn">n</span></span>) <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fixCore3">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L43-L44">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L43-L44">source</a>
 </div>
+<div class="attributes">@[extern  c inline "lean_fixpoint3(#6, #7, #8, #9)"]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -392,13 +468,21 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn">β</span></span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn">β</span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn">β</span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore3">fixCore3</a> <span class="fn">base</span> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix3">bfix3</a> <span class="fn">base</span> <span class="fn">rec</span> <a href="/lean4-socket/Init/Prelude.html#USize.size">USize.size</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fix3">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L46-L47">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L46-L47">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -428,12 +512,19 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn">β</span></span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn">β</span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn">β</span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fix3">fix3</a> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore3">fixCore3</a> (<span class="fn">fun <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> => <span class="fn">default</span></span>) <span class="fn">rec</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="bfix4">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L49-L51">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L49-L51">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -466,13 +557,23 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn">β</span></span></span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn">β</span></span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn">β</span></span></span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix4">bfix4</a> <span class="fn">base</span> <span class="fn">rec</span> <span class="fn">0</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">base</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix4">bfix4</a> <span class="fn">base</span> <span class="fn">rec</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>) <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">rec</span> (<span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix4">bfix4</a> <span class="fn">base</span> <span class="fn">rec</span> <span class="fn">n</span></span>) <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fixCore4">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L54-L55">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L54-L55">source</a>
 </div>
+<div class="attributes">@[extern  c inline "lean_fixpoint4(#7, #8, #9, #10, #11)"]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -504,13 +605,21 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn">β</span></span></span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn">β</span></span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn">β</span></span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore4">fixCore4</a> <span class="fn">base</span> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix4">bfix4</a> <span class="fn">base</span> <span class="fn">rec</span> <a href="/lean4-socket/Init/Prelude.html#USize.size">USize.size</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fix4">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L57-L58">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L57-L58">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -544,12 +653,19 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn">β</span></span></span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn">β</span></span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn">β</span></span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fix4">fix4</a> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore4">fixCore4</a> (<span class="fn">fun <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> => <span class="fn">default</span></span>) <span class="fn">rec</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="bfix5">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L60-L62">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L60-L62">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -586,13 +702,23 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn">β</span></span></span></span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn">β</span></span></span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn">β</span></span></span></span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix5">bfix5</a> <span class="fn">base</span> <span class="fn">rec</span> <span class="fn">0</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">base</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix5">bfix5</a> <span class="fn">base</span> <span class="fn">rec</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>) <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">rec</span> (<span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix5">bfix5</a> <span class="fn">base</span> <span class="fn">rec</span> <span class="fn">n</span></span>) <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fixCore5">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L65-L66">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L65-L66">source</a>
 </div>
+<div class="attributes">@[extern  c inline "lean_fixpoint5(#8, #9, #10, #11, #12, #13)"]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -628,13 +754,21 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn">β</span></span></span></span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn">β</span></span></span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn">β</span></span></span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore5">fixCore5</a> <span class="fn">base</span> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix5">bfix5</a> <span class="fn">base</span> <span class="fn">rec</span> <a href="/lean4-socket/Init/Prelude.html#USize.size">USize.size</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fix5">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L68-L69">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L68-L69">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -672,12 +806,19 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn">β</span></span></span></span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn">β</span></span></span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn">β</span></span></span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fix5">fix5</a> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore5">fixCore5</a> (<span class="fn">fun <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> => <span class="fn">default</span></span>) <span class="fn">rec</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="bfix6">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L71-L73">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L71-L73">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -718,13 +859,23 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn"><span class="fn">α₆</span> → <span class="fn">β</span></span></span></span></span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn"><span class="fn">α₆</span> → <span class="fn">β</span></span></span></span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat">Nat</a> → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn"><span class="fn">α₆</span> → <span class="fn">β</span></span></span></span></span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix6">bfix6</a> <span class="fn">base</span> <span class="fn">rec</span> <span class="fn">0</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">base</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix6">bfix6</a> <span class="fn">base</span> <span class="fn">rec</span> (<span class="fn"><a href="/lean4-socket/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>) <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">rec</span> (<span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix6">bfix6</a> <span class="fn">base</span> <span class="fn">rec</span> <span class="fn">n</span></span>) <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fixCore6">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L76-L77">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L76-L77">source</a>
 </div>
+<div class="attributes">@[extern  c inline "lean_fixpoint6(#9, #10, #11, #12, #13, #14, #15)"]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -764,13 +915,21 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn"><span class="fn">α₆</span> → <span class="fn">β</span></span></span></span></span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn"><span class="fn">α₆</span> → <span class="fn">β</span></span></span></span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn"><span class="fn">α₆</span> → <span class="fn">β</span></span></span></span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore6">fixCore6</a> <span class="fn">base</span> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#bfix6">bfix6</a> <span class="fn">base</span> <span class="fn">rec</span> <a href="/lean4-socket/Init/Prelude.html#USize.size">USize.size</a></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="fix6">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/189f4bd372d86d09f9299ad58c13fe661a327444/src/Init/Fix.lean#L79-L80">source</a>
+<a href="https://github.com/leanprover/lean4/blob/31969765d278416470dcecf118c31aa714bd38ce/src/Init/Fix.lean#L79-L80">source</a>
 </div>
+<div class="attributes">@[inline]</div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
 <span class="decl_name">
@@ -812,6 +971,13 @@ Documentation</h1>
 <span class="fn">(rec : <span class="fn">(<span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn"><span class="fn">α₆</span> → <span class="fn">β</span></span></span></span></span></span></span>) → <span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn"><span class="fn">α₆</span> → <span class="fn">β</span></span></span></span></span></span></span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">α₁</span> → <span class="fn"><span class="fn">α₂</span> → <span class="fn"><span class="fn">α₃</span> → <span class="fn"><span class="fn">α₄</span> → <span class="fn"><span class="fn">α₅</span> → <span class="fn"><span class="fn">α₆</span> → <span class="fn">β</span></span></span></span></span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/lean4-socket/Init/Fix.html#fix6">fix6</a> <span class="fn">rec</span></span> <a href="/lean4-socket/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/lean4-socket/Init/Fix.html#fixCore6">fixCore6</a> (<span class="fn">fun <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">x</span> => <span class="fn">default</span></span>) <span class="fn">rec</span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 </main>
@@ -869,6 +1035,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
+</div>
+<div class="nav_link">
+<a href="/lean4-socket/Init/Data/Array/DecidableEq.html">Init.Data.Array.DecidableEq</a>
 </div>
 <div class="nav_link">
 <a href="/lean4-socket/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
@@ -1134,6 +1303,9 @@ Documentation</h1>
 <a href="/lean4-socket/Socket/Basic.html">Socket.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/lean4-socket/Socket/Init.html">Socket.Init</a>
+</div>
+<div class="nav_link">
 <a href="/lean4-socket/Socket/SockAddr.html">Socket.SockAddr</a>
 </div>
 <div class="nav_link">
@@ -1144,8 +1316,10 @@ Documentation</h1>
 </nav>
 <script>
 siteRoot = "/lean4-socket/";
-    </script>
+      </script>
 <script src="/lean4-socket/nav.js">
+</script>
+<script src="/lean4-socket/search.js">
 </script>
 </body>
 </html>
