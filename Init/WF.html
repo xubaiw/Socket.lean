@@ -132,6 +132,9 @@ Documentation</h1>
 <a class="break_within" href="#Prod.Lex">Prod.Lex</a>
 </div>
 <div class="nav_link">
+<a class="break_within" href="#Prod.Lex.right'">Prod.Lex.right'</a>
+</div>
+<div class="nav_link">
 <a class="break_within" href="#Prod.RProd">Prod.RProd</a>
 </div>
 <div class="nav_link">
@@ -1116,10 +1119,57 @@ right: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 </ul>
 </div>
 </div>
+<div class="decl" id="Prod.Lex.right'">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L200-L203">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">noncomputable def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/WF.html#Prod.Lex.right'">Prod.Lex.right'</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(rb : <span class="fn"><span class="fn">β</span> → <span class="fn">β</span> → <span class="fn">Prop</span></span>)</span></span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{a₂ : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{b₂ : <span class="fn">β</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{a₁ : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{b₁ : <span class="fn">β</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(h₁ : <span class="fn"><span class="fn">a₁</span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn">a₂</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h₂ : <span class="fn"><span class="fn">rb</span> <span class="fn">b₁</span> <span class="fn">b₂</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/WF.html#Prod.Lex">Prod.Lex</a> <a href="/Socket.lean/Init/Prelude.html#Nat.lt">Nat.lt</a> <span class="fn">rb</span> <span class="fn">(<span class="fn">a₁</span>, <span class="fn">b₁</span>)</span> <span class="fn">(<span class="fn">a₂</span>, <span class="fn">b₂</span>)</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/Socket.lean/Init/WF.html#Prod.Lex.right'">@<a href="/Socket.lean/Init/WF.html#Prod.Lex.right'">Prod.Lex.right'</a></a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/WF.html#Prod.Lex.right'.proof_1">@<a href="/Socket.lean/Init/WF.html#Prod.Lex.right'.proof_1">Prod.Lex.right'.proof_1</a></a></span></li>
+</ul>
+</details>
+</div>
+</div>
 <div class="decl" id="Prod.RProd">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L200-L201">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L206-L207">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -1150,7 +1200,7 @@ intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 <div class="decl" id="Prod.lexAccessible">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L209-L218">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L215-L224">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1195,7 +1245,7 @@ intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 <div class="decl" id="Prod.lex">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L221-L223">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L227-L229">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1229,7 +1279,7 @@ intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 <div class="decl" id="Prod.instWellFoundedRelationProd">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L225-L226">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L231-L232">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable instance</span>
@@ -1266,7 +1316,7 @@ intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 <div class="decl" id="Prod.RProdSubLex">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L229-L231">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L235-L237">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1309,7 +1359,7 @@ intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 <div class="decl" id="Prod.rprod">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L234-L239">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L240-L245">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1343,7 +1393,7 @@ intro: <span class="fn">∀ {α : <span class="fn">Type u</span>} {β : <span cl
 <div class="decl" id="PSigma.Lex">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L252-L254">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L258-L260">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -1377,7 +1427,7 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.lexAccessible">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L261-L270">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L267-L276">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1424,7 +1474,7 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.lex">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L273-L275">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L279-L281">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1458,7 +1508,7 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.instWellFoundedRelationPSigma">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L277-L278">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L283-L284">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable instance</span>
@@ -1495,7 +1545,7 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.lexNdep">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L285-L286">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L291-L292">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1528,7 +1578,7 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.lexNdepWf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L288-L289">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L294-L295">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1569,7 +1619,7 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.RevLex">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L296-L298">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L302-L304">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -1603,7 +1653,7 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.revLexAccessible">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L306-L316">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L312-L322">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1650,7 +1700,7 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.revLex">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L318-L319">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L324-L325">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1691,7 +1741,7 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.SkipLeft">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L323-L324">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L329-L330">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1720,7 +1770,7 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.skipLeft">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L326-L328">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L332-L334">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1750,7 +1800,7 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <div class="decl" id="PSigma.mkSkipLeft">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L330-L331">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/WF.lean#L336-L337">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -1938,6 +1988,9 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 <a href="/Socket.lean/Init/Data/Nat/Gcd.html">Init.Data.Nat.Gcd</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/Linear.html">Init.Data.Nat.Linear</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
 </details>
@@ -2015,6 +2068,9 @@ right: <span class="fn">∀ {α : <span class="fn">Sort u</span>} {β : <span cl
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Ord.html">Init.Data.Ord</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Prod.html">Init.Data.Prod</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Random.html">Init.Data.Random</a>

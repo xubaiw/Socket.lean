@@ -176,6 +176,27 @@ Documentation</h1>
 <div class="nav_link">
 <a class="break_within" href="#solve">solve</a>
 </div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Loop">Lean.Loop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Loop.forIn">Lean.Loop.forIn</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Loop.forIn.loop">Lean.Loop.forIn.loop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.instForInLoopUnit">Lean.instForInLoopUnit</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.doElemRepeat_">Lean.doElemRepeat_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.doElemWhile_Do_">Lean.doElemWhile_Do_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.doElemRepeat_Until_">Lean.doElemRepeat_Until_</a>
+</div>
 </nav>
 <main>
 <div class="decl" id="Lean.«termMacro.trace[__]_»">
@@ -1976,6 +1997,194 @@ Documentation</h1>
 </details>
 </div>
 </div>
+<div class="decl" id="Lean.Loop">
+<div class="inductive">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L215-L216">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">inductive</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">Type</span></div></div>
+<ul class="constructors">
+<li class="constructor" id="Lean.Loop.mk">
+mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
+</ul>
+</div>
+</div>
+<div class="decl" id="Lean.Loop.forIn">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L219-L224">source</a>
+</div>
+<div class="attributes">@[inline]</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/NotationExtra.html#Lean.Loop.forIn">Lean.Loop.forIn</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(loop : <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(init : <span class="fn">β</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a> → <span class="fn"><span class="fn">β</span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep">ForInStep</a> <span class="fn">β</span></span>)</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop.forIn">Lean.Loop.forIn</a> <span class="fn">loop</span> <span class="fn">init</span> <span class="fn">f</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop.forIn.loop">Lean.Loop.forIn.loop</a> <span class="fn">f</span> <span class="fn">init</span></span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="Lean.Loop.forIn.loop">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L220-L223">source</a>
+</div>
+<div class="attributes">@[specialize]</div>
+<div class="decl_header">
+<span class="decl_kind">partial def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/NotationExtra.html#Lean.Loop.forIn.loop">Lean.Loop.forIn.loop</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u</span> → <span class="fn">Type v</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a> → <span class="fn"><span class="fn">β</span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep">ForInStep</a> <span class="fn">β</span></span>)</span></span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(b : <span class="fn">β</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Lean.instForInLoopUnit">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L226-L227">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/NotationExtra.html#Lean.instForInLoopUnit">Lean.instForInLoopUnit</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u_1</span> → <span class="fn">Type u_2</span></span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/Core.html#ForIn">ForIn</a> <span class="fn">m</span> <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a> <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">Lean.instForInLoopUnit</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ forIn := <span class="fn">fun {β} [<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>] => <span class="fn">Lean.Loop.forIn</span></span> }</span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="Lean.doElemRepeat_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L229-L229">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/NotationExtra.html#Lean.doElemRepeat_">Lean.doElemRepeat_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#Lean.doElemRepeat_">Lean.doElemRepeat_</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Lean.doElemRepeat_</span> <span class="fn">1022</span>
+    (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"repeat "</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`doSeq</span></span>)</span>)</span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="Lean.doElemWhile_Do_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L234-L234">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/NotationExtra.html#Lean.doElemWhile_Do_">Lean.doElemWhile_Do_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#Lean.doElemWhile_Do_">Lean.doElemWhile_Do_</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Lean.doElemWhile_Do_</span> <span class="fn">1022</span>
+    (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+      (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+        (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"while "</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`termBeforeDo</span></span>)</span>)
+        (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">" do "</span></span>)</span>)
+      (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`doSeq</span></span>)</span>)</span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="Lean.doElemRepeat_Until_">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L239-L239">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/NotationExtra.html#Lean.doElemRepeat_Until_">Lean.doElemRepeat_Until_</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#Lean.doElemRepeat_Until_">Lean.doElemRepeat_Until_</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Lean.doElemRepeat_Until_</span> <span class="fn">1022</span>
+    (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+      (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+        (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"repeat "</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`doSeq</span></span>)</span>)
+        (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">" until "</span></span>)</span>)
+      (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)</span></span></li>
+</ul>
+</details>
+</div>
+</div>
 </main>
 <nav class="nav">
 <h3>General documentation</h3>
@@ -2120,6 +2329,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/Nat/Gcd.html">Init.Data.Nat.Gcd</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/Linear.html">Init.Data.Nat.Linear</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
 </details>
@@ -2197,6 +2409,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Ord.html">Init.Data.Ord</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Prod.html">Init.Data.Prod</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Random.html">Init.Data.Random</a>

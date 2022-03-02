@@ -72,6 +72,9 @@ Documentation</h1>
 <a class="break_within" href="#Std.instInhabitedFormat">Std.instInhabitedFormat</a>
 </div>
 <div class="nav_link">
+<a class="break_within" href="#Std.Format.isEmpty">Std.Format.isEmpty</a>
+</div>
+<div class="nav_link">
 <a class="break_within" href="#Std.Format.fill">Std.Format.fill</a>
 </div>
 <div class="nav_link">
@@ -267,10 +270,43 @@ tag: <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> → <
 </details>
 </div>
 </div>
+<div class="decl" id="Std.Format.isEmpty">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L32-L39">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format">Std.Format</a> → <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.nil">Std.Format.nil</a></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.line">Std.Format.line</a></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">msg</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> (<span class="fn"><span class="fn">msg</span> <a href="/Socket.lean/Init/Prelude.html#BEq.beq">==</a> <span class="fn">""</span></span>)</span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.nest">Std.Format.nest</a> <span class="fn">x_1</span> <span class="fn">f</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f</span></span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.append">Std.Format.append</a> <span class="fn">f₁</span> <span class="fn">f₂</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> (<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f₁</span></span> <a href="/Socket.lean/Init/Prelude.html#and">&&</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f₂</span></span></span>)</span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.group">Std.Format.group</a> <span class="fn">f</span> <span class="fn">x_1</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f</span></span></span></li>
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.tag">Std.Format.tag</a> <span class="fn">x_1</span> <span class="fn">f</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f</span></span></span></li>
+</ul>
+</details>
+</div>
+</div>
 <div class="decl" id="Std.Format.fill">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L31-L32">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L41-L42">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -293,7 +329,7 @@ tag: <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> → <
 <div class="decl" id="Std.Format.appendEx">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L35-L36">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L45-L46">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -318,7 +354,7 @@ tag: <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> → <
 <div class="decl" id="Std.Format.groupEx">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L39-L40">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L49-L50">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -339,7 +375,7 @@ tag: <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> → <
 <div class="decl" id="Std.Format.instAppendFormat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L42-L42">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L52-L52">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -360,7 +396,7 @@ tag: <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> → <
 <div class="decl" id="Std.Format.instCoeStringFormat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L43-L43">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L53-L53">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -381,7 +417,7 @@ tag: <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> → <
 <div class="decl" id="Std.Format.join">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L45-L46">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L55-L56">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -404,7 +440,7 @@ tag: <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> → <
 <div class="decl" id="Std.Format.isNil">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L48-L50">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L58-L60">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -427,7 +463,7 @@ tag: <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> → <
 <div class="decl" id="Std.Format.instInhabitedSpaceResult">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L56-L56">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L66-L66">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -448,7 +484,7 @@ tag: <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> → <
 <div class="decl" id="Std.Format.MonadPrettyFormat">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L93-L100">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L103-L110">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -484,7 +520,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.Format.prettyM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L175-L176">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L185-L186">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -525,7 +561,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.Format.bracket">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L178-L179">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L188-L189">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -553,7 +589,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.Format.paren">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L181-L182">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L191-L192">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -577,7 +613,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.Format.sbracket">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L184-L185">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L194-L195">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -601,7 +637,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.Format.bracketFill">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L187-L188">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L197-L198">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -629,7 +665,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.Format.defIndent">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L190-L190">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L200-L200">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -650,7 +686,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.Format.defUnicode">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L191-L191">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L201-L201">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -671,7 +707,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.Format.defWidth">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L192-L192">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L202-L202">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -692,7 +728,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.Format.nestD">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L194-L195">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L204-L205">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -715,7 +751,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.Format.indentD">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L197-L198">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L207-L208">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -738,7 +774,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.Format.instMonadPrettyFormatStateMState">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L204-L210">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L214-L220">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -770,7 +806,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.Format.pretty">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L214-L216">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L224-L226">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -796,7 +832,7 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
 <div class="decl" id="Std.ToFormat">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L220-L221">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L230-L231">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -845,7 +881,7 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 <div class="decl" id="Std.instToFormatFormat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L226-L227">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L236-L237">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -866,7 +902,7 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 <div class="decl" id="Std.instToFormatString">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L229-L230">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L239-L240">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -887,7 +923,7 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 <div class="decl" id="Std.Format.joinSep">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L232-L235">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L242-L245">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -920,7 +956,7 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 <div class="decl" id="Std.Format.prefixJoin">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L237-L239">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L247-L249">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -953,7 +989,7 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 <div class="decl" id="Std.Format.joinSuffix">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L241-L243">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Format/Basic.lean#L251-L253">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1125,6 +1161,9 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 <a href="/Socket.lean/Init/Data/Nat/Gcd.html">Init.Data.Nat.Gcd</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/Linear.html">Init.Data.Nat.Linear</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
 </details>
@@ -1202,6 +1241,9 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Ord.html">Init.Data.Ord</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Prod.html">Init.Data.Prod</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Random.html">Init.Data.Random</a>

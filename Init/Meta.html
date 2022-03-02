@@ -530,6 +530,12 @@ Documentation</h1>
 <div class="nav_link">
 <a class="break_within" href="#Lean.Parser.Tactic.tacticErw__">Lean.Parser.Tactic.tacticErw__</a>
 </div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.simpArith">Lean.Parser.Tactic.simpArith</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.Parser.Tactic.expandSimpArith">Lean.Parser.Tactic.expandSimpArith</a>
+</div>
 </nav>
 <main>
 <div class="decl" id="Lean.version.major">
@@ -4466,7 +4472,7 @@ instances: <a href="/Socket.lean/Init/Meta.html#Lean.Meta.TransparencyMode">Lean
 <div class="decl" id="Lean.Meta.Simp.Config">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L998-L1011">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L998-L1012">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -4500,13 +4506,15 @@ iota : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 proj : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <li class="structure_field" id="Lean.Meta.Simp.Config.decide">
 decide : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
+<li class="structure_field" id="Lean.Meta.Simp.Config.arith">
+arith : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 </ul>
 </div>
 </div>
 <div class="decl" id="Lean.Meta.Simp.instInhabitedConfig">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1011-L1011">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1012-L1012">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -4522,7 +4530,7 @@ decide : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <span class="fn"><a href="/Socket.lean/Init/Meta.html#Lean.Meta.Simp.instInhabitedConfig">Lean.Meta.Simp.instInhabitedConfig</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ default :=
       <span class="fn">{ maxSteps := <span class="fn">default</span>, maxDischargeDepth := <span class="fn">default</span>, contextual := <span class="fn">default</span>, memoize := <span class="fn">default</span>,
         singlePass := <span class="fn">default</span>, zeta := <span class="fn">default</span>, beta := <span class="fn">default</span>, eta := <span class="fn">default</span>, etaStruct := <span class="fn">default</span>, iota := <span class="fn">default</span>,
-        proj := <span class="fn">default</span>, decide := <span class="fn">default</span> }</span> }</span></span></li>
+        proj := <span class="fn">default</span>, decide := <span class="fn">default</span>, arith := <span class="fn">default</span> }</span> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -4530,7 +4538,7 @@ decide : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <div class="decl" id="Lean.Meta.Simp.instBEqConfig">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1011-L1011">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1012-L1012">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -4543,7 +4551,7 @@ decide : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/Meta.html#Lean.Meta.Simp.instBEqConfig">Lean.Meta.Simp.instBEqConfig</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ beq := <a href="/Socket.lean/Init/Meta.html#_private.Init.Meta.0.Lean.Meta.Simp.beqConfig._@.Init.Meta._hyg.8711">[anonymous]</a> }</span></span></li>
+<span class="fn"><a href="/Socket.lean/Init/Meta.html#Lean.Meta.Simp.instBEqConfig">Lean.Meta.Simp.instBEqConfig</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ beq := <a href="/Socket.lean/Init/Meta.html#_private.Init.Meta.0.Lean.Meta.Simp.beqConfig._@.Init.Meta._hyg.8721">[anonymous]</a> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -4551,7 +4559,7 @@ decide : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <div class="decl" id="Lean.Meta.Simp.instReprConfig">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1011-L1011">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1012-L1012">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -4564,7 +4572,7 @@ decide : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/Meta.html#Lean.Meta.Simp.instReprConfig">Lean.Meta.Simp.instReprConfig</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <a href="/Socket.lean/Init/Meta.html#_private.Init.Meta.0.Lean.Meta.Simp.reprConfig._@.Init.Meta._hyg.8940">[anonymous]</a> }</span></span></li>
+<span class="fn"><a href="/Socket.lean/Init/Meta.html#Lean.Meta.Simp.instReprConfig">Lean.Meta.Simp.instReprConfig</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <a href="/Socket.lean/Init/Meta.html#_private.Init.Meta.0.Lean.Meta.Simp.reprConfig._@.Init.Meta._hyg.8966">[anonymous]</a> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -4572,7 +4580,7 @@ decide : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <div class="decl" id="Lean.Meta.Simp.ConfigCtx">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1014-L1015">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1015-L1016">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -4592,7 +4600,7 @@ decide : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <div class="decl" id="Lean.Meta.Simp.neutralConfig">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1017-L1023">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1018-L1025">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4607,7 +4615,7 @@ decide : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <li class="equation">
 <span class="fn"><a href="/Socket.lean/Init/Meta.html#Lean.Meta.Simp.neutralConfig">Lean.Meta.Simp.neutralConfig</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ maxSteps := <a href="/Socket.lean/Init/Meta.html#Lean.Meta.Simp.defaultMaxSteps">Lean.Meta.Simp.defaultMaxSteps</a>, maxDischargeDepth := <span class="fn">2</span>, contextual := <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a>, memoize := <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a>,
     singlePass := <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a>, zeta := <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a>, beta := <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a>, eta := <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a>, etaStruct := <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a>, iota := <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a>, proj := <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a>,
-    decide := <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a> }</span></span></li>
+    decide := <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a>, arith := <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -4615,7 +4623,7 @@ decide : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <div class="decl" id="Lean.Meta.Rewrite.Config">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1029-L1031">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1031-L1033">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -4635,7 +4643,7 @@ offsetCnstrs : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <div class="decl" id="Lean.Parser.Tactic.tacticErw__">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1039-L1039">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1041-L1041">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4652,6 +4660,147 @@ offsetCnstrs : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
     (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"erw "</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>) <a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.rwRuleSeq">Lean.Parser.Tactic.rwRuleSeq</a></span>)
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.unary">Lean.ParserDescr.unary</a> <span class="fn">`optional</span> <a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.location">Lean.Parser.Tactic.location</a></span>)</span>)</span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.simpArith">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1044-L1045">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Meta.html#Lean.Parser.Tactic.simpArith">Lean.Parser.Tactic.simpArith</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr">Lean.ParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/Socket.lean/Init/Meta.html#Lean.Parser.Tactic.simpArith">Lean.Parser.Tactic.simpArith</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.node">Lean.ParserDescr.node</a> <span class="fn">`Lean.Parser.Tactic.simpArith</span> <span class="fn">1022</span>
+    (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+      (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+        (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+          (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+            (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"simp_arith "</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>)
+              (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.unary">Lean.ParserDescr.unary</a> <span class="fn">`optional</span> <a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.config">Lean.Parser.Tactic.config</a></span>)</span>)
+            (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.unary">Lean.ParserDescr.unary</a> <span class="fn">`optional</span> <a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.discharger">Lean.Parser.Tactic.discharger</a></span>)</span>)
+          (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.unary">Lean.ParserDescr.unary</a> <span class="fn">`optional</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.nonReservedSymbol">Lean.ParserDescr.nonReservedSymbol</a> <span class="fn">"only "</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>)</span>)</span>)
+        (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.unary">Lean.ParserDescr.unary</a> <span class="fn">`optional</span>
+          (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span>
+            (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"["</span></span>)
+              (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.sepBy">Lean.ParserDescr.sepBy</a>
+                (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`orelse</span> <a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.simpStar">Lean.Parser.Tactic.simpStar</a>
+                  (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`orelse</span> <a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.simpErase">Lean.Parser.Tactic.simpErase</a> <a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.simpLemma">Lean.Parser.Tactic.simpLemma</a></span>)</span>)
+                <span class="fn">","</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">", "</span></span>)</span>)</span>)
+            (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"]"</span></span>)</span>)</span>)</span>)
+      (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.unary">Lean.ParserDescr.unary</a> <span class="fn">`optional</span> <a href="/Socket.lean/Init/Notation.html#Lean.Parser.Tactic.location">Lean.Parser.Tactic.location</a></span>)</span>)</span></span></li>
+</ul>
+</details>
+<p>Similar to <code>simp</code> but with <code>arith:=true</code></p></div>
+</div>
+<div class="decl" id="Lean.Parser.Tactic.expandSimpArith">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Meta.lean#L1047-L1054">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Meta.html#Lean.Parser.Tactic.expandSimpArith">Lean.Parser.Tactic.expandSimpArith</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#Lean.Macro">Lean.Macro</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Meta.html#Lean.Parser.Tactic.expandSimpArith">Lean.Parser.Tactic.expandSimpArith</a> <span class="fn">s</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let _do_jp := <span class="fn">fun <span class="fn">c</span> =>
+    <span class="fn">let s := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.setKind">Lean.Syntax.setKind</a> <span class="fn">s</span> <span class="fn">`Lean.Parser.Tactic.simp</span></span>;
+    <span class="fn">let s := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.setArg">Lean.Syntax.setArg</a> <span class="fn">s</span> <span class="fn">0</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.mkAtomFrom">Lean.mkAtomFrom</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getOp">Lean.Syntax.getOp</a> <span class="fn">s</span> <span class="fn">0</span></span>) <span class="fn">"simp"</span></span>)</span>;
+    <span class="fn">let r := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.setArg">Lean.Syntax.setArg</a> <span class="fn">s</span> <span class="fn">1</span> (<span class="fn"><a href="/Socket.lean/Init/Meta.html#Lean.mkNullNode">Lean.mkNullNode</a> <span class="fn">#[<span class="fn">c</span>]</span></span>)</span>;
+    <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">r</span></span></span></span></span></span>;
+  <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getOp">Lean.Syntax.getOp</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getOp">Lean.Syntax.getOp</a> <span class="fn">s</span> <span class="fn">1</span></span>) <span class="fn">0</span></span>;
+  <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.isOfKind">Lean.Syntax.isOfKind</a> <span class="fn">discr</span> <span class="fn">`Lean.Parser.Tactic.config</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then
+    <span class="fn">let discr_1 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">0</span></span>;
+    <span class="fn">let discr_2 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
+    <span class="fn">let discr_3 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">2</span></span>;
+    <span class="fn">let discr_4 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">3</span></span>;
+    <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">4</span></span>;
+    <span class="fn">let c := <span class="fn">discr_4</span>;
+    <span class="fn">do
+    let y ←
+      <span class="fn">do
+        let info ← <span class="fn">Lean.MonadRef.mkInfoFromRefPos</span>
+        let scp ← <span class="fn">Lean.getCurrMacroScope</span>
+        let mainModule ← <span class="fn">Lean.getMainModule</span>
+        <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a>
+            (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`Lean.Parser.Tactic.config</span>
+              <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">"("</span></span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">"config"</span></span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">":="</span></span>,
+                <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`Lean.Parser.Term.structInst</span>
+                  <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">"{"</span></span>,
+                    <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span>
+                      <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span>
+                          <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`Lean.Parser.Term.paren</span>
+                              <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">"("</span></span>,
+                                <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span>
+                                  <span class="fn">#[<span class="fn">c</span>,
+                                    <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span>
+                                      <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`Lean.Parser.Term.typeAscription</span>
+                                          <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">":"</span></span>,
+                                            <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.ident">Lean.Syntax.ident</a> <span class="fn">info</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.toSubstring">String.toSubstring</a> <span class="fn">"Lean.Meta.Simp.Config"</span></span>)
+                                              (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.addMacroScope">Lean.addMacroScope</a> <span class="fn">mainModule</span> <span class="fn">`Lean.Meta.Simp.Config</span> <span class="fn">scp</span></span>)
+                                              <span class="fn">[<span class="fn">(<span class="fn">`Lean.Meta.Simp.Config</span>, <span class="fn">[]</span>)</span>]</span></span>]</span></span>]</span></span>]</span></span>,
+                                <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">")"</span></span>]</span></span>]</span></span>,
+                        <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">"with"</span></span>]</span></span>,
+                    <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span>
+                      <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`group</span>
+                          <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`Lean.Parser.Term.structInstField</span>
+                              <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`Lean.Parser.Term.structInstLVal</span>
+                                  <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.ident">Lean.Syntax.ident</a> <span class="fn">info</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.toSubstring">String.toSubstring</a> <span class="fn">"arith"</span></span>)
+                                      (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.addMacroScope">Lean.addMacroScope</a> <span class="fn">mainModule</span> <span class="fn">`arith</span> <span class="fn">scp</span></span>) <span class="fn">[]</span></span>,
+                                    <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span> <span class="fn">#[]</span></span>]</span></span>,
+                                <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">":="</span></span>,
+                                <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.ident">Lean.Syntax.ident</a> <span class="fn">info</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.toSubstring">String.toSubstring</a> <span class="fn">"true"</span></span>)
+                                  (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.addMacroScope">Lean.addMacroScope</a> <span class="fn">mainModule</span> <span class="fn">`true</span> <span class="fn">scp</span></span>) <span class="fn">[<span class="fn">(<span class="fn">`Bool.true</span>, <span class="fn">[]</span>)</span>]</span></span>]</span></span>,
+                            <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span> <span class="fn">#[]</span></span>]</span></span>]</span></span>,
+                    <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`Lean.Parser.Term.optEllipsis</span>
+                      <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span> <span class="fn">#[]</span></span>]</span></span>,
+                    <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span> <span class="fn">#[]</span></span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">"}"</span></span>]</span></span>,
+                <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">")"</span></span>]</span></span>)</span></span>
+    <span class="fn"><span class="fn">_do_jp</span> <span class="fn">y</span></span></span></span></span></span></span></span></span>
+  else
+    <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getOp">Lean.Syntax.getOp</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getOp">Lean.Syntax.getOp</a> <span class="fn">s</span> <span class="fn">1</span></span>) <span class="fn">0</span></span>;
+    <span class="fn">do
+    let y ←
+      <span class="fn">do
+        let info ← <span class="fn">Lean.MonadRef.mkInfoFromRefPos</span>
+        let scp ← <span class="fn">Lean.getCurrMacroScope</span>
+        let mainModule ← <span class="fn">Lean.getMainModule</span>
+        <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a>
+            (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`Lean.Parser.Tactic.config</span>
+              <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">"("</span></span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">"config"</span></span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">":="</span></span>,
+                <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`Lean.Parser.Term.structInst</span>
+                  <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">"{"</span></span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span> <span class="fn">#[]</span></span>,
+                    <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span>
+                      <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`group</span>
+                          <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`Lean.Parser.Term.structInstField</span>
+                              <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`Lean.Parser.Term.structInstLVal</span>
+                                  <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.ident">Lean.Syntax.ident</a> <span class="fn">info</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.toSubstring">String.toSubstring</a> <span class="fn">"arith"</span></span>)
+                                      (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.addMacroScope">Lean.addMacroScope</a> <span class="fn">mainModule</span> <span class="fn">`arith</span> <span class="fn">scp</span></span>) <span class="fn">[]</span></span>,
+                                    <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span> <span class="fn">#[]</span></span>]</span></span>,
+                                <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">":="</span></span>,
+                                <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.ident">Lean.Syntax.ident</a> <span class="fn">info</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.toSubstring">String.toSubstring</a> <span class="fn">"true"</span></span>)
+                                  (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.addMacroScope">Lean.addMacroScope</a> <span class="fn">mainModule</span> <span class="fn">`true</span> <span class="fn">scp</span></span>) <span class="fn">[<span class="fn">(<span class="fn">`Bool.true</span>, <span class="fn">[]</span>)</span>]</span></span>]</span></span>,
+                            <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span> <span class="fn">#[]</span></span>]</span></span>]</span></span>,
+                    <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`Lean.Parser.Term.optEllipsis</span>
+                      <span class="fn">#[<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span> <span class="fn">#[]</span></span>]</span></span>,
+                    <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.node">Lean.Syntax.node</a> <a href="/Socket.lean/Init/Prelude.html#Lean.SourceInfo.none">Lean.SourceInfo.none</a> <span class="fn">`null</span> <span class="fn">#[]</span></span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">"}"</span></span>]</span></span>,
+                <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.atom">Lean.Syntax.atom</a> <span class="fn">info</span> <span class="fn">")"</span></span>]</span></span>)</span></span>
+    <span class="fn"><span class="fn">_do_jp</span> <span class="fn">y</span></span></span></span></span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -4800,6 +4949,9 @@ offsetCnstrs : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <a href="/Socket.lean/Init/Data/Nat/Gcd.html">Init.Data.Nat.Gcd</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/Linear.html">Init.Data.Nat.Linear</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
 </details>
@@ -4877,6 +5029,9 @@ offsetCnstrs : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Ord.html">Init.Data.Ord</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Prod.html">Init.Data.Prod</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Random.html">Init.Data.Random</a>

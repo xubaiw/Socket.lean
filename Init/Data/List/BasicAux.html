@@ -30,6 +30,9 @@ Documentation</h1>
 <li>
 <a href="/Socket.lean/Init/Data/List/Basic.html">Init.Data.List.Basic</a>
 </li>
+<li>
+<a href="/Socket.lean/Init/Data/Nat/Linear.html">Init.Data.Nat.Linear</a>
+</li>
 </ul>
 </details>
 <details>
@@ -89,12 +92,21 @@ Documentation</h1>
 <div class="nav_link">
 <a class="break_within" href="#List.rotateRight">List.rotateRight</a>
 </div>
+<div class="nav_link">
+<a class="break_within" href="#List.get_append_left">List.get_append_left</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#List.get_append_right">List.get_append_right</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#List.get_last">List.get_last</a>
+</div>
 </nav>
 <main>
 <div class="decl" id="List.get!">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L16-L19">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L17-L20">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -119,7 +131,7 @@ Documentation</h1>
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/BasicAux.html#List.get!">List.get!</a> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/List/BasicAux.html#List.get!">List.get!</a> <span class="fn">as</span> <span class="fn">n</span></span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/BasicAux.html#List.get!">List.get!</a> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.List.BasicAux"</span> <span class="fn">"List.get!"</span> <span class="fn">19</span> <span class="fn">18</span> <span class="fn">"invalid index"</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/BasicAux.html#List.get!">List.get!</a> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.List.BasicAux"</span> <span class="fn">"List.get!"</span> <span class="fn">20</span> <span class="fn">18</span> <span class="fn">"invalid index"</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -127,7 +139,7 @@ Documentation</h1>
 <div class="decl" id="List.get?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L21-L24">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L22-L25">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -156,7 +168,7 @@ Documentation</h1>
 <div class="decl" id="List.getD">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L26-L27">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L27-L28">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -187,7 +199,7 @@ Documentation</h1>
 <div class="decl" id="List.head!">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L29-L31">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L30-L32">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -209,7 +221,7 @@ Documentation</h1>
 <ul class="equations">
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/BasicAux.html#List.head!">List.head!</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
-  | <span class="fn">[]</span> => <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.List.BasicAux"</span> <span class="fn">"List.head!"</span> <span class="fn">30</span> <span class="fn">12</span> <span class="fn">"empty list"</span></span>
+  | <span class="fn">[]</span> => <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.List.BasicAux"</span> <span class="fn">"List.head!"</span> <span class="fn">31</span> <span class="fn">12</span> <span class="fn">"empty list"</span></span>
   | <span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">x</span></span> => <span class="fn">a</span></span></span></li>
 </ul>
 </details>
@@ -218,7 +230,7 @@ Documentation</h1>
 <div class="decl" id="List.head?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L33-L35">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L34-L36">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -245,7 +257,7 @@ Documentation</h1>
 <div class="decl" id="List.headD">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L37-L39">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L38-L40">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -272,7 +284,7 @@ Documentation</h1>
 <div class="decl" id="List.head">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L41-L42">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L42-L43">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -300,7 +312,7 @@ Documentation</h1>
 <div class="decl" id="List.tail!">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L44-L46">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L45-L47">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -318,7 +330,7 @@ Documentation</h1>
 <ul class="equations">
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/BasicAux.html#List.tail!">List.tail!</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
-  | <span class="fn">[]</span> => <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.List.BasicAux"</span> <span class="fn">"List.tail!"</span> <span class="fn">45</span> <span class="fn">13</span> <span class="fn">"empty list"</span></span>
+  | <span class="fn">[]</span> => <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.List.BasicAux"</span> <span class="fn">"List.tail!"</span> <span class="fn">46</span> <span class="fn">13</span> <span class="fn">"empty list"</span></span>
   | <span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span> => <span class="fn">as</span></span></span></li>
 </ul>
 </details>
@@ -327,7 +339,7 @@ Documentation</h1>
 <div class="decl" id="List.tail?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L48-L50">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L49-L51">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -354,7 +366,7 @@ Documentation</h1>
 <div class="decl" id="List.tailD">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L52-L54">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L53-L55">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -381,7 +393,7 @@ Documentation</h1>
 <div class="decl" id="List.getLast">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L56-L59">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L57-L60">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -412,7 +424,7 @@ Documentation</h1>
 <div class="decl" id="List.getLast!">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L61-L63">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L62-L64">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -434,7 +446,7 @@ Documentation</h1>
 <ul class="equations">
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/BasicAux.html#List.getLast!">List.getLast!</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
-  | <span class="fn">[]</span> => <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.List.BasicAux"</span> <span class="fn">"List.getLast!"</span> <span class="fn">62</span> <span class="fn">13</span> <span class="fn">"empty list"</span></span>
+  | <span class="fn">[]</span> => <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.List.BasicAux"</span> <span class="fn">"List.getLast!"</span> <span class="fn">63</span> <span class="fn">13</span> <span class="fn">"empty list"</span></span>
   | <span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.cons">List.getLast</a> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) (_ : <span class="fn"><span class="fn"><span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">[]</span></span> → <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.noConfusionType">List.noConfusionType</a> <a href="/Socket.lean/Init/Prelude.html#False">False</a> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) <span class="fn">[]</span></span></span>)</span></span></span></li>
 </ul>
 </details>
@@ -443,7 +455,7 @@ Documentation</h1>
 <div class="decl" id="List.getLast?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L65-L67">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L66-L68">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -470,7 +482,7 @@ Documentation</h1>
 <div class="decl" id="List.getLastD">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L69-L71">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L70-L72">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -497,7 +509,7 @@ Documentation</h1>
 <div class="decl" id="List.rotateLeft">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L73-L81">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L74-L82">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -532,7 +544,7 @@ Documentation</h1>
 <div class="decl" id="List.rotateRight">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L83-L91">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L84-L92">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -562,6 +574,106 @@ Documentation</h1>
     <span class="fn"><span class="fn">e</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">b</span></span></span></span></span></span></span></span></li>
 </ul>
 </details>
+</div>
+</div>
+<div class="decl" id="List.get_append_left">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L94-L100">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/List/BasicAux.html#List.get_append_left">List.get_append_left</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{i : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(as : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(bs : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.length">List.length</a> <span class="fn">as</span></span></span>)</span></span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{h' : <span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.length">List.length</a> (<span class="fn"><span class="fn">as</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">bs</span></span>)</span></span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.get">List.get</a> (<span class="fn"><span class="fn">as</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">bs</span></span>) <span class="fn">{ val := <span class="fn">i</span>, isLt := <span class="fn">h'</span> }</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.get">List.get</a> <span class="fn">as</span> <span class="fn">{ val := <span class="fn">i</span>, isLt := <span class="fn">h</span> }</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="List.get_append_right">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L102-L107">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/List/BasicAux.html#List.get_append_right">List.get_append_right</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{i : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(as : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(bs : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Not">¬</a><span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.length">List.length</a> <span class="fn">as</span></span></span></span>)</span></span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{h' : <span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.length">List.length</a> (<span class="fn"><span class="fn">as</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">bs</span></span>)</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{h'' : <span class="fn"><span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.length">List.length</a> <span class="fn">as</span></span></span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.length">List.length</a> <span class="fn">bs</span></span></span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.get">List.get</a> (<span class="fn"><span class="fn">as</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">bs</span></span>) <span class="fn">{ val := <span class="fn">i</span>, isLt := <span class="fn">h'</span> }</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.get">List.get</a> <span class="fn">bs</span> <span class="fn">{ val := <span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.length">List.length</a> <span class="fn">as</span></span></span>, isLt := <span class="fn">h''</span> }</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="List.get_last">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/BasicAux.lean#L109-L117">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/List/BasicAux.html#List.get_last">List.get_last</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{a : <span class="fn">α</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{as : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{i : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Fin">Fin</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.length">List.length</a> (<span class="fn"><span class="fn">as</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">[<span class="fn">a</span>]</span></span>)</span>)</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Not">¬</a><span class="fn"><span class="fn"><span class="fn">i</span>.val</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.length">List.length</a> <span class="fn">as</span></span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#List.get">List.get</a> (<span class="fn"><span class="fn">as</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">[<span class="fn">a</span>]</span></span>) <span class="fn">i</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">a</span></span></div></div>
 </div>
 </div>
 </main>
@@ -708,6 +820,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/Nat/Gcd.html">Init.Data.Nat.Gcd</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/Linear.html">Init.Data.Nat.Linear</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
 </details>
@@ -785,6 +900,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Ord.html">Init.Data.Ord</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Prod.html">Init.Data.Prod</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Random.html">Init.Data.Random</a>
