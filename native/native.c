@@ -492,14 +492,15 @@ lean_obj_res lean_socket_peer(b_lean_obj_arg s, lean_obj_arg w)
 // ## SockAddr
 
 /**
- * constant SockAddr.mk (a : @& SockAddrArgs) : IO SockAddr
+ * constant mk
+  (host : @& String)
+  (port : @& String)
+  (family : AddressFamily := AddressFamily.unspecified)
+  (type : SockType := SockType.unspecified)
+  : IO SockAddr
  */
-lean_obj_res lean_sockaddr_mk(b_lean_obj_arg a, lean_obj_arg w)
+lean_obj_res lean_sockaddr_mk(b_lean_obj_arg h, b_lean_obj_arg p, uint8_t f, uint8_t t, lean_obj_arg w)
 {
-    lean_object *h = lean_ctor_get(a, 0);
-    lean_object *p = lean_ctor_get(a, 1);
-    uint8_t f = lean_ctor_get_uint8(a, lean_ctor_num_objs(a) * sizeof(void *));
-    uint8_t t = lean_ctor_get_uint8(a, lean_ctor_num_objs(a) * sizeof(void *) + sizeof(uint8_t));
     const char *host = lean_string_cstr(h);
     const char *port = lean_string_cstr(p);
     int family = address_family_unbox(f);

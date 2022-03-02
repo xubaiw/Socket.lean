@@ -3,16 +3,14 @@ import Socket.Basic
 namespace Socket
 namespace SockAddr
 
-/-- Argument for [`SockAddr.mk`](##Socket.SockAddr.mk). -/
-structure SockAddrArgs where
-  host : String
-  port : String
-  family : AddressFamily := AddressFamily.unspecified
-  type : SockType := SockType.unspecified
-  deriving Inhabited
-
 /-- Create a [`SockAddr`](##Socket.SockAddr). -/
-@[extern "lean_sockaddr_mk"] constant mk (a : @& SockAddrArgs) : IO SockAddr
+@[extern "lean_sockaddr_mk"]
+constant mk
+  (host : @& String)
+  (port : @& String)
+  (family : AddressFamily := AddressFamily.unspecified)
+  (type : SockType := SockType.unspecified)
+  : IO SockAddr
 
 /-- Get family of the [`SockAddr`](##Socket.SockAddr). -/
 @[extern "lean_sockaddr_family"] constant family (a : @& SockAddr) : Option AddressFamily
