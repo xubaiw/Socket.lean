@@ -26,11 +26,7 @@ import Socket
 open Socket
 
 def main : IO Unit := do
-  IO.println "\n-- Local address --\n"
-  let addr ← SockAddr.mk {
-    host := "localhost"
-    port := "8080"
-  }
+  let addr ← SockAddr.mk "localhost" "8080"
   IO.println addr
 ```
 

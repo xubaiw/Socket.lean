@@ -5,10 +5,7 @@ open Socket
 def main : IO Unit := do
   -- Local Address
   IO.println "\n-- Local address --\n"
-  let addr ← SockAddr.mk {
-    host := "localhost"
-    port := "8080"
-  }
+  let addr ← SockAddr.mk "localhost" "8080"
   IO.print "addr.toString: "
   IO.println addr
   IO.print "addr.family: "
@@ -20,11 +17,7 @@ def main : IO Unit := do
 
   -- Remote Address
   IO.println "\n-- Remote address --\n"
-  let addr ← SockAddr.mk {
-    host := "www.example.com"
-    port := "80"
-    family := AddressFamily.inet6
-  }
+  let addr ← SockAddr.mk "www.example.com" "80" AddressFamily.inet6
   IO.print "addr.toString: "
   IO.println addr
   IO.print "addr.family: "

@@ -4,16 +4,11 @@ open Socket
 
 def main : IO Unit := do
   -- configure remote SockAddr
-  let remoteAddr ← SockAddr.mk {
-    host := "www.example.com"
-    port := "80"
-    family := inet
-    type := stream
-  }
+  let remoteAddr ← SockAddr.mk "www.example.com" "80" AddressFamily.inet SockType.stream
   IO.println s!"Remote Addr: {remoteAddr}"
 
   -- connect to remote
-  let socket ← Socket.mk inet stream
+  let socket ← Socket.mk AddressFamily.inet SockType.stream
   socket.connect remoteAddr
   IO.println "Connected!"
 

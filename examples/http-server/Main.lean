@@ -24,16 +24,11 @@ partial def serve (socket : @& Socket) : IO Unit := do
 -/
 def main : IO Unit := do
   -- configure local SockAddr
-  let localAddr ← SockAddr.mk {
-    host := "localhost"
-    port := "8080"
-    family := inet
-    type := stream
-  }
+  let localAddr ← SockAddr.mk "localhost" "8080" AddressFamily.inet SockType.stream
   IO.println s!"Local Addr: {localAddr}"
 
   -- bind a socket to local address
-  let socket ← Socket.mk inet stream
+  let socket ← Socket.mk AddressFamily.inet SockType.stream
   socket.bind localAddr
   IO.println "Socket Bound."
 
