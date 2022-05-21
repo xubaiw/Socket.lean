@@ -6,7 +6,7 @@ To run this example, switch to the `example/http-server` folder, build and run.
 
 ```sh
 $ cd examples/http-server
-$ lake build-bin
+$ lake build
 $ ./build/bin/http-server
 ```
 
