@@ -1,8 +1,9 @@
 import Lake
 open System Platform Lake DSL
 
-package sockaddr where
-  dependencies := #[{
-    name := `socket
-    src := Source.path "../.."
-  }]
+package sockaddr
+
+require socket from ".."/".."
+
+@[defaultTarget]
+lean_exe Main

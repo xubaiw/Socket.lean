@@ -19,7 +19,7 @@ namespace Socket
   Use `NonemptyType` to implement `Inhabited` for `Socket`.
   [detailed explanation](#explanation-usage-of-nonemptytype)
 -/
-constant Socket.Nonempty : NonemptyType
+opaque Socket.Nonempty : NonemptyType
 
 /--
   Opaque reference to underlying platform specific socket.
@@ -53,7 +53,7 @@ instance : Nonempty Socket := Socket.Nonempty.property
   Use `NonemptyType` to implement `Inhabited` for `SockAddr`.
   [detailed explanation](#explanation-usage-of-nonemptytype)
 -/
-constant SockAddr.Nonempty : NonemptyType
+opaque SockAddr.Nonempty : NonemptyType
 
 /--
   Opaque reference to underlying socket address.
@@ -113,7 +113,7 @@ inductive ShutdownHow where
   deriving Inhabited
 
 /-- Get hostname of current machine. -/
-@[extern "lean_gethostname"] constant hostname : IO String
+@[extern "lean_gethostname"] opaque hostname : IO String
 
 end Socket
 

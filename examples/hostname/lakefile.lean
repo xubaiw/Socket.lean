@@ -1,8 +1,9 @@
 import Lake
 open System Platform Lake DSL
 
-package gethostname where
-  dependencies := #[{
-    name := `socket
-    src := Source.path "../.."
-  }]
+package gethostname
+
+require socket from ".."/".."
+
+@[defaultTarget]
+lean_exe Main

@@ -1,5 +1,9 @@
 import Lake
-open System Lake DSL
+import Lean.Elab.Command
+import Lake.Util.EvalTerm
+open System Lake DSL Lean Elab Command
+
+package socket
 
 def leanSoureDir := "."
 def cppCompiler := "gcc"
@@ -8,23 +12,30 @@ def ffiSrc := cDir / "native.c"
 def ffiO := "ffi.o"
 def ffiLib := "libffi.a"
 
-def ffiOTarget (pkgDir : FilePath) : FileTarget :=
-  let oFile := pkgDir / defaultBuildDir / cDir / ffiO
-  let srcTarget := inputFileTarget <| pkgDir / ffiSrc
+def ffiOTarget : FileTarget :=
+  let oFile := __dir__ / defaultBuildDir / cDir / ffiO
+  let srcTarget := inputFileTarget <| __dir__ / ffiSrc
   fileTargetWithDep oFile srcTarget fun srcFile => do
     compileO oFile srcFile
       #["-I", (← getLeanIncludeDir).toString] cppCompiler
 
-def cLibTarget (pkgDir : FilePath) : FileTarget :=
-  let libFile := pkgDir / defaultBuildDir / cDir / ffiLib
-  staticLibTarget libFile #[ffiOTarget pkgDir]
+def cLibTarget : FileTarget :=
+  let libFile := __dir__ / defaultBuildDir / cDir / ffiLib
+  staticLibTarget libFile #[ffiOTarget]
 
-package socket (pkgDir) (args) {
-  moreLibTargets := if Platform.isWindows then #[cLibTarget pkgDir, inputFileTarget "C:\\Windows\\System32\\ws2_32.dll"] else #[cLibTarget pkgDir]
-  defaultFacet := PackageFacet.staticLib
-}
+extern_lib clib := cLibTarget
 
-script examples (args) do
+-- HACK
+elab "meta " "if " x:term " then " cmd:command : command => do
+  if (← runTermElabM none <| fun _ => evalTerm Bool x) then elabCommand cmd
+
+meta if System.Platform.isWindows then
+extern_lib ws2 := inputFileTarget "C:\\Windows\\System32\\ws2_32.dll"
+
+@[defaultTarget]
+lean_lib Socket
+
+script examples do
   let examplesDir ← ("examples" : FilePath).readDir
   for ex in examplesDir do
     IO.println ex.path
@@ -36,14 +47,14 @@ script examples (args) do
     IO.println o.stderr
   return 0
 
-script clean (args) do
+script clean do
   let examplesDir ← ("examples" : FilePath).readDir
-  let o ← IO.Process.output {
+  let _ ← IO.Process.output {
       cmd := "lake"
       args := #["clean"]
   }
   for ex in examplesDir do
-    let o ← IO.Process.output {
+    let _ ← IO.Process.output {
       cmd := "lake"
       args := #["clean"]
       cwd := ex.path

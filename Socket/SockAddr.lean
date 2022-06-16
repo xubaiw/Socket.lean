@@ -5,7 +5,7 @@ namespace SockAddr
 
 /-- Create a [`SockAddr`](##Socket.SockAddr). -/
 @[extern "lean_sockaddr_mk"]
-constant mk
+opaque mk
   (host : @& String)
   (port : @& String)
   (family : AddressFamily := AddressFamily.unspecified)
@@ -13,13 +13,13 @@ constant mk
   : IO SockAddr
 
 /-- Get family of the [`SockAddr`](##Socket.SockAddr). -/
-@[extern "lean_sockaddr_family"] constant family (a : @& SockAddr) : Option AddressFamily
+@[extern "lean_sockaddr_family"] opaque family (a : @& SockAddr) : Option AddressFamily
 
 /-- Get family of the [`SockAddr`](##Socket.SockAddr). -/
-@[extern "lean_sockaddr_port"] constant port (a : @& SockAddr) : Option UInt16
+@[extern "lean_sockaddr_port"] opaque port (a : @& SockAddr) : Option UInt16
 
 /-- Get family of the [`SockAddr`](##Socket.SockAddr). -/
-@[extern "lean_sockaddr_host"] constant host (a : @& SockAddr) : Option String
+@[extern "lean_sockaddr_host"] opaque host (a : @& SockAddr) : Option String
 
 end SockAddr
 

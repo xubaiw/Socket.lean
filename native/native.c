@@ -278,7 +278,7 @@ lean_obj_res lean_socket_initialize()
 // ## Socket
 
 /**
- * constant Socket.mk (d : AddressFamily) (t : SockType) : IO Socket
+ * opaque Socket.mk (d : AddressFamily) (t : SockType) : IO Socket
  */
 lean_obj_res lean_socket_mk(uint8_t af_obj, uint8_t type_obj, lean_obj_arg w)
 {
@@ -297,7 +297,7 @@ lean_obj_res lean_socket_mk(uint8_t af_obj, uint8_t type_obj, lean_obj_arg w)
 }
 
 /**
- * constant Socket.close (s : @& Socket) : IO Unit
+ * opaque Socket.close (s : @& Socket) : IO Unit
  */
 lean_obj_res lean_socket_close(b_lean_obj_arg s, lean_obj_arg w)
 {
@@ -312,7 +312,7 @@ lean_obj_res lean_socket_close(b_lean_obj_arg s, lean_obj_arg w)
 }
 
 /**
- * constant Socket.connect (s : @& Socket) (a : @& SockAddr) : IO Unit
+ * opaque Socket.connect (s : @& Socket) (a : @& SockAddr) : IO Unit
  */
 lean_obj_res lean_socket_connect(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_arg w)
 {
@@ -328,7 +328,7 @@ lean_obj_res lean_socket_connect(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_ar
 }
 
 /**
- * constant Socket.bind (s : @& Socket) (a : @& SockAddr) : IO Unit
+ * opaque Socket.bind (s : @& Socket) (a : @& SockAddr) : IO Unit
  */
 lean_obj_res lean_socket_bind(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_arg w)
 {
@@ -344,7 +344,7 @@ lean_obj_res lean_socket_bind(b_lean_obj_arg s, b_lean_obj_arg a, lean_obj_arg w
 }
 
 /**
- * constant Socket.listen (s : @& Socket) (n : @& UInt8) : IO Unit
+ * opaque Socket.listen (s : @& Socket) (n : @& UInt8) : IO Unit
  */
 lean_obj_res lean_socket_listen(b_lean_obj_arg s, uint8_t n, lean_obj_arg w)
 {
@@ -359,7 +359,7 @@ lean_obj_res lean_socket_listen(b_lean_obj_arg s, uint8_t n, lean_obj_arg w)
 }
 
 /**
- * constant Socket.accept (s : @& Socket) : IO (SockAddr × Socket)
+ * opaque Socket.accept (s : @& Socket) : IO (SockAddr × Socket)
  */
 lean_obj_res lean_socket_accept(b_lean_obj_arg s, lean_obj_arg w)
 {
@@ -383,7 +383,7 @@ lean_obj_res lean_socket_accept(b_lean_obj_arg s, lean_obj_arg w)
 }
 
 /**
- * constant Socket.shutdown (s : @& Socket) (h : ShutdownHow) : IO Unit 
+ * opaque Socket.shutdown (s : @& Socket) (h : ShutdownHow) : IO Unit 
  */
 lean_obj_res lean_socket_shutdown(b_lean_obj_arg s, uint8_t h, lean_obj_arg w)
 {
@@ -398,7 +398,7 @@ lean_obj_res lean_socket_shutdown(b_lean_obj_arg s, uint8_t h, lean_obj_arg w)
 }
 
 /**
- * constant Socket.send (s : @& Socket) (b : @& ByteArray) : IO USize
+ * opaque Socket.send (s : @& Socket) (b : @& ByteArray) : IO USize
  */
 lean_obj_res lean_socket_send(b_lean_obj_arg s, b_lean_obj_arg b, lean_obj_arg w)
 {
@@ -415,7 +415,7 @@ lean_obj_res lean_socket_send(b_lean_obj_arg s, b_lean_obj_arg b, lean_obj_arg w
 }
 
 /**
- * constant Socket.sendto (s : @& Socket) (b : @& ByteArray) (a : @& SockAddr) : IO USize
+ * opaque Socket.sendto (s : @& Socket) (b : @& ByteArray) (a : @& SockAddr) : IO USize
  */
 lean_obj_res lean_socket_sendto(b_lean_obj_arg s, b_lean_obj_arg b, b_lean_obj_arg a, lean_obj_arg w)
 {
@@ -433,7 +433,7 @@ lean_obj_res lean_socket_sendto(b_lean_obj_arg s, b_lean_obj_arg b, b_lean_obj_a
 }
 
 /**
- * constant Socket.recv (s : @& Socket) (n : @& USize) : IO ByteArray
+ * opaque Socket.recv (s : @& Socket) (n : @& USize) : IO ByteArray
  */
 lean_obj_res lean_socket_recv(b_lean_obj_arg s, size_t n, lean_obj_arg w)
 {
@@ -451,7 +451,7 @@ lean_obj_res lean_socket_recv(b_lean_obj_arg s, size_t n, lean_obj_arg w)
 }
 
 /**
- * constant Socket.recvfrom (s : @& Socket) (n : @& USize) : IO (SockAddr × ByteArray)
+ * opaque Socket.recvfrom (s : @& Socket) (n : @& USize) : IO (SockAddr × ByteArray)
  */
 lean_obj_res lean_socket_recvfrom(b_lean_obj_arg s, size_t n, lean_obj_arg w)
 {
@@ -473,7 +473,7 @@ lean_obj_res lean_socket_recvfrom(b_lean_obj_arg s, size_t n, lean_obj_arg w)
 }
 
 /**
- * constant Socket.peer (s : @& Socket) : IO SockAddr
+ * opaque Socket.peer (s : @& Socket) : IO SockAddr
  */
 lean_obj_res lean_socket_peer(b_lean_obj_arg s, lean_obj_arg w)
 {
@@ -492,7 +492,7 @@ lean_obj_res lean_socket_peer(b_lean_obj_arg s, lean_obj_arg w)
 // ## SockAddr
 
 /**
- * constant mk
+ * opaque mk
   (host : @& String)
   (port : @& String)
   (family : AddressFamily := AddressFamily.unspecified)
@@ -537,7 +537,7 @@ lean_obj_res lean_sockaddr_mk(b_lean_obj_arg h, b_lean_obj_arg p, uint8_t f, uin
 }
 
 /**
- * constant Sock.family (a : @&SockAddr) : Option AddressFamily
+ * opaque Sock.family (a : @&SockAddr) : Option AddressFamily
  */
 lean_obj_res lean_sockaddr_family(b_lean_obj_arg a, lean_obj_arg w)
 {
@@ -555,7 +555,7 @@ lean_obj_res lean_sockaddr_family(b_lean_obj_arg a, lean_obj_arg w)
 }
 
 /**
- * constant Sock.port (a : @&SockAddr) : Option UInt16
+ * opaque Sock.port (a : @&SockAddr) : Option UInt16
  */
 lean_obj_res lean_sockaddr_port(b_lean_obj_arg a, lean_obj_arg w)
 {
@@ -579,7 +579,7 @@ lean_obj_res lean_sockaddr_port(b_lean_obj_arg a, lean_obj_arg w)
 }
 
 /**
- * constant SockAddr.host (a : @&SockAddr) : Option String
+ * opaque SockAddr.host (a : @&SockAddr) : Option String
  */
 lean_obj_res lean_sockaddr_host(b_lean_obj_arg a, lean_obj_arg w)
 {
@@ -609,7 +609,7 @@ lean_obj_res lean_sockaddr_host(b_lean_obj_arg a, lean_obj_arg w)
 // ## Other Functions
 
 /**
- * constant hostName : IO String
+ * opaque hostName : IO String
  */
 lean_obj_res lean_gethostname()
 {

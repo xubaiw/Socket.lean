@@ -1,8 +1,9 @@
 import Lake
 open System Platform Lake DSL
 
-package http_client where
-  dependencies := #[{
-    name := `socket
-    src := Source.path "../.."
-  }]
+package http_client
+
+require socket from ".."/".."
+
+@[defaultTarget]
+lean_exe Main

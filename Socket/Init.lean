@@ -14,7 +14,7 @@ namespace Socket
 
 /-- The initialization function. Users shouldn't call this. -/
 @[extern "lean_socket_initialize"]
-constant initSocket : IO Unit
+opaque initSocket : IO Unit
 
 builtin_initialize initSocket
 
