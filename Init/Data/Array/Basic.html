@@ -57,6 +57,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </li>
 <li>
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</li>
+<li>
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </li>
 <li>
@@ -64,6 +67,9 @@ Documentation</h1>
 </li>
 <li>
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</li>
+<li>
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </li>
 <li>
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -1066,9 +1072,9 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.shrink.loop">Array.shrink.loop</a> <span class="fn">0</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">x</span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.shrink.loop">Array.shrink.loop</a> <span class="fn">0</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">_fun_discr</span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.shrink.loop">Array.shrink.loop</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>) <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.shrink.loop">Array.shrink.loop</a> <span class="fn">n</span> (<span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.pop">Array.pop</a> <span class="fn">x</span></span>)</span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.shrink.loop">Array.shrink.loop</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">n</span></span>) <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.shrink.loop">Array.shrink.loop</a> <span class="fn">n</span> (<span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.pop">Array.pop</a> <span class="fn">_fun_discr</span></span>)</span></span></li>
 </ul>
 </details>
 </div>
@@ -2165,7 +2171,6 @@ Documentation</h1>
           | <span class="fn">x</span> => <span class="fn">do
             <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#PUnit.unit">PUnit.unit</a></span>
             <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> (<span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep.yield">ForInStep.yield</a> <span class="fn">{ fst := <span class="fn">none</span>, snd := <a href="/Socket.lean/Init/Prelude.html#PUnit.unit">PUnit.unit</a> }</span></span>)</span></span></span></span></span></span></span>
-  let x : <a href="/Socket.lean/Init/Prelude.html#PUnit">PUnit</a> := <span class="fn"><span class="fn">r</span>.snd</span>
   let _do_jp : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#PUnit">PUnit</a> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option">Option</a> <span class="fn">β</span></span>)</span></span> := <span class="fn">fun <span class="fn">y</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">none</span></span></span>
   <span class="fn">match <span class="fn"><span class="fn">r</span>.fst</span> with
     | <span class="fn">none</span> => <span class="fn">do
@@ -2219,7 +2224,6 @@ Documentation</h1>
           else <span class="fn">do
             <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#PUnit.unit">PUnit.unit</a></span>
             <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> (<span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep.yield">ForInStep.yield</a> <span class="fn">{ fst := <span class="fn">none</span>, snd := <a href="/Socket.lean/Init/Prelude.html#PUnit.unit">PUnit.unit</a> }</span></span>)</span></span></span></span></span></span></span>
-  let x : <a href="/Socket.lean/Init/Prelude.html#PUnit">PUnit</a> := <span class="fn"><span class="fn">r</span>.snd</span>
   let _do_jp : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#PUnit">PUnit</a> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option">Option</a> <span class="fn">α</span></span>)</span></span> := <span class="fn">fun <span class="fn">y</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">none</span></span></span>
   <span class="fn">match <span class="fn"><span class="fn">r</span>.fst</span> with
     | <span class="fn">none</span> => <span class="fn">do
@@ -2280,8 +2284,7 @@ Documentation</h1>
           else <span class="fn">do
             let y ← <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#PUnit.unit">PUnit.unit</a></span>
             <span class="fn"><span class="fn">_do_jp</span> <span class="fn">i</span> <span class="fn">y</span></span></span></span></span></span></span></span></span>
-  let x : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> := <span class="fn"><span class="fn">r</span>.snd</span>
-  let i : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> := <span class="fn">x</span>
+  let i : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> := <span class="fn"><span class="fn">r</span>.snd</span>
   let _do_jp : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#PUnit">PUnit</a> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option">Option</a> <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></span>)</span></span> := <span class="fn">fun <span class="fn">y</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">none</span></span></span>
   <span class="fn">match <span class="fn"><span class="fn">r</span>.fst</span> with
     | <span class="fn">none</span> => <span class="fn">do
@@ -2384,7 +2387,7 @@ Documentation</h1>
 <div class="decl" id="Array.anyM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L326-L343">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L326-L341">source</a>
 </div>
 <div class="attributes">@[implementedBy Array.anyMUnsafe]</div>
 <div class="decl_header">
@@ -2418,7 +2421,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.anyM">Array.anyM</a> <span class="fn">p</span> <span class="fn">as</span> <span class="fn">start</span> <span class="fn">stop</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let any := <span class="fn">fun <span class="fn">stop</span> <span class="fn">h</span> => <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.anyM.loop">Array.anyM.loop</a> <span class="fn">p</span> <span class="fn">as</span> <span class="fn">stop</span> <span class="fn">h</span> (<span class="fn"><span class="fn">stop</span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn">start</span></span>) <span class="fn">start</span></span></span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.anyM">Array.anyM</a> <span class="fn">p</span> <span class="fn">as</span> <span class="fn">start</span> <span class="fn">stop</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let any := <span class="fn">fun <span class="fn">stop</span> <span class="fn">h</span> => <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.anyM.loop">Array.anyM.loop</a> <span class="fn">p</span> <span class="fn">as</span> <span class="fn">stop</span> <span class="fn">h</span> <span class="fn">start</span></span></span>;
   <span class="fn">if h : <span class="fn"><span class="fn">stop</span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span> then <span class="fn"><span class="fn">any</span> <span class="fn">stop</span> <span class="fn">h</span></span> else <span class="fn"><span class="fn">any</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span>) (_ : <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span>)</span></span></span></span></li>
 </ul>
 </details>
@@ -2427,7 +2430,7 @@ Documentation</h1>
 <div class="decl" id="Array.anyM.loop">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L328-L338">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L328-L335">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2455,8 +2458,6 @@ Documentation</h1>
 <span class="decl_args">
 <span class="fn">(h : <span class="fn"><span class="fn">stop</span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span>)</span></span>
 <span class="decl_args">
-<span class="fn">(i : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a>)</span></span>
-<span class="decl_args">
 <span class="fn">(j : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></span></div></div>
@@ -2464,11 +2465,9 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.anyM.loop">Array.anyM.loop</a> <span class="fn">p</span> <span class="fn">as</span> <span class="fn">stop</span> <span class="fn">h</span> <span class="fn">0</span> <span class="fn">j</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">if hlt : <span class="fn"><span class="fn">j</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn">stop</span></span> then <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span> else <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span></span></span></li>
-<li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.anyM.loop">Array.anyM.loop</a> <span class="fn">p</span> <span class="fn">as</span> <span class="fn">stop</span> <span class="fn">h</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">i'</span></span>) <span class="fn">j</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">if hlt : <span class="fn"><span class="fn">j</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn">stop</span></span> then <span class="fn">do
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.anyM.loop">Array.anyM.loop</a> <span class="fn">p</span> <span class="fn">as</span> <span class="fn">stop</span> <span class="fn">h</span> <span class="fn">j</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">if hlt : <span class="fn"><span class="fn">j</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn">stop</span></span> then <span class="fn">do
     let a ← <span class="fn"><span class="fn">p</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.get">Array.get</a> <span class="fn">as</span> <span class="fn">{ val := <span class="fn">j</span>, isLt := (_ : <span class="fn"><span class="fn">j</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span>) }</span></span>)</span>
-    <span class="fn">if <span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> else <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.anyM.loop">Array.anyM.loop</a> <span class="fn">p</span> <span class="fn">as</span> <span class="fn">stop</span> <span class="fn">h</span> <span class="fn">i'</span> (<span class="fn"><span class="fn">j</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>)</span></span></span>
+    <span class="fn">if <span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> else <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.anyM.loop">Array.anyM.loop</a> <span class="fn">p</span> <span class="fn">as</span> <span class="fn">stop</span> <span class="fn">h</span> (<span class="fn"><span class="fn">j</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>)</span></span></span>
   else <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span></span></span></li>
 </ul>
 </details>
@@ -2477,7 +2476,7 @@ Documentation</h1>
 <div class="decl" id="Array.allM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L346-L347">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L344-L345">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2517,7 +2516,7 @@ Documentation</h1>
         (<span class="fn">fun <span class="fn">v</span> => <span class="fn">do
           let a ← <span class="fn"><span class="fn">p</span> <span class="fn">v</span></span>
           <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#not">!</a><span class="fn">a</span></span></span></span></span>)
-        <span class="fn">as</span> <span class="fn">0</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span>)</span>
+        <span class="fn">as</span> <span class="fn">start</span> <span class="fn">stop</span></span>
   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#not">!</a><span class="fn">a</span></span></span></span></span></li>
 </ul>
 </details>
@@ -2526,7 +2525,7 @@ Documentation</h1>
 <div class="decl" id="Array.findSomeRevM?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L350-L361">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L348-L359">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2568,7 +2567,7 @@ Documentation</h1>
 <div class="decl" id="Array.findSomeRevM?.find">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L351-L360">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L349-L358">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -2597,7 +2596,7 @@ Documentation</h1>
 <span class="decl_args">
 <span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option">Option</a> <span class="fn">β</span></span>)</span></span>)</span></span>
 <span class="decl_args">:</span>
-<div class="decl_type"><span class="fn">(x : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a>) → <span class="fn"><span class="fn"><span class="fn">x</span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option">Option</a> <span class="fn">β</span></span>)</span></span></span></div></div>
+<div class="decl_type"><span class="fn">(_fun_discr : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a>) → <span class="fn"><span class="fn"><span class="fn">_fun_discr</span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option">Option</a> <span class="fn">β</span></span>)</span></span></span></div></div>
 <details>
 <summary>Equations</summary>
 <ul class="equations">
@@ -2607,7 +2606,7 @@ Documentation</h1>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.findSomeRevM?.find">Array.findSomeRevM?.find</a> <span class="fn">as</span> <span class="fn">f</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">i_1</span></span>) <span class="fn">h_1</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">(<span class="fn">fun <span class="fn">this</span> => <span class="fn">do
       let r ← <span class="fn"><span class="fn">f</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.get">Array.get</a> <span class="fn">as</span> <span class="fn">{ val := <span class="fn">i_1</span>, isLt := <span class="fn">this</span> }</span></span>)</span>
       <span class="fn">match <span class="fn">r</span> with
-        | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">v</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">r</span></span>
+        | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">val</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">r</span></span>
         | <span class="fn">none</span> =>
           <span class="fn">let_fun this := (_ : <span class="fn"><span class="fn">i_1</span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span>);
           <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.findSomeRevM?.find">Array.findSomeRevM?.find</a> <span class="fn">as</span> <span class="fn">f</span> <span class="fn">i_1</span> <span class="fn">this</span></span></span></span></span></span>)
@@ -2619,7 +2618,7 @@ Documentation</h1>
 <div class="decl" id="Array.findRevM?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L364-L365">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L362-L363">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2659,7 +2658,7 @@ Documentation</h1>
 <div class="decl" id="Array.forM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L368-L369">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L366-L367">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2701,7 +2700,7 @@ Documentation</h1>
 <div class="decl" id="Array.forRevM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L372-L373">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L370-L371">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2743,7 +2742,7 @@ Documentation</h1>
 <div class="decl" id="Array.foldl">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L376-L377">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L374-L375">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2783,7 +2782,7 @@ Documentation</h1>
 <div class="decl" id="Array.foldr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L380-L381">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L378-L379">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2823,7 +2822,7 @@ Documentation</h1>
 <div class="decl" id="Array.map">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L384-L385">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L382-L383">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2857,7 +2856,7 @@ Documentation</h1>
 <div class="decl" id="Array.mapIdx">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L388-L389">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L386-L387">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2891,7 +2890,7 @@ Documentation</h1>
 <div class="decl" id="Array.find?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L392-L393">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L390-L391">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2921,7 +2920,7 @@ Documentation</h1>
 <div class="decl" id="Array.findSome?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L396-L397">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L394-L395">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2955,7 +2954,7 @@ Documentation</h1>
 <div class="decl" id="Array.findSome!">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L400-L403">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L398-L401">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2987,7 +2986,7 @@ Documentation</h1>
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.findSome!">Array.findSome!</a> <span class="fn">a</span> <span class="fn">f</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.findSome?">Array.findSome?</a> <span class="fn">a</span> <span class="fn">f</span></span> with
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">b</span></span> => <span class="fn">b</span>
-  | <span class="fn">none</span> => <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.Array.Basic"</span> <span class="fn">"Array.findSome!"</span> <span class="fn">403</span> <span class="fn">14</span> <span class="fn">"failed to find element"</span></span></span></span></li>
+  | <span class="fn">none</span> => <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.Array.Basic"</span> <span class="fn">"Array.findSome!"</span> <span class="fn">401</span> <span class="fn">14</span> <span class="fn">"failed to find element"</span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -2995,7 +2994,7 @@ Documentation</h1>
 <div class="decl" id="Array.findSomeRev?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L406-L407">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L404-L405">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3029,7 +3028,7 @@ Documentation</h1>
 <div class="decl" id="Array.findRev?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L410-L411">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L408-L409">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3059,7 +3058,7 @@ Documentation</h1>
 <div class="decl" id="Array.findIdx?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L414-L432">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L412-L430">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3089,7 +3088,7 @@ Documentation</h1>
 <div class="decl" id="Array.findIdx?.loop">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L415-L431">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L413-L429">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3131,7 +3130,7 @@ Documentation</h1>
 <div class="decl" id="Array.getIdx?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L434-L435">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L432-L433">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3164,7 +3163,7 @@ Documentation</h1>
 <div class="decl" id="Array.any">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L438-L439">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L436-L437">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3198,7 +3197,7 @@ Documentation</h1>
 <div class="decl" id="Array.all">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L442-L443">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L440-L441">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3232,7 +3231,7 @@ Documentation</h1>
 <div class="decl" id="Array.contains">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L445-L446">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L443-L444">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3265,7 +3264,7 @@ Documentation</h1>
 <div class="decl" id="Array.elem">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L448-L449">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L446-L447">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3298,7 +3297,7 @@ Documentation</h1>
 <div class="decl" id="Array.reverse">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L451-L460">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L449-L458">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3327,7 +3326,7 @@ Documentation</h1>
 <div class="decl" id="Array.reverse.rev">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L454-L458">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L452-L456">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3360,7 +3359,7 @@ Documentation</h1>
 <div class="decl" id="Array.getEvenElems">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L462-L467">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L460-L465">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3393,7 +3392,7 @@ Documentation</h1>
 <div class="decl" id="Array.toList">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L470-L471">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L468-L469">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3420,7 +3419,7 @@ Documentation</h1>
 <div class="decl" id="Array.instReprArray">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L473-L479">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L471-L477">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -3441,14 +3440,11 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn">Array.instReprArray</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">a</span> <span class="fn">n</span> =>
-      <span class="fn">let x := <span class="fn">{ format := <span class="fn">repr</span> }</span>;
-      <span class="fn">match <span class="fn">x</span> with
-      | <span class="fn">x</span> =>
-        <span class="fn">if <span class="fn">(<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a</span></span> <a href="/Socket.lean/Init/Prelude.html#BEq.beq">==</a> <span class="fn">0</span></span>) <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"#[]"</span></span>
-        else
-          <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.bracketFill">Std.Format.bracketFill</a> <span class="fn">"#["</span> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.toList">Array.toList</a> <span class="fn">a</span></span>) (<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">","</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.line">Std.Format.line</a></span>)</span>)
-            <span class="fn">"]"</span></span></span></span></span></span> }</span></span></li>
+<span class="fn"><span class="fn">Array.instReprArray</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">a</span> <span class="fn">x</span> =>
+      <span class="fn">let _ := <span class="fn">{ format := <span class="fn">repr</span> }</span>;
+      <span class="fn">if <span class="fn">(<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a</span></span> <a href="/Socket.lean/Init/Prelude.html#BEq.beq">==</a> <span class="fn">0</span></span>) <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">"#[]"</span></span>
+      else
+        <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.bracketFill">Std.Format.bracketFill</a> <span class="fn">"#["</span> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.toList">Array.toList</a> <span class="fn">a</span></span>) (<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">","</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.line">Std.Format.line</a></span>)</span>) <span class="fn">"]"</span></span></span></span></span> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -3456,7 +3452,7 @@ Documentation</h1>
 <div class="decl" id="Array.instToStringArray">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L481-L482">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L479-L480">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -3485,7 +3481,7 @@ Documentation</h1>
 <div class="decl" id="Array.append">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L484-L485">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L482-L483">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3514,7 +3510,7 @@ Documentation</h1>
 <div class="decl" id="Array.instAppendArray">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L487-L487">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L485-L485">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -3539,7 +3535,7 @@ Documentation</h1>
 <div class="decl" id="Array.appendList">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L489-L490">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L487-L488">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3568,7 +3564,7 @@ Documentation</h1>
 <div class="decl" id="Array.instHAppendArrayList">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L492-L492">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L490-L490">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -3593,7 +3589,7 @@ Documentation</h1>
 <div class="decl" id="Array.concatMapM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L495-L496">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L493-L494">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3639,7 +3635,7 @@ Documentation</h1>
 <div class="decl" id="Array.concatMap">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L499-L500">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L497-L498">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3673,7 +3669,7 @@ Documentation</h1>
 <div class="decl" id="«term#[_,]»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L506-L506">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L504-L504">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3698,7 +3694,7 @@ Documentation</h1>
 <div class="decl" id="Array.isEqvAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L515-L520">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L513-L518">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -3736,7 +3732,7 @@ Documentation</h1>
 <div class="decl" id="Array.isEqv">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L522-L526">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L520-L524">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3768,7 +3764,7 @@ Documentation</h1>
 <div class="decl" id="Array.instBEqArray">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L528-L529">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L526-L527">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -3797,7 +3793,7 @@ Documentation</h1>
 <div class="decl" id="Array.filter">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L532-L534">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L530-L532">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3831,7 +3827,7 @@ Documentation</h1>
 <div class="decl" id="Array.filterM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L537-L539">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L535-L537">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3877,7 +3873,7 @@ Documentation</h1>
 <div class="decl" id="Array.filterMapM">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L542-L546">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L540-L544">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -3929,7 +3925,7 @@ Documentation</h1>
 <div class="decl" id="Array.filterMap">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L549-L550">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L547-L548">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3967,7 +3963,7 @@ Documentation</h1>
 <div class="decl" id="Array.getMax?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L553-L559">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L551-L557">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -4000,7 +3996,7 @@ Documentation</h1>
 <div class="decl" id="Array.partition">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L562-L570">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L560-L568">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -4040,8 +4036,7 @@ Documentation</h1>
             <span class="fn">do
             <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#PUnit.unit">PUnit.unit</a></span>
             <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> (<span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep.yield">ForInStep.yield</a> <span class="fn">{ fst := <span class="fn">bs</span>, snd := <span class="fn">cs</span> }</span></span>)</span></span></span></span></span></span></span></span>
-    let x : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MProd">MProd</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span>)</span> := <span class="fn">r</span>
-    <span class="fn">match <span class="fn">x</span> with
+    <span class="fn">match <span class="fn">r</span> with
       | <span class="fn">{ fst := <span class="fn">bs</span>, snd := <span class="fn">cs</span> }</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MProd.mk">pure</a> <span class="fn">(<span class="fn">bs</span>, <span class="fn">cs</span>)</span></span></span></span></span></span>)</span></span></li>
 </ul>
 </details>
@@ -4050,7 +4045,7 @@ Documentation</h1>
 <div class="decl" id="Array.ext">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L572-L605">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L570-L603">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -4077,7 +4072,7 @@ Documentation</h1>
 <div class="decl" id="Array.ext.extAux">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L576-L600">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L574-L598">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -4104,7 +4099,7 @@ Documentation</h1>
 <div class="decl" id="Array.extLit">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L607-L611">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L605-L609">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -4136,7 +4131,7 @@ Documentation</h1>
 <div class="decl" id="Array.indexOfAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L618-L624">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L616-L622">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4174,7 +4169,7 @@ Documentation</h1>
 <div class="decl" id="Array.indexOf?">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L626-L627">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L624-L625">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4207,7 +4202,7 @@ Documentation</h1>
 <div class="decl" id="Array.size_swap">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L629-L631">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L627-L629">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -4232,7 +4227,7 @@ Documentation</h1>
 <div class="decl" id="Array.size_pop">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L633-L634">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L631-L634">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -4351,7 +4346,7 @@ Documentation</h1>
 <div class="decl" id="Array.eraseIdxAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L659-L668">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L659-L667">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4376,8 +4371,7 @@ Documentation</h1>
     <span class="fn">let idx := <span class="fn">{ val := <span class="fn">i</span>, isLt := <span class="fn">h</span> }</span>;
     <span class="fn">let idx1 := <span class="fn">{ val := <span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn">1</span></span>, isLt := (_ : <span class="fn"><span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn">1</span></span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a</span></span></span>) }</span>;
     <span class="fn">let a' := <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.swap">Array.swap</a> <span class="fn">a</span> <span class="fn">idx</span> <span class="fn">idx1</span></span>;
-    <span class="fn">let_fun this := (_ : <span class="fn"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a'</span></span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> (<span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a</span></span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn">i</span></span></span>);
-    <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.eraseIdxAux">Array.eraseIdxAux</a> (<span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>) <span class="fn">a'</span></span></span></span></span></span>
+    <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.eraseIdxAux">Array.eraseIdxAux</a> (<span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>) <span class="fn">a'</span></span></span></span></span>
   else <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.pop">Array.pop</a> <span class="fn">a</span></span></span></span></li>
 </ul>
 </details>
@@ -4386,7 +4380,7 @@ Documentation</h1>
 <div class="decl" id="Array.feraseIdx">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L670-L671">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L669-L670">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4415,7 +4409,7 @@ Documentation</h1>
 <div class="decl" id="Array.eraseIdx">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L673-L674">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L672-L673">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4444,7 +4438,7 @@ Documentation</h1>
 <div class="decl" id="Array.eraseIdxSzAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L676-L683">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L675-L682">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4481,7 +4475,7 @@ Documentation</h1>
 <div class="decl" id="Array.eraseIdx'">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L685-L686">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L684-L685">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4510,7 +4504,7 @@ Documentation</h1>
 <div class="decl" id="Array.erase">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L688-L691">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L687-L690">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4545,7 +4539,7 @@ Documentation</h1>
 <div class="decl" id="Array.insertAtAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L693-L699">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L692-L697">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4579,7 +4573,7 @@ Documentation</h1>
 <div class="decl" id="Array.insertAt">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L704-L708">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L702-L706">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4602,7 +4596,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.insertAt">Array.insertAt</a> <span class="fn">as</span> <span class="fn">i</span> <span class="fn">a</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#GT.gt">></a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span> then <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.Array.Basic"</span> <span class="fn">"Array.insertAt"</span> <span class="fn">705</span> <span class="fn">22</span> <span class="fn">"invalid index"</span></span>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.insertAt">Array.insertAt</a> <span class="fn">as</span> <span class="fn">i</span> <span class="fn">a</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#GT.gt">></a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span></span> then <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.Array.Basic"</span> <span class="fn">"Array.insertAt"</span> <span class="fn">703</span> <span class="fn">22</span> <span class="fn">"invalid index"</span></span>
   else
     <span class="fn">let as := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.push">Array.push</a> <span class="fn">as</span> <span class="fn">a</span></span>;
     <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.insertAtAux">Array.insertAtAux</a> <span class="fn">i</span> <span class="fn">as</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span>)</span></span></span></span></li>
@@ -4614,7 +4608,7 @@ Pre: <code>i<as.size</code></p></div>
 <div class="decl" id="Array.toListLitAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L710-L712">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L708-L710">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4639,9 +4633,9 @@ Pre: <code>i<as.size</code></p></div>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.toListLitAux">Array.toListLitAux</a> <span class="fn">a</span> <span class="fn">n</span> <span class="fn">hsz</span> <span class="fn">0</span> <span class="fn">hi</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">x</span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.toListLitAux">Array.toListLitAux</a> <span class="fn">a</span> <span class="fn">n</span> <span class="fn">hsz</span> <span class="fn">0</span> <span class="fn">x</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">_fun_discr</span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.toListLitAux">Array.toListLitAux</a> <span class="fn">a</span> <span class="fn">n</span> <span class="fn">hsz</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">i</span></span>) <span class="fn">hi</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.toListLitAux">Array.toListLitAux</a> <span class="fn">a</span> <span class="fn">n</span> <span class="fn">hsz</span> <span class="fn">i</span> (_ : <span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a</span></span></span>) (<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.getLit">Array.getLit</a> <span class="fn">a</span> <span class="fn">i</span> <span class="fn">hsz</span> (_ : <span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn">n</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">x</span></span>)</span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.toListLitAux">Array.toListLitAux</a> <span class="fn">a</span> <span class="fn">n</span> <span class="fn">hsz</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">i</span></span>) <span class="fn">hi</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.toListLitAux">Array.toListLitAux</a> <span class="fn">a</span> <span class="fn">n</span> <span class="fn">hsz</span> <span class="fn">i</span> (_ : <span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">a</span></span></span>) (<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.getLit">Array.getLit</a> <span class="fn">a</span> <span class="fn">i</span> <span class="fn">hsz</span> (_ : <span class="fn"><span class="fn">i</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn">n</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">_fun_discr</span></span>)</span></span></li>
 </ul>
 </details>
 </div>
@@ -4649,7 +4643,7 @@ Pre: <code>i<as.size</code></p></div>
 <div class="decl" id="Array.toArrayLit">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L714-L715">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L712-L713">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4680,7 +4674,7 @@ Pre: <code>i<as.size</code></p></div>
 <div class="decl" id="Array.toArrayLit_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L717-L719">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L715-L717">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -4704,7 +4698,7 @@ Pre: <code>i<as.size</code></p></div>
 <div class="decl" id="Array.isPrefixOfAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L758-L768">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L756-L766">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4745,7 +4739,7 @@ Pre: <code>i<as.size</code></p></div>
 <div class="decl" id="Array.isPrefixOf">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L771-L775">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L769-L773">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4778,7 +4772,7 @@ Pre: <code>i<as.size</code></p></div>
 <div class="decl" id="Array.allDiff">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L790-L791">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L788-L789">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4809,7 +4803,7 @@ Pre: <code>i<as.size</code></p></div>
 <div class="decl" id="Array.zipWithAux">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L793-L803">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L791-L801">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -4859,7 +4853,7 @@ Pre: <code>i<as.size</code></p></div>
 <div class="decl" id="Array.zipWith">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L805-L806">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L803-L804">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -4899,7 +4893,7 @@ Pre: <code>i<as.size</code></p></div>
 <div class="decl" id="Array.zip">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L808-L809">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L806-L807">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4932,7 +4926,7 @@ Pre: <code>i<as.size</code></p></div>
 <div class="decl" id="Array.unzip">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L811-L812">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L809-L810">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4969,7 +4963,7 @@ Pre: <code>i<as.size</code></p></div>
 <div class="decl" id="Array.split">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L814-L816">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Array/Basic.lean#L812-L814">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -5053,6 +5047,9 @@ Pre: <code>i<as.size</code></p></div>
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -5060,6 +5057,9 @@ Pre: <code>i<as.size</code></p></div>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -5148,6 +5148,9 @@ Pre: <code>i<as.size</code></p></div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -5179,6 +5182,9 @@ Pre: <code>i<as.size</code></p></div>
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -5310,7 +5316,13 @@ Pre: <code>i<as.size</code></p></div>
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

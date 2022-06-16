@@ -25,13 +25,22 @@ Documentation</h1>
 <summary>Imports</summary>
 <ul>
 <li>
+<a href="/Socket.lean/Init/SimpLemmas.html">Init.SimpLemmas</a>
+</li>
+<li>
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>
+</li>
+<li>
+<a href="/Socket.lean/Init/WFTactics.html">Init.WFTactics</a>
 </li>
 <li>
 <a href="/Socket.lean/Init/Control/Except.html">Init.Control.Except</a>
 </li>
 <li>
 <a href="/Socket.lean/Init/Data/ByteArray.html">Init.Data.ByteArray</a>
+</li>
+<li>
+<a href="/Socket.lean/Init/Data/Nat/Linear.html">Init.Data.Nat.Linear</a>
 </li>
 </ul>
 </details>
@@ -56,12 +65,33 @@ Documentation</h1>
 <div class="nav_link">
 <a class="break_within" href="#String.toUTF8">String.toUTF8</a>
 </div>
+<div class="nav_link">
+<a class="break_within" href="#String.one_le_csize">String.one_le_csize</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.pos_lt_eq">String.pos_lt_eq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.pos_add_char">String.pos_add_char</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.eq_empty_of_bsize_eq_zero">String.eq_empty_of_bsize_eq_zero</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.lt_next">String.lt_next</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.sizeOf_next_lt_of_hasNext">String.Iterator.sizeOf_next_lt_of_hasNext</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#String.Iterator.sizeOf_next_lt_of_atEnd">String.Iterator.sizeOf_next_lt_of_atEnd</a>
+</div>
 </nav>
 <main>
 <div class="decl" id="String.toNat!">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L13-L17">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L16-L20">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -77,7 +107,7 @@ Documentation</h1>
 <ul class="equations">
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Extra.html#String.toNat!">String.toNat!</a> <span class="fn">s</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.isNat">String.isNat</a> <span class="fn">s</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.foldl">String.foldl</a> (<span class="fn">fun <span class="fn">n</span> <span class="fn">c</span> => <span class="fn"><span class="fn"><span class="fn">n</span> <a href="/Socket.lean/Init/Prelude.html#HMul.hMul">*</a> <span class="fn">10</span></span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> (<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Char/Basic.html#Char.toNat">Char.toNat</a> <span class="fn">c</span></span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn"><a href="/Socket.lean/Init/Data/Char/Basic.html#Char.toNat">Char.toNat</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">48</span></span>)</span></span>)</span></span>) <span class="fn">0</span> <span class="fn">s</span></span>
-  else <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.String.Extra"</span> <span class="fn">"String.toNat!"</span> <span class="fn">17</span> <span class="fn">4</span> <span class="fn">"Nat expected"</span></span></span></span></li>
+  else <span class="fn"><a href="/Socket.lean/Init/Util.html#panicWithPosWithDecl">panicWithPosWithDecl</a> <span class="fn">"Init.Data.String.Extra"</span> <span class="fn">"String.toNat!"</span> <span class="fn">20</span> <span class="fn">4</span> <span class="fn">"Nat expected"</span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -85,7 +115,7 @@ Documentation</h1>
 <div class="decl" id="String.fromUTF8Unchecked">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L23-L23">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L26-L26">source</a>
 </div>
 <div class="attributes">@[extern  lean_string_from_utf8_unchecked]</div>
 <div class="decl_header">
@@ -103,7 +133,7 @@ The result is unspecified if <code>a</code> is not properly UTF-8 encoded.</p></
 <div class="decl" id="String.toUTF8">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L26-L26">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L29-L29">source</a>
 </div>
 <div class="attributes">@[extern  lean_string_to_utf8]</div>
 <div class="decl_header">
@@ -115,6 +145,134 @@ The result is unspecified if <code>a</code> is not properly UTF-8 encoded.</p></
 <span class="fn">(a : <a href="/Socket.lean/Init/Prelude.html#String">String</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/Socket.lean/Init/Data/ByteArray/Basic.html#ByteArray">ByteArray</a></div></div>
+</div>
+</div>
+<div class="decl" id="String.one_le_csize">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L31-L33">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/String/Extra.html#String.one_le_csize">String.one_le_csize</a>
+</span>
+<span class="decl_args">
+<span class="fn">(c : <a href="/Socket.lean/Init/Prelude.html#Char">Char</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">1</span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.csize">String.csize</a> <span class="fn">c</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.pos_lt_eq">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L35-L35">source</a>
+</div>
+<div class="attributes">@[simp]</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/String/Extra.html#String.pos_lt_eq">String.pos_lt_eq</a>
+</span>
+<span class="decl_args">
+<span class="fn">(p₁ : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(p₂ : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">(<span class="fn"><span class="fn">p₁</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn">p₂</span></span>) <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> (<span class="fn"><span class="fn"><span class="fn">p₁</span>.byteIdx</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn"><span class="fn">p₂</span>.byteIdx</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="String.pos_add_char">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L37-L37">source</a>
+</div>
+<div class="attributes">@[simp]</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/String/Extra.html#String.pos_add_char">String.pos_add_char</a>
+</span>
+<span class="decl_args">
+<span class="fn">(p : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(c : <a href="/Socket.lean/Init/Prelude.html#Char">Char</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">(<span class="fn"><span class="fn">p</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">c</span></span>).byteIdx</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn"><span class="fn">p</span>.byteIdx</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.csize">String.csize</a> <span class="fn">c</span></span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.eq_empty_of_bsize_eq_zero">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L39-L46">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/String/Extra.html#String.eq_empty_of_bsize_eq_zero">String.eq_empty_of_bsize_eq_zero</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{s : <a href="/Socket.lean/Init/Prelude.html#String">String</a>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.endPos">String.endPos</a> <span class="fn">s</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ byteIdx := <span class="fn">0</span> }</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">s</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">""</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.lt_next">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L48-L49">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/String/Extra.html#String.lt_next">String.lt_next</a>
+</span>
+<span class="decl_args">
+<span class="fn">(s : <a href="/Socket.lean/Init/Prelude.html#String">String</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><span class="fn">i</span>.byteIdx</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.next">String.next</a> <span class="fn">s</span> <span class="fn">i</span></span>).byteIdx</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.sizeOf_next_lt_of_hasNext">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L51-L59">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/String/Extra.html#String.Iterator.sizeOf_next_lt_of_hasNext">String.Iterator.sizeOf_next_lt_of_hasNext</a>
+</span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Socket.lean/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.Iterator.hasNext">String.Iterator.hasNext</a> <span class="fn">i</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/SizeOf.html#SizeOf.sizeOf">sizeOf</a> (<span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.Iterator.next">String.Iterator.next</a> <span class="fn">i</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/Socket.lean/Init/SizeOf.html#SizeOf.sizeOf">sizeOf</a> <span class="fn">i</span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="String.Iterator.sizeOf_next_lt_of_atEnd">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/String/Extra.lean#L63-L65">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/String/Extra.html#String.Iterator.sizeOf_next_lt_of_atEnd">String.Iterator.sizeOf_next_lt_of_atEnd</a>
+</span>
+<span class="decl_args">
+<span class="fn">(i : <a href="/Socket.lean/Init/Data/String/Basic.html#String.Iterator">String.Iterator</a>)</span></span>
+<span class="decl_args">
+<span class="fn">(h : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Not">¬</a><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.Iterator.atEnd">String.Iterator.atEnd</a> <span class="fn">i</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/SizeOf.html#SizeOf.sizeOf">sizeOf</a> (<span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.Iterator.next">String.Iterator.next</a> <span class="fn">i</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn"><a href="/Socket.lean/Init/SizeOf.html#SizeOf.sizeOf">sizeOf</a> <span class="fn">i</span></span></span></div></div>
 </div>
 </div>
 </main>
@@ -171,6 +329,9 @@ The result is unspecified if <code>a</code> is not properly UTF-8 encoded.</p></
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -178,6 +339,9 @@ The result is unspecified if <code>a</code> is not properly UTF-8 encoded.</p></
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -266,6 +430,9 @@ The result is unspecified if <code>a</code> is not properly UTF-8 encoded.</p></
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -297,6 +464,9 @@ The result is unspecified if <code>a</code> is not properly UTF-8 encoded.</p></
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -428,7 +598,13 @@ The result is unspecified if <code>a</code> is not properly UTF-8 encoded.</p></
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

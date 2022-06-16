@@ -180,6 +180,9 @@ Documentation</h1>
 <a class="break_within" href="#IO.monoMsNow">IO.monoMsNow</a>
 </div>
 <div class="nav_link">
+<a class="break_within" href="#IO.monoNanosNow">IO.monoNanosNow</a>
+</div>
+<div class="nav_link">
 <a class="break_within" href="#IO.getRandomBytes">IO.getRandomBytes</a>
 </div>
 <div class="nav_link">
@@ -1071,7 +1074,7 @@ Makes sure we never reorder <code><a href="/Socket.lean/Init/System/IO.html#IO">
 <ul class="equations">
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#unsafeBaseIO">unsafeBaseIO</a> <span class="fn">fn</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.run">EStateM.run</a> <span class="fn">fn</span> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span> with
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.ok">EStateM.Result.ok</a> <span class="fn">a</span> <span class="fn">x</span></span> => <span class="fn">a</span></span></span></li>
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.ok">EStateM.Result.ok</a> <span class="fn">a</span> <span class="fn">a_1</span></span> => <span class="fn">a</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -1347,9 +1350,9 @@ to that.</p></div>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.mapTasks.go">BaseIO.mapTasks.go</a> <span class="fn">f</span> <span class="fn">prio</span> (<span class="fn"><span class="fn">t</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">ts</span></span>) <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.bindTask">BaseIO.bindTask</a> <span class="fn">t</span> (<span class="fn">fun <span class="fn">a</span> => <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.mapTasks.go">BaseIO.mapTasks.go</a> <span class="fn">f</span> <span class="fn">prio</span> <span class="fn">ts</span> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">x</span></span>)</span></span>) <span class="fn">prio</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.mapTasks.go">BaseIO.mapTasks.go</a> <span class="fn">f</span> <span class="fn">prio</span> (<span class="fn"><span class="fn">t</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">ts</span></span>) <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.bindTask">BaseIO.bindTask</a> <span class="fn">t</span> (<span class="fn">fun <span class="fn">a</span> => <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.mapTasks.go">BaseIO.mapTasks.go</a> <span class="fn">f</span> <span class="fn">prio</span> <span class="fn">ts</span> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">_fun_discr</span></span>)</span></span>) <span class="fn">prio</span></span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.mapTasks.go">BaseIO.mapTasks.go</a> <span class="fn">f</span> <span class="fn">prio</span> <span class="fn">[]</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.asTask">BaseIO.asTask</a> (<span class="fn"><span class="fn">f</span> (<span class="fn"><a href="/Socket.lean/Init/Data/List/Basic.html#List.reverse">List.reverse</a> <span class="fn">x</span></span>)</span>) <span class="fn">prio</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.mapTasks.go">BaseIO.mapTasks.go</a> <span class="fn">f</span> <span class="fn">prio</span> <span class="fn">[]</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO.asTask">BaseIO.asTask</a> (<span class="fn"><span class="fn">f</span> (<span class="fn"><a href="/Socket.lean/Init/Data/List/Basic.html#List.reverse">List.reverse</a> <span class="fn">_fun_discr</span></span>)</span>) <span class="fn">prio</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -1587,10 +1590,25 @@ to that.</p></div>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></span></div></div>
 <p>Monotonically increasing time since an unspecified past point in milliseconds. No relation to wall clock time.</p></div>
 </div>
+<div class="decl" id="IO.monoNanosNow">
+<div class="constant">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L169-L169">source</a>
+</div>
+<div class="attributes">@[extern  lean_io_mono_nanos_now]</div>
+<div class="decl_header">
+<span class="decl_kind">constant</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/System/IO.html#IO.monoNanosNow">IO.monoNanosNow</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#BaseIO">BaseIO</a> <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></span></div></div>
+<p>Monotonically increasing time since an unspecified past point in nanoseconds. No relation to wall clock time.</p></div>
+</div>
 <div class="decl" id="IO.getRandomBytes">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L170-L170">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L173-L173">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_get_random_bytes]</div>
 <div class="decl_header">
@@ -1608,7 +1626,7 @@ If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 <div class="decl" id="IO.sleep">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L172-L174">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L175-L177">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1631,7 +1649,7 @@ If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 <div class="decl" id="IO.asTask">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L177-L178">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L180-L181">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -1661,7 +1679,7 @@ If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 <div class="decl" id="IO.mapTask">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L181-L182">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L184-L185">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -1697,7 +1715,7 @@ If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 <div class="decl" id="IO.bindTask">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L185-L186">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L188-L189">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -1733,7 +1751,7 @@ If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 <div class="decl" id="IO.mapTasks">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L189-L190">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L192-L193">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -1769,7 +1787,7 @@ If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 <div class="decl" id="IO.checkCanceled">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L193-L193">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L196-L196">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_check_canceled]</div>
 <div class="decl_header">
@@ -1784,7 +1802,7 @@ If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 <div class="decl" id="IO.cancel">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L196-L196">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L199-L199">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_cancel]</div>
 <div class="decl_header">
@@ -1803,7 +1821,7 @@ If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 <div class="decl" id="IO.hasFinished">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L199-L199">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L202-L202">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_has_finished]</div>
 <div class="decl_header">
@@ -1822,7 +1840,7 @@ If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 <div class="decl" id="IO.wait">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L202-L203">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L205-L206">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_wait]</div>
 <div class="decl_header">
@@ -1843,7 +1861,7 @@ If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 <div class="decl" id="IO.waitAny">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L206-L206">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L209-L209">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_wait_any]</div>
 <div class="decl_header">
@@ -1862,7 +1880,7 @@ If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 <div class="decl" id="IO.getNumHeartbeats">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L209-L209">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L212-L212">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_get_num_heartbeats]</div>
 <div class="decl_header">
@@ -1877,7 +1895,7 @@ If <code>nBytes=0</code>, return immediately with an empty buffer.</p></div>
 <div class="decl" id="IO.FS.Mode">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L211-L212">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L214-L215">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -1901,7 +1919,7 @@ append: <a href="/Socket.lean/Init/System/IO.html#IO.FS.Mode">IO.FS.Mode</a></li
 <div class="decl" id="IO.FS.Handle">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L214-L214">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L217-L217">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">constant</span>
@@ -1915,7 +1933,7 @@ append: <a href="/Socket.lean/Init/System/IO.html#IO.FS.Mode">IO.FS.Mode</a></li
 <div class="decl" id="IO.FS.Stream">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L219-L226">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L222-L229">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -1944,7 +1962,7 @@ capture output of <code>#eval</code> commands into memory.</p></div>
 <div class="decl" id="IO.FS.instInhabitedStream">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L226-L226">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L229-L229">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1966,7 +1984,7 @@ capture output of <code>#eval</code> commands into memory.</p></div>
 <div class="decl" id="IO.getStdin">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L230-L230">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L233-L233">source</a>
 </div>
 <div class="attributes">@[extern  lean_get_stdin]</div>
 <div class="decl_header">
@@ -1981,7 +1999,7 @@ capture output of <code>#eval</code> commands into memory.</p></div>
 <div class="decl" id="IO.getStdout">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L231-L231">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L234-L234">source</a>
 </div>
 <div class="attributes">@[extern  lean_get_stdout]</div>
 <div class="decl_header">
@@ -1996,7 +2014,7 @@ capture output of <code>#eval</code> commands into memory.</p></div>
 <div class="decl" id="IO.getStderr">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L232-L232">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L235-L235">source</a>
 </div>
 <div class="attributes">@[extern  lean_get_stderr]</div>
 <div class="decl_header">
@@ -2011,7 +2029,7 @@ capture output of <code>#eval</code> commands into memory.</p></div>
 <div class="decl" id="IO.setStdin">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L235-L235">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L238-L238">source</a>
 </div>
 <div class="attributes">@[extern  lean_get_set_stdin]</div>
 <div class="decl_header">
@@ -2026,7 +2044,7 @@ capture output of <code>#eval</code> commands into memory.</p></div>
 <div class="decl" id="IO.setStdout">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L237-L237">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L240-L240">source</a>
 </div>
 <div class="attributes">@[extern  lean_get_set_stdout]</div>
 <div class="decl_header">
@@ -2041,7 +2059,7 @@ capture output of <code>#eval</code> commands into memory.</p></div>
 <div class="decl" id="IO.setStderr">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L239-L239">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L242-L242">source</a>
 </div>
 <div class="attributes">@[extern  lean_get_set_stderr]</div>
 <div class="decl_header">
@@ -2056,7 +2074,7 @@ capture output of <code>#eval</code> commands into memory.</p></div>
 <div class="decl" id="IO.iterate">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L241-L245">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L244-L248">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -2083,7 +2101,7 @@ capture output of <code>#eval</code> commands into memory.</p></div>
 <div class="decl" id="IO.FS.Handle.mkPrim">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L261-L261">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L264-L264">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_prim_handle_mk]</div>
 <div class="decl_header">
@@ -2102,7 +2120,7 @@ capture output of <code>#eval</code> commands into memory.</p></div>
 <div class="decl" id="IO.FS.Handle.mk">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L263-L264">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L266-L267">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2129,7 +2147,7 @@ capture output of <code>#eval</code> commands into memory.</p></div>
 <div class="decl" id="IO.FS.Handle.isEof">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L271-L271">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L274-L274">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_prim_handle_is_eof]</div>
 <div class="decl_header">
@@ -2148,7 +2166,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.Handle.flush">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L272-L272">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L275-L275">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_prim_handle_flush]</div>
 <div class="decl_header">
@@ -2165,7 +2183,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.Handle.read">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L273-L273">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L276-L276">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_prim_handle_read]</div>
 <div class="decl_header">
@@ -2184,7 +2202,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.Handle.write">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L274-L274">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L277-L277">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_prim_handle_write]</div>
 <div class="decl_header">
@@ -2203,7 +2221,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.Handle.getLine">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L276-L276">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L279-L279">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_prim_handle_get_line]</div>
 <div class="decl_header">
@@ -2220,7 +2238,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.Handle.putStr">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L277-L277">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L280-L280">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_prim_handle_put_str]</div>
 <div class="decl_header">
@@ -2239,7 +2257,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.realPath">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L281-L281">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L284-L284">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_realpath]</div>
 <div class="decl_header">
@@ -2256,7 +2274,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.removeFile">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L282-L282">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L285-L285">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_remove_file]</div>
 <div class="decl_header">
@@ -2273,7 +2291,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.removeDir">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L284-L284">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L287-L287">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_remove_dir]</div>
 <div class="decl_header">
@@ -2288,7 +2306,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.createDir">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L285-L285">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L288-L288">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_create_dir]</div>
 <div class="decl_header">
@@ -2303,7 +2321,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.getEnv">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L289-L289">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L292-L292">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_getenv]</div>
 <div class="decl_header">
@@ -2320,7 +2338,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.appPath">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L290-L290">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L293-L293">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_app_path]</div>
 <div class="decl_header">
@@ -2335,7 +2353,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.currentDir">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L291-L291">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L294-L294">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_current_dir]</div>
 <div class="decl_header">
@@ -2350,7 +2368,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.withFile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L296-L297">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L299-L300">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2382,7 +2400,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.Handle.putStrLn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L299-L300">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L302-L303">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2407,7 +2425,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.Handle.readBinToEnd">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L302-L309">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L305-L312">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2430,7 +2448,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.Handle.readBinToEnd.loop">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L303-L308">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L306-L311">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -2448,7 +2466,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.Handle.readToEnd">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L311-L318">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L314-L321">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2471,7 +2489,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.Handle.readToEnd.loop">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L312-L317">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L315-L320">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -2489,7 +2507,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.readBinFile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L320-L322">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L323-L325">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2514,7 +2532,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.readFile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L324-L326">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L327-L329">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2539,7 +2557,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.lines">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L328-L340">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L331-L343">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2564,7 +2582,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.lines.read">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L330-L339">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L333-L342">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -2582,7 +2600,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.writeBinFile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L342-L344">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L345-L347">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2609,7 +2627,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.writeFile">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L346-L348">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L349-L351">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2636,7 +2654,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.Stream.putStrLn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L350-L351">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L353-L354">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2661,7 +2679,7 @@ Once <code>h.isEof</code> is true, reading <code><a href="/Socket.lean/Init/Syst
 <div class="decl" id="IO.FS.DirEntry">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L353-L356">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L356-L359">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -2681,7 +2699,7 @@ fileName : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="IO.FS.instReprDirEntry">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L356-L356">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L359-L359">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -2694,7 +2712,7 @@ fileName : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instReprDirEntry">IO.FS.instReprDirEntry</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.reprDirEntry._@.Init.System.IO._hyg.1886">[anonymous]</a> }</span></span></li>
+<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instReprDirEntry">IO.FS.instReprDirEntry</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.reprDirEntry._@.Init.System.IO._hyg.1891">[anonymous]</a> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -2702,7 +2720,7 @@ fileName : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="IO.FS.DirEntry.path">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L358-L359">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L361-L362">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2725,7 +2743,7 @@ fileName : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="IO.FS.FileType">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L361-L366">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L364-L369">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -2749,7 +2767,7 @@ other: <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <div class="decl" id="IO.FS.instReprFileType">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L366-L366">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L369-L369">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -2762,7 +2780,7 @@ other: <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instReprFileType">IO.FS.instReprFileType</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.reprFileType._@.Init.System.IO._hyg.1941">[anonymous]</a> }</span></span></li>
+<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instReprFileType">IO.FS.instReprFileType</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.reprFileType._@.Init.System.IO._hyg.1948">[anonymous]</a> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -2770,7 +2788,7 @@ other: <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <div class="decl" id="IO.FS.instBEqFileType">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L366-L366">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L369-L369">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -2783,7 +2801,7 @@ other: <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instBEqFileType">IO.FS.instBEqFileType</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ beq := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.beqFileType._@.Init.System.IO._hyg.2082">[anonymous]</a> }</span></span></li>
+<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instBEqFileType">IO.FS.instBEqFileType</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ beq := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.beqFileType._@.Init.System.IO._hyg.2085">[anonymous]</a> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -2791,7 +2809,7 @@ other: <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <div class="decl" id="IO.FS.SystemTime">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L368-L371">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L371-L374">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -2811,7 +2829,7 @@ nsec : <a href="/Socket.lean/Init/Prelude.html#UInt32">UInt32</a></li>
 <div class="decl" id="IO.FS.instReprSystemTime">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L371-L371">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L374-L374">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -2824,7 +2842,7 @@ nsec : <a href="/Socket.lean/Init/Prelude.html#UInt32">UInt32</a></li>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instReprSystemTime">IO.FS.instReprSystemTime</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.reprSystemTime._@.Init.System.IO._hyg.2117">[anonymous]</a> }</span></span></li>
+<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instReprSystemTime">IO.FS.instReprSystemTime</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.reprSystemTime._@.Init.System.IO._hyg.2120">[anonymous]</a> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -2832,7 +2850,7 @@ nsec : <a href="/Socket.lean/Init/Prelude.html#UInt32">UInt32</a></li>
 <div class="decl" id="IO.FS.instBEqSystemTime">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L371-L371">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L374-L374">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -2845,7 +2863,7 @@ nsec : <a href="/Socket.lean/Init/Prelude.html#UInt32">UInt32</a></li>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instBEqSystemTime">IO.FS.instBEqSystemTime</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ beq := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.beqSystemTime._@.Init.System.IO._hyg.2158">[anonymous]</a> }</span></span></li>
+<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instBEqSystemTime">IO.FS.instBEqSystemTime</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ beq := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.beqSystemTime._@.Init.System.IO._hyg.2161">[anonymous]</a> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -2853,7 +2871,7 @@ nsec : <a href="/Socket.lean/Init/Prelude.html#UInt32">UInt32</a></li>
 <div class="decl" id="IO.FS.instOrdSystemTime">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L371-L371">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L374-L374">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -2866,7 +2884,7 @@ nsec : <a href="/Socket.lean/Init/Prelude.html#UInt32">UInt32</a></li>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instOrdSystemTime">IO.FS.instOrdSystemTime</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ compare := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.ordSystemTime._@.Init.System.IO._hyg.2227">[anonymous]</a> }</span></span></li>
+<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instOrdSystemTime">IO.FS.instOrdSystemTime</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ compare := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.ordSystemTime._@.Init.System.IO._hyg.2232">[anonymous]</a> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -2874,7 +2892,7 @@ nsec : <a href="/Socket.lean/Init/Prelude.html#UInt32">UInt32</a></li>
 <div class="decl" id="IO.FS.instInhabitedSystemTime">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L371-L371">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L374-L374">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -2895,7 +2913,7 @@ nsec : <a href="/Socket.lean/Init/Prelude.html#UInt32">UInt32</a></li>
 <div class="decl" id="IO.FS.instLTSystemTime">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L373-L373">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L376-L376">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -2916,7 +2934,7 @@ nsec : <a href="/Socket.lean/Init/Prelude.html#UInt32">UInt32</a></li>
 <div class="decl" id="IO.FS.instLESystemTime">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L374-L374">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L377-L377">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -2937,7 +2955,7 @@ nsec : <a href="/Socket.lean/Init/Prelude.html#UInt32">UInt32</a></li>
 <div class="decl" id="IO.FS.Metadata">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L376-L382">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L379-L385">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -2961,7 +2979,7 @@ type : <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <div class="decl" id="IO.FS.instReprMetadata">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L382-L382">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L385-L385">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -2974,7 +2992,7 @@ type : <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instReprMetadata">IO.FS.instReprMetadata</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.reprMetadata._@.Init.System.IO._hyg.2354">[anonymous]</a> }</span></span></li>
+<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.instReprMetadata">IO.FS.instReprMetadata</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ reprPrec := <a href="/Socket.lean/Init/System/IO.html#_private.Init.System.IO.0.IO.FS.reprMetadata._@.Init.System.IO._hyg.2359">[anonymous]</a> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -2982,7 +3000,7 @@ type : <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <div class="decl" id="System.FilePath.readDir">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L391-L391">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L394-L394">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_read_dir]</div>
 <div class="decl_header">
@@ -2997,7 +3015,7 @@ type : <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <div class="decl" id="System.FilePath.metadata">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L394-L394">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L397-L397">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_metadata]</div>
 <div class="decl_header">
@@ -3012,7 +3030,7 @@ type : <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <div class="decl" id="System.FilePath.isDir">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L396-L399">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L399-L402">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3031,7 +3049,7 @@ type : <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
   let a ← <span class="fn"><a href="/Socket.lean/Init/System/IO.html#EIO.toBaseIO">EIO.toBaseIO</a> (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#System.FilePath.metadata">System.FilePath.metadata</a> <span class="fn">p</span></span>)</span>
   <span class="fn">match <span class="fn">a</span> with
     | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.ok</a> <span class="fn">m</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> (<span class="fn"><span class="fn"><span class="fn">m</span>.type</span> <a href="/Socket.lean/Init/Prelude.html#BEq.beq">==</a> <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType.dir">IO.FS.FileType.dir</a></span>)</span>
-    | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">x</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">false</span></span></span></span></span></li>
+    | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">a</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">false</span></span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -3039,7 +3057,7 @@ type : <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <div class="decl" id="System.FilePath.pathExists">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L401-L402">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L404-L405">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3064,7 +3082,7 @@ type : <a href="/Socket.lean/Init/System/IO.html#IO.FS.FileType">IO.FS.FileType<
 <div class="decl" id="System.FilePath.walkDir">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L407-L424">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L410-L427">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3090,7 +3108,7 @@ Symbolic links are visited as well by default.</p></div>
 <div class="decl" id="System.FilePath.walkDir.go">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L410-L424">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L413-L427">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -3108,7 +3126,7 @@ Symbolic links are visited as well by default.</p></div>
 <div class="decl" id="IO.withStdin">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L430-L432">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L433-L435">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3155,7 +3173,7 @@ Symbolic links are visited as well by default.</p></div>
 <div class="decl" id="IO.withStdout">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L434-L439">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L437-L442">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3202,7 +3220,7 @@ Symbolic links are visited as well by default.</p></div>
 <div class="decl" id="IO.withStderr">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L441-L443">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L444-L446">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3249,7 +3267,7 @@ Symbolic links are visited as well by default.</p></div>
 <div class="decl" id="IO.print">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L445-L447">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L448-L450">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3282,7 +3300,7 @@ Symbolic links are visited as well by default.</p></div>
 <div class="decl" id="IO.println">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L449-L450">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L452-L453">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3313,7 +3331,7 @@ Symbolic links are visited as well by default.</p></div>
 <div class="decl" id="IO.eprint">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L452-L454">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L455-L457">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3346,7 +3364,7 @@ Symbolic links are visited as well by default.</p></div>
 <div class="decl" id="IO.eprintln">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L456-L457">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L459-L460">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3377,7 +3395,7 @@ Symbolic links are visited as well by default.</p></div>
 <div class="decl" id="IO.appDir">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L467-L471">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L470-L474">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3403,7 +3421,7 @@ Symbolic links are visited as well by default.</p></div>
 <div class="decl" id="IO.FS.createDirAll">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L474-L486">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L477-L489">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -3419,7 +3437,7 @@ Symbolic links are visited as well by default.</p></div>
 <div class="decl" id="IO.FS.removeDirAll">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L491-L497">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L494-L500">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">partial def</span>
@@ -3436,7 +3454,7 @@ Fails if any contained entry cannot be deleted or was newly created during execu
 <div class="decl" id="IO.Process.Stdio">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L500-L503">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L503-L506">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -3458,7 +3476,7 @@ null: <a href="/Socket.lean/Init/System/IO.html#IO.Process.Stdio">IO.Process.Std
 <div class="decl" id="IO.Process.Stdio.toHandleType">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L505-L508">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L508-L511">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">noncomputable def</span>
@@ -3471,7 +3489,7 @@ null: <a href="/Socket.lean/Init/System/IO.html#IO.Process.Stdio">IO.Process.Std
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.Process.Stdio.toHandleType">IO.Process.Stdio.toHandleType</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.Process.Stdio.toHandleType">IO.Process.Stdio.toHandleType</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <a href="/Socket.lean/Init/System/IO.html#IO.Process.Stdio.null">IO.Process.Stdio.piped</a> => <a href="/Socket.lean/Init/System/IO.html#IO.FS.Handle">IO.FS.Handle</a>
   | <a href="/Socket.lean/Init/System/IO.html#IO.Process.Stdio.null">IO.Process.Stdio.inherit</a> => <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a>
   | <a href="/Socket.lean/Init/System/IO.html#IO.Process.Stdio.null">IO.Process.Stdio.null</a> => <a href="/Socket.lean/Init/System/IO.html#IO.Process.Stdio.null">Unit</a></span></span></li>
@@ -3482,7 +3500,7 @@ null: <a href="/Socket.lean/Init/System/IO.html#IO.Process.Stdio">IO.Process.Std
 <div class="decl" id="IO.Process.StdioConfig">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L510-L516">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L513-L519">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -3504,7 +3522,7 @@ stderr : <a href="/Socket.lean/Init/System/IO.html#IO.Process.Stdio">IO.Process.
 <div class="decl" id="IO.Process.SpawnArgs">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L518-L526">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L521-L529">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -3532,7 +3550,7 @@ env : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array">Array</a> 
 <div class="decl" id="IO.Process.Child">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L529-L532">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L532-L535">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -3556,7 +3574,7 @@ stderr : <span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.Process.S
 <div class="decl" id="IO.Process.spawn">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L534-L534">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L537-L537">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_process_spawn]</div>
 <div class="decl_header">
@@ -3573,7 +3591,7 @@ stderr : <span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.Process.S
 <div class="decl" id="IO.Process.Child.wait">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L536-L536">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L539-L539">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_process_child_wait]</div>
 <div class="decl_header">
@@ -3592,7 +3610,7 @@ stderr : <span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.Process.S
 <div class="decl" id="IO.Process.Child.takeStdin">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L544-L545">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L547-L548">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_process_child_take_stdin]</div>
 <div class="decl_header">
@@ -3616,7 +3634,7 @@ operation includes the <code><a href="/Socket.lean/Init/System/IO.html#IO.Proces
 <div class="decl" id="IO.Process.Output">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L547-L550">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L550-L553">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -3638,7 +3656,7 @@ stderr : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="IO.Process.output">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L553-L559">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L556-L562">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3671,7 +3689,7 @@ stderr : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="IO.Process.run">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L562-L566">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L565-L569">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3702,7 +3720,7 @@ stderr : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="IO.Process.exit">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L568-L568">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L571-L571">source</a>
 </div>
 <div class="attributes">@[extern  lean_io_exit]</div>
 <div class="decl_header">
@@ -3721,7 +3739,7 @@ stderr : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="decl" id="IO.AccessRight">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L572-L575">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L575-L578">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -3743,7 +3761,7 @@ execution : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <div class="decl" id="IO.AccessRight.flags">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L577-L581">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L580-L584">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3769,7 +3787,7 @@ execution : <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a></li>
 <div class="decl" id="IO.FileRight">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L583-L586">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L586-L589">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -3791,7 +3809,7 @@ other : <a href="/Socket.lean/Init/System/IO.html#IO.AccessRight">IO.AccessRight
 <div class="decl" id="IO.FileRight.flags">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L588-L592">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L591-L595">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3817,7 +3835,7 @@ other : <a href="/Socket.lean/Init/System/IO.html#IO.AccessRight">IO.AccessRight
 <div class="decl" id="IO.Prim.setAccessRights">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L594-L594">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L597-L597">source</a>
 </div>
 <div class="attributes">@[extern  lean_chmod]</div>
 <div class="decl_header">
@@ -3836,7 +3854,7 @@ other : <a href="/Socket.lean/Init/System/IO.html#IO.AccessRight">IO.AccessRight
 <div class="decl" id="IO.setAccessRights">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L596-L597">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L599-L600">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3861,7 +3879,7 @@ other : <a href="/Socket.lean/Init/System/IO.html#IO.AccessRight">IO.AccessRight
 <div class="decl" id="IO.Ref">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L600-L600">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L603-L603">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -3885,7 +3903,7 @@ other : <a href="/Socket.lean/Init/System/IO.html#IO.AccessRight">IO.AccessRight
 <div class="decl" id="IO.instMonadLiftSTRealWorldBaseIO">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L602-L602">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L605-L605">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -3906,7 +3924,7 @@ other : <a href="/Socket.lean/Init/System/IO.html#IO.AccessRight">IO.AccessRight
 <div class="decl" id="IO.mkRef">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L604-L605">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L607-L608">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3933,7 +3951,7 @@ other : <a href="/Socket.lean/Init/System/IO.html#IO.AccessRight">IO.AccessRight
 <div class="decl" id="IO.FS.Stream.ofHandle">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L611-L618">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L614-L621">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -3957,7 +3975,7 @@ other : <a href="/Socket.lean/Init/System/IO.html#IO.AccessRight">IO.AccessRight
 <div class="decl" id="IO.FS.Stream.Buffer">
 <div class="structure">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L620-L622">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L623-L625">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">structure</span>
@@ -3977,7 +3995,7 @@ pos : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <div class="decl" id="IO.FS.Stream.ofBuffer">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L624-L642">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L627-L645">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4025,7 +4043,7 @@ pos : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <div class="decl" id="IO.FS.withIsolatedStreams">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L646-L655">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L649-L659">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4054,18 +4072,22 @@ pos : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 </span>
 <span class="decl_args">
 <span class="fn">(x : <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(isolateStderr : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#optParam">optParam</a> <a href="/Socket.lean/Init/Prelude.html#Bool">Bool</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String">String</a> <a href="/Socket.lean/Init/Prelude.html#Prod">×</a> <span class="fn">α</span></span>)</span></div></div>
 <details>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.withIsolatedStreams">IO.FS.withIsolatedStreams</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.withIsolatedStreams">IO.FS.withIsolatedStreams</a> <span class="fn">x</span> <span class="fn">isolateStderr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
   let bIn ← <span class="fn"><a href="/Socket.lean/Init/Prelude.html#liftM">liftM</a> (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.mkRef">IO.mkRef</a> <span class="fn">{ data := <a href="/Socket.lean/Init/Data/ByteArray/Basic.html#ByteArray.empty">ByteArray.empty</a>, pos := <span class="fn">0</span> }</span></span>)</span>
   let bOut ← <span class="fn"><a href="/Socket.lean/Init/Prelude.html#liftM">liftM</a> (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.mkRef">IO.mkRef</a> <span class="fn">{ data := <a href="/Socket.lean/Init/Data/ByteArray/Basic.html#ByteArray.empty">ByteArray.empty</a>, pos := <span class="fn">0</span> }</span></span>)</span>
   let r ←
     <span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.withStdin">IO.withStdin</a> (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.Stream.ofBuffer">IO.FS.Stream.ofBuffer</a> <span class="fn">bIn</span></span>)
-        (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.withStdout">IO.withStdout</a> (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.Stream.ofBuffer">IO.FS.Stream.ofBuffer</a> <span class="fn">bOut</span></span>) (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.withStderr">IO.withStderr</a> (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.Stream.ofBuffer">IO.FS.Stream.ofBuffer</a> <span class="fn">bOut</span></span>) <span class="fn">x</span></span>)</span>)</span>
+        (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.withStdout">IO.withStdout</a> (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.Stream.ofBuffer">IO.FS.Stream.ofBuffer</a> <span class="fn">bOut</span></span>)
+          (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#ite">ite</a> (<span class="fn"><span class="fn"><span class="fn">m</span> <span class="fn">α</span></span> → <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></span>) (<span class="fn"><span class="fn">isolateStderr</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#instDecidableEqBool">instDecidableEqBool</a> <span class="fn">isolateStderr</span> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span>)
+            (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.withStderr">IO.withStderr</a> (<span class="fn"><a href="/Socket.lean/Init/System/IO.html#IO.FS.Stream.ofBuffer">IO.FS.Stream.ofBuffer</a> <span class="fn">bOut</span></span>)</span>) <span class="fn">id</span> <span class="fn">x</span></span>)</span>)</span>
   let bOut ← <span class="fn"><a href="/Socket.lean/Init/Prelude.html#liftM">liftM</a> (<span class="fn"><a href="/Socket.lean/Init/System/ST.html#ST.Ref.get">ST.Ref.get</a> <span class="fn">bOut</span></span>)</span>
   let out : <a href="/Socket.lean/Init/Prelude.html#String">String</a> := <span class="fn"><a href="/Socket.lean/Init/Data/String/Extra.html#String.fromUTF8Unchecked">String.fromUTF8Unchecked</a> <span class="fn"><span class="fn">bOut</span>.data</span></span>
   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">(<span class="fn">out</span>, <span class="fn">r</span>)</span></span></span></span></li>
@@ -4076,7 +4098,7 @@ pos : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <div class="decl" id="Lean.Eval">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L665-L669">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L670-L674">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -4113,7 +4135,7 @@ eval : <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.htm
 <div class="decl" id="Lean.instEval">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L671-L672">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L676-L677">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -4142,7 +4164,7 @@ eval : <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.htm
 <div class="decl" id="Lean.instEval_1">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L674-L675">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L679-L680">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -4171,7 +4193,7 @@ eval : <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.htm
 <div class="decl" id="Lean.instEvalUnit">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L677-L678">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L682-L683">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -4192,7 +4214,7 @@ eval : <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.htm
 <div class="decl" id="Lean.instEvalIO">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L680-L683">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L685-L688">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -4223,7 +4245,7 @@ eval : <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.htm
 <div class="decl" id="Lean.runEval">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L685-L686">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L690-L691">source</a>
 </div>
 <div class="attributes">@[noinline, nospecialize]</div>
 <div class="decl_header">
@@ -4255,7 +4277,7 @@ eval : <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.htm
 <div class="decl" id="termPrintln!__">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L690-L690">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/System/IO.lean#L695-L695">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -4330,6 +4352,9 @@ eval : <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.htm
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -4337,6 +4362,9 @@ eval : <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.htm
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -4425,6 +4453,9 @@ eval : <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.htm
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -4456,6 +4487,9 @@ eval : <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.htm
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -4587,7 +4621,13 @@ eval : <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.htm
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

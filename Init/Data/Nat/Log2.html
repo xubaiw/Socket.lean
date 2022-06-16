@@ -27,6 +27,9 @@ Documentation</h1>
 <li>
 <a href="/Socket.lean/Init/NotationExtra.html">Init.NotationExtra</a>
 </li>
+<li>
+<a href="/Socket.lean/Init/Data/Nat/Linear.html">Init.Data.Nat.Linear</a>
+</li>
 </ul>
 </details>
 <details>
@@ -46,7 +49,7 @@ Documentation</h1>
 <div class="decl" id="Nat.log2">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Log2.lean#L26-L29">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Log2.lean#L27-L29">source</a>
 </div>
 <div class="attributes">@[extern  lean_nat_log2]</div>
 <div class="decl_header">
@@ -62,7 +65,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Log2.html#Nat.log2">Nat.log2</a> <span class="fn">n</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">if h : <span class="fn"><span class="fn">n</span> <a href="/Socket.lean/Init/Prelude.html#GE.ge">≥</a> <span class="fn">2</span></span> then <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Log2.html#Nat.log2">Nat.log2</a> (<span class="fn"><span class="fn">n</span> <a href="/Socket.lean/Init/Prelude.html#HDiv.hDiv">/</a> <span class="fn">2</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span> else <span class="fn">0</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Log2.html#Nat.log2">Nat.log2</a> <span class="fn">n</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/Socket.lean/Init/Prelude.html#GE.ge">≥</a> <span class="fn">2</span></span> then <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Log2.html#Nat.log2">Nat.log2</a> (<span class="fn"><span class="fn">n</span> <a href="/Socket.lean/Init/Prelude.html#HDiv.hDiv">/</a> <span class="fn">2</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span> else <span class="fn">0</span></span></span></li>
 </ul>
 </details>
 <p>Computes <code>⌊max0(log₂n)⌋</code>.</p><p><code><a href="/Socket.lean/Init/Data/Nat/Log2.html#Nat.log2">log2</a>0=<a href="/Socket.lean/Init/Data/Nat/Log2.html#Nat.log2">log2</a>1=0</code>, <code><a href="/Socket.lean/Init/Data/Nat/Log2.html#Nat.log2">log2</a><a href="/Socket.lean/Init/Data/Nat/Log2.html#Nat.log2">2</a>=1</code>, ..., <code><a href="/Socket.lean/Init/Data/Nat/Log2.html#Nat.log2">log2</a>(2^i)=i</code>, etc.</p></div>
@@ -121,6 +124,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -128,6 +134,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -216,6 +225,9 @@ Documentation</h1>
 <div class="nav_link" visible="">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -247,6 +259,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -378,7 +393,13 @@ Documentation</h1>
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

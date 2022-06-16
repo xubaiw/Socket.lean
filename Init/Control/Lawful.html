@@ -1208,8 +1208,8 @@ bind_assoc : <span class="fn">∀ {α β γ : <span class="fn">Type u</span>} (x
 <span class="fn">(x : <span class="fn"><a href="/Socket.lean/Init/Control/Except.html#ExceptT">ExceptT</a> <span class="fn">ε</span> <span class="fn">m</span> <span class="fn">α</span></span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#ExceptT.run">ExceptT.run</a> (<span class="fn"><span class="fn">x</span> <a href="/Socket.lean/Init/Prelude.html#Bind.bind">>>=</a> <span class="fn">f</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
-  let x ← <span class="fn"><a href="/Socket.lean/Init/Control/Except.html#ExceptT.run">ExceptT.run</a> <span class="fn">x</span></span>
-  <span class="fn">match <span class="fn">x</span> with
+  let _fun_discr ← <span class="fn"><a href="/Socket.lean/Init/Control/Except.html#ExceptT.run">ExceptT.run</a> <span class="fn">x</span></span>
+  <span class="fn">match <span class="fn">_fun_discr</span> with
     | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.ok</a> <span class="fn">x</span></span> => <span class="fn"><a href="/Socket.lean/Init/Control/Except.html#ExceptT.run">ExceptT.run</a> (<span class="fn"><span class="fn">f</span> <span class="fn">x</span></span>)</span>
     | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span>)</span></span></span></span></div></div>
 </div>
@@ -2793,6 +2793,9 @@ bind_assoc : <span class="fn">∀ {α β γ : <span class="fn">Type u</span>} (x
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -2800,6 +2803,9 @@ bind_assoc : <span class="fn">∀ {α β γ : <span class="fn">Type u</span>} (x
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -2888,6 +2894,9 @@ bind_assoc : <span class="fn">∀ {α β γ : <span class="fn">Type u</span>} (x
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -2919,6 +2928,9 @@ bind_assoc : <span class="fn">∀ {α β γ : <span class="fn">Type u</span>} (x
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -3050,7 +3062,13 @@ bind_assoc : <span class="fn">∀ {α β γ : <span class="fn">Type u</span>} (x
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

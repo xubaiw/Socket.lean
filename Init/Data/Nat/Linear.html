@@ -48,10 +48,28 @@ Documentation</h1>
 <summary>Imported by</summary>
 <ul>
 <li>
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</li>
+<li>
 <a href="/Socket.lean/Init/Data/Nat.html">Init.Data.Nat</a>
 </li>
 <li>
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</li>
+<li>
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
+</li>
+<li>
 <a href="/Socket.lean/Init/Data/List/BasicAux.html">Init.Data.List.BasicAux</a>
+</li>
+<li>
+<a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
+</li>
+<li>
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</li>
+<li>
+<a href="/Socket.lean/Init/Data/String/Extra.html">Init.Data.String.Extra</a>
 </li>
 </ul>
 </details>
@@ -460,11 +478,11 @@ The denotation of <code><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Line
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Var.denote.go">Nat.Linear.Var.denote.go</a> <span class="fn">[]</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">0</span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Var.denote.go">Nat.Linear.Var.denote.go</a> <span class="fn">[]</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">0</span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Var.denote.go">Nat.Linear.Var.denote.go</a> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) <span class="fn">0</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">a</span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Var.denote.go">Nat.Linear.Var.denote.go</a> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">tail</span></span>) <span class="fn">0</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">a</span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Var.denote.go">Nat.Linear.Var.denote.go</a> (<span class="fn"><span class="fn">x_2</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">i</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Var.denote.go">Nat.Linear.Var.denote.go</a> <span class="fn">as</span> <span class="fn">i</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Var.denote.go">Nat.Linear.Var.denote.go</a> (<span class="fn"><span class="fn">head</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">i</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Var.denote.go">Nat.Linear.Var.denote.go</a> <span class="fn">as</span> <span class="fn">i</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -1161,7 +1179,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly">Nat.Linea
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.instBEqPolyCnstr">Nat.Linear.instBEqPolyCnstr</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ beq := <a href="/Socket.lean/Init/Data/Nat/Linear.html#_private.Init.Data.Nat.Linear.0.Nat.Linear.beqPolyCnstr._@.Init.Data.Nat.Linear._hyg.1382">[anonymous]</a> }</span></span></li>
+<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.instBEqPolyCnstr">Nat.Linear.instBEqPolyCnstr</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ beq := <a href="/Socket.lean/Init/Data/Nat/Linear.html#_private.Init.Data.Nat.Linear.0.Nat.Linear.beqPolyCnstr._@.Init.Data.Nat.Linear._hyg.1386">[anonymous]</a> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -1232,9 +1250,8 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly">Nat.Linea
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.PolyCnstr.combine">Nat.Linear.PolyCnstr.combine</a> <span class="fn">c₁</span> <span class="fn">c₂</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let x := <span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.cancel">Nat.Linear.Poly.cancel</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.combine">Nat.Linear.Poly.combine</a> <span class="fn"><span class="fn">c₁</span>.lhs</span> <span class="fn"><span class="fn">c₂</span>.lhs</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.combine">Nat.Linear.Poly.combine</a> <span class="fn"><span class="fn">c₁</span>.rhs</span> <span class="fn"><span class="fn">c₂</span>.rhs</span></span>)</span>;
-  <span class="fn">match <span class="fn">x</span> with
-  | <span class="fn">(<span class="fn">lhs</span>, <span class="fn">rhs</span>)</span> => <span class="fn">{ eq := <span class="fn"><span class="fn"><span class="fn">c₁</span>.eq</span> <a href="/Socket.lean/Init/Prelude.html#and">&&</a> <span class="fn"><span class="fn">c₂</span>.eq</span></span>, lhs := <span class="fn">lhs</span>, rhs := <span class="fn">rhs</span> }</span></span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.PolyCnstr.combine">Nat.Linear.PolyCnstr.combine</a> <span class="fn">c₁</span> <span class="fn">c₂</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.cancel">Nat.Linear.Poly.cancel</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.combine">Nat.Linear.Poly.combine</a> <span class="fn"><span class="fn">c₁</span>.lhs</span> <span class="fn"><span class="fn">c₂</span>.lhs</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.combine">Nat.Linear.Poly.combine</a> <span class="fn"><span class="fn">c₁</span>.rhs</span> <span class="fn"><span class="fn">c₂</span>.rhs</span></span>)</span> with
+  | <span class="fn">(<span class="fn">lhs</span>, <span class="fn">rhs</span>)</span> => <span class="fn">{ eq := <span class="fn"><span class="fn"><span class="fn">c₁</span>.eq</span> <a href="/Socket.lean/Init/Prelude.html#and">&&</a> <span class="fn"><span class="fn">c₂</span>.eq</span></span>, lhs := <span class="fn">lhs</span>, rhs := <span class="fn">rhs</span> }</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -1304,11 +1321,10 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.PolyCnstr.norm">Nat.Linear.PolyCnstr.norm</a> <span class="fn">c</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let x :=
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.PolyCnstr.norm">Nat.Linear.PolyCnstr.norm</a> <span class="fn">c</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match
     <span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.cancel">Nat.Linear.Poly.cancel</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.fuse">Nat.Linear.Poly.fuse</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.sort">Nat.Linear.Poly.sort</a> <span class="fn"><span class="fn">c</span>.lhs</span></span>)</span>)
-      (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.fuse">Nat.Linear.Poly.fuse</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.sort">Nat.Linear.Poly.sort</a> <span class="fn"><span class="fn">c</span>.rhs</span></span>)</span>)</span>;
-  <span class="fn">match <span class="fn">x</span> with
-  | <span class="fn">(<span class="fn">lhs</span>, <span class="fn">rhs</span>)</span> => <span class="fn">{ eq := <span class="fn"><span class="fn">c</span>.eq</span>, lhs := <span class="fn">lhs</span>, rhs := <span class="fn">rhs</span> }</span></span></span></span></li>
+      (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.fuse">Nat.Linear.Poly.fuse</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.sort">Nat.Linear.Poly.sort</a> <span class="fn"><span class="fn">c</span>.rhs</span></span>)</span>)</span> with
+  | <span class="fn">(<span class="fn">lhs</span>, <span class="fn">rhs</span>)</span> => <span class="fn">{ eq := <span class="fn"><span class="fn">c</span>.eq</span>, lhs := <span class="fn">lhs</span>, rhs := <span class="fn">rhs</span> }</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -1428,9 +1444,8 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.ExprCnstr.toNormPoly">Nat.Linear.ExprCnstr.toNormPoly</a> <span class="fn">c</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let x := <span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.cancel">Nat.Linear.Poly.cancel</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr.toNormPoly">Nat.Linear.Expr.toNormPoly</a> <span class="fn"><span class="fn">c</span>.lhs</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr.toNormPoly">Nat.Linear.Expr.toNormPoly</a> <span class="fn"><span class="fn">c</span>.rhs</span></span>)</span>;
-  <span class="fn">match <span class="fn">x</span> with
-  | <span class="fn">(<span class="fn">lhs</span>, <span class="fn">rhs</span>)</span> => <span class="fn">{ eq := <span class="fn"><span class="fn">c</span>.eq</span>, lhs := <span class="fn">lhs</span>, rhs := <span class="fn">rhs</span> }</span></span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.ExprCnstr.toNormPoly">Nat.Linear.ExprCnstr.toNormPoly</a> <span class="fn">c</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Poly.cancel">Nat.Linear.Poly.cancel</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr.toNormPoly">Nat.Linear.Expr.toNormPoly</a> <span class="fn"><span class="fn">c</span>.lhs</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr.toNormPoly">Nat.Linear.Expr.toNormPoly</a> <span class="fn"><span class="fn">c</span>.rhs</span></span>)</span> with
+  | <span class="fn">(<span class="fn">lhs</span>, <span class="fn">rhs</span>)</span> => <span class="fn">{ eq := <span class="fn"><span class="fn">c</span>.eq</span>, lhs := <span class="fn">lhs</span>, rhs := <span class="fn">rhs</span> }</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -2434,7 +2449,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="decl" id="Nat.Linear.PolyCnstr.eq_false_of_isUnsat">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L639-L649">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L639-L650">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2454,7 +2469,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="decl" id="Nat.Linear.PolyCnstr.eq_true_of_isValid">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L651-L660">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L652-L659">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2474,7 +2489,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="decl" id="Nat.Linear.ExprCnstr.eq_false_of_isUnsat">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L662-L665">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L661-L664">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2494,7 +2509,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="decl" id="Nat.Linear.ExprCnstr.eq_true_of_isValid">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L667-L670">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L666-L669">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2514,7 +2529,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="decl" id="Nat.Linear.Certificate.of_combineHyps">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L672-L681">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L671-L680">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2536,7 +2551,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="decl" id="Nat.Linear.Certificate.of_combine">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L683-L690">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L682-L689">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2556,7 +2571,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="decl" id="Nat.Linear.Certificate.of_combine_isUnsat">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L692-L694">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L691-L693">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2576,7 +2591,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="decl" id="Nat.Linear.denote_monomialToExpr">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L696-L700">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L695-L699">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2596,7 +2611,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="decl" id="Nat.Linear.Poly.denote_toExpr_go">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L704-L707">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L703-L706">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2616,7 +2631,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="decl" id="Nat.Linear.Poly.denote_toExpr">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L711-L714">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L710-L713">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2634,7 +2649,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="decl" id="Nat.Linear.ExprCnstr.eq_of_toNormPoly_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L716-L719">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L715-L718">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2656,7 +2671,7 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="decl" id="Nat.Linear.Expr.eq_of_toNormPoly_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L721-L724">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Linear.lean#L720-L723">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">theorem</span>
@@ -2729,6 +2744,9 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -2736,6 +2754,9 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -2824,6 +2845,9 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -2855,6 +2879,9 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -2986,7 +3013,13 @@ rhs : <a href="/Socket.lean/Init/Data/Nat/Linear.html#Nat.Linear.Expr">Nat.Linea
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

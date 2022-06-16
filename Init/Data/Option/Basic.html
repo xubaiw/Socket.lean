@@ -125,6 +125,24 @@ Documentation</h1>
 <div class="nav_link">
 <a class="break_within" href="#instLTOption">instLTOption</a>
 </div>
+<div class="nav_link">
+<a class="break_within" href="#instFunctorOption">instFunctorOption</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMonadOption">instMonadOption</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instAlternativeOption">instAlternativeOption</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#liftOption">liftOption</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Option.tryCatch">Option.tryCatch</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instMonadExceptOfUnitOption">instMonadExceptOfUnitOption</a>
+</div>
 </nav>
 <main>
 <div class="decl" id="Option.toMonad">
@@ -159,7 +177,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.toMonad">Option.toMonad</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.toMonad">Option.toMonad</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <span class="fn">none</span> => <span class="fn">failure</span>
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">a</span></span></span></span></li>
 </ul>
@@ -187,8 +205,8 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.toBool">Option.toBool</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">x</span></span> => <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.toBool">Option.toBool</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">val</span></span> => <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a>
   | <span class="fn">none</span> => <span class="fn">false</span></span></span></li>
 </ul>
 </details>
@@ -215,8 +233,8 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.isSome">Option.isSome</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">x</span></span> => <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.isSome">Option.isSome</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">val</span></span> => <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a>
   | <span class="fn">none</span> => <span class="fn">false</span></span></span></li>
 </ul>
 </details>
@@ -243,8 +261,8 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.isNone">Option.isNone</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">x</span></span> => <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.isNone">Option.isNone</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">val</span></span> => <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a>
   | <span class="fn">none</span> => <span class="fn">true</span></span></span></li>
 </ul>
 </details>
@@ -275,7 +293,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.isEqSome">Option.isEqSome</a> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span>, <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.isEqSome">Option.isEqSome</a> <span class="fn">_fun_discr</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span>, <span class="fn">_fun_discr</span> with
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span>, <span class="fn">b</span> => <span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#BEq.beq">==</a> <span class="fn">b</span></span>
   | <span class="fn">none</span>, <span class="fn">x</span> => <span class="fn">false</span></span></span></li>
 </ul>
@@ -307,8 +325,8 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.bind">Option.bind</a> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span>, <span class="fn">x</span> with
-  | <span class="fn">none</span>, <span class="fn">b</span> => <span class="fn">none</span>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.bind">Option.bind</a> <span class="fn">_fun_discr</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span>, <span class="fn">_fun_discr</span> with
+  | <span class="fn">none</span>, <span class="fn">x</span> => <span class="fn">none</span>
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span>, <span class="fn">b</span> => <span class="fn"><span class="fn">b</span> <span class="fn">a</span></span></span></span></li>
 </ul>
 </details>
@@ -456,7 +474,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.filter">Option.filter</a> <span class="fn">p</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.filter">Option.filter</a> <span class="fn">p</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span> => <span class="fn">if <span class="fn"><span class="fn"><span class="fn">p</span> <span class="fn">a</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span> else <span class="fn">none</span></span>
   | <span class="fn">none</span> => <span class="fn">none</span></span></span></li>
 </ul>
@@ -486,7 +504,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.all">Option.all</a> <span class="fn">p</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.all">Option.all</a> <span class="fn">p</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span> => <span class="fn"><span class="fn">p</span> <span class="fn">a</span></span>
   | <span class="fn">none</span> => <span class="fn">true</span></span></span></li>
 </ul>
@@ -516,7 +534,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.any">Option.any</a> <span class="fn">p</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.any">Option.any</a> <span class="fn">p</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span> => <span class="fn"><span class="fn">p</span> <span class="fn">a</span></span>
   | <span class="fn">none</span> => <span class="fn">false</span></span></span></li>
 </ul>
@@ -544,7 +562,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.orElse">Option.orElse</a> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span>, <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.orElse">Option.orElse</a> <span class="fn">_fun_discr</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span>, <span class="fn">_fun_discr</span> with
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span>, <span class="fn">x</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span>
   | <span class="fn">none</span>, <span class="fn">b</span> => <span class="fn"><span class="fn">b</span> <span class="fn">()</span></span></span></span></li>
 </ul>
@@ -599,8 +617,8 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.lt">Option.lt</a> <span class="fn">r</span> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span>, <span class="fn">x</span> with
-  | <span class="fn">none</span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">x</span></span> => <a href="/Socket.lean/Init/Prelude.html#True">True</a>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.lt">Option.lt</a> <span class="fn">r</span> <span class="fn">_fun_discr</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span>, <span class="fn">_fun_discr</span> with
+  | <span class="fn">none</span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">val</span></span> => <a href="/Socket.lean/Init/Prelude.html#True">True</a>
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">x</span></span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">y</span></span> => <span class="fn"><span class="fn">r</span> <span class="fn">x</span> <span class="fn">y</span></span>
   | <span class="fn">x</span>, <span class="fn">x_1</span> => <span class="fn">False</span></span></span></li>
 </ul>
@@ -633,10 +651,10 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.instDecidableRelOptionLt">Option.instDecidableRelOptionLt</a> <span class="fn">r</span> <span class="fn">x</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span>, <span class="fn">x</span> with
-  | <span class="fn">none</span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">y</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.isTrue">isTrue</a> <a href="/Socket.lean/Init/Core.html#trivial">trivial</a></span>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.instDecidableRelOptionLt">Option.instDecidableRelOptionLt</a> <span class="fn">r</span> <span class="fn">_fun_discr</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span>, <span class="fn">_fun_discr</span> with
+  | <span class="fn">none</span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">val</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.isTrue">isTrue</a> <a href="/Socket.lean/Init/Core.html#trivial">trivial</a></span>
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">x</span></span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">y</span></span> => <span class="fn"><span class="fn">s</span> <span class="fn">x</span> <span class="fn">y</span></span>
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">x</span></span>, <span class="fn">none</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.isFalse">isFalse</a> <a href="/Socket.lean/Init/Core.html#not_false">not_false</a></span>
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">val</span></span>, <span class="fn">none</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.isFalse">isFalse</a> <a href="/Socket.lean/Init/Core.html#not_false">not_false</a></span>
   | <span class="fn">none</span>, <span class="fn">none</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">isFalse</a> <span class="fn">not_false</span></span></span></span></li>
 </ul>
 </details>
@@ -713,6 +731,157 @@ Documentation</h1>
 </details>
 </div>
 </div>
+<div class="decl" id="instFunctorOption">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Option/Basic.lean#L90-L91">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/Option/Basic.html#instFunctorOption">instFunctorOption</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Functor">Functor</a> <a href="/Socket.lean/Init/Prelude.html#Option">Option</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#instFunctorOption">instFunctorOption</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ map := <span class="fn">fun {α β} => <span class="fn">Option.map</span></span>, mapConst := <span class="fn">fun {α β} => <span class="fn"><span class="fn">Option.map</span> <a href="/Socket.lean/Init/Prelude.html#Function.comp">∘</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Function.const">Function.const</a> <span class="fn">β</span></span></span></span> }</span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="instMonadOption">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Option/Basic.lean#L93-L95">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/Option/Basic.html#instMonadOption">instMonadOption</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Monad">Monad</a> <a href="/Socket.lean/Init/Prelude.html#Option">Option</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#instMonadOption">instMonadOption</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">Monad.mk</span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="instAlternativeOption">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Option/Basic.lean#L97-L99">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/Option/Basic.html#instAlternativeOption">instAlternativeOption</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/Control/Basic.html#Alternative">Alternative</a> <a href="/Socket.lean/Init/Prelude.html#Option">Option</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#instAlternativeOption">instAlternativeOption</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Control/Basic.html#Alternative.mk">Alternative.mk</a> (<span class="fn">fun {α} => <span class="fn">none</span></span>) <span class="fn">fun {α} => <span class="fn">Option.orElse</span></span></span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="liftOption">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Option/Basic.lean#L101-L103">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/Option/Basic.html#liftOption">liftOption</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u_1</span> → <span class="fn">Type u_2</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Socket.lean/Init/Control/Basic.html#Alternative">Alternative</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option">Option</a> <span class="fn">α</span></span> → <span class="fn"><span class="fn">m</span> <span class="fn">α</span></span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#liftOption">liftOption</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">a</span></span>
+  | <span class="fn">none</span> => <span class="fn">failure</span></span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="Option.tryCatch">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Option/Basic.lean#L105-L108">source</a>
+</div>
+<div class="attributes">@[inline]</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/Option/Basic.html#Option.tryCatch">Option.tryCatch</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(x : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option">Option</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(handle : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a> → <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option">Option</a> <span class="fn">α</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option">Option</a> <span class="fn">α</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.tryCatch">Option.tryCatch</a> <span class="fn">x</span> <span class="fn">handle</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">val</span></span> => <span class="fn">x</span>
+  | <span class="fn">none</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.none">handle</a> <span class="fn">()</span></span></span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="instMonadExceptOfUnitOption">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Option/Basic.lean#L110-L112">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/Option/Basic.html#instMonadExceptOfUnitOption">instMonadExceptOfUnitOption</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExceptOf">MonadExceptOf</a> <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a> <a href="/Socket.lean/Init/Prelude.html#Option">Option</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#instMonadExceptOfUnitOption">instMonadExceptOfUnitOption</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ throw := <span class="fn">fun {α} <span class="fn">x</span> => <span class="fn">none</span></span>, tryCatch := <span class="fn">fun {α} => <span class="fn">Option.tryCatch</span></span> }</span></span></li>
+</ul>
+</details>
+</div>
+</div>
 </main>
 <nav class="nav">
 <h3>General documentation</h3>
@@ -767,6 +936,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -774,6 +946,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -862,6 +1037,9 @@ Documentation</h1>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html" open="">
 <summary>Init.Data.Option</summary>
@@ -893,6 +1071,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -1024,7 +1205,13 @@ Documentation</h1>
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

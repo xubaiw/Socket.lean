@@ -50,6 +50,9 @@ Documentation</h1>
 <li>
 <a href="/Socket.lean/Init/Data/Nat/Linear.html">Init.Data.Nat.Linear</a>
 </li>
+<li>
+<a href="/Socket.lean/Init/Data/String/Extra.html">Init.Data.String.Extra</a>
+</li>
 </ul>
 </details>
 </div>
@@ -121,6 +124,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a class="break_within" href="#dite_false">dite_false</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#ite_self">ite_self</a>
 </div>
 <div class="nav_link">
 <a class="break_within" href="#and_self">and_self</a>
@@ -260,6 +266,18 @@ Documentation</h1>
 <div class="nav_link">
 <a class="break_within" href="#beq_self_eq_true">beq_self_eq_true</a>
 </div>
+<div class="nav_link">
+<a class="break_within" href="#beq_self_eq_true'">beq_self_eq_true'</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Nat.le_zero_eq">Nat.le_zero_eq</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#decide_False">decide_False</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#decide_True">decide_True</a>
+</div>
 </nav>
 <main>
 <div class="decl" id="eq_self">
@@ -377,14 +395,8 @@ Documentation</h1>
 <span class="decl_args">
 <span class="fn">{p : <span class="fn">Prop</span>}</span></span>
 </span>
-<span class="impl_arg">
-<span class="decl_args">
-<span class="fn">{s : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable">Decidable</a> <span class="fn">p</span></span>}</span></span>
-</span>
-<span class="decl_args">
-<span class="fn">(h : <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> <span class="fn">p</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span>)</span></span>
 <span class="decl_args">:</span>
-<div class="decl_type"><span class="fn"><span class="fn">p</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#True">True</a></span></div></div>
+<div class="decl_type"><span class="fn">∀ {x : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable">Decidable</a> <span class="fn">p</span></span>}, <span class="fn"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> <span class="fn">p</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> → <span class="fn"><span class="fn">p</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#True">True</a></span></span></span></div></div>
 </div>
 </div>
 <div class="decl" id="eq_false_of_decide">
@@ -401,14 +413,8 @@ Documentation</h1>
 <span class="decl_args">
 <span class="fn">{p : <span class="fn">Prop</span>}</span></span>
 </span>
-<span class="impl_arg">
-<span class="decl_args">
-<span class="fn">{s : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable">Decidable</a> <span class="fn">p</span></span>}</span></span>
-</span>
-<span class="decl_args">
-<span class="fn">(h : <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> <span class="fn">p</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span>)</span></span>
 <span class="decl_args">:</span>
-<div class="decl_type"><span class="fn"><span class="fn">p</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#False">False</a></span></div></div>
+<div class="decl_type"><span class="fn">∀ {x : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable">Decidable</a> <span class="fn">p</span></span>}, <span class="fn"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> <span class="fn">p</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span> → <span class="fn"><span class="fn">p</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#False">False</a></span></span></span></div></div>
 </div>
 </div>
 <div class="decl" id="implies_congr">
@@ -944,10 +950,39 @@ Documentation</h1>
 <div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#dite">dite</a> <a href="/Socket.lean/Init/Prelude.html#False">False</a> <span class="fn">t</span> <span class="fn">e</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn">e</span> <a href="/Socket.lean/Init/Core.html#not_false">not_false</a></span></span></div></div>
 </div>
 </div>
-<div class="decl" id="and_self">
+<div class="decl" id="ite_self">
 <div class="theorem">
 <div class="gh_link">
 <a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L101-L101">source</a>
+</div>
+<div class="attributes">@[simp]</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/SimpLemmas.html#ite_self">ite_self</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Sort u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{c : <span class="fn">Prop</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{d : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable">Decidable</a> <span class="fn">c</span></span>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">(<span class="fn">if <span class="fn">c</span> then <span class="fn">a</span> else <span class="fn">a</span></span>) <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">a</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="and_self">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L102-L102">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -964,7 +999,7 @@ Documentation</h1>
 <div class="decl" id="and_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L102-L102">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L103-L103">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -981,7 +1016,7 @@ Documentation</h1>
 <div class="decl" id="true_and">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L103-L103">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L104-L104">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -998,7 +1033,7 @@ Documentation</h1>
 <div class="decl" id="and_false">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L104-L104">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L105-L105">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1015,7 +1050,7 @@ Documentation</h1>
 <div class="decl" id="false_and">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L105-L105">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L106-L106">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1032,7 +1067,7 @@ Documentation</h1>
 <div class="decl" id="or_self">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L106-L106">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L107-L107">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1049,7 +1084,7 @@ Documentation</h1>
 <div class="decl" id="or_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L107-L107">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L108-L108">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1066,7 +1101,7 @@ Documentation</h1>
 <div class="decl" id="true_or">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L108-L108">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L109-L109">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1083,7 +1118,7 @@ Documentation</h1>
 <div class="decl" id="or_false">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L109-L109">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L110-L110">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1100,7 +1135,7 @@ Documentation</h1>
 <div class="decl" id="false_or">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L110-L110">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L111-L111">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1117,7 +1152,7 @@ Documentation</h1>
 <div class="decl" id="iff_self">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L111-L111">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L112-L112">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1134,7 +1169,7 @@ Documentation</h1>
 <div class="decl" id="iff_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L112-L112">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L113-L113">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1151,7 +1186,7 @@ Documentation</h1>
 <div class="decl" id="true_iff">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L113-L113">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L114-L114">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1168,7 +1203,7 @@ Documentation</h1>
 <div class="decl" id="iff_false">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L114-L114">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L115-L115">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1185,7 +1220,7 @@ Documentation</h1>
 <div class="decl" id="false_iff">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L115-L115">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L116-L116">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1202,7 +1237,7 @@ Documentation</h1>
 <div class="decl" id="false_implies">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L116-L116">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L117-L117">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1219,7 +1254,7 @@ Documentation</h1>
 <div class="decl" id="implies_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L117-L117">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L118-L118">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1236,7 +1271,7 @@ Documentation</h1>
 <div class="decl" id="true_implies">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L118-L118">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L119-L119">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1253,7 +1288,7 @@ Documentation</h1>
 <div class="decl" id="Bool.or_false">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L120-L120">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L121-L121">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1270,7 +1305,7 @@ Documentation</h1>
 <div class="decl" id="Bool.or_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L121-L121">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L122-L122">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1287,7 +1322,7 @@ Documentation</h1>
 <div class="decl" id="Bool.false_or">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L122-L122">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L123-L123">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1304,7 +1339,7 @@ Documentation</h1>
 <div class="decl" id="Bool.true_or">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L123-L123">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L124-L124">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1321,7 +1356,7 @@ Documentation</h1>
 <div class="decl" id="Bool.or_self">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L124-L124">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L125-L125">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1338,7 +1373,7 @@ Documentation</h1>
 <div class="decl" id="Bool.or_eq_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L125-L125">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L126-L126">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1357,7 +1392,7 @@ Documentation</h1>
 <div class="decl" id="Bool.and_false">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L127-L127">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L128-L128">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1374,7 +1409,7 @@ Documentation</h1>
 <div class="decl" id="Bool.and_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L128-L128">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L129-L129">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1391,7 +1426,7 @@ Documentation</h1>
 <div class="decl" id="Bool.false_and">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L129-L129">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L130-L130">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1408,7 +1443,7 @@ Documentation</h1>
 <div class="decl" id="Bool.true_and">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L130-L130">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L131-L131">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1425,7 +1460,7 @@ Documentation</h1>
 <div class="decl" id="Bool.and_self">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L131-L131">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L132-L132">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1442,7 +1477,7 @@ Documentation</h1>
 <div class="decl" id="Bool.and_eq_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L132-L132">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L133-L133">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1461,7 +1496,7 @@ Documentation</h1>
 <div class="decl" id="Bool.not_not">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L134-L134">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L135-L135">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1478,7 +1513,7 @@ Documentation</h1>
 <div class="decl" id="Bool.not_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L135-L135">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L136-L136">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1493,7 +1528,7 @@ Documentation</h1>
 <div class="decl" id="Bool.not_false">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L136-L136">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L137-L137">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1508,7 +1543,7 @@ Documentation</h1>
 <div class="decl" id="Bool.not_beq_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L137-L137">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L138-L138">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1525,7 +1560,7 @@ Documentation</h1>
 <div class="decl" id="Bool.not_beq_false">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L138-L138">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L139-L139">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1542,7 +1577,7 @@ Documentation</h1>
 <div class="decl" id="Bool.beq_to_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L140-L140">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L141-L141">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1561,7 +1596,7 @@ Documentation</h1>
 <div class="decl" id="Bool.not_beq_to_not_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L141-L141">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L142-L142">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1580,7 +1615,7 @@ Documentation</h1>
 <div class="decl" id="Bool.not_eq_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L143-L143">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L144-L144">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1597,7 +1632,7 @@ Documentation</h1>
 <div class="decl" id="Bool.not_eq_false">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L144-L144">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L145-L145">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1614,7 +1649,7 @@ Documentation</h1>
 <div class="decl" id="decide_eq_true_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L146-L146">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L147-L147">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1637,7 +1672,7 @@ Documentation</h1>
 <div class="decl" id="decide_not">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L147-L147">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L148-L148">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1660,7 +1695,7 @@ Documentation</h1>
 <div class="decl" id="not_decide_eq_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L148-L148">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L149-L149">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1683,7 +1718,7 @@ Documentation</h1>
 <div class="decl" id="heq_eq_eq">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L150-L150">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L151-L151">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1706,7 +1741,7 @@ Documentation</h1>
 <div class="decl" id="cond_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L152-L152">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L153-L153">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1729,7 +1764,7 @@ Documentation</h1>
 <div class="decl" id="cond_false">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L153-L153">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L154-L154">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1752,7 +1787,7 @@ Documentation</h1>
 <div class="decl" id="beq_self_eq_true">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L155-L155">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L156-L156">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1776,6 +1811,78 @@ Documentation</h1>
 <span class="fn">(a : <span class="fn">α</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn">(<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#BEq.beq">==</a> <span class="fn">a</span></span>) <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="beq_self_eq_true'">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L157-L157">source</a>
+</div>
+<div class="attributes">@[simp]</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/SimpLemmas.html#beq_self_eq_true'">beq_self_eq_true'</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#DecidableEq">DecidableEq</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <span class="fn">α</span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">(<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#BEq.beq">==</a> <span class="fn">a</span></span>) <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="Nat.le_zero_eq">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L159-L160">source</a>
+</div>
+<div class="attributes">@[simp]</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/SimpLemmas.html#Nat.le_zero_eq">Nat.le_zero_eq</a>
+</span>
+<span class="decl_args">
+<span class="fn">(a : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">(<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#LE.le">≤</a> <span class="fn">0</span></span>) <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">0</span></span>)</span></div></div>
+</div>
+</div>
+<div class="decl" id="decide_False">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L162-L162">source</a>
+</div>
+<div class="attributes">@[simp]</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/SimpLemmas.html#decide_False">decide_False</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> <a href="/Socket.lean/Init/Prelude.html#False">False</a></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span></div></div>
+</div>
+</div>
+<div class="decl" id="decide_True">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/SimpLemmas.lean#L163-L163">source</a>
+</div>
+<div class="attributes">@[simp]</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/SimpLemmas.html#decide_True">decide_True</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> <a href="/Socket.lean/Init/Prelude.html#True">True</a></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span></div></div>
 </div>
 </div>
 </main>
@@ -1832,6 +1939,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -1839,6 +1949,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -1927,6 +2040,9 @@ Documentation</h1>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -1958,6 +2074,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -2089,7 +2208,13 @@ Documentation</h1>
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

@@ -105,6 +105,18 @@ Documentation</h1>
 <a class="break_within" href="#List.forIn_cons">List.forIn_cons</a>
 </div>
 <div class="nav_link">
+<a class="break_within" href="#List.forIn'">List.forIn'</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#List.forIn'.loop">List.forIn'.loop</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#List.instForIn'ListInferInstanceMembershipInstMembershipList">List.instForIn'ListInferInstanceMembershipInstMembershipList</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#List.forIn'_eq_forIn">List.forIn'_eq_forIn</a>
+</div>
+<div class="nav_link">
 <a class="break_within" href="#List.instForMList">List.instForMList</a>
 </div>
 <div class="nav_link">
@@ -315,11 +327,11 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterAuxM">List.filterAuxM</a> <span class="fn">f</span> <span class="fn">[]</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">x</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterAuxM">List.filterAuxM</a> <span class="fn">f</span> <span class="fn">[]</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">_fun_discr</span></span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterAuxM">List.filterAuxM</a> <span class="fn">f</span> (<span class="fn"><span class="fn">h</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">t</span></span>) <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterAuxM">List.filterAuxM</a> <span class="fn">f</span> (<span class="fn"><span class="fn">h</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">t</span></span>) <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
   let b ← <span class="fn"><span class="fn">f</span> <span class="fn">h</span></span>
-  <span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterAuxM">List.filterAuxM</a> <span class="fn">f</span> <span class="fn">t</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#cond">cond</a> <span class="fn">b</span> (<span class="fn"><span class="fn">h</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">x</span></span>) <span class="fn">x</span></span>)</span></span></span></li>
+  <span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterAuxM">List.filterAuxM</a> <span class="fn">f</span> <span class="fn">t</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#cond">cond</a> <span class="fn">b</span> (<span class="fn"><span class="fn">h</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">_fun_discr</span></span>) <span class="fn">_fun_discr</span></span>)</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -479,13 +491,13 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterMapM.loop">List.filterMapM.loop</a> <span class="fn">f</span> <span class="fn">[]</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">x</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterMapM.loop">List.filterMapM.loop</a> <span class="fn">f</span> <span class="fn">[]</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">_fun_discr</span></span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterMapM.loop">List.filterMapM.loop</a> <span class="fn">f</span> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterMapM.loop">List.filterMapM.loop</a> <span class="fn">f</span> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
   let a ← <span class="fn"><span class="fn">f</span> <span class="fn">a</span></span>
   <span class="fn">match <span class="fn">a</span> with
-    | <span class="fn">none</span> => <span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterMapM.loop">List.filterMapM.loop</a> <span class="fn">f</span> <span class="fn">as</span> <span class="fn">x</span></span>
-    | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">b</span></span> => <span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterMapM.loop">List.filterMapM.loop</a> <span class="fn">f</span> <span class="fn">as</span> (<span class="fn"><span class="fn">b</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">x</span></span>)</span></span></span></span></li>
+    | <span class="fn">none</span> => <span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterMapM.loop">List.filterMapM.loop</a> <span class="fn">f</span> <span class="fn">as</span> <span class="fn">_fun_discr</span></span>
+    | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">b</span></span> => <span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.filterMapM.loop">List.filterMapM.loop</a> <span class="fn">f</span> <span class="fn">as</span> (<span class="fn"><span class="fn">b</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">_fun_discr</span></span>)</span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -527,11 +539,11 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.foldlM">List.foldlM</a> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">[]</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">x</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.foldlM">List.foldlM</a> <span class="fn">_fun_discr</span> <span class="fn">_fun_discr</span> <span class="fn">[]</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">_fun_discr</span></span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.foldlM">List.foldlM</a> <span class="fn">x</span> <span class="fn">x</span> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
-  let s' ← <span class="fn"><span class="fn">x</span> <span class="fn">x</span> <span class="fn">a</span></span>
-  <span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.foldlM">List.foldlM</a> <span class="fn">x</span> <span class="fn">s'</span> <span class="fn">as</span></span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.foldlM">List.foldlM</a> <span class="fn">_fun_discr</span> <span class="fn">_fun_discr</span> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
+  let s' ← <span class="fn"><span class="fn">_fun_discr</span> <span class="fn">_fun_discr</span> <span class="fn">a</span></span>
+  <span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.foldlM">List.foldlM</a> <span class="fn">_fun_discr</span> <span class="fn">s'</span> <span class="fn">as</span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -573,11 +585,11 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.foldrM">List.foldrM</a> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">[]</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">x</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.foldrM">List.foldrM</a> <span class="fn">_fun_discr</span> <span class="fn">_fun_discr</span> <span class="fn">[]</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">_fun_discr</span></span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.foldrM">List.foldrM</a> <span class="fn">x</span> <span class="fn">x</span> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
-  let s' ← <span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.foldrM">List.foldrM</a> <span class="fn">x</span> <span class="fn">x</span> <span class="fn">as</span></span>
-  <span class="fn"><span class="fn">x</span> <span class="fn">a</span> <span class="fn">s'</span></span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.foldrM">List.foldrM</a> <span class="fn">_fun_discr</span> <span class="fn">_fun_discr</span> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
+  let s' ← <span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.foldrM">List.foldrM</a> <span class="fn">_fun_discr</span> <span class="fn">_fun_discr</span> <span class="fn">as</span></span>
+  <span class="fn"><span class="fn">_fun_discr</span> <span class="fn">a</span> <span class="fn">s'</span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -879,10 +891,10 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.forIn.loop">List.forIn.loop</a> <span class="fn">f</span> <span class="fn">[]</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">x</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.forIn.loop">List.forIn.loop</a> <span class="fn">f</span> <span class="fn">[]</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">_fun_discr</span></span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.forIn.loop">List.forIn.loop</a> <span class="fn">f</span> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
-  let a ← <span class="fn"><span class="fn">f</span> <span class="fn">a</span> <span class="fn">x</span></span>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.forIn.loop">List.forIn.loop</a> <span class="fn">f</span> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
+  let a ← <span class="fn"><span class="fn">f</span> <span class="fn">a</span> <span class="fn">_fun_discr</span></span>
   <span class="fn">match <span class="fn">a</span> with
     | <span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep.yield">ForInStep.done</a> <span class="fn">b</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></span>
     | <span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep.yield">ForInStep.yield</a> <span class="fn">b</span></span> => <span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.forIn.loop">List.forIn.loop</a> <span class="fn">f</span> <span class="fn">as</span> <span class="fn">b</span></span></span></span></span></li>
@@ -991,16 +1003,161 @@ Documentation</h1>
 <span class="fn">(b : <span class="fn">β</span>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Core.html#ForIn.forIn">forIn</a> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) <span class="fn">b</span> <span class="fn">f</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
-  let x ← <span class="fn"><span class="fn">f</span> <span class="fn">a</span> <span class="fn">b</span></span>
-  <span class="fn">match <span class="fn">x</span> with
+  let _fun_discr ← <span class="fn"><span class="fn">f</span> <span class="fn">a</span> <span class="fn">b</span></span>
+  <span class="fn">match <span class="fn">_fun_discr</span> with
     | <span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep.yield">ForInStep.done</a> <span class="fn">b</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></span>
     | <span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep.yield">ForInStep.yield</a> <span class="fn">b</span></span> => <span class="fn"><a href="/Socket.lean/Init/Core.html#ForIn.forIn">forIn</a> <span class="fn">as</span> <span class="fn">b</span> <span class="fn">f</span></span></span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="List.forIn'">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/Control.lean#L161-L174">source</a>
+</div>
+<div class="attributes">@[inline]</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/List/Control.html#List.forIn'">List.forIn'</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type v</span> → <span class="fn">Type w</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(as : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(init : <span class="fn">β</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn">(a : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#Membership.mem">∈</a> <span class="fn">as</span></span> → <span class="fn"><span class="fn">β</span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep">ForInStep</a> <span class="fn">β</span></span>)</span></span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.forIn'">List.forIn'</a> <span class="fn">as</span> <span class="fn">init</span> <span class="fn">f</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/List/Control.html#List.forIn'.loop">List.forIn'.loop</a> <span class="fn">as</span> <span class="fn">f</span> <span class="fn">as</span> <span class="fn">init</span> (_ : <span class="fn">∃ bs, <span class="fn"><span class="fn"><span class="fn">bs</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">as</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">as</span></span></span>)</span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="List.forIn'.loop">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/Control.lean#L162-L173">source</a>
+</div>
+<div class="attributes">@[specialize]</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/List/Control.html#List.forIn'.loop">List.forIn'.loop</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type v</span> → <span class="fn">Type w</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(as : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn">(a : <span class="fn">α</span>) → <span class="fn"><span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#Membership.mem">∈</a> <span class="fn">as</span></span> → <span class="fn"><span class="fn">β</span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep">ForInStep</a> <span class="fn">β</span></span>)</span></span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">(_fun_discr : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>) → <span class="fn"><span class="fn">β</span> → <span class="fn">(<span class="fn">∃ bs, <span class="fn"><span class="fn"><span class="fn">bs</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">as</span></span></span>) → <span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></span></span></span></div></div>
+</div>
+</div>
+<div class="decl" id="List.instForIn'ListInferInstanceMembershipInstMembershipList">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/Control.lean#L176-L177">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/List/Control.html#List.instForIn'ListInferInstanceMembershipInstMembershipList">List.instForIn'ListInferInstanceMembershipInstMembershipList</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type u_1</span> → <span class="fn">Type u_2</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_3</span>}</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/Core.html#ForIn'">ForIn'</a> <span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>) <span class="fn">α</span> <span class="fn">inferInstance</span></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">List.instForIn'ListInferInstanceMembershipInstMembershipList</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ forIn' := <span class="fn">fun {β} [<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>] => <span class="fn">List.forIn'</span></span> }</span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="List.forIn'_eq_forIn">
+<div class="theorem">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/Control.lean#L179-L186">source</a>
+</div>
+<div class="attributes">@[simp]</div>
+<div class="decl_header">
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/List/Control.html#List.forIn'_eq_forIn">List.forIn'_eq_forIn</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{β : <span class="fn">Type v</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{m : <span class="fn"><span class="fn">Type v</span> → <span class="fn">Type w</span></span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(as : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#List">List</a> <span class="fn">α</span></span>)</span></span>
+<span class="decl_args">
+<span class="fn">(init : <span class="fn">β</span>)</span></span>
+<span class="decl_args">
+<span class="fn">(f : <span class="fn"><span class="fn">α</span> → <span class="fn"><span class="fn">β</span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep">ForInStep</a> <span class="fn">β</span></span>)</span></span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Core.html#ForIn'.forIn'">forIn'</a> <span class="fn">as</span> <span class="fn">init</span> <span class="fn">fun <span class="fn">a</span> <span class="fn">x</span> <span class="fn">b</span> => <span class="fn"><span class="fn">f</span> <span class="fn">a</span> <span class="fn">b</span></span></span></span>) <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Core.html#ForIn.forIn">forIn</a> <span class="fn">as</span> <span class="fn">init</span> <span class="fn">f</span></span></span></div></div>
 </div>
 </div>
 <div class="decl" id="List.instForMList">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/Control.lean#L161-L162">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/Control.lean#L188-L189">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1029,7 +1186,7 @@ Documentation</h1>
 <div class="decl" id="List.forM_nil">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/Control.lean#L164-L165">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/Control.lean#L191-L192">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1058,7 +1215,7 @@ Documentation</h1>
 <div class="decl" id="List.forM_cons">
 <div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/Control.lean#L166-L167">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/List/Control.lean#L193-L194">source</a>
 </div>
 <div class="attributes">@[simp]</div>
 <div class="decl_header">
@@ -1144,6 +1301,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -1151,6 +1311,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -1239,6 +1402,9 @@ Documentation</h1>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -1270,6 +1436,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -1401,7 +1570,13 @@ Documentation</h1>
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

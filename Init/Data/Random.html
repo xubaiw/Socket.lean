@@ -195,8 +195,8 @@ s2 : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/Data/Random.html#instReprStdGen">instReprStdGen</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">x</span> <span class="fn">x_1</span> =>
-      <span class="fn">match <span class="fn">x</span>, <span class="fn">x_1</span> with
+<span class="fn"><a href="/Socket.lean/Init/Data/Random.html#instReprStdGen">instReprStdGen</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ reprPrec := <span class="fn">fun <span class="fn">_fun_discr</span> <span class="fn">_fun_discr_1</span> =>
+      <span class="fn">match <span class="fn">_fun_discr</span>, <span class="fn">_fun_discr_1</span> with
       | <span class="fn">{ s1 := <span class="fn">s1</span>, s2 := <span class="fn">s2</span> }</span>, <span class="fn">x</span> => <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.bracket">Std.Format.bracket</a> <span class="fn">"⟨"</span> (<span class="fn"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Repr.html#repr">repr</a> <span class="fn">s1</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">", "</span></span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/Socket.lean/Init/Data/Repr.html#repr">repr</a> <span class="fn">s2</span></span></span>) <span class="fn">"⟩"</span></span></span></span> }</span></span></li>
 </ul>
 </details>
@@ -218,7 +218,7 @@ s2 : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Random.html#stdNext">stdNext</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Random.html#stdNext">stdNext</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <span class="fn">{ s1 := <span class="fn">s1</span>, s2 := <span class="fn">s2</span> }</span> =>
     <span class="fn">let s1 := <span class="fn"><a href="/Socket.lean/Init/Data/Int/Basic.html#Int.ofNat">Int.ofNat</a> <span class="fn">s1</span></span>;
     <span class="fn">let s2 := <span class="fn"><a href="/Socket.lean/Init/Data/Int/Basic.html#Int.ofNat">Int.ofNat</a> <span class="fn">s2</span></span>;
@@ -251,7 +251,7 @@ s2 : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Random.html#stdSplit">stdSplit</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Random.html#stdSplit">stdSplit</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <span class="fn"><span class="fn">g</span>@h:<span class="fn">{ s1 := <span class="fn">s1</span>, s2 := <span class="fn">s2</span> }</span></span> =>
     <span class="fn">let newS1 := <span class="fn">if <span class="fn"><span class="fn">s1</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">2147483562</span></span> then <span class="fn">1</span> else <span class="fn"><span class="fn">s1</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span></span>;
     <span class="fn">let newS2 := <span class="fn">if <span class="fn"><span class="fn">s2</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">1</span></span> then <span class="fn">2147483398</span> else <span class="fn"><span class="fn">s2</span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn">1</span></span></span>;
@@ -342,18 +342,16 @@ s2 : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Random.html#randNat">randNat</a> <span class="fn">g</span> <span class="fn">lo</span> <span class="fn">hi</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let lo' := <span class="fn">if <span class="fn"><span class="fn">lo</span> <a href="/Socket.lean/Init/Prelude.html#GT.gt">></a> <span class="fn">hi</span></span> then <span class="fn">hi</span> else <span class="fn">lo</span></span>;
   <span class="fn">let hi' := <span class="fn">if <span class="fn"><span class="fn">lo</span> <a href="/Socket.lean/Init/Prelude.html#GT.gt">></a> <span class="fn">hi</span></span> then <span class="fn">lo</span> else <span class="fn">hi</span></span>;
-  <span class="fn">let x := <span class="fn"><a href="/Socket.lean/Init/Data/Random.html#RandomGen.range">RandomGen.range</a> <span class="fn">g</span></span>;
-  <span class="fn">match <span class="fn">x</span> with
+  <span class="fn">match <span class="fn"><a href="/Socket.lean/Init/Data/Random.html#RandomGen.range">RandomGen.range</a> <span class="fn">g</span></span> with
   | <span class="fn">(<span class="fn">genLo</span>, <span class="fn">genHi</span>)</span> =>
     <span class="fn">let genMag := <span class="fn"><span class="fn"><span class="fn">genHi</span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn">genLo</span></span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>;
     <span class="fn">let q := <span class="fn">1000</span>;
     <span class="fn">let k := <span class="fn"><span class="fn"><span class="fn">hi'</span> <a href="/Socket.lean/Init/Prelude.html#HSub.hSub">-</a> <span class="fn">lo'</span></span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>;
     <span class="fn">let tgtMag := <span class="fn"><span class="fn">k</span> <a href="/Socket.lean/Init/Prelude.html#HMul.hMul">*</a> <span class="fn">q</span></span>;
-    <span class="fn">let x := <span class="fn"><a href="/Socket.lean/Init/Data/Random.html#_private.Init.Data.Random.0.randNatAux">randNatAux</a> <span class="fn">genLo</span> <span class="fn">genMag</span> <span class="fn">tgtMag</span> <span class="fn">(<span class="fn">0</span>, <span class="fn">g</span>)</span></span>;
-    <span class="fn">match <span class="fn">x</span> with
+    <span class="fn">match <span class="fn"><a href="/Socket.lean/Init/Data/Random.html#_private.Init.Data.Random.0.randNatAux">randNatAux</a> <span class="fn">genLo</span> <span class="fn">genMag</span> <span class="fn">tgtMag</span> <span class="fn">(<span class="fn">0</span>, <span class="fn">g</span>)</span></span> with
     | <span class="fn">(<span class="fn">v</span>, <span class="fn">g'</span>)</span> =>
       <span class="fn">let v' := <span class="fn"><span class="fn">lo'</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn"><span class="fn">v</span> <a href="/Socket.lean/Init/Prelude.html#HMod.hMod">%</a> <span class="fn">k</span></span></span>;
-      <span class="fn">(<span class="fn">v'</span>, <span class="fn">g'</span>)</span></span></span></span></span></span></span></span></span></span></span></span></span></li>
+      <span class="fn">(<span class="fn">v'</span>, <span class="fn">g'</span>)</span></span></span></span></span></span></span></span></span></span></span></li>
 </ul>
 </details>
 <p>Generate a random natural number in the interval [lo, hi].</p></div>
@@ -384,9 +382,8 @@ s2 : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Random.html#randBool">randBool</a> <span class="fn">g</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let x := <span class="fn"><a href="/Socket.lean/Init/Data/Random.html#randNat">randNat</a> <span class="fn">g</span> <span class="fn">0</span> <span class="fn">1</span></span>;
-  <span class="fn">match <span class="fn">x</span> with
-  | <span class="fn">(<span class="fn">v</span>, <span class="fn">g'</span>)</span> => <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> (<span class="fn"><span class="fn">v</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">1</span></span>)</span>, <span class="fn">g'</span>)</span></span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Random.html#randBool">randBool</a> <span class="fn">g</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn"><a href="/Socket.lean/Init/Data/Random.html#randNat">randNat</a> <span class="fn">g</span> <span class="fn">0</span> <span class="fn">1</span></span> with
+  | <span class="fn">(<span class="fn">v</span>, <span class="fn">g'</span>)</span> => <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> (<span class="fn"><span class="fn">v</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">1</span></span>)</span>, <span class="fn">g'</span>)</span></span></span></li>
 </ul>
 </details>
 <p>Generate a random Boolean.</p></div>
@@ -450,8 +447,7 @@ s2 : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Random.html#IO.rand">IO.rand</a> <span class="fn">lo</span> <span class="fn">hi</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
   let gen ← <span class="fn"><a href="/Socket.lean/Init/System/ST.html#ST.Ref.get">ST.Ref.get</a> <a href="/Socket.lean/Init/Data/Random.html#IO.stdGenRef">IO.stdGenRef</a></span>
-  let x : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> <a href="/Socket.lean/Init/Prelude.html#Prod">×</a> <a href="/Socket.lean/Init/Data/Random.html#StdGen">StdGen</a></span> := <span class="fn"><a href="/Socket.lean/Init/Data/Random.html#randNat">randNat</a> <span class="fn">gen</span> <span class="fn">lo</span> <span class="fn">hi</span></span>
-  <span class="fn">match <span class="fn">x</span> with
+  <span class="fn">match <span class="fn"><a href="/Socket.lean/Init/Data/Random.html#randNat">randNat</a> <span class="fn">gen</span> <span class="fn">lo</span> <span class="fn">hi</span></span> with
     | <span class="fn">(<span class="fn">r</span>, <span class="fn">gen</span>)</span> => <span class="fn">do
       <span class="fn"><a href="/Socket.lean/Init/System/ST.html#ST.Ref.set">ST.Ref.set</a> <a href="/Socket.lean/Init/Data/Random.html#IO.stdGenRef">IO.stdGenRef</a> <span class="fn">gen</span></span>
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">r</span></span></span></span></span></span></li>
@@ -513,6 +509,9 @@ s2 : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -520,6 +519,9 @@ s2 : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -608,6 +610,9 @@ s2 : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -639,6 +644,9 @@ s2 : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -770,7 +778,13 @@ s2 : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></li>
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

@@ -373,8 +373,7 @@ Documentation</h1>
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/State.html#StateT.bind">StateT.bind</a> <span class="fn">x</span> <span class="fn">f</span> <span class="fn">s</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
   let discr ← <span class="fn"><span class="fn">x</span> <span class="fn">s</span></span>
-  let x : <span class="fn"><span class="fn">α</span> <a href="/Socket.lean/Init/Prelude.html#Prod">×</a> <span class="fn">σ</span></span> := <span class="fn">discr</span>
-  <span class="fn">match <span class="fn">x</span> with
+  <span class="fn">match <span class="fn">discr</span> with
     | <span class="fn">(<span class="fn">a</span>, <span class="fn">s</span>)</span> => <span class="fn"><span class="fn">f</span> <span class="fn">a</span> <span class="fn">s</span></span></span></span></span></li>
 </ul>
 </details>
@@ -423,8 +422,7 @@ Documentation</h1>
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/State.html#StateT.map">StateT.map</a> <span class="fn">f</span> <span class="fn">x</span> <span class="fn">s</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
   let discr ← <span class="fn"><span class="fn">x</span> <span class="fn">s</span></span>
-  let x : <span class="fn"><span class="fn">α</span> <a href="/Socket.lean/Init/Prelude.html#Prod">×</a> <span class="fn">σ</span></span> := <span class="fn">discr</span>
-  <span class="fn">match <span class="fn">x</span> with
+  <span class="fn">match <span class="fn">discr</span> with
     | <span class="fn">(<span class="fn">a</span>, <span class="fn">s</span>)</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Prod.mk">pure</a> <span class="fn">(<span class="fn"><span class="fn">f</span> <span class="fn">a</span></span>, <span class="fn">s</span>)</span></span></span></span></span></li>
 </ul>
 </details>
@@ -538,7 +536,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/State.html#StateT.failure">StateT.failure</a> <span class="fn">s</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">failure</span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/State.html#StateT.failure">StateT.failure</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">failure</span></span></li>
 </ul>
 </details>
 </div>
@@ -643,7 +641,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/State.html#StateT.set">StateT.set</a> <span class="fn">s'</span> <span class="fn">s</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">(<a href="/Socket.lean/Init/Prelude.html#PUnit.unit">PUnit.unit</a>, <span class="fn">s'</span>)</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/State.html#StateT.set">StateT.set</a> <span class="fn">s'</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">(<a href="/Socket.lean/Init/Prelude.html#PUnit.unit">PUnit.unit</a>, <span class="fn">s'</span>)</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -894,8 +892,7 @@ Documentation</h1>
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#liftM">liftM</a> (<span class="fn"><span class="fn">f</span> <span class="fn">fun {β} <span class="fn">x</span> => <span class="fn"><a href="/Socket.lean/Init/Control/State.html#StateT.run">StateT.run</a> <span class="fn">x</span> <span class="fn">s</span></span></span></span>)</span></span></span>,
     restoreM := <span class="fn">fun {α} <span class="fn">x</span> => <span class="fn">do
       let discr ← <span class="fn"><a href="/Socket.lean/Init/Prelude.html#liftM">liftM</a> <span class="fn">x</span></span>
-      let x : <span class="fn">(<span class="fn">fun <span class="fn">α</span> => <span class="fn"><span class="fn">α</span> <a href="/Socket.lean/Init/Prelude.html#Prod">×</a> <span class="fn">σ</span></span></span>) <span class="fn">α</span></span> := <span class="fn">discr</span>
-      <span class="fn">match <span class="fn">x</span> with
+      <span class="fn">match <span class="fn">discr</span> with
         | <span class="fn">(<span class="fn">a</span>, <span class="fn">s</span>)</span> => <span class="fn">do
           <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadStateOf.set">set</a> <span class="fn">s</span></span>
           <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">a</span></span></span></span></span></span> }</span></span></li>
@@ -937,13 +934,12 @@ Documentation</h1>
 <li class="equation">
 <span class="fn"><span class="fn">StateT.tryFinally</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ tryFinally' := <span class="fn">fun {α β} <span class="fn">x</span> <span class="fn">h</span> <span class="fn">s</span> => <span class="fn">do
       let discr ←
-        <span class="fn"><a href="/Socket.lean/Init/Control/Except.html#MonadFinally.tryFinally'">tryFinally'</a> (<span class="fn"><span class="fn">x</span> <span class="fn">s</span></span>) <span class="fn">fun <span class="fn">x</span> =>
-            <span class="fn">match <span class="fn">x</span> with
+        <span class="fn"><a href="/Socket.lean/Init/Control/Except.html#MonadFinally.tryFinally'">tryFinally'</a> (<span class="fn"><span class="fn">x</span> <span class="fn">s</span></span>) <span class="fn">fun <span class="fn">_fun_discr</span> =>
+            <span class="fn">match <span class="fn">_fun_discr</span> with
             | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">(<span class="fn">a</span>, <span class="fn">s'</span>)</span></span> => <span class="fn"><span class="fn">h</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span>) <span class="fn">s'</span></span>
             | <span class="fn">none</span> => <span class="fn"><span class="fn">h</span> <span class="fn">none</span> <span class="fn">s</span></span></span></span></span>
-      let x : <span class="fn">(<span class="fn"><span class="fn">α</span> <a href="/Socket.lean/Init/Prelude.html#Prod">×</a> <span class="fn">σ</span></span>) <a href="/Socket.lean/Init/Prelude.html#Prod">×</a> <span class="fn"><span class="fn">β</span> <a href="/Socket.lean/Init/Prelude.html#Prod">×</a> <span class="fn">σ</span></span></span> := <span class="fn">discr</span>
-      <span class="fn">match <span class="fn">x</span> with
-        | <span class="fn">(<span class="fn">(<span class="fn">a</span>, <span class="fn">x</span>)</span>, <span class="fn">b</span>, <span class="fn">s''</span>)</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Prod.mk">pure</a> <span class="fn">(<span class="fn">(<span class="fn">a</span>, <span class="fn">b</span>)</span>, <span class="fn">s''</span>)</span></span></span></span></span> }</span></span></li>
+      <span class="fn">match <span class="fn">discr</span> with
+        | <span class="fn">(<span class="fn">(<span class="fn">a</span>, <span class="fn">snd</span>)</span>, <span class="fn">b</span>, <span class="fn">s''</span>)</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Prod.mk">pure</a> <span class="fn">(<span class="fn">(<span class="fn">a</span>, <span class="fn">b</span>)</span>, <span class="fn">s''</span>)</span></span></span></span></span> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -1002,6 +998,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -1009,6 +1008,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -1097,6 +1099,9 @@ Documentation</h1>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -1128,6 +1133,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -1259,7 +1267,13 @@ Documentation</h1>
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

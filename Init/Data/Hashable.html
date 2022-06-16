@@ -45,6 +45,9 @@ Documentation</h1>
 <a class="break_within" href="#instHashableNat">instHashableNat</a>
 </div>
 <div class="nav_link">
+<a class="break_within" href="#instHashablePos">instHashablePos</a>
+</div>
+<div class="nav_link">
 <a class="break_within" href="#instHashableProd">instHashableProd</a>
 </div>
 <div class="nav_link">
@@ -55,6 +58,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a class="break_within" href="#instHashableList">instHashableList</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#instHashableArray">instHashableArray</a>
 </div>
 <div class="nav_link">
 <a class="break_within" href="#instHashableUInt8">instHashableUInt8</a>
@@ -103,10 +109,31 @@ Documentation</h1>
 </details>
 </div>
 </div>
-<div class="decl" id="instHashableProd">
+<div class="decl" id="instHashablePos">
 <div class="instance">
 <div class="gh_link">
 <a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L14-L15">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/Hashable.html#instHashablePos">instHashablePos</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Hashable">Hashable</a> <a href="/Socket.lean/Init/Prelude.html#String.Pos">String.Pos</a></span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/Socket.lean/Init/Data/Hashable.html#instHashablePos">instHashablePos</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ hash := <span class="fn">fun <span class="fn">p</span> => <span class="fn"><a href="/Socket.lean/Init/Data/UInt.html#UInt64.ofNat">UInt64.ofNat</a> <span class="fn"><span class="fn">p</span>.byteIdx</span></span></span> }</span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="instHashableProd">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L17-L18">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -135,8 +162,8 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn">instHashableProd</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ hash := <span class="fn">fun <span class="fn">x</span> =>
-      <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn">instHashableProd</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ hash := <span class="fn">fun <span class="fn">_fun_discr</span> =>
+      <span class="fn">match <span class="fn">_fun_discr</span> with
       | <span class="fn">(<span class="fn">a</span>, <span class="fn">b</span>)</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#mixHash">mixHash</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Hashable.hash">hash</a> <span class="fn">a</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Hashable.hash">hash</a> <span class="fn">b</span></span>)</span></span></span> }</span></span></li>
 </ul>
 </details>
@@ -145,7 +172,7 @@ Documentation</h1>
 <div class="decl" id="instHashableBool">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L17-L20">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L20-L23">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -158,8 +185,8 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/Data/Hashable.html#instHashableBool">instHashableBool</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ hash := <span class="fn">fun <span class="fn">x</span> =>
-      <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><a href="/Socket.lean/Init/Data/Hashable.html#instHashableBool">instHashableBool</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ hash := <span class="fn">fun <span class="fn">_fun_discr</span> =>
+      <span class="fn">match <span class="fn">_fun_discr</span> with
       | <a href="/Socket.lean/Init/Prelude.html#Bool.false">true</a> => <span class="fn">11</span>
       | <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a> => <a href="/Socket.lean/Init/Prelude.html#Bool.false">13</a></span></span> }</span></span></li>
 </ul>
@@ -169,7 +196,7 @@ Documentation</h1>
 <div class="decl" id="instHashableOption">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L22-L25">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L25-L28">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -190,8 +217,8 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn">instHashableOption</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ hash := <span class="fn">fun <span class="fn">x</span> =>
-      <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn">instHashableOption</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ hash := <span class="fn">fun <span class="fn">_fun_discr</span> =>
+      <span class="fn">match <span class="fn">_fun_discr</span> with
       | <span class="fn">none</span> => <span class="fn">11</span>
       | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">mixHash</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Hashable.hash">hash</a> <span class="fn">a</span></span>) <span class="fn">13</span></span></span></span> }</span></span></li>
 </ul>
@@ -201,7 +228,7 @@ Documentation</h1>
 <div class="decl" id="instHashableList">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L27-L28">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L30-L31">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -227,10 +254,39 @@ Documentation</h1>
 </details>
 </div>
 </div>
+<div class="decl" id="instHashableArray">
+<div class="instance">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L33-L34">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">instance</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/Hashable.html#instHashableArray">instHashableArray</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{α : <span class="fn">Type u_1</span>}</span></span>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">[inst : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Hashable">Hashable</a> <span class="fn">α</span></span>]</span></span>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Hashable">Hashable</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array">Array</a> <span class="fn">α</span></span>)</span></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn">instHashableArray</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ hash := <span class="fn">fun <span class="fn">as</span> => <span class="fn"><a href="/Socket.lean/Init/Data/Array/Basic.html#Array.foldl">Array.foldl</a> (<span class="fn">fun <span class="fn">r</span> <span class="fn">a</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#mixHash">mixHash</a> <span class="fn">r</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Hashable.hash">hash</a> <span class="fn">a</span></span>)</span></span>) <span class="fn">7</span> <span class="fn">as</span> <span class="fn">0</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Array.size">Array.size</a> <span class="fn">as</span></span>)</span></span> }</span></span></li>
+</ul>
+</details>
+</div>
+</div>
 <div class="decl" id="instHashableUInt8">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L30-L31">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L36-L37">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -251,7 +307,7 @@ Documentation</h1>
 <div class="decl" id="instHashableUInt16">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L33-L34">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L39-L40">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -272,7 +328,7 @@ Documentation</h1>
 <div class="decl" id="instHashableUInt32">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L36-L37">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L42-L43">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -293,7 +349,7 @@ Documentation</h1>
 <div class="decl" id="instHashableUInt64">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L39-L40">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L45-L46">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -314,7 +370,7 @@ Documentation</h1>
 <div class="decl" id="instHashableUSize">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L42-L43">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L48-L49">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -335,7 +391,7 @@ Documentation</h1>
 <div class="decl" id="instHashableFin">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L45-L46">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L51-L52">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -360,7 +416,7 @@ Documentation</h1>
 <div class="decl" id="instHashableInt">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L48-L51">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L54-L57">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -373,8 +429,8 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/Data/Hashable.html#instHashableInt">instHashableInt</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ hash := <span class="fn">fun <span class="fn">x</span> =>
-      <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><a href="/Socket.lean/Init/Data/Hashable.html#instHashableInt">instHashableInt</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ hash := <span class="fn">fun <span class="fn">_fun_discr</span> =>
+      <span class="fn">match <span class="fn">_fun_discr</span> with
       | <span class="fn"><a href="/Socket.lean/Init/Data/Int/Basic.html#Int.negSucc">Int.ofNat</a> <span class="fn">n</span></span> => <span class="fn"><a href="/Socket.lean/Init/Data/UInt.html#UInt64.ofNat">UInt64.ofNat</a> (<span class="fn"><span class="fn">2</span> <a href="/Socket.lean/Init/Prelude.html#HMul.hMul">*</a> <span class="fn">n</span></span>)</span>
       | <span class="fn"><a href="/Socket.lean/Init/Data/Int/Basic.html#Int.negSucc">Int.negSucc</a> <span class="fn">n</span></span> => <span class="fn"><a href="/Socket.lean/Init/Data/Int/Basic.html#Int.negSucc">UInt64.ofNat</a> (<span class="fn"><span class="fn"><span class="fn">2</span> <a href="/Socket.lean/Init/Prelude.html#HMul.hMul">*</a> <span class="fn">n</span></span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>)</span></span></span> }</span></span></li>
 </ul>
@@ -384,7 +440,7 @@ Documentation</h1>
 <div class="decl" id="instHashable">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L53-L54">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Hashable.lean#L59-L60">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -399,7 +455,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Hashable.html#instHashable">instHashable</a> <span class="fn">P</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ hash := <span class="fn">fun <span class="fn">p</span> => <span class="fn">0</span></span> }</span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Hashable.html#instHashable">instHashable</a> <span class="fn">P</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ hash := <span class="fn">fun <span class="fn">x</span> => <span class="fn">0</span></span> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -458,6 +514,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -465,6 +524,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -553,6 +615,9 @@ Documentation</h1>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -584,6 +649,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -715,7 +783,13 @@ Documentation</h1>
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

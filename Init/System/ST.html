@@ -347,7 +347,7 @@ Documentation</h1>
 </span>
 <span class="impl_arg">
 <span class="decl_args">
-<span class="fn">{σ : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#outParam">outParam</a> <span class="fn">Type</span></span>}</span></span>
+<span class="fn">{σ : <span class="fn">Type</span>}</span></span>
 </span>
 <span class="impl_arg">
 <span class="decl_args">
@@ -392,7 +392,7 @@ Documentation</h1>
 </span>
 <span class="impl_arg">
 <span class="decl_args">
-<span class="fn">{σ : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#outParam">outParam</a> <span class="fn">Type</span></span>}</span></span>
+<span class="fn">{σ : <span class="fn">Type</span>}</span></span>
 </span>
 <span class="decl_args">:</span>
 <div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/System/ST.html#STWorld">STWorld</a> <span class="fn">σ</span> (<span class="fn"><a href="/Socket.lean/Init/System/ST.html#EST">EST</a> <span class="fn">ε</span> <span class="fn">σ</span></span>)</span></div></div>
@@ -433,8 +433,8 @@ Documentation</h1>
 <ul class="equations">
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/ST.html#runEST">runEST</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn"><span class="fn">x</span> <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span> with
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.error">EStateM.Result.ok</a> <span class="fn">a</span> <span class="fn">x</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.ok">Except.ok</a> <span class="fn">a</span></span>
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.error">EStateM.Result.error</a> <span class="fn">ex</span> <span class="fn">x</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">ex</span></span></span></span></li>
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.error">EStateM.Result.ok</a> <span class="fn">a</span> <span class="fn">a_1</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.ok">Except.ok</a> <span class="fn">a</span></span>
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.error">EStateM.Result.error</a> <span class="fn">ex</span> <span class="fn">a</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">ex</span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -463,8 +463,8 @@ Documentation</h1>
 <ul class="equations">
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/ST.html#runST">runST</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn"><span class="fn">x</span> <a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span> with
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.error">EStateM.Result.ok</a> <span class="fn">a</span> <span class="fn">x</span></span> => <span class="fn">a</span>
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.error">EStateM.Result.error</a> <span class="fn">ex</span> <span class="fn">x</span></span> => <span class="fn">nomatch <span class="fn">ex</span></span></span></span></li>
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.error">EStateM.Result.ok</a> <span class="fn">a</span> <span class="fn">a_1</span></span> => <span class="fn">a</span>
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.error">EStateM.Result.error</a> <span class="fn">ex</span> <span class="fn">a</span></span> => <span class="fn">nomatch <span class="fn">ex</span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -496,7 +496,7 @@ Documentation</h1>
 <span class="fn"><span class="fn">instMonadLiftSTEST</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">{ monadLift := <span class="fn">fun {α} <span class="fn">x</span> <span class="fn">s</span> =>
       <span class="fn">match <span class="fn"><span class="fn">x</span> <span class="fn">s</span></span> with
       | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.error">EStateM.Result.ok</a> <span class="fn">a</span> <span class="fn">s</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.ok">EStateM.Result.ok</a> <span class="fn">a</span> <span class="fn">s</span></span>
-      | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.error">EStateM.Result.error</a> <span class="fn">ex</span> <span class="fn">x</span></span> => <span class="fn">nomatch <span class="fn">ex</span></span></span></span> }</span></span></li>
+      | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#EStateM.Result.error">EStateM.Result.error</a> <span class="fn">ex</span> <span class="fn">a</span></span> => <span class="fn">nomatch <span class="fn">ex</span></span></span></span> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -799,8 +799,7 @@ h : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nonempty">Nonempty<
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/ST.html#ST.Prim.Ref.modifyGetUnsafe">ST.Prim.Ref.modifyGetUnsafe</a> <span class="fn">r</span> <span class="fn">f</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
   let v ← <span class="fn"><a href="/Socket.lean/Init/System/ST.html#ST.Prim.Ref.take">ST.Prim.Ref.take</a> <span class="fn">r</span></span>
-  let x : <span class="fn"><span class="fn">β</span> <a href="/Socket.lean/Init/Prelude.html#Prod">×</a> <span class="fn">α</span></span> := <span class="fn"><span class="fn">f</span> <span class="fn">v</span></span>
-  <span class="fn">match <span class="fn">x</span> with
+  <span class="fn">match <span class="fn"><span class="fn">f</span> <span class="fn">v</span></span> with
     | <span class="fn">(<span class="fn">b</span>, <span class="fn">a</span>)</span> => <span class="fn">do
       <span class="fn"><a href="/Socket.lean/Init/System/ST.html#ST.Prim.Ref.set">ST.Prim.Ref.set</a> <span class="fn">r</span> <span class="fn">a</span></span>
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></span></span></span></span></span></li>
@@ -879,8 +878,7 @@ h : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nonempty">Nonempty<
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/ST.html#ST.Prim.Ref.modifyGet">ST.Prim.Ref.modifyGet</a> <span class="fn">r</span> <span class="fn">f</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">do
   let v ← <span class="fn"><a href="/Socket.lean/Init/System/ST.html#ST.Prim.Ref.get">ST.Prim.Ref.get</a> <span class="fn">r</span></span>
-  let x : <span class="fn"><span class="fn">β</span> <a href="/Socket.lean/Init/Prelude.html#Prod">×</a> <span class="fn">α</span></span> := <span class="fn"><span class="fn">f</span> <span class="fn">v</span></span>
-  <span class="fn">match <span class="fn">x</span> with
+  <span class="fn">match <span class="fn"><span class="fn">f</span> <span class="fn">v</span></span> with
     | <span class="fn">(<span class="fn">b</span>, <span class="fn">a</span>)</span> => <span class="fn">do
       <span class="fn"><a href="/Socket.lean/Init/System/ST.html#ST.Prim.Ref.set">ST.Prim.Ref.set</a> <span class="fn">r</span> <span class="fn">a</span></span>
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">b</span></span></span></span></span></span></li>
@@ -1276,6 +1274,9 @@ h : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nonempty">Nonempty<
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -1283,6 +1284,9 @@ h : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nonempty">Nonempty<
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -1371,6 +1375,9 @@ h : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nonempty">Nonempty<
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -1402,6 +1409,9 @@ h : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nonempty">Nonempty<
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -1533,7 +1543,13 @@ h : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nonempty">Nonempty<
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

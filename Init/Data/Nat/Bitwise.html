@@ -48,6 +48,9 @@ Documentation</h1>
 </details>
 </div>
 <div class="nav_link">
+<a class="break_within" href="#Nat.bitwise_rec_lemma">Nat.bitwise_rec_lemma</a>
+</div>
+<div class="nav_link">
 <a class="break_within" href="#Nat.bitwise">Nat.bitwise</a>
 </div>
 <div class="nav_link">
@@ -82,13 +85,33 @@ Documentation</h1>
 </div>
 </nav>
 <main>
-<div class="decl" id="Nat.bitwise">
-<div class="constant">
+<div class="decl" id="Nat.bitwise_rec_lemma">
+<div class="theorem">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L13-L27">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L13-L14">source</a>
 </div>
 <div class="decl_header">
-<span class="decl_kind">partial def</span>
+<span class="decl_kind">theorem</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.bitwise_rec_lemma">Nat.bitwise_rec_lemma</a>
+</span>
+<span class="impl_arg">
+<span class="decl_args">
+<span class="fn">{n : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a>}</span></span>
+</span>
+<span class="decl_args">
+<span class="fn">(hNe : <span class="fn"><span class="fn">n</span> <a href="/Socket.lean/Init/Core.html#Ne">≠</a> <span class="fn">0</span></span>)</span></span>
+<span class="decl_args">:</span>
+<div class="decl_type"><span class="fn"><span class="fn"><span class="fn">n</span> <a href="/Socket.lean/Init/Prelude.html#HDiv.hDiv">/</a> <span class="fn">2</span></span> <a href="/Socket.lean/Init/Prelude.html#LT.lt"><</a> <span class="fn">n</span></span></div></div>
+</div>
+</div>
+<div class="decl" id="Nat.bitwise">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L16-L31">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
 <span class="decl_name">
 <a class="break_within" href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.bitwise">Nat.bitwise</a>
 </span>
@@ -100,12 +123,28 @@ Documentation</h1>
 <span class="fn">(m : <a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a>)</span></span>
 <span class="decl_args">:</span>
 <div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.bitwise">Nat.bitwise</a> <span class="fn">f</span> <span class="fn">n</span> <span class="fn">m</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">if <span class="fn"><span class="fn">n</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">0</span></span> then <span class="fn">if <span class="fn"><span class="fn"><span class="fn">f</span> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn">m</span> else <span class="fn">0</span></span>
+  else
+    <span class="fn">if <span class="fn"><span class="fn">m</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">0</span></span> then <span class="fn">if <span class="fn"><span class="fn"><span class="fn">f</span> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a> <a href="/Socket.lean/Init/Prelude.html#Bool.false">false</a></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn">n</span> else <span class="fn">0</span></span>
+    else
+      <span class="fn">let n' := <span class="fn"><span class="fn">n</span> <a href="/Socket.lean/Init/Prelude.html#HDiv.hDiv">/</a> <span class="fn">2</span></span>;
+      <span class="fn">let m' := <span class="fn"><span class="fn">m</span> <a href="/Socket.lean/Init/Prelude.html#HDiv.hDiv">/</a> <span class="fn">2</span></span>;
+      <span class="fn">let b₁ := <span class="fn"><span class="fn"><span class="fn">n</span> <a href="/Socket.lean/Init/Prelude.html#HMod.hMod">%</a> <span class="fn">2</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">1</span></span>;
+      <span class="fn">let b₂ := <span class="fn"><span class="fn"><span class="fn">m</span> <a href="/Socket.lean/Init/Prelude.html#HMod.hMod">%</a> <span class="fn">2</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">1</span></span>;
+      <span class="fn">let r := <span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.bitwise">Nat.bitwise</a> <span class="fn">f</span> <span class="fn">n'</span> <span class="fn">m'</span></span>;
+      <span class="fn">if <span class="fn"><span class="fn"><span class="fn">f</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> <span class="fn">b₁</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> <span class="fn">b₂</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn"><span class="fn"><span class="fn">r</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">r</span></span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span> else <span class="fn"><span class="fn">r</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">r</span></span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+</details>
 </div>
 </div>
 <div class="decl" id="Nat.land">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L30-L30">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L34-L34">source</a>
 </div>
 <div class="attributes">@[extern  lean_nat_land]</div>
 <div class="decl_header">
@@ -127,7 +166,7 @@ Documentation</h1>
 <div class="decl" id="Nat.lor">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L32-L32">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L36-L36">source</a>
 </div>
 <div class="attributes">@[extern  lean_nat_lor]</div>
 <div class="decl_header">
@@ -149,7 +188,7 @@ Documentation</h1>
 <div class="decl" id="Nat.xor">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L34-L34">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L38-L38">source</a>
 </div>
 <div class="attributes">@[extern  lean_nat_lxor]</div>
 <div class="decl_header">
@@ -171,7 +210,7 @@ Documentation</h1>
 <div class="decl" id="Nat.shiftLeft">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L36-L38">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L40-L42">source</a>
 </div>
 <div class="attributes">@[extern  lean_nat_shiftl]</div>
 <div class="decl_header">
@@ -185,9 +224,9 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.shiftLeft">Nat.shiftLeft</a> <span class="fn">x</span> <span class="fn">0</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">x</span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.shiftLeft">Nat.shiftLeft</a> <span class="fn">_fun_discr</span> <span class="fn">0</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">_fun_discr</span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.shiftLeft">Nat.shiftLeft</a> <span class="fn">x</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">m</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.shiftLeft">Nat.shiftLeft</a> (<span class="fn"><span class="fn">2</span> <a href="/Socket.lean/Init/Prelude.html#HMul.hMul">*</a> <span class="fn">x</span></span>) <span class="fn">m</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.shiftLeft">Nat.shiftLeft</a> <span class="fn">_fun_discr</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">m</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.shiftLeft">Nat.shiftLeft</a> (<span class="fn"><span class="fn">2</span> <a href="/Socket.lean/Init/Prelude.html#HMul.hMul">*</a> <span class="fn">_fun_discr</span></span>) <span class="fn">m</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -195,7 +234,7 @@ Documentation</h1>
 <div class="decl" id="Nat.shiftRight">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L40-L42">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L44-L46">source</a>
 </div>
 <div class="attributes">@[extern  lean_nat_shiftr]</div>
 <div class="decl_header">
@@ -209,9 +248,9 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.shiftRight">Nat.shiftRight</a> <span class="fn">x</span> <span class="fn">0</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">x</span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.shiftRight">Nat.shiftRight</a> <span class="fn">_fun_discr</span> <span class="fn">0</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">_fun_discr</span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.shiftRight">Nat.shiftRight</a> <span class="fn">x</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">m</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.shiftRight">Nat.shiftRight</a> <span class="fn">x</span> <span class="fn">m</span></span> <a href="/Socket.lean/Init/Prelude.html#HDiv.hDiv">/</a> <span class="fn">2</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.shiftRight">Nat.shiftRight</a> <span class="fn">_fun_discr</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat.succ">Nat.succ</a> <span class="fn">m</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Nat/Bitwise.html#Nat.shiftRight">Nat.shiftRight</a> <span class="fn">_fun_discr</span> <span class="fn">m</span></span> <a href="/Socket.lean/Init/Prelude.html#HDiv.hDiv">/</a> <span class="fn">2</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -219,7 +258,7 @@ Documentation</h1>
 <div class="decl" id="Nat.instAndOpNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L44-L44">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L48-L48">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -240,7 +279,7 @@ Documentation</h1>
 <div class="decl" id="Nat.instOrOpNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L45-L45">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L49-L49">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -261,7 +300,7 @@ Documentation</h1>
 <div class="decl" id="Nat.instXorNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L46-L46">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L50-L50">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -282,7 +321,7 @@ Documentation</h1>
 <div class="decl" id="Nat.instShiftLeftNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L47-L47">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L51-L51">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -303,7 +342,7 @@ Documentation</h1>
 <div class="decl" id="Nat.instShiftRightNat">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L48-L48">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Data/Nat/Bitwise.lean#L52-L52">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -375,6 +414,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -382,6 +424,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -470,6 +515,9 @@ Documentation</h1>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -501,6 +549,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -632,7 +683,13 @@ Documentation</h1>
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

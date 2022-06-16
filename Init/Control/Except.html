@@ -235,7 +235,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#Except.map">Except.map</a> <span class="fn">f</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#Except.map">Except.map</a> <span class="fn">f</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.ok">Except.error</a> <span class="fn">err</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">err</span></span>
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.ok">Except.ok</a> <span class="fn">v</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.ok">Except.ok</a> (<span class="fn"><span class="fn">f</span> <span class="fn">v</span></span>)</span></span></span></li>
 </ul>
@@ -296,7 +296,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#Except.mapError">Except.mapError</a> <span class="fn">f</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#Except.mapError">Except.mapError</a> <span class="fn">f</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.ok">Except.error</a> <span class="fn">err</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> (<span class="fn"><span class="fn">f</span> <span class="fn">err</span></span>)</span>
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.ok">Except.ok</a> <span class="fn">v</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.ok">Except.ok</a> <span class="fn">v</span></span></span></span></li>
 </ul>
@@ -368,9 +368,9 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#Except.toBool">Except.toBool</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.ok</a> <span class="fn">x</span></span> => <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a>
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">x</span></span> => <span class="fn">false</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#Except.toBool">Except.toBool</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.ok</a> <span class="fn">a</span></span> => <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a>
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">a</span></span> => <span class="fn">false</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -400,9 +400,9 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#Except.toOption">Except.toOption</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#Except.toOption">Except.toOption</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.ok</a> <span class="fn">a</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">a</span></span>
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">x</span></span> => <span class="fn">none</span></span></span></li>
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">a</span></span> => <span class="fn">none</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -473,7 +473,7 @@ Documentation</h1>
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#Except.orElseLazy">Except.orElseLazy</a> <span class="fn">x</span> <span class="fn">y</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.ok</a> <span class="fn">a</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.ok">Except.ok</a> <span class="fn">a</span></span>
-  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span> => <span class="fn"><span class="fn">y</span> <span class="fn">()</span></span></span></span></li>
+  | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">a</span></span> => <span class="fn"><span class="fn">y</span> <span class="fn">()</span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -681,7 +681,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#ExceptT.bindCont">ExceptT.bindCont</a> <span class="fn">f</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#ExceptT.bindCont">ExceptT.bindCont</a> <span class="fn">f</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.ok</a> <span class="fn">a</span></span> => <span class="fn"><span class="fn">f</span> <span class="fn">a</span></span>
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span>)</span></span></span></li>
 </ul>
@@ -1300,7 +1300,7 @@ The default is to use the first exception since the standard <code>orelse</code>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#liftExcept">liftExcept</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Control/Except.html#liftExcept">liftExcept</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.ok</a> <span class="fn">a</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn">a</span></span>
   | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <span class="fn">e</span></span></span></span></li>
 </ul>
@@ -1339,7 +1339,7 @@ The default is to use the first exception since the standard <code>orelse</code>
 <div class="decl" id="MonadFinally">
 <div class="class">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Control/Except.lean#L147-L148">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Control/Except.lean#L147-L153">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">class</span>
@@ -1388,7 +1388,7 @@ tryFinally' : <span class="fn">{α β : <span class="fn">Type u</span>} → <spa
 <div class="decl" id="tryFinally">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Control/Except.lean#L153-L155">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Control/Except.lean#L158-L160">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -1435,7 +1435,7 @@ tryFinally' : <span class="fn">{α β : <span class="fn">Type u</span>} → <spa
 <div class="decl" id="Id.finally">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Control/Except.lean#L157-L161">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Control/Except.lean#L162-L166">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1459,7 +1459,7 @@ tryFinally' : <span class="fn">{α β : <span class="fn">Type u</span>} → <spa
 <div class="decl" id="ExceptT.finally">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Control/Except.lean#L163-L171">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/Control/Except.lean#L168-L176">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -1497,8 +1497,8 @@ tryFinally' : <span class="fn">{α β : <span class="fn">Type u</span>} → <spa
               | <span class="fn">x</span> => <span class="fn"><span class="fn">h</span> <span class="fn">none</span></span></span></span></span>
         <span class="fn">match <span class="fn">r</span> with
           | <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.ok</a> <span class="fn">a</span></span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.ok</a> <span class="fn">b</span></span>)</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.ok">Except.ok</a> <span class="fn">(<span class="fn">a</span>, <span class="fn">b</span>)</span></span>)</span>
-          | <span class="fn">(<span class="fn">x</span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span>)</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span>)</span>
-          | <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span>, <span class="fn">x</span>)</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Prod.mk">pure</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span>)</span></span></span></span></span> }</span></span></li>
+          | <span class="fn">(<span class="fn">fst</span>, <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span>)</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span>)</span>
+          | <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span>, <span class="fn">snd</span>)</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Prod.mk">pure</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Except.error">Except.error</a> <span class="fn">e</span></span>)</span></span></span></span></span> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -1557,6 +1557,9 @@ tryFinally' : <span class="fn">{α β : <span class="fn">Type u</span>} → <spa
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -1564,6 +1567,9 @@ tryFinally' : <span class="fn">{α β : <span class="fn">Type u</span>} → <spa
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -1652,6 +1658,9 @@ tryFinally' : <span class="fn">{α β : <span class="fn">Type u</span>} → <spa
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -1683,6 +1692,9 @@ tryFinally' : <span class="fn">{α β : <span class="fn">Type u</span>} → <spa
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -1814,7 +1826,13 @@ tryFinally' : <span class="fn">{α β : <span class="fn">Type u</span>} → <spa
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

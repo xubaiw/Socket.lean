@@ -51,6 +51,9 @@ Documentation</h1>
 <a href="/Socket.lean/Init/Hints.html">Init.Hints</a>
 </li>
 <li>
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</li>
+<li>
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </li>
 </ul>
@@ -196,6 +199,9 @@ Documentation</h1>
 </div>
 <div class="nav_link">
 <a class="break_within" href="#Lean.doElemRepeat_Until_">Lean.doElemRepeat_Until_</a>
+</div>
+<div class="nav_link">
+<a class="break_within" href="#Lean.«term_Matches_|»">Lean.«term_Matches_|»</a>
 </div>
 </nav>
 <main>
@@ -838,7 +844,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandUnit">unexpandUnit</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandUnit">unexpandUnit</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">do
   let info ← <span class="fn">Lean.MonadRef.mkInfoFromRefPos</span>
   let _ ← <span class="fn">Lean.getCurrMacroScope</span>
@@ -866,7 +872,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandListNil">unexpandListNil</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandListNil">unexpandListNil</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">do
   let info ← <span class="fn">Lean.MonadRef.mkInfoFromRefPos</span>
   let _ ← <span class="fn">Lean.getCurrMacroScope</span>
@@ -894,7 +900,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandListCons">unexpandListCons</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandListCons">unexpandListCons</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.isOfKind">Lean.Syntax.isOfKind</a> <span class="fn">discr</span> <span class="fn">`Lean.Parser.Term.app</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then
     <span class="fn">let discr_1 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">0</span></span>;
     <span class="fn">let discr_2 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
@@ -937,7 +943,7 @@ Documentation</h1>
       <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span>
   else
-    <span class="fn">let discr := <span class="fn">x</span>;
+    <span class="fn">let discr := <span class="fn">_fun_discr</span>;
     <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span></li>
 </ul>
 </details>
@@ -959,7 +965,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandListToArray">unexpandListToArray</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandListToArray">unexpandListToArray</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.isOfKind">Lean.Syntax.isOfKind</a> <span class="fn">discr</span> <span class="fn">`Lean.Parser.Term.app</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then
     <span class="fn">let discr_1 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">0</span></span>;
     <span class="fn">let discr_2 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
@@ -986,7 +992,7 @@ Documentation</h1>
       <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span>
   else
-    <span class="fn">let discr := <span class="fn">x</span>;
+    <span class="fn">let discr := <span class="fn">_fun_discr</span>;
     <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span></li>
 </ul>
 </details>
@@ -1008,7 +1014,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandProdMk">unexpandProdMk</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandProdMk">unexpandProdMk</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.isOfKind">Lean.Syntax.isOfKind</a> <span class="fn">discr</span> <span class="fn">`Lean.Parser.Term.app</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then
     <span class="fn">let discr_1 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">0</span></span>;
     <span class="fn">let discr_2 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
@@ -1120,7 +1126,7 @@ Documentation</h1>
       <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span>
   else
-    <span class="fn">let discr := <span class="fn">x</span>;
+    <span class="fn">let discr := <span class="fn">_fun_discr</span>;
     <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span></li>
 </ul>
 </details>
@@ -1142,7 +1148,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandIte">unexpandIte</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandIte">unexpandIte</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.isOfKind">Lean.Syntax.isOfKind</a> <span class="fn">discr</span> <span class="fn">`Lean.Parser.Term.app</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then
     <span class="fn">let discr_1 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">0</span></span>;
     <span class="fn">let discr_2 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
@@ -1164,7 +1170,7 @@ Documentation</h1>
       <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span>
   else
-    <span class="fn">let discr := <span class="fn">x</span>;
+    <span class="fn">let discr := <span class="fn">_fun_discr</span>;
     <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span></li>
 </ul>
 </details>
@@ -1186,7 +1192,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandSorryAx">unexpandSorryAx</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandSorryAx">unexpandSorryAx</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.isOfKind">Lean.Syntax.isOfKind</a> <span class="fn">discr</span> <span class="fn">`Lean.Parser.Term.app</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then
     <span class="fn">let discr_1 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">0</span></span>;
     <span class="fn">let discr_2 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
@@ -1227,7 +1233,7 @@ Documentation</h1>
         <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
         <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span></span></span>
   else
-    <span class="fn">let discr := <span class="fn">x</span>;
+    <span class="fn">let discr := <span class="fn">_fun_discr</span>;
     <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span></li>
 </ul>
 </details>
@@ -1249,7 +1255,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandEqNDRec">unexpandEqNDRec</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandEqNDRec">unexpandEqNDRec</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.isOfKind">Lean.Syntax.isOfKind</a> <span class="fn">discr</span> <span class="fn">`Lean.Parser.Term.app</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then
     <span class="fn">let discr_1 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">0</span></span>;
     <span class="fn">let discr_2 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
@@ -1269,7 +1275,7 @@ Documentation</h1>
       <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span>
   else
-    <span class="fn">let discr := <span class="fn">x</span>;
+    <span class="fn">let discr := <span class="fn">_fun_discr</span>;
     <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span></li>
 </ul>
 </details>
@@ -1291,7 +1297,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandEqRec">unexpandEqRec</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandEqRec">unexpandEqRec</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.isOfKind">Lean.Syntax.isOfKind</a> <span class="fn">discr</span> <span class="fn">`Lean.Parser.Term.app</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then
     <span class="fn">let discr_1 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">0</span></span>;
     <span class="fn">let discr_2 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
@@ -1311,7 +1317,7 @@ Documentation</h1>
       <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span>
   else
-    <span class="fn">let discr := <span class="fn">x</span>;
+    <span class="fn">let discr := <span class="fn">_fun_discr</span>;
     <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span></li>
 </ul>
 </details>
@@ -1333,7 +1339,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandExists">unexpandExists</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandExists">unexpandExists</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.isOfKind">Lean.Syntax.isOfKind</a> <span class="fn">discr</span> <span class="fn">`Lean.Parser.Term.app</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then
     <span class="fn">let discr_1 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">0</span></span>;
     <span class="fn">let discr_2 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
@@ -1529,7 +1535,7 @@ Documentation</h1>
       <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span>
   else
-    <span class="fn">let discr := <span class="fn">x</span>;
+    <span class="fn">let discr := <span class="fn">_fun_discr</span>;
     <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span></li>
 </ul>
 </details>
@@ -1551,7 +1557,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandSigma">unexpandSigma</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandSigma">unexpandSigma</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.isOfKind">Lean.Syntax.isOfKind</a> <span class="fn">discr</span> <span class="fn">`Lean.Parser.Term.app</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then
     <span class="fn">let discr_1 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">0</span></span>;
     <span class="fn">let discr_2 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
@@ -1638,7 +1644,7 @@ Documentation</h1>
       <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span>
   else
-    <span class="fn">let discr := <span class="fn">x</span>;
+    <span class="fn">let discr := <span class="fn">_fun_discr</span>;
     <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span></li>
 </ul>
 </details>
@@ -1660,7 +1666,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandPSigma">unexpandPSigma</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandPSigma">unexpandPSigma</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.isOfKind">Lean.Syntax.isOfKind</a> <span class="fn">discr</span> <span class="fn">`Lean.Parser.Term.app</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then
     <span class="fn">let discr_1 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">0</span></span>;
     <span class="fn">let discr_2 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
@@ -1747,7 +1753,7 @@ Documentation</h1>
       <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span>
   else
-    <span class="fn">let discr := <span class="fn">x</span>;
+    <span class="fn">let discr := <span class="fn">_fun_discr</span>;
     <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span></li>
 </ul>
 </details>
@@ -1769,7 +1775,7 @@ Documentation</h1>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandSubtype">unexpandSubtype</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">x</span>;
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#unexpandSubtype">unexpandSubtype</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let discr := <span class="fn">_fun_discr</span>;
   <span class="fn">if <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.isOfKind">Lean.Syntax.isOfKind</a> <span class="fn">discr</span> <span class="fn">`Lean.Parser.Term.app</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then
     <span class="fn">let discr_1 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">0</span></span>;
     <span class="fn">let discr_2 := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
@@ -1867,7 +1873,7 @@ Documentation</h1>
       <span class="fn">let discr := <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.Syntax.getArg">Lean.Syntax.getArg</a> <span class="fn">discr</span> <span class="fn">1</span></span>;
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span>
   else
-    <span class="fn">let discr := <span class="fn">x</span>;
+    <span class="fn">let discr := <span class="fn">_fun_discr</span>;
     <span class="fn"><a href="/Socket.lean/Init/Prelude.html#MonadExcept.throw">throw</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span></span></span></span></li>
 </ul>
 </details>
@@ -1876,7 +1882,7 @@ Documentation</h1>
 <div class="decl" id="tacticFunext__">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L157-L157">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L157-L170">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1895,12 +1901,16 @@ Documentation</h1>
         (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`colGt</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">1024</span></span>)</span>)</span>)</span>)</span></span></li>
 </ul>
 </details>
-</div>
+<p>Apply function extensionality and introduce new hypotheses.
+The tactic <code><a href="/Socket.lean/Init/Core.html#funext">funext</a></code> will keep applying new the <code><a href="/Socket.lean/Init/Core.html#funext">funext</a></code> lemma until the goal target is not reducible to</p><pre><code>  |-  ((fun x => ...) = (fun x => ...))
+</code></pre><p>The variant <code><a href="/Socket.lean/Init/Core.html#funext">funext</a>h₁...hₙ</code> applies <code><a href="/Socket.lean/Init/Core.html#funext">funext</a></code> <code><a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop.forIn">n</a></code> times, and uses the given identifiers to name the new hypotheses.
+Patterns can be used like in the <code>intro</code> tactic. Example, given a goal</p><pre><code>  |-  ((fun x : Nat × Bool => ...) = (fun x => ...))
+</code></pre><p><code><a href="/Socket.lean/Init/Core.html#funext">funext</a>(a,b)</code> applies <code><a href="/Socket.lean/Init/Core.html#funext">funext</a></code> once and performs pattern matching on the newly introduced pair.</p></div>
 </div>
 <div class="decl" id="«command_ClassAbbrev__:_:=__,»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L189-L190">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L202-L203">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1941,7 +1951,7 @@ Documentation</h1>
 <div class="decl" id="«tactic·.__;_»">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L199-L200">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L212-L213">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1972,7 +1982,7 @@ Documentation</h1>
 <div class="decl" id="solve">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L207-L207">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L217-L220">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -1995,12 +2005,12 @@ Documentation</h1>
               (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`tacticSeq</span></span>)</span>)</span>)</span>)</span>)</span>)</span></span></li>
 </ul>
 </details>
-</div>
+<p>Similar to <code>first</code>, but succeeds only if one the given tactics solves the current goal.</p></div>
 </div>
 <div class="decl" id="Lean.Loop">
 <div class="inductive">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L215-L216">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L228-L229">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">inductive</span>
@@ -2018,7 +2028,7 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
 <div class="decl" id="Lean.Loop.forIn">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L219-L224">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L232-L237">source</a>
 </div>
 <div class="attributes">@[inline]</div>
 <div class="decl_header">
@@ -2038,19 +2048,13 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
 <span class="decl_args">
 <span class="fn">[inst : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Monad">Monad</a> <span class="fn">m</span></span>]</span></span>
 </span>
-<span class="decl_args">
-<span class="fn">(loop : <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a>)</span></span>
-<span class="decl_args">
-<span class="fn">(init : <span class="fn">β</span>)</span></span>
-<span class="decl_args">
-<span class="fn">(f : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a> → <span class="fn"><span class="fn">β</span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep">ForInStep</a> <span class="fn">β</span></span>)</span></span></span>)</span></span>
 <span class="decl_args">:</span>
-<div class="decl_type"><span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></div></div>
+<div class="decl_type"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a> → <span class="fn"><span class="fn">β</span> → <span class="fn">(<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Unit">Unit</a> → <span class="fn"><span class="fn">β</span> → <span class="fn"><span class="fn">m</span> (<span class="fn"><a href="/Socket.lean/Init/Core.html#ForInStep">ForInStep</a> <span class="fn">β</span></span>)</span></span></span>) → <span class="fn"><span class="fn">m</span> <span class="fn">β</span></span></span></span></span></div></div>
 <details>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop.forIn">Lean.Loop.forIn</a> <span class="fn">loop</span> <span class="fn">init</span> <span class="fn">f</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop.forIn.loop">Lean.Loop.forIn.loop</a> <span class="fn">f</span> <span class="fn">init</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop.forIn">Lean.Loop.forIn</a> <span class="fn">x</span> <span class="fn">init</span> <span class="fn">f</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop.forIn.loop">Lean.Loop.forIn.loop</a> <span class="fn">f</span> <span class="fn">init</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -2058,7 +2062,7 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
 <div class="decl" id="Lean.Loop.forIn.loop">
 <div class="constant">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L220-L223">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L233-L236">source</a>
 </div>
 <div class="attributes">@[specialize]</div>
 <div class="decl_header">
@@ -2089,7 +2093,7 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
 <div class="decl" id="Lean.instForInLoopUnit">
 <div class="instance">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L226-L227">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L239-L240">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">instance</span>
@@ -2114,7 +2118,7 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
 <div class="decl" id="Lean.doElemRepeat_">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L229-L229">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L242-L242">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2136,7 +2140,7 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
 <div class="decl" id="Lean.doElemWhile_Do_">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L234-L234">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L247-L247">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2162,7 +2166,7 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
 <div class="decl" id="Lean.doElemRepeat_Until_">
 <div class="def">
 <div class="gh_link">
-<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L239-L239">source</a>
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L252-L252">source</a>
 </div>
 <div class="decl_header">
 <span class="decl_kind">def</span>
@@ -2181,6 +2185,29 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
         (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"repeat "</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.const">Lean.ParserDescr.const</a> <span class="fn">`doSeq</span></span>)</span>)
         (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">" until "</span></span>)</span>)
       (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">0</span></span>)</span>)</span></span></li>
+</ul>
+</details>
+</div>
+</div>
+<div class="decl" id="Lean.«term_Matches_|»">
+<div class="def">
+<div class="gh_link">
+<a href="https://github.com/leanprover/lean4/blob/6b1297fe85575c91cf613640bdd96cd1241d1a9e/src/Init/NotationExtra.lean#L257-L257">source</a>
+</div>
+<div class="decl_header">
+<span class="decl_kind">def</span>
+<span class="decl_name">
+<a class="break_within" href="/Socket.lean/Init/NotationExtra.html#Lean.«term_Matches_|»">Lean.«term_Matches_|»</a>
+</span>
+<span class="decl_args">:</span>
+<div class="decl_type"><a href="/Socket.lean/Init/Prelude.html#Lean.TrailingParserDescr">Lean.TrailingParserDescr</a></div></div>
+<details>
+<summary>Equations</summary>
+<ul class="equations">
+<li class="equation">
+<span class="fn"><a href="/Socket.lean/Init/NotationExtra.html#Lean.«term_Matches_|»">Lean.«term_Matches_|»</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.trailingNode">Lean.ParserDescr.trailingNode</a> <span class="fn">`Lean.«term_Matches_|»</span> <span class="fn">50</span> <span class="fn">51</span>
+    (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.binary">Lean.ParserDescr.binary</a> <span class="fn">`andthen</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">" matches "</span></span>)
+      (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.sepBy1">Lean.ParserDescr.sepBy1</a> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.cat">Lean.ParserDescr.cat</a> <span class="fn">`term</span> <span class="fn">51</span></span>) <span class="fn">"|"</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Lean.ParserDescr.symbol">Lean.ParserDescr.symbol</a> <span class="fn">"|"</span></span>)</span>)</span>)</span></span></li>
 </ul>
 </details>
 </div>
@@ -2239,6 +2266,9 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -2246,6 +2276,9 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -2334,6 +2367,9 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -2365,6 +2401,9 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -2496,7 +2535,13 @@ mk: <a href="/Socket.lean/Init/NotationExtra.html#Lean.Loop">Lean.Loop</a></li>
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

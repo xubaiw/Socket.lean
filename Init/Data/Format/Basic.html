@@ -214,7 +214,7 @@ fill: <a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.FlattenBehavi
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.instBEqFlattenBehavior">Std.Format.instBEqFlattenBehavior</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ beq := <a href="/Socket.lean/Init/Data/Format/Basic.html#_private.Init.Data.Format.Basic.0.Std.Format.beqFlattenBehavior._@.Init.Data.Format.Basic._hyg.16">[anonymous]</a> }</span></span></li>
+<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.instBEqFlattenBehavior">Std.Format.instBEqFlattenBehavior</a> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn">{ beq := <a href="/Socket.lean/Init/Data/Format/Basic.html#_private.Init.Data.Format.Basic.0.Std.Format.beqFlattenBehavior._@.Init.Data.Format.Basic._hyg.18">[anonymous]</a> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -292,13 +292,13 @@ tag: <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> → <
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.text">Std.Format.text</a> <span class="fn">msg</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> (<span class="fn"><span class="fn">msg</span> <a href="/Socket.lean/Init/Prelude.html#BEq.beq">==</a> <span class="fn">""</span></span>)</span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.nest">Std.Format.nest</a> <span class="fn">x_1</span> <span class="fn">f</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.nest">Std.Format.nest</a> <span class="fn">indent</span> <span class="fn">f</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f</span></span></span></li>
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.append">Std.Format.append</a> <span class="fn">f₁</span> <span class="fn">f₂</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> (<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f₁</span></span> <a href="/Socket.lean/Init/Prelude.html#and">&&</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f₂</span></span></span>)</span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.group">Std.Format.group</a> <span class="fn">f</span> <span class="fn">x_1</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.group">Std.Format.group</a> <span class="fn">f</span> <span class="fn">behavior</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f</span></span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.tag">Std.Format.tag</a> <span class="fn">x_1</span> <span class="fn">f</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> (<span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.tag">Std.Format.tag</a> <span class="fn">a</span> <span class="fn">f</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isEmpty">Std.Format.isEmpty</a> <span class="fn">f</span></span></span></li>
 </ul>
 </details>
 </div>
@@ -453,7 +453,7 @@ tag: <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> → <
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isNil">Std.Format.isNil</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">x</span> with
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.isNil">Std.Format.isNil</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">match <span class="fn">_fun_discr</span> with
   | <span class="fn">Std.Format.nil</span> => <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a>
   | <span class="fn">x</span> => <span class="fn">false</span></span></span></li>
 </ul>
@@ -794,11 +794,12 @@ endTags : <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Nat">Nat</a> 
     pushNewline := <span class="fn">fun <span class="fn">indent</span> =>
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#modify">modify</a> <span class="fn">fun <span class="fn">x</span> =>
         <span class="fn">match <span class="fn">x</span> with
-        | <span class="fn">{ out := <span class="fn">out</span>, column := <span class="fn">col</span> }</span> => <span class="fn">{ out := <span class="fn"><span class="fn">out</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.pushn">String.pushn</a> <span class="fn">"\n"</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">32</span></span>) <span class="fn">indent</span></span></span>, column := <span class="fn">indent</span> }</span></span></span></span></span>,
+        | <span class="fn">{ out := <span class="fn">out</span>, column := <span class="fn">column</span> }</span> =>
+          <span class="fn">{ out := <span class="fn"><span class="fn">out</span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.pushn">String.pushn</a> <span class="fn">"\n"</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">32</span></span>) <span class="fn">indent</span></span></span>, column := <span class="fn">indent</span> }</span></span></span></span></span>,
     currColumn := <span class="fn">do
       let a ← <span class="fn">get</span>
       <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <span class="fn"><span class="fn">a</span>.column</span></span></span>,
-    startTag := <span class="fn">fun <span class="fn">n</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span>, endTags := <span class="fn">fun <span class="fn">n</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span> }</span></span></li>
+    startTag := <span class="fn">fun <span class="fn">x</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span>, endTags := <span class="fn">fun <span class="fn">x</span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Pure.pure">pure</a> <a href="/Socket.lean/Init/Prelude.html#Unit.unit">()</a></span></span> }</span></span></li>
 </ul>
 </details>
 </div>
@@ -870,6 +871,9 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 </li>
 <li>
 <a href="/Socket.lean/Init/Data/Format/Instances.html#instToFormatProd">instToFormatProd</a>
+</li>
+<li>
+<a href="/Socket.lean/Init/Data/Format/Instances.html#instToFormatPos">instToFormatPos</a>
 </li>
 <li>
 <a href="/Socket.lean/Init/Data/Format/Basic.html#Std.instToFormatString">Std.instToFormatString</a>
@@ -944,11 +948,11 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> <span class="fn">[]</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.nil">Std.Format.nil</a></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> <span class="fn">[]</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.nil">Std.Format.nil</a></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> <span class="fn">[<span class="fn">a</span>]</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.ToFormat.format">Std.format</a> <span class="fn">a</span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> <span class="fn">[<span class="fn">a</span>]</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.ToFormat.format">Std.format</a> <span class="fn">a</span></span></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.ToFormat.format">Std.format</a> <span class="fn">a</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> <span class="fn">as</span> <span class="fn">x</span></span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.ToFormat.format">Std.format</a> <span class="fn">a</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSep">Std.Format.joinSep</a> <span class="fn">as</span> <span class="fn">_fun_discr</span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -1010,9 +1014,9 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSuffix">Std.Format.joinSuffix</a> <span class="fn">[]</span> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.nil">Std.Format.nil</a></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSuffix">Std.Format.joinSuffix</a> <span class="fn">[]</span> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.nil">Std.Format.nil</a></span></li>
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSuffix">Std.Format.joinSuffix</a> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.ToFormat.format">Std.format</a> <span class="fn">a</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">x</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSuffix">Std.Format.joinSuffix</a> <span class="fn">as</span> <span class="fn">x</span></span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSuffix">Std.Format.joinSuffix</a> (<span class="fn"><span class="fn">a</span> <a href="/Socket.lean/Init/Prelude.html#List.cons">::</a> <span class="fn">as</span></span>) <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.ToFormat.format">Std.format</a> <span class="fn">a</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn">_fun_discr</span></span> <a href="/Socket.lean/Init/Prelude.html#HAppend.hAppend">++</a> <span class="fn"><a href="/Socket.lean/Init/Data/Format/Basic.html#Std.Format.joinSuffix">Std.Format.joinSuffix</a> <span class="fn">as</span> <span class="fn">_fun_discr</span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -1071,6 +1075,9 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -1078,6 +1085,9 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -1166,6 +1176,9 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -1197,6 +1210,9 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -1328,7 +1344,13 @@ format : <span class="fn"><span class="fn">α</span> → <a href="/Socket.lean/I
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>

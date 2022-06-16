@@ -417,7 +417,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.isAbsolute">System.FilePath.isAbsolute</a> <span class="fn">p</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   (<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Basic.html#List.contains">List.contains</a> <a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.pathSeparators">System.FilePath.pathSeparators</a> (<span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.front">String.front</a> <span class="fn"><span class="fn">p</span>.toString</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#or">||</a>     <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/Platform.html#System.Platform.isWindows">System.Platform.isWindows</a> <a href="/Socket.lean/Init/Prelude.html#and">&&</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> (<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.bsize">String.bsize</a> <span class="fn"><span class="fn">p</span>.toString</span></span> <a href="/Socket.lean/Init/Prelude.html#GE.ge">≥</a> <span class="fn">1</span></span>)</span></span> <a href="/Socket.lean/Init/Prelude.html#and">&&</a> <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.getOp">String.getOp</a> <span class="fn"><span class="fn">p</span>.toString</span> <span class="fn">1</span></span> <a href="/Socket.lean/Init/Prelude.html#BEq.beq">==</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">58</span></span></span></span></span>)</span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.isAbsolute">System.FilePath.isAbsolute</a> <span class="fn">p</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   (<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/List/Basic.html#List.contains">List.contains</a> <a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.pathSeparators">System.FilePath.pathSeparators</a> (<span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.front">String.front</a> <span class="fn"><span class="fn">p</span>.toString</span></span>)</span> <a href="/Socket.lean/Init/Prelude.html#or">||</a>     <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/Platform.html#System.Platform.isWindows">System.Platform.isWindows</a> <a href="/Socket.lean/Init/Prelude.html#and">&&</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Decidable.decide">decide</a> (<span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.length">String.length</a> <span class="fn"><span class="fn">p</span>.toString</span></span> <a href="/Socket.lean/Init/Prelude.html#GT.gt">></a> <span class="fn">1</span></span>)</span></span> <a href="/Socket.lean/Init/Prelude.html#and">&&</a>       <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.Iterator.curr">String.Iterator.curr</a> (<span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.Iterator.next">String.Iterator.next</a> (<span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.iter">String.iter</a> <span class="fn"><span class="fn">p</span>.toString</span></span>)</span>)</span> <a href="/Socket.lean/Init/Prelude.html#BEq.beq">==</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">58</span></span></span></span></span>)</span></li>
 </ul>
 </details>
 </div>
@@ -531,7 +531,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <summary>Equations</summary>
 <ul class="equations">
 <li class="equation">
-<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.parent">System.FilePath.parent</a> <span class="fn">p</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.mk">System.FilePath.mk</a> <a href="/Socket.lean/Init/Prelude.html#Functor.map"><$></a> <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.extract">String.extract</a> <span class="fn"><span class="fn">p</span>.toString</span> <span class="fn">0</span></span> <a href="/Socket.lean/Init/Prelude.html#Functor.map"><$></a> <span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#_private.Init.System.FilePath.0.System.FilePath.posOfLastSep">System.FilePath.posOfLastSep</a> <span class="fn">p</span></span></span></span></span></li>
+<span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.parent">System.FilePath.parent</a> <span class="fn">p</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.mk">System.FilePath.mk</a> <a href="/Socket.lean/Init/Prelude.html#Functor.map"><$></a> <span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.extract">String.extract</a> <span class="fn"><span class="fn">p</span>.toString</span> <span class="fn">{ byteIdx := <span class="fn">0</span> }</span></span> <a href="/Socket.lean/Init/Prelude.html#Functor.map"><$></a> <span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#_private.Init.System.FilePath.0.System.FilePath.posOfLastSep">System.FilePath.posOfLastSep</a> <span class="fn">p</span></span></span></span></span></li>
 </ul>
 </details>
 </div>
@@ -556,7 +556,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.fileName">System.FilePath.fileName</a> <span class="fn">p</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn">let lastPart :=
     <span class="fn">match <span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#_private.Init.System.FilePath.0.System.FilePath.posOfLastSep">System.FilePath.posOfLastSep</a> <span class="fn">p</span></span> with
-    | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">sepPos</span></span> => <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.extract">String.extract</a> <span class="fn"><span class="fn">p</span>.toString</span> (<span class="fn"><span class="fn">sepPos</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.bsize">String.bsize</a> <span class="fn"><span class="fn">p</span>.toString</span></span>)</span>
+    | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">sepPos</span></span> => <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.extract">String.extract</a> <span class="fn"><span class="fn">p</span>.toString</span> (<span class="fn"><span class="fn">sepPos</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">47</span></span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.endPos">String.endPos</a> <span class="fn"><span class="fn">p</span>.toString</span></span>)</span>
     | <span class="fn">none</span> => <span class="fn"><span class="fn">p</span>.toString</span></span>;
   <span class="fn">if <span class="fn">(<span class="fn"><span class="fn"><span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.isEmpty">String.isEmpty</a> <span class="fn">lastPart</span></span> <a href="/Socket.lean/Init/Prelude.html#or">||</a> <span class="fn"><span class="fn">lastPart</span> <a href="/Socket.lean/Init/Prelude.html#BEq.beq">==</a> <span class="fn">"."</span></span></span> <a href="/Socket.lean/Init/Prelude.html#or">||</a> <span class="fn"><span class="fn">lastPart</span> <a href="/Socket.lean/Init/Prelude.html#BEq.beq">==</a> <span class="fn">".."</span></span></span>) <a href="/Socket.lean/Init/Prelude.html#Eq">=</a> <a href="/Socket.lean/Init/Prelude.html#Bool.true">true</a></span> then <span class="fn">none</span> else <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">lastPart</span></span></span></span></span></li>
 </ul>
@@ -584,7 +584,7 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.fileStem">System.FilePath.fileStem</a> <span class="fn">p</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.map">Option.map</a>
     (<span class="fn">fun <span class="fn">fname</span> =>
       <span class="fn">match <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.revPosOf">String.revPosOf</a> <span class="fn">fname</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">46</span></span>)</span> with
-      | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">0</span></span> => <span class="fn">fname</span>
+      | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">{ byteIdx := <span class="fn">0</span> }</span></span> => <span class="fn">fname</span>
       | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">pos</span></span> => <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.extract">String.extract</a> <span class="fn">fname</span> <span class="fn">0</span> <span class="fn">pos</span></span>
       | <span class="fn">none</span> => <span class="fn">fname</span></span></span>)
     (<span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.fileName">System.FilePath.fileName</a> <span class="fn">p</span></span>)</span></span></li>
@@ -612,8 +612,8 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <li class="equation">
 <span class="fn"><span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.extension">System.FilePath.extension</a> <span class="fn">p</span></span> <a href="/Socket.lean/Init/Prelude.html#Eq">=</a>   <span class="fn"><a href="/Socket.lean/Init/Data/Option/Basic.html#Option.bind">Option.bind</a> (<span class="fn"><a href="/Socket.lean/Init/System/FilePath.html#System.FilePath.fileName">System.FilePath.fileName</a> <span class="fn">p</span></span>) <span class="fn">fun <span class="fn">fname</span> =>
     <span class="fn">match <span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.revPosOf">String.revPosOf</a> <span class="fn">fname</span> (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">46</span></span>)</span> with
-    | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">0</span></span> => <span class="fn">none</span>
-    | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">pos</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> (<span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.extract">String.extract</a> <span class="fn">fname</span> (<span class="fn"><span class="fn">pos</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn">1</span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.bsize">String.bsize</a> <span class="fn">fname</span></span>)</span>)</span>
+    | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">{ byteIdx := <span class="fn">0</span> }</span></span> => <span class="fn">none</span>
+    | <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> <span class="fn">pos</span></span> => <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Option.some">some</a> (<span class="fn"><a href="/Socket.lean/Init/Data/String/Basic.html#String.extract">String.extract</a> <span class="fn">fname</span> (<span class="fn"><span class="fn">pos</span> <a href="/Socket.lean/Init/Prelude.html#HAdd.hAdd">+</a> <span class="fn"><a href="/Socket.lean/Init/Prelude.html#Char.ofNat">Char.ofNat</a> <span class="fn">46</span></span></span>) (<span class="fn"><a href="/Socket.lean/Init/Prelude.html#String.endPos">String.endPos</a> <span class="fn">fname</span></span>)</span>)</span>
     | <span class="fn">none</span> => <span class="fn">none</span></span></span></span></span></li>
 </ul>
 </details>
@@ -883,6 +883,9 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <a href="/Socket.lean/Init/Data/Array/Basic.html">Init.Data.Array.Basic</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/BasicAux.html">Init.Data.Array.BasicAux</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/BinSearch.html">Init.Data.Array.BinSearch</a>
 </div>
 <div class="nav_link">
@@ -890,6 +893,9 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/InsertionSort.html">Init.Data.Array.InsertionSort</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Array/Mem.html">Init.Data.Array.Mem</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array/QSort.html">Init.Data.Array.QSort</a>
@@ -978,6 +984,9 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Nat/Log2.html">Init.Data.Nat.Log2</a>
 </div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/Nat/SOM.html">Init.Data.Nat.SOM</a>
+</div>
 </details>
 <details class="nav_sect" data-path="/Socket.lean/Init/Data/Option.html">
 <summary>Init.Data.Option</summary>
@@ -1009,6 +1018,9 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <a href="/Socket.lean/Init/Data/ToString/Macro.html">Init.Data.ToString.Macro</a>
 </div>
 </details>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Data/AC.html">Init.Data.AC</a>
+</div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Data/Array.html">Init.Data.Array</a>
 </div>
@@ -1140,7 +1152,13 @@ toString : <a href="/Socket.lean/Init/Prelude.html#String">String</a></li>
 <a href="/Socket.lean/Init/SizeOf.html">Init.SizeOf</a>
 </div>
 <div class="nav_link">
+<a href="/Socket.lean/Init/SizeOfLemmas.html">Init.SizeOfLemmas</a>
+</div>
+<div class="nav_link">
 <a href="/Socket.lean/Init/System.html">Init.System</a>
+</div>
+<div class="nav_link">
+<a href="/Socket.lean/Init/Tactics.html">Init.Tactics</a>
 </div>
 <div class="nav_link">
 <a href="/Socket.lean/Init/Util.html">Init.Util</a>
