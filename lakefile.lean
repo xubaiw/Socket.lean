@@ -3,37 +3,30 @@ import Lean.Elab.Command
 import Lake.Util.EvalTerm
 open System Lake DSL Lean Elab Command
 
-package socket
-
-def leanSoureDir := "."
-def cppCompiler := "gcc"
-def cDir : FilePath := "native"
-def ffiSrc := cDir / "native.c"
-def ffiO := "ffi.o"
-def ffiLib := "libffi.a"
-
-def ffiOTarget : FileTarget :=
-  let oFile := __dir__ / defaultBuildDir / cDir / ffiO
-  let srcTarget := inputFileTarget <| __dir__ / ffiSrc
-  fileTargetWithDep oFile srcTarget fun srcFile => do
-    compileO oFile srcFile
-      #["-I", (← getLeanIncludeDir).toString] cppCompiler
-
-def cLibTarget : FileTarget :=
-  let libFile := __dir__ / defaultBuildDir / cDir / ffiLib
-  staticLibTarget libFile #[ffiOTarget]
-
-extern_lib clib := cLibTarget
-
--- HACK
-elab "meta " "if " x:term " then " cmd:command : command => do
-  if (← runTermElabM none <| fun _ => evalTerm Bool x) then elabCommand cmd
-
-meta if System.Platform.isWindows then
-extern_lib ws2 := inputFileTarget "C:\\Windows\\System32\\ws2_32.dll"
+package socket {
+  precompileModules := true
+}
 
 @[defaultTarget]
 lean_lib Socket
+
+def cDir : FilePath := "native"
+def ffiSrc := "native.c"
+def ffiSrcPath := cDir / ffiSrc
+def ffiO := "ffi.o"
+def ffiLib := "libffi.a"
+
+target ffi.o (pkg : Package) : FilePath := do
+  let oFile := pkg.buildDir / ffiO
+  let srcJob ← inputFile <| pkg.dir / ffiSrcPath
+  buildFileAfterDep oFile srcJob fun srcFile => do
+    let flags := #["-I", (← getLeanIncludeDir).toString]
+    compileO ffiSrc oFile srcFile flags
+
+extern_lib ffi (pkg : Package) := do
+  let name := nameToStaticLib ffiLib
+  let ffiO ← fetch <| pkg.target ``ffi.o
+  buildStaticLib (pkg.buildDir / "lib" / name) #[ffiO]
 
 script examples do
   let examplesDir ← ("examples" : FilePath).readDir
