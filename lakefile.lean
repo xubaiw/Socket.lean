@@ -1,24 +1,21 @@
 import Lake
-import Lean.Elab.Command
-import Lake.Util.EvalTerm
-open System Lake DSL Lean Elab Command
+open Lake DSL
 
-package socket {
+package Socket {
   precompileModules := true
 }
 
 @[defaultTarget]
 lean_lib Socket
 
-def cDir : FilePath := "native"
+def cDir   := "native"
 def ffiSrc := "native.c"
-def ffiSrcPath := cDir / ffiSrc
-def ffiO := "ffi.o"
+def ffiO   := "ffi.o"
 def ffiLib := "libffi.a"
 
 target ffi.o (pkg : Package) : FilePath := do
   let oFile := pkg.buildDir / ffiO
-  let srcJob ← inputFile <| pkg.dir / ffiSrcPath
+  let srcJob ← inputFile <| pkg.dir / cDir / ffiSrc
   buildFileAfterDep oFile srcJob fun srcFile => do
     let flags := #["-I", (← getLeanIncludeDir).toString]
     compileO ffiSrc oFile srcFile flags

@@ -3,7 +3,7 @@ open System Platform Lake DSL
 
 package sockaddr
 
-require socket from ".."/".."
+require Socket from ".."/".."
 
 @[defaultTarget]
 lean_exe Main
