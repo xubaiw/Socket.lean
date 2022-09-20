@@ -11,7 +11,7 @@ lean_lib Socket
 def cDir   := "native"
 def ffiSrc := "native.c"
 def ffiO   := "ffi.o"
-def ffiLib := "libffi.a"
+def ffiLib := "ffi"
 
 target ffi.o (pkg : Package) : FilePath := do
   let oFile := pkg.buildDir / ffiO
