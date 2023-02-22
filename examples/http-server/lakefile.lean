@@ -5,5 +5,5 @@ package http_server
 
 require Socket from ".."/".."
 
-@[defaultTarget]
+@[default_target]
 lean_exe Main

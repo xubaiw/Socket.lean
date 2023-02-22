@@ -1,0 +1,3 @@
+{"version": 4,
+ "packagesDir": "lake-packages",
+ "packages": [{"path": {"name": "Socket", "dir": "./../.."}}]}

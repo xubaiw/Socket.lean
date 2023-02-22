@@ -5,7 +5,7 @@ package Socket {
   precompileModules := true
 }
 
-@[defaultTarget]
+@[default_target]
 lean_lib Socket
 
 def cDir   := "native"
@@ -17,7 +17,7 @@ target ffi.o (pkg : Package) : FilePath := do
   let oFile := pkg.buildDir / ffiO
   let srcJob ← inputFile <| pkg.dir / cDir / ffiSrc
   buildFileAfterDep oFile srcJob fun srcFile => do
-    let flags := #["-I", (← getLeanIncludeDir).toString]
+    let flags := #["-I", (← getLeanIncludeDir).toString, "-fPIC"]
     compileO ffiSrc oFile srcFile flags
 
 extern_lib ffi (pkg : Package) := do
